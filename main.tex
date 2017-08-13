@@ -1,0 +1,178 @@
+\documentclass[12pt,a4paper,openright]{scrreprt}
+
+% DEBUG stuff
+\usepackage{refcheck}
+
+% PACKAGES + MODIFICATIONS
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{textgreek}
+\usepackage[activate={true,nocompatibility},draft,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
+% activate={true,nocompatibility} - activate protrusion and expansion
+% final - enable microtype; use "draft" to disable
+% factor=1100 - add 10% to the protrusion amount (default is 1000)
+% stretch=10, shrink=10 - reduce stretchability/shrinkability (default is 20/20)
+\usepackage[english]{babel}
+
+% math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{commath}
+\usepackage{bm} % bold in math mode
+\usepackage{units}
+
+%layout and style
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+
+\usepackage[automark,headsepline]{scrlayer-scrpage} %headings
+\pagestyle{scrheadings}
+% \ihead{Benjamin Rottler}
+% \chead{Term Paper}
+% \ohead{August 2016}
+% \ofoot{\pagemark}
+% \cfoot{}
+
+%graphics
+\usepackage{graphicx}
+
+% floats, figures tables
+\usepackage{float}
+\usepackage{booktabs}   % tables for publications
+\usepackage[labelfont=bf]{caption} % bold captions
+
+%hyperref
+\newcommand{\hreftitle}{Master thesis} % TODO set right title
+\newcommand{\hrefauthor}{Benjamin Rottler}
+\usepackage[pdftex]{hyperref}
+\hypersetup{%
+    pdftitle={\hreftitle},
+    pdfsubject={\hreftitle},
+    pdfkeywords={},  % TODO
+    pdfauthor={\hrefauthor},
+    pdfcreator={\hrefauthor},
+    pdfproducer={\hrefauthor},
+    bookmarksnumbered=true, % bookmarks are numbered
+    bookmarksopen=true,     % show bookmarks at start of pdf viewer
+    bookmarksopenlevel=2,   % level to which the bookmarks are opened
+    bookmarksdepth=3,       % depth of bookmarks
+    unicode=true,           % non-Latin characters in pdf viewer's bookmarks
+    pdftoolbar=false,       % show pdf viewer's toolbar?
+    pdfmenubar=true,        % show pdf viewer's menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdfnewwindow=true,      % links in new window
+    pdfborder={0 0 0},		% no border for links
+    colorlinks=false,		% false: black links; true: colored links
+    linkcolor=red,          % color of internal links (change box color with
+    % linkbordercolor)
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=blue			% color of external links
+}
+\usepackage[nottoc,numbib]{tocbibind} % put references in TOC
+
+% other packages
+\usepackage{cite} % improved citation handling
+
+
+%----------------------------------------------------------------------------------------
+%	NEW COMMANDS
+%----------------------------------------------------------------------------------------
+
+\let\originalleft\left  %fix bracket spacing when using \left( \right)
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+\begin{document}
+
+\tableofcontents
+
+\newpage
+
+\chapter{Introduction}
+\label{cha:introduction}
+
+\chapter{Theory}
+\label{cha:theory}
+
+\section{The Standard Model of Particle Physics}
+\label{sec:the_standard_model_of_particle_physics}
+
+\section{The Higgs Boson}
+\label{sec:the_higgs_boson}
+
+\chapter{Boosted Decision Trees}
+\label{cha:boosted_decision_trees}
+
+\section{Decision Trees}
+\label{sec:decision_trees}
+
+\section{Boosting}
+\label{sec:boosting}
+
+\subsection{AdaBoost}
+\label{sub:adaboost}
+
+\subsection{Gradient Boost}
+\label{sub:gradient_boost}
+
+\section{Hyperparameters}
+\label{sec:hyperparameters}
+
+\chapter{Signal and Background Processes}
+\label{cha:signal_and_background_processes}
+
+\section{Signal Process}
+\label{sec:signal_process}
+
+\section{Background Processes}
+\label{sec:background_processes}
+
+\chapter{Experimental Setup}
+\label{cha:experimental_setup}
+
+\section{The Large Hadron Collider}
+\label{sec:the_large_hadron_collider}
+
+\section{The ATLAS Experiment}
+\label{sec:the_atlas_experiment}
+
+\chapter{Object Selection}
+\label{cha:object_selection}
+
+\chapter{Event Selecton}
+\label{cha:event_selecton}
+
+\section{Preselection}
+\label{sec:preselection}
+
+\section{Categorization}
+\label{sec:categorization}
+
+\section{Multivariate Analysis}
+\label{sec:multivariate_analysis}
+
+\chapter{Optimization of Boosted Decision Trees}
+\label{cha:mva_strategy}
+
+\chapter{Systematic Uncertainties}
+\label{cha:systematic_uncertainties}
+
+\chapter{Statistical Analysis and Results}
+\label{cha:statistical_analysis_and_results}
+
+\chapter{Conclusion and Outlook}
+\label{cha:conclusion}
+
+% \clearpage
+%
+% \thispagestyle{plain}
+% \bibliographystyle{utphys}
+% \bibliography{bib}
+
+\end{document}

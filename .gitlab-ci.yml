@@ -1,0 +1,7 @@
+compile_pdf:
+    image: tianon/latex
+    script:
+        - make
+    artifacts:
+        paths:
+            - main.pdf

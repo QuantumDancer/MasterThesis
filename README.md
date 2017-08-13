@@ -2,5 +2,5 @@
 
 # Master Thesis
 
-Click  [here](https://gitlab.cern.ch/brottler/MasterThesis/builds/artifacts/master/file/main.pdf?job=compile_pdf)
+Click  [here](https://gitlab.cern.ch/brottler/MasterThesis/builds/artifacts/master/raw/main.pdf?job=compile_pdf)
 to get the pdf from the latest build.

@@ -1,4 +1,8 @@
+stages:
+    - Build
+
 compile_pdf:
+    stage: Build
     image: tianon/latex
     script:
         - make

@@ -27,6 +27,7 @@
 
 %layout and style
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\setlength{\parindent}{0pt}  % no indendation for new paragraphs
 
 \usepackage[automark,headsepline]{scrlayer-scrpage} %headings
 \pagestyle{scrheadings}
@@ -65,7 +66,7 @@
     pdffitwindow=false,     % window fit to page when opened
     pdfstartview={FitH},    % fits the width of the page to the window
     pdfnewwindow=true,      % links in new window
-    pdfborder={0 0 0},		% no border for links
+    pdfborder={0 0 1},		% no border for links
     colorlinks=false,		% false: black links; true: colored links
     linkcolor=red,          % color of internal links (change box color with
     % linkbordercolor)
@@ -105,10 +106,10 @@
 %	NEW COMMANDS
 %----------------------------------------------------------------------------------------
 
-\let\originalleft\left  %fix bracket spacing when using \left( \right)
-\let\originalright\right
-\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
-\renewcommand{\right}{\aftergroup\egroup\originalright}
+% \let\originalleft\left  %fix bracket spacing when using \left( \right)
+% \let\originalright\right
+% \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+% \renewcommand{\right}{\aftergroup\egroup\originalright}
 
 \begin{document}
 

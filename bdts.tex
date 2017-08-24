@@ -1,5 +1,27 @@
 \chapter{Boosted Decision Trees}\label{cha:boosted_decision_trees}
 
+In most \hep{} analyses the goal is to measure a rare process (signal), which is contained in a
+large dataset of measurements of particle collisions.
+However, most of the measured collisions (events) originate from other processes (background).
+One goal of an analysis is to separate the signal events from the background events in order to obtain a pure
+measurement of the desired process.
+
+An established approach to separate signal and background is to restrict some physical quantities of the collisions
+to a given range.
+Such a restriction is called cut.
+Usually different quantities are cut on to limit different sources of background.
+Such an approach is described in \cref{cha:event_selection}.
+
+Another way to achieve separation between signal and background is with the help of \ml{} algorithms.
+The most common \ml{} algorithms in \hep{} are \bdts{} and \nns{}.
+
+This chapter will describe what \bdts{} are and how they are built.
+First, \glspl{DT} are introduced in \cref{sec:decision_trees}, since they are the foundation for \bdts.
+Then, the concept of boosting is explained in \cref{sec:boosting} and different boosting algorithms are presented.
+Finally, in \cref{sec:hyperparameters} a summary of all possible configuration parameters of \bdts{} is given.
+
+The contents of this chapter are mainly based on Refs.~\cite{ML_HASTIE,ML_TMVA}.
+
 \section{Decision Trees}\label{sec:decision_trees}
 
 \section{Boosting}\label{sec:boosting}

@@ -5,3 +5,13 @@
 *.out
 *.pdf
 *.toc
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.xdy

@@ -16,18 +16,34 @@ Another way to achieve separation between signal and background is with the help
 The most common \ml{} algorithms in \hep{} are \bdts{} and \nns{}.
 
 This chapter will describe what \bdts{} are and how they are built.
-First, \glspl{DT} are introduced in \cref{sec:decision_trees}, since they are the foundation for \bdts.
-Then, the concept of boosting is explained in \cref{sec:boosting} and different boosting algorithms are presented.
-Finally, in \cref{sec:hyperparameters} a summary of all possible configuration parameters of \bdts{} is given.
+First, \glspl{DT} are introduced in \cref{sec:bdt:decision_trees}, since they are the foundation for \bdts.
+Then, the concept of boosting is explained in \cref{sec:bdt:boosting} and different boosting algorithms are presented.
+Finally, in \cref{sec:bdt:hyperparameters} a summary of all possible configuration parameters of \bdts{} is given.
 
 The contents of this chapter are mainly based on Refs.~\cite{ML_HASTIE,ML_TMVA}.
 
-\section{Decision Trees}\label{sec:decision_trees}
+\section{Decision Trees}\label{sec:bdt:decision_trees}
 
-\section{Boosting}\label{sec:boosting}
+A \gls{DT} has a binary tree-like structure as shown in \cref{fig:decision_tree}.
+The root node contains all signal and background events.
+Each internal node represents
 
-\subsection{AdaBoost}\label{sub:adaboost}
+\begin{figure}[htb]
+    \begin{center}
+        % \includegraphics[width=0.8\linewidth]{name.ext}
+        \caption{TODO}
+        \label{fig:decision_tree}
+    \end{center}
+\end{figure}
 
-\subsection{Gradient Boost}\label{sub:gradient_boost}
+% TODO comparison with cuts
 
-\section{Hyperparameters}\label{sec:hyperparameters}
+\section{Boosting}\label{sec:bdt:boosting}
+
+\subsection{AdaBoost}\label{sub:bdt:boosting:adaboost}
+
+\subsection{Gradient Boost}\label{sub:bdt:boosting:gradient_boost}
+
+\section{Hyperparameters}\label{sec:bdt:hyperparameters}
+
+nCuts

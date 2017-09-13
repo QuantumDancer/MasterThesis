@@ -52,7 +52,7 @@ The ratio is then used to derive \emph{scale factors}, which are applied to the 
 
 \begin{figure}[htb]
     \begin{center}
-        \includegraphics[width=0.9\linewidth]{./figures/object_selection/el_id_eff.png}
+        \includegraphics[width=0.9\textwidth]{./figures/object_selection/el_id_eff.png}
         \caption{Combined electron reconstruction and identification efficiencies for $\Z \to \epem$ events as a
                  function of $\et$ (left) and $\eta$ (right) for the \emph{loose}, \emph{medium}, and \emph{tight}
                  working points. The inner error bars show the statistical uncertainty, the outer error bars combine
@@ -108,13 +108,20 @@ $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events.
 The efficiencies are calculated both in data and simulated events in order to derive \emph{scale factors}, which are used
 to correct deviations of the efficiencies in data and simulation.
 
-\begin{figure}[htb] % TODO subfigure, explain error bands
+\begin{figure}[htb] % TODO fix vertical label position
     \begin{center}
-        \includegraphics[width=0.45\linewidth]{./figures/object_selection/mu_id_eff_a.png}
-        \includegraphics[width=0.45\linewidth]{./figures/object_selection/mu_id_eff_b.png}
+        \begin{subfigure}[c]{0.45\textwidth}
+            \includegraphics[width=\textwidth]{./figures/object_selection/mu_id_eff_a.png}
+            \caption{}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[c]{0.45\textwidth}
+            \includegraphics[width=\textwidth]{./figures/object_selection/mu_id_eff_b.png}
+            \caption{}
+        \end{subfigure}
         \caption{Muon reconstruction efficiencies for \emph{loose} and \emph{medium} muons as a function of $\eta$
-                measured in $\Z \to \mpmm$ events (left) and for \emph{medium} muons as a function of $\pt$ measured in
-                $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events.}\label{fig:object_selection:mu_id_eff}
+                measured in $\Z \to \mpmm$ events (a) and for \emph{medium} muons as a function of $\pt$ measured in
+                $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events (b).~\cite{PERF-2015-10}}\label{fig:object_selection:mu_id_eff}
     \end{center}
 \end{figure}
 

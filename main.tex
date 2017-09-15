@@ -2,6 +2,7 @@
 
 % DEBUG stuff
 \usepackage{refcheck}
+\usepackage[textsize=tiny]{todonotes}
 
 % PACKAGES + MODIFICATIONS
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -130,9 +131,14 @@
 \newcommand{\epem}{\ensuremath{e^+e^-}}
 \newcommand{\mpmm}{\ensuremath{\mu^+\mu^-}}
 
+% other stuff
+\newcommand{\antikt}{\ensuremath{\text{anti-}k_t}}
+
 \begin{document}
 
 \tableofcontents
+
+\listoftodos{}
 
 \include{introduction}
 \include{theory}

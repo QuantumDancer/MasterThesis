@@ -50,7 +50,7 @@ The ratio is then used to derive \emph{scale factors}, which are applied to the 
 
 % TODO energy resolution ?
 
-\begin{figure}[htb]
+\begin{figure}[!htb]
     \begin{center}
         \includegraphics[width=0.9\textwidth]{./figures/object_selection/el_id_eff.png}
         \caption{Combined electron reconstruction and identification efficiencies for $\Z \to \epem$ events as a
@@ -104,11 +104,11 @@ $\unit[90(99)]{\%}$ at $\unit[20(60)]{GeV}$~\cite{PERF-2015-10}.
 
 The muon reconstruction and identification efficiencies are obtained with a \emph{tag-and-probe technique} using
 $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events.
-\cref{fig:object_selection:mu_id_eff} shows the reconstruction efficiencies for \emph{medium} and \emph{loose} muons.
+\cref{fig:object_selection:mu_id_eff}\todo{fix vertical label position in figure} shows the reconstruction efficiencies for \emph{medium} and \emph{loose} muons.
 The efficiencies are calculated both in data and simulated events in order to derive \emph{scale factors}, which are used
 to correct deviations of the efficiencies in data and simulation.
 
-\begin{figure}[htb] % TODO fix vertical label position
+\begin{figure}[!htb]
     \begin{center}
         \begin{subfigure}[c]{0.45\textwidth}
             \includegraphics[width=\textwidth]{./figures/object_selection/mu_id_eff_a.png}
@@ -128,9 +128,59 @@ to correct deviations of the efficiencies in data and simulation.
 
 \section{Jets}\label{sec:object_selection:jets}
 
-\section{Tau Leptons}\label{sec:object_selection:tau_leptons}
+Particles with a color charge like quarks and gluons cannot exist in an unbound state,
+they form colorless states due to hadronization.\todo{Ref.\ to theory chapter}
+With higher energies of the initial quark or gluon more and more collimated bunches of hadrons are produced.
+Those bunches are called \emph{jets}.
+
+An algorithm which reconstructs jets should be insensitive to soft radiation (\emph{infrared safety})
+and splitting of the initial seed (\emph{collinear safety}).
+There are two types of jet reconstruction algorithms, cone type and sequential clustering algorithms.
+Cone type algorithms use a geometrical cone around a jet axis to reconstruct the jet. In the past not
+all cone algorithms were infrared and collinear safe.
+Sequential cluster algorithms combine different object based on their energy and angular properties.
+They provide infrared and collinear safety by construction.
+
+In this analysis the \antikt{}~\cite{Cacciari:2008gp,Cacciari:2005hq} clustering algorithm with a distance parameter
+of $R = 0.4$ was used for jet reconstruction.
+Not all jets are considered in the analysis, only jets with $\pt > \unit[20]{GeV}$ and $\abs{\eta} < 4.5$ are used.
+
+The jet four-momenta undergo a series of corrections~\cite{PERF-2016-04}, to take several insufficiencies into account.
+First, the jet origin is corrected to point back to the primary vertex. Next excess energy due to pile-up is removed.
+Truth information of simulated dijet events is used to correct the jet energy scale (JES).
+Additional JES corrections are performed in the \emph{global sequential calibration}, which uses calorimeter, muon
+spectrometer and track-based variables. Finally an \emph{in-situ} correction in data is applied, using events
+in \todo{convention jets/dijet in process description?}$\Z+jets$, $\gamma + jets$, and dijet processes.
+These corrections raise a list of systematic uncertainties, which are discussed in \cref{cha:systematic_uncertainties}.\todo{Possibly fix ref to section}
+
+\emph{Pile-up} jets can be suppressed with the output of the jet vertex tagger (JVT) algorithm~\cite{PERF-2014-03}, which
+uses tracking and vertexing information to distinguish jets from hard- and soft-scatter interactions.
+All jets in this analysis with $\pt < \unit[50]{GeV}$ and $\abs{\eta} < 2.4$ are required to have $\abs{\text{JVT}} > 0.59$.
+In the forward region a special algorithm for forward jets (fJVT) is used~\cite{ATL-PHYS-PUB-2015-034}.
+For this analysis jets with $\pt < \unit[50]{GeV}$ and $\abs{\eta} > 2.5$ need to pass the fJVT algorithm with
+$\text{fJVT} > 0.4$.
+\\[\baselineskip]
+Since this analysis focus is on the gluon fusion and VBF production modes of the Higgs boson, jets produced from
+the decay of a $b$ quark are not expected. However, top quarks have a very high probability of decaying into $b$ quarks,
+since the corresponding entry in the CKM matrix is $\abs{V_{tb}} \approx 1$~\cite{PDG}.
+This gives the possibility to reduce the background produced by top quarks.
+
+Jets originating from $b$ quarks, also called $b$-jets, can be identified with $b$-tagging algorithms.
+These algorithms exploit the fact that $b$-flavoured hadrons (B hadrons) have quite a long mean life time
+($\tau \approx \unit[1.5]{ps}$~\cite{PDG}) compared to other hadrons.
+The decay creates a secondary vertex several millimeters away from the primary vertex due to time
+dilation.\footnote{If a lifetime of $\tau = \unit[1.5]{ps}$ and rest mass of $m_0 = \unit[5.3]{GeV}$ are assumed (approximate values, taken from~\cite{PDG}),
+the B hadron travels $c\tau' = c \tau \gamma = c \tau \frac{E}{m_0} = \unit[4.24]{mm}$, if it has an energy of $E = \unit[50]{GeV}$.}.
+The secondary vertex is reconstructed with the tracks of the charged particles which formed the jet.
+
+This analysis uses the multivariate-based $b$-tagging algorithm MV2c20~\cite{PERF-2012-04,ATL-PHYS-PUB-2016-012} with
+a working point resulting in \unit[85]{\%} efficiency for $b$-jets in $t\overline{t}$ events. In several simulated processes
+the comparison to data is used to calculate tagging and mis-tagging correction factors.
+The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additionally applied to the $b$-tagged jets.
 
 \section{Missing Transverse Energy}\label{sec:object_selection:missing_transverse_energy}
+
+\section{Tau Leptons}\label{sec:object_selection:tau_leptons}
 
 \section{Overlap Removal}\label{sec:object_selection:overlap_removal}
 

@@ -170,7 +170,7 @@ These algorithms exploit the fact that $b$-flavoured hadrons (B hadrons) have qu
 ($\tau \approx \unit[1.5]{ps}$~\cite{PDG}) compared to other hadrons.
 The decay creates a secondary vertex several millimeters away from the primary vertex due to time
 dilation.\footnote{If a lifetime of $\tau = \unit[1.5]{ps}$ and rest mass of $m_0 = \unit[5.3]{GeV}$ are assumed (approximate values, taken from~\cite{PDG}),
-the B hadron travels $c\tau' = c \tau \gamma = c \tau \frac{E}{m_0} = \unit[4.24]{mm}$, if it has an energy of $E = \unit[50]{GeV}$.}.
+the B hadron travels $c\tau' = c \tau \gamma = c \tau \frac{E}{m_0} = \unit[4.24]{mm}$ in the laboratory frame, if it has an energy of $E = \unit[50]{GeV}$.}.
 The secondary vertex is reconstructed with the tracks of the charged particles which formed the jet.
 
 This analysis uses the multivariate-based $b$-tagging algorithm MV2c20~\cite{PERF-2012-04,ATL-PHYS-PUB-2016-012} with
@@ -178,10 +178,85 @@ a working point resulting in \unit[85]{\%} efficiency for $b$-jets in $t\overlin
 the comparison to data is used to calculate tagging and mis-tagging correction factors.
 The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additionally applied to the $b$-tagged jets.
 
+% TODO add image to this section
+
+
+\section{Hadronically decaying  $\tau$-leptons}\label{sec:object_selection:tau_leptons}
+
 \section{Missing Transverse Energy}\label{sec:object_selection:missing_transverse_energy}
 
-\section{Tau Leptons}\label{sec:object_selection:tau_leptons}
+In proton-proton collisions the exact momentum of the initial partons is not known.
+However, the assumption can be made that partons carry no transverse momentum~\cite{PhysRev.185.1975}.
+Thus, the transverse momentum in the final state should also be zero, due to energy and momentum conservation.
+Any imbalance in the final state transverse momentum is known as the \emph{missing transverse energy} and denoted as \etmiss.
+It arises from weakly-interacting, stable particles produced in the collision.
+In the SM these particles are the neutrinos, but it may also be an indication of weakly-interacting exotic particles.
+Since the focus of this analysis is the full leptonic decay $\Httllfull$, a large \etmiss{} contribution is expected
+due to the four final state neutrinos.
+Additional \emph{fake} \etmiss{} contributions can arise from pile-up or SM particles, which escape the detector without
+being detected, are badly reconstructed, or cannot be reconstructed at all. These contributions distort the real \etmiss{}
+and need to be corrected.
+
+For the reconstruction of the missing transverse energy first the vectorial quantity \etmissvec{} is calculated
+with reconstructed and calibrated physics objects~\cite{ATL-PHYS-PUB-2015-023}
+\begin{equation}
+    \label{eq:met:vector}
+    \etmissvec = \etmissvecobj{e} + \etmissvecobj{\gamma} + \etmissvecobj{\tau} + \etmissvecobj{\text{jet}} + \etmissvecobj{\text{soft}} + \etmissvecobj{\mu} \,,
+\end{equation}
+with the missing transverse energy $\etmissvecobj{\text{type}} = - \sum \ptvec^\text{type}$ for each type of object
+($e$: electrons, $\gamma$: photons, $\tau$: $\tau$-leptons, jet: jets, soft: soft objects, $\mu$: muons).
+The individual contributions will be explained in the next paragraphs.
+Most of the time and also in this analysis the scalar missing transverse energy \etmiss{} is used,
+\begin{equation}
+    \label{eq:met:scalar}
+    \etmiss{} = \norm{\etmissvec{}} = \sqrt{{\left(\etmissx\right)}^2 + {\left(\etmissy\right)}^2} \,.
+\end{equation}
+
+The objects which are taken for \etmissvecobj{e}, \etmissvecobj{\mu}, \etmissvecobj{\tau},
+and \etmissvecobj{\text{jet}} are described in the sections above.
+\todo{Are photons used for the MET calculation in this analysis?}
+The contributions for \etmissvecobj{\text{soft}} originate from  ID tracks associated with the primary vertex of the
+hard interaction, which are not used in the reconstruction of the other, high \pt{} objects.
+This is implemented in the Track Soft Term (TST) algorithm~\cite{ATL-PHYS-PUB-2015-023}.
+
+The performance of the \etmiss{} reconstruction can be measured in $\Z \to \mpmm$ and $\W^\pm \to e^\pm \nu$
+events comparing data to simulation. Those two processes provide events where either a genuine \etmiss{} contribution
+is expected or not.
+\cref{fig:object_selection:etmiss} shows the performance and resolution measured in $\Z \to \mpmm$ events.
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=0.45\linewidth]{./figures/object_selection/etmiss_performance_tst_zmm.eps}
+        \includegraphics[width=0.45\linewidth]{./figures/object_selection/etmiss_resolution_tst_zmm.eps}
+        \caption{Distributions of TST \etmiss{} (left) and the TST $E^\text{miss}_x, E^\text{miss}_y$ resolution (right)
+        in $\Z \to \mpmm$ events.~\cite{ATL-PHYS-PUB-2015-027}}
+        \label{fig:object_selection:etmiss}
+    \end{center}
+\end{figure}
 
 \section{Overlap Removal}\label{sec:object_selection:overlap_removal}
 
+It is possible that one particle can pass the reconstruction and identification requirements of multiple objects.
+To remove this kind of ambiguity from the analysis an overlap removal is applied.
+If two ore more objects are reconstructed within a certain distance \dr{} in the $(\eta - \phi)$ plane, only one object is kept.
+First jets are removed, then hadronic $\tau$-leptons, and finally electrons.
+Muons are ordered highest and are not removed.
+Depending on the object combination, a different \dr{} threshold is used:
 
+\begin{enumerate}
+    \item hadronic $\tau$-leptons
+        \begin{itemize}
+            \item remove jets within $\dr = 0.2$
+        \end{itemize}
+    \item electrons
+        \begin{itemize}
+            \item remove jets within $\dr = 0.4$
+            \item remove hadronic $\tau$-leptons within $\dr = 0.2$
+        \end{itemize}
+    \item muons
+        \begin{itemize}
+            \item remove jets within $\dr = 0.4$
+            \item remove hadronic $\tau$-leptons within $\dr = 0.2$
+            \item remove electrons within $\dr = 0.2$
+        \end{itemize}
+\end{enumerate}

@@ -180,8 +180,67 @@ The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additional
 
 % TODO add image to this section
 
-
 \section{Hadronically decaying  $\tau$-leptons}\label{sec:object_selection:tau_leptons}
+
+\todo{``tau leptons'' or ``$\tau$-leptons''?}
+Tau leptons can either decay into leptons ($\tau \to \ell \nu_\tau \nu_\ell$, $\ell = e, \mu$) or hadrons
+($\tau \to \text{hadrons}$, denoted as \tauhad{}).
+With a mass of \unit[1.777]{GeV} and a proper decay length of $\unit[87]{\mu m}$ ~\cite{PDG}, the decay usually happens before
+the $\tau$-lepton reaches the active part of the ID\@. % TODO footnote with calculation of decay length in lab system, compare with ID start radius
+
+Leptonically decaying $\tau$-leptons are identified as electrons ore muons, only hadronically decaying $\tau$-leptons can be reconstructed,
+Most of the time the decay products are either one ore three charged pions, an additional neutral pion can also be produced.
+Depending on the number of charged pions, the event is called either \emph{1-} or \emph{3-pronged}.
+All visible decay products are denoted as \tauhadvis{}.
+
+Since this analysis is focusing on the \Httllfull{} decay, no hadronically decaying $\tau$-leptons are expected.
+However a veto on $\tauhadvis$ candidates can be used to reduce background (see \cref{sec:event_selection:preselection}).
+
+Compared to jets which are produced by quarks and gluons, the \tauhad{} decay products are more collimated.
+
+The reconstruction starts by selecting jets which are reconstructed by using the \antikt{} algorithm~\cite{Cacciari:2008gp,Cacciari:2005hq}
+with an distance parameter of $\dr = 0.4$.
+Only jets with $\pt > \unit[10]{GeV}$ and $\abs{\eta} < 2.5$ are considered.
+$\tauhadvis$ candidates within the barrel and \todo{forward or end-cap?} forward transition region ($1.37 < \abs{\eta} < 1.52$) are discarded.
+A tau vertex is calculated from the associated tracks ($\dr < 0.2$, $\pt > 1 GeV$) of the $\tauhadvis$ candidates.
+The $\eta$/$\phi$ direction is determined with information from the calorimeters. % actually: TopoCLusters
+The mass and all mass related variables are set to zero.
+The energy is  obtained by a tau-specific calibration scheme~\cite{Run1TauPaper}.
+
+Quark- and gluon-initiated jets have a more broader shower profile than jets caused by $\tau$-leptons.
+This can be used to distinguish between the origin of the jets.
+For this a Boosted Decision Tree (BDT) based method is used.
+The BDT provides multiple working points labeled as \emph{loose}, \emph{medium}, and \emph{tight}
+with a targeted efficiency of $0.6$ ($0.5$), $0.55$ ($0.4$), and $0.45$ ($0.35$) for 1(3)-pronged \tauhadvis{} candidates, respectively.
+
+In this analysis the \tauhadvis{} candidates need to pass the \emph{loose} working point, with the additional requirements
+of $\pt > \unit[20]{GeV}$ and $\abs{\eta} < 2.5$.
+Candidates within $1.37 < \abs{\eta} < 1.52$ are excluded.
+
+Since the BDT was trained to discriminate between quark- and gluon-initiated jets and jets from $\tau$-leptons, it
+does not perform well with regard to discriminating between 1-pronged hadronic $\tau$ decays and electrons.
+A likelihood discriminator~\cite{Run1TauPaper} is build to act as an \emph{electron veto}, which uses the shower shape in the calorimeter
+and track information provided by the ID, including the TRT\@.
+
+The reconstruction and identification efficiencies as well as the trigger efficiency of hadronically decaying $\tau$-leptons is measured in
+$\Z \to \tau_\mu \tauhad$ events with a \emph{tag-and-probe technique}, where the $\tau$-lepton decaying to a muon
+acts as the tag and the $\tauhad$ candidate is used for the measurement (probe).
+The tau trigger efficiency can also be measured in $\ttbar \to \left[b\mu\nu_\mu\right]\left[b\tau\nu_\tau\right]$ events
+with a \emph{tag-and-probe} method, where the muon is the tag.
+To account for differences of efficiencies in data and simulation correction factors (scale factors) are derived and applied to simulated
+events.~\cite{ATL-PHYS-PUB-2015-045,ATLAS-CONF-2017-029}
+The efficiencies and scale factors for 1-pronged tau decays are illustrated in \cref{fig:object_selection:tau_eff}.
+
+\begin{figure}[htb]
+    \begin{center}
+        \includegraphics[width=0.45\linewidth]{./figures/object_selection/tau_trig_eff_ztt_1p.eps}
+        \includegraphics[width=0.45\linewidth]{./figures/object_selection/tau_trig_eff_tt_1p.eps}
+        \caption{Tau trigger efficiencies and scale factors ($\epsilon_\text{Data} / \epsilon_\text{MC}$) for 1-pronged
+        hadronic $\tau$ decays, measured in $\Z \to \tau\tau$ (left) and $\ttbar$ (right) events with
+        the 2015 dataset.~\cite{ATLAS-CONF-2017-029}}\label{fig:object_selection:tau_eff}
+    \end{center}
+\end{figure}
+
 
 \section{Missing Transverse Energy}\label{sec:object_selection:missing_transverse_energy}
 

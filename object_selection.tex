@@ -52,7 +52,8 @@ The ratio is then used to derive \emph{scale factors}, which are applied to the 
 
 \begin{figure}[!htb]
     \begin{center}
-        \includegraphics[width=0.9\textwidth]{./figures/object_selection/el_id_eff.png}
+        \includegraphics[width=0.45\textwidth]{./figures/object_selection/electron_efficiency_et.pdf}
+        \includegraphics[width=0.45\textwidth]{./figures/object_selection/electron_efficiency_eta.pdf}
         \caption{Combined electron reconstruction and identification efficiencies for $\Z \to \epem$ events as a
                  function of $\et$ (left) and $\eta$ (right) for the \emph{loose}, \emph{medium}, and \emph{tight}
                  working points. The inner error bars show the statistical uncertainty, the outer error bars combine
@@ -104,24 +105,17 @@ $\unit[90(99)]{\%}$ at $\unit[20(60)]{GeV}$~\cite{PERF-2015-10}.
 
 The muon reconstruction and identification efficiencies are obtained with a \emph{tag-and-probe technique} using
 $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events.
-\cref{fig:object_selection:mu_id_eff}\todo{fix vertical label position in figure} shows the reconstruction efficiencies for \emph{medium} and \emph{loose} muons.
+\cref{fig:object_selection:mu_id_eff} shows the reconstruction efficiencies for \emph{medium} and \emph{loose} muons.
 The efficiencies are calculated both in data and simulated events in order to derive \emph{scale factors}, which are used
 to correct deviations of the efficiencies in data and simulation.
 
-\begin{figure}[!htb]
+\begin{figure}[htb]
     \begin{center}
-        \begin{subfigure}[c]{0.45\textwidth}
-            \includegraphics[width=\textwidth]{./figures/object_selection/mu_id_eff_a.png}
-            \caption{}
-        \end{subfigure}
-        \hfill
-        \begin{subfigure}[c]{0.45\textwidth}
-            \includegraphics[width=\textwidth]{./figures/object_selection/mu_id_eff_b.png}
-            \caption{}
-        \end{subfigure}
+        \includegraphics[width=0.45\textwidth,align=c]{./figures/object_selection/muon_efficiency_mediumloose_zmm.eps}
+        \includegraphics[width=0.45\textwidth,align=c]{./figures/object_selection/muon_efficiency_medium_zmmjpsi.eps}
         \caption{Muon reconstruction efficiencies for \emph{loose} and \emph{medium} muons as a function of $\eta$
-                measured in $\Z \to \mpmm$ events (a) and for \emph{medium} muons as a function of $\pt$ measured in
-                $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events (b).~\cite{PERF-2015-10}}\label{fig:object_selection:mu_id_eff}
+                measured in $\Z \to \mpmm$ events (left) and for \emph{medium} muons as a function of $\pt$ measured in
+                $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events (right).~\cite{PERF-2015-10}}\label{fig:object_selection:mu_id_eff}
     \end{center}
 \end{figure}
 
@@ -233,8 +227,8 @@ The efficiencies and scale factors for 1-pronged tau decays are illustrated in \
 
 \begin{figure}[htb]
     \begin{center}
-        \includegraphics[width=0.45\linewidth]{./figures/object_selection/tau_trig_eff_ztt_1p.eps}
-        \includegraphics[width=0.45\linewidth]{./figures/object_selection/tau_trig_eff_tt_1p.eps}
+        \includegraphics[width=0.45\textwidth]{./figures/object_selection/tau_trig_eff_ztt_1p.eps}
+        \includegraphics[width=0.45\textwidth]{./figures/object_selection/tau_trig_eff_tt_1p.eps}
         \caption{Tau trigger efficiencies and scale factors ($\epsilon_\text{Data} / \epsilon_\text{MC}$) for 1-pronged
         hadronic $\tau$ decays, measured in $\Z \to \tau\tau$ (left) and $\ttbar$ (right) events with
         the 2015 dataset.~\cite{ATLAS-CONF-2017-029}}\label{fig:object_selection:tau_eff}
@@ -285,8 +279,8 @@ is expected or not.
 
 \begin{figure}[htb]
     \begin{center}
-        \includegraphics[width=0.45\linewidth]{./figures/object_selection/etmiss_performance_tst_zmm.eps}
-        \includegraphics[width=0.45\linewidth]{./figures/object_selection/etmiss_resolution_tst_zmm.eps}
+        \includegraphics[width=0.45\textwidth]{./figures/object_selection/etmiss_performance_tst_zmm.eps}
+        \includegraphics[width=0.45\textwidth]{./figures/object_selection/etmiss_resolution_tst_zmm.eps}
         \caption{Distributions of TST \etmiss{} (left) and the TST $E^\text{miss}_x, E^\text{miss}_y$ resolution (right)
         in $\Z \to \mpmm$ events.~\cite{ATL-PHYS-PUB-2015-027}}
         \label{fig:object_selection:etmiss}

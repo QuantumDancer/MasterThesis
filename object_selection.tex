@@ -1,8 +1,8 @@
 \chapter{Object Selection}\label{cha:object_selection}
 
-For any physics analysis of a process in proton-proton collisions the particles traversing the ATLAS detector
+For any physics analysis in proton-proton collisions at the LHC the particles traversing the ATLAS detector
 need to be reconstructed and identified.
-For this information of the inner detector (ID), calorimeters (ECal and HCal), and the muon spectrometer (MS) is used.\todo{Refs to detector sub-chapters.}
+For this information of the inner detector (ID), calorimeters (ECal and HCal), and the muon spectrometer (MS) is used. \todo{Refs to detector sub-chapters.}
 The reconstruction is done both on data and simulation. Differences in reconstruction, identification, and trigger efficiencies are
 measured and correction factors (\emph{scale factors}) are applied to the simulated events.
 
@@ -13,7 +13,7 @@ is essential and described in \cref{sec:object_selection:electrons,sec:object_se
 Additional jets in the events are used to define a VBF and boosted topology \todo{Ref event selection} and to suppress background.
 Their reconstruction is explained in \cref{sec:object_selection:jets} with additional information on the
 \emph{b-tagging} procedure, which can be used for further background suppression.
-Hadronically decaying $\tau$-leptons which are defined in \cref{sec:object_selection:tau_leptons} are used for the further rejection of background.
+Hadronically decaying $\tau$-leptons which are defined in \cref{sec:object_selection:tau_leptons} are used for the additional rejection of background.
 Due to the four neutrinos in the final state the reconstruction of the missing transverse energy (\cref{sec:object_selection:missing_transverse_energy})
 is also necessary.
 The chapter closes with \cref{sec:object_selection:overlap_removal}, where the overlap removal between overlapping objects is explained.
@@ -36,14 +36,14 @@ The vertex with the highest $\sum p_{\text{T},\text{track}}^2$ is chosen as the 
 point where the interaction was the hardest.
 
 Detailed information about tracking and vertexing in ATLAS for \runtwo{} of the LHC
-can be found in~\cite{ATL-PHYS-PUB-2015-051,ATL-PHYS-PUB-2015-006,ATL-PHYS-PUB-2015-026}
+can be found in~\cite{ATL-PHYS-PUB-2015-051,ATL-PHYS-PUB-2015-006,ATL-PHYS-PUB-2015-026}.
 
 
 \section{Electrons}\label{sec:object_selection:electrons}
 
 Electrons can be identified with a high precision and large background rejection by matching clusters of energy
 depositions in the electromagnetic calorimeter with extrapolations of reconstructed tracks provided by the ID\@.
-Because of the good performance of the electromagnetic calorimeter and inner detector their energy and momentum can
+Because of the good performance of the electromagnetic calorimeter and inner detector the energy and momentum  of the electrons can
 be determined with a good precision.
 To suppress background contributions from pile-up events or other objects like jets and hadronically decaying $\tau$-leptons
 additional information of the ID and hadronic calorimeter are considered.
@@ -60,7 +60,7 @@ In this analysis the \emph{loose} criterion is chosen.
 Additional requirements are $\pt > \unit[15]{GeV}$ and $\abs{\eta} < 2.47$.
 The Pixel Detector and SCT can only provide information for reconstruction and identification in this $\eta$-range.
 Electrons within $1.37 < \abs{\eta} < 1.52$ are excluded, because of the poor reconstruction and identification
-performance caused by the crack between the barrel and end-calorimeters.
+performance caused by the crack between the barrel and end-cap calorimeters.
 
 To increase the background rejection, isolation requirements are introduced by the following two discriminating variables.
 The calorimetric isolation energy $\et^{\text{cone}0.2}$ is defined as the sum of transverse energy deposited within
@@ -69,7 +69,7 @@ Corrections for electron energy leakage, pile-up, and the underlying event activ
 The sum of the transverse momentum of all tracks within $\dr = \min(0.2, \unit[10]{GeV} / \et)$ builds the
 track isolation $\pt^{\text{varcone}0.2}$. The tracks need to fulfill certain quality requirements and have to originate
 from the primary vertex.
-Based on different selections criteria on quantities $\et^{\text{cone}0.2} / \et$ and
+Based on different selection criteria on the quantities $\et^{\text{cone}0.2} / \et$ and
 $\pt^{\text{varcone}0.2} / \et$ multiple operating points are constructed. This analysis uses the \emph{gradient}
 isolation criterion with a targeted efficiency of
 $\unit[0.1143]{\%} \times \et / \text{GeV} + \unit[92.14]{\%}$~\cite{ATLAS-CONF-2016-024}.
@@ -87,7 +87,7 @@ The ratio is then used to derive \emph{scale factors}, which are applied to the 
 
 % TODO energy resolution ?
 
-\begin{figure}[!htb]
+\begin{figure}
     \begin{center}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/electron_efficiency_et.pdf}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/electron_efficiency_eta.pdf}
@@ -100,13 +100,13 @@ The ratio is then used to derive \emph{scale factors}, which are applied to the 
 
 \section{Muons}\label{sec:object_selection:muons}
 
-Muons are reconstructed by taking into account information of the inner detector (ID), calorimeter, and the
-muon spectrometer (MS).
+Muons are reconstructed by taking information of the inner detector (ID), calorimeter, and the
+muon spectrometer (MS) into account.
 Because  they traverse the detectors with minimum energy loss, they have a clear signature in the detectors and the
 discrimination between them and other physics objects like electrons and jets reaches a high accuracy.
 
 First, muons are reconstructed independently in the ID and the MS\@. The track reconstruction in the ID follows the
-usual prescriptions for charged particles~\cite{ATL-SOFT-PUB-2007-007,ATLAS-CONF-2010-072}.
+usual prescriptions for charged particles (see \cref{sec:object_selection:tracks_and_vertices}).
 For the track reconstruction in the MS each muon chamber is searched for hit patterns, which are combined to track
 segments. The segments are then combined to muon track candidates. For each track candidate a global $\chi^2$ fit
 is performed to the hits associated with the track. If a certain threshold is reached the track is accepted~\cite{PERF-2015-10}.
@@ -117,7 +117,7 @@ Combined (CB) muons have both a track in the ID and MS\@. The global track is ca
 If there is only one local track segment in the MDT or CSC chambers and the track of the ID can be extrapolated to the MS
 the muon is classified as segment-tagged (ST).
 A track in the ID can be classified as calorimeter-tagged (CT) muon if the track can be matched to a energy deposition
-in the calorimeter, if it has the signature of a minimum-ionizing particle.
+in the calorimeter, in the case that the energy deposition has the signature of a minimum-ionizing particle.
 Extrapolated (ME) muons are reconstructed only from tracks in the MS with the additional requirement that the track
 needs to originate from the interaction point (IP)\@.
 
@@ -135,7 +135,7 @@ $\dr = 0.2$ around the muon candidates.
 Corrections for pile-up and the underlying event activity are applied.
 The sum of the transverse momentum of all tracks with $\pt > \unit[1]{GeV}$ within $\dr = \min(0.3, \unit[10]{GeV} / \pt^\mu)$
 is defined as the track isolation $\pt^{\text{varcone}0.3}$.
-Based on different selections criteria on quantities $\et^{\text{topocone}20} / \pt^\mu$ and
+Based on different selection criteria on the quantities $\et^{\text{topocone}20} / \pt^\mu$ and
 $\pt^{\text{varcone}30} / \pt^\mu$ multiple operating points are constructed.
 This analysis uses the \emph{gradient} isolation criterion which provides an efficiency of more than
 $\unit[90(99)]{\%}$ at $\unit[20(60)]{GeV}$~\cite{PERF-2015-10}.
@@ -146,7 +146,7 @@ $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events.
 The efficiencies are calculated both in data and simulated events in order to derive \emph{scale factors}, which are used
 to correct deviations of the efficiencies in data and simulation.
 
-\begin{figure}[htb]
+\begin{figure}
     \begin{center}
         \includegraphics[width=0.45\textwidth,align=c]{./figures/object_selection/muon_efficiency_mediumloose_zmm.eps}
         \includegraphics[width=0.45\textwidth,align=c]{./figures/object_selection/muon_efficiency_medium_zmmjpsi.eps}
@@ -181,7 +181,7 @@ First, the jet origin is corrected to point back to the primary vertex. Next exc
 Truth information of simulated dijet events is used to correct the jet energy scale (JES).
 Additional JES corrections are performed in the \emph{global sequential calibration}, which uses calorimeter, muon
 spectrometer and track-based variables. Finally an \emph{in-situ} correction in data is applied, using events
-in \todo{convention jets/dijet in process description?}$\Z+jets$, $\gamma + jets$, and dijet processes.
+in \todo{convention jets/dijet in process description (italic yes/no)?}$\Z+jets$, $\gamma + jets$, and dijet processes.
 These corrections raise a list of systematic uncertainties, which are discussed in \cref{cha:systematic_uncertainties}.\todo{Possibly fix ref to section}
 
 \emph{Pile-up} jets can be suppressed with the output of the jet vertex tagger (JVT) algorithm~\cite{PERF-2014-03}, which
@@ -191,7 +191,7 @@ In the forward region a special algorithm for forward jets (fJVT) is used~\cite{
 For this analysis jets with $\pt < \unit[50]{GeV}$ and $\abs{\eta} > 2.5$ need to pass the fJVT algorithm with
 $\text{fJVT} > 0.4$.
 \\[\baselineskip]
-Since this analysis focus is on the gluon fusion and VBF production modes of the Higgs boson, jets produced from
+Since this analysis focuses on the gluon fusion and VBF production modes of the Higgs boson, jets produced from
 the decay of a $b$ quark are not expected. However, top quarks have a very high probability of decaying into $b$ quarks,
 since the corresponding entry in the CKM matrix is $\abs{V_{tb}} \approx 1$~\cite{PDG}.
 This gives the possibility to reduce the background produced by top quarks.
@@ -209,7 +209,7 @@ a working point resulting in \unit[85]{\%} efficiency for $b$-jets in $t\overlin
 the comparison to data is used to calculate tagging and mis-tagging correction factors.
 The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additionally applied to the $b$-tagged jets.
 
-% TODO add image to this section
+% TODO add image to this section?
 
 \section{Hadronically decaying  $\tau$-leptons}\label{sec:object_selection:tau_leptons}
 
@@ -217,7 +217,7 @@ The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additional
 Tau leptons can either decay into leptons ($\tau \to \ell \nu_\tau \nu_\ell$, $\ell = e, \mu$) or hadrons
 ($\tau \to \text{hadrons}$, denoted as \tauhad{}).
 With a mass of \unit[1.777]{GeV} and a proper decay length of $\unit[87]{\mu m}$~\cite{PDG}, the decay usually happens before
-the $\tau$-lepton reaches the active part of the ID\@. % TODO footnote with calculation of decay length in lab system, compare with ID start radius
+the $\tau$-lepton reaches the active part of the ID\@.
 
 Leptonically decaying $\tau$-leptons are identified as electrons ore muons, only hadronically decaying $\tau$-leptons can be reconstructed,
 Most of the time the decay products are either one ore three charged pions, an additional neutral pion can also be produced.
@@ -227,14 +227,12 @@ All visible decay products are denoted as \tauhadvis{}.
 Since this analysis is focusing on the \Httllfull{} decay, no hadronically decaying $\tau$-leptons are expected.
 However a veto on $\tauhadvis$ candidates can be used to reduce background (see \cref{sec:event_selection:preselection}).
 
-Compared to jets which are produced by quarks and gluons, the \tauhad{} decay products are more collimated.
-
 The reconstruction starts by selecting jets which are reconstructed by using the \antikt{} algorithm~\cite{Cacciari:2008gp,Cacciari:2005hq}
 with an distance parameter of $\dr = 0.4$.
 Only jets with $\pt > \unit[10]{GeV}$ and $\abs{\eta} < 2.5$ are considered.
 $\tauhadvis$ candidates within the barrel and \todo{forward or end-cap?} forward transition region ($1.37 < \abs{\eta} < 1.52$) are discarded.
 A tau vertex is calculated from the associated tracks ($\dr < 0.2$, $\pt > 1 GeV$) of the $\tauhadvis$ candidates.
-The $\eta$/$\phi$ direction is determined with information from the calorimeters. % actually: TopoCLusters
+The $\eta$-$\phi$ direction is determined with information from the calorimeters. % actually: TopoCLusters
 The mass and all mass related variables are set to zero.
 The energy is  obtained by a tau-specific calibration scheme~\cite{Run1TauPaper}.
 
@@ -262,7 +260,7 @@ To account for differences of efficiencies in data and simulation correction fac
 events.~\cite{ATL-PHYS-PUB-2015-045,ATLAS-CONF-2017-029}
 The efficiencies and scale factors for 1-pronged tau decays are illustrated in \cref{fig:object_selection:tau_eff}.
 
-\begin{figure}[htb]
+\begin{figure}
     \begin{center}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/tau_trig_eff_ztt_1p.eps}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/tau_trig_eff_tt_1p.eps}
@@ -314,7 +312,7 @@ events comparing data to simulation. Those two processes provide events where ei
 is expected or not.
 \cref{fig:object_selection:etmiss} shows the performance and resolution measured in $\Z \to \mpmm$ events.
 
-\begin{figure}[htb]
+\begin{figure}
     \begin{center}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/etmiss_performance_tst_zmm.eps}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/etmiss_resolution_tst_zmm.eps}

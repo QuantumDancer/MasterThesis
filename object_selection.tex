@@ -1,11 +1,29 @@
 \chapter{Object Selection}\label{cha:object_selection}
 
+For any physics analysis of a process in proton-proton collisions the particles traversing the ATLAS detector
+need to be reconstructed and identified.
+For this information of the inner detector (ID), calorimeters (ECal and HCal), and the muon spectrometer (MS) is used.\todo{Refs to detector sub-chapters.}
+The reconstruction is done both on data and simulation. Differences in reconstruction, identification, and trigger efficiencies are
+measured and correction factors (\emph{scale factors}) are applied to the simulated events.
+
+First, a brief overview of the reconstruction of tracks and vertices is given in \cref{sec:object_selection:tracks_and_vertices}, which
+is fundamental to the reconstruction of all other objects.
+Since this analysis is focusing on the \Httllfull{} decay, the reconstruction and identification of electrons and muons
+is essential and described in \cref{sec:object_selection:electrons,sec:object_selection:muons}.
+Additional jets in the events are used to define a VBF and boosted topology \todo{Ref event selection} and to suppress background.
+Their reconstruction is explained in \cref{sec:object_selection:jets} with additional information on the
+\emph{b-tagging} procedure, which can be used for further background suppression.
+Hadronically decaying $\tau$-leptons which are defined in \cref{sec:object_selection:tau_leptons} are used for the further rejection of background.
+Due to the four neutrinos in the final state the reconstruction of the missing transverse energy (\cref{sec:object_selection:missing_transverse_energy})
+is also necessary.
+The chapter closes with \cref{sec:object_selection:overlap_removal}, where the overlap removal between overlapping objects is explained.
+
 \section{Tracks and Vertices}\label{sec:object_selection:tracks_and_vertices}
 
 Particle trajectories (\emph{tracks}) are the fundamental ingredient for the reconstruction and identification
 of other physics objects, which are discussed in the following sections.
 The tracks are reconstructed in the inner detector (ID) by using various track reconstruction algorithms~\cite{ATL-SOFT-PUB-2007-007}.
-Information of the several sub-detector systems (IBL, Pixel, SCT, TRT) are taken into account.
+Information of the several ID sub-detector systems (IBL, Pixel, SCT, TRT) are taken into account.
 The transverse momentum and the sign of the charge of the track is also calculated.
 Quality criteria which are based on the transverse momentum $\pt$, pseudorapidity $\eta$, and number of hits
 in the sub-detectors are applied.

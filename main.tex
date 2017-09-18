@@ -1,8 +1,8 @@
-\documentclass[12pt,a4paper,openright]{scrreprt}
+\documentclass[12pt,a4paper,openright,twoside]{scrbook}
 
 % DEBUG stuff
 \usepackage{refcheck}
-\usepackage[textsize=tiny]{todonotes}
+\usepackage[textsize=tiny,shadow]{todonotes}
 
 % PACKAGES + MODIFICATIONS
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -31,12 +31,12 @@
 \setlength{\parindent}{0pt}  % no indendation for new paragraphs
 
 \usepackage[automark,headsepline]{scrlayer-scrpage} %headings
+\automark[chapter]{chapter}
+\automark*[section]{} % Add odd side marks without removing previous marks
+\clearpairofpagestyles{}
 \pagestyle{scrheadings}
-% \ihead{Benjamin Rottler}
-% \chead{Term Paper}
-% \ohead{August 2016}
-% \ofoot{\pagemark}
-% \cfoot{}
+\ihead{\headmark}
+\ohead{\pagemark}
 
 %graphics
 \usepackage{graphicx}

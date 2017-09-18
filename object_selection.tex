@@ -2,6 +2,25 @@
 
 \section{Tracks and Vertices}\label{sec:object_selection:tracks_and_vertices}
 
+Particle trajectories (\emph{tracks}) are the fundamental ingredient for the reconstruction and identification
+of other physics objects, which are discussed in the following sections.
+The tracks are reconstructed in the inner detector (ID) by using various track reconstruction algorithms~\cite{ATL-SOFT-PUB-2007-007}.
+Information of the several sub-detector systems (IBL, Pixel, SCT, TRT) are taken into account.
+The transverse momentum and the sign of the charge of the track is also calculated.
+Quality criteria which are based on the transverse momentum $\pt$, pseudorapidity $\eta$, and number of hits
+in the sub-detectors are applied.
+
+Tracks can be used to reconstruct the primary and secondary interaction points (\emph{vertices}).
+For this the tracks are extrapolated to check for intersections between different tracks.
+Since multiple interactions are expected during one bunch crossing (\emph{pile-up}) there are also multiple vertices, which
+are reconstructed.
+The vertex with the highest $\sum p_{\text{T},\text{track}}^2$ is chosen as the primary vertex, which corresponds to the
+point where the interaction was the hardest.
+
+Detailed information about tracking and vertexing in ATLAS for \runtwo{} of the LHC
+can be found in~\cite{ATL-PHYS-PUB-2015-051,ATL-PHYS-PUB-2015-006,ATL-PHYS-PUB-2015-026}
+
+
 \section{Electrons}\label{sec:object_selection:electrons}
 
 Electrons can be identified with a high precision and large background rejection by matching clusters of energy
@@ -179,7 +198,7 @@ The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additional
 \todo{``tau leptons'' or ``$\tau$-leptons''?}
 Tau leptons can either decay into leptons ($\tau \to \ell \nu_\tau \nu_\ell$, $\ell = e, \mu$) or hadrons
 ($\tau \to \text{hadrons}$, denoted as \tauhad{}).
-With a mass of \unit[1.777]{GeV} and a proper decay length of $\unit[87]{\mu m}$ ~\cite{PDG}, the decay usually happens before
+With a mass of \unit[1.777]{GeV} and a proper decay length of $\unit[87]{\mu m}$~\cite{PDG}, the decay usually happens before
 the $\tau$-lepton reaches the active part of the ID\@. % TODO footnote with calculation of decay length in lab system, compare with ID start radius
 
 Leptonically decaying $\tau$-leptons are identified as electrons ore muons, only hadronically decaying $\tau$-leptons can be reconstructed,
@@ -282,8 +301,7 @@ is expected or not.
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/etmiss_performance_tst_zmm.eps}
         \includegraphics[width=0.45\textwidth]{./figures/object_selection/etmiss_resolution_tst_zmm.eps}
         \caption{Distributions of TST \etmiss{} (left) and the TST $E^\text{miss}_x, E^\text{miss}_y$ resolution (right)
-        in $\Z \to \mpmm$ events.~\cite{ATL-PHYS-PUB-2015-027}}
-        \label{fig:object_selection:etmiss}
+        in $\Z \to \mpmm$ events.~\cite{ATL-PHYS-PUB-2015-027}}\label{fig:object_selection:etmiss}
     \end{center}
 \end{figure}
 

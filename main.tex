@@ -2,6 +2,7 @@
 
 % DEBUG stuff
 \usepackage{refcheck}
+\norefnames{}
 \usepackage[textsize=tiny,shadow]{todonotes}
 
 % PACKAGES + MODIFICATIONS
@@ -29,6 +30,7 @@
 %layout and style
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 \setlength{\parindent}{0pt}  % no indendation for new paragraphs
+\usepackage{enumitem}  % customize lists
 
 \usepackage[automark,headsepline]{scrlayer-scrpage} %headings
 \automark[chapter]{chapter}
@@ -77,7 +79,7 @@
     filecolor=magenta,      % color of file links
     urlcolor=blue			% color of external links
 }
-\usepackage[nottoc,numbib]{tocbibind} % put references in TOC
+\usepackage[nottoc]{tocbibind} % put references in TOC
 
 % other packages
 \usepackage{cite} % improved citation handling
@@ -123,12 +125,16 @@
 \newcommand{\ptvec}{\ensuremath{\vec{p}_\text{T}}}
 \newcommand{\et}{\ensuremath{E_\text{T}}}
 \newcommand{\etmiss}{\ensuremath{E_\text{T}^\text{miss}}}
-\newcommand{\etmissx}{\ensuremath{E_{\text{T},x}^\text{miss}}}
-\newcommand{\etmissy}{\ensuremath{E_{\text{T},y}^\text{miss}}}
+\newcommand{\etmissx}{\ensuremath{E_x^\text{miss}}}
+\newcommand{\etmissy}{\ensuremath{E_y^\text{miss}}}
 \newcommand{\etmissvec}{\ensuremath{\vec{E}_\text{T}^\text{miss}}}
 \newcommand{\etmissvecobj}[1]{\ensuremath{\vec{E}_\text{T}^{\text{miss},#1}}}
+\newcommand{\etmisshpto}{\ensuremath{E_\text{T}^\text{miss,HPTO}}}
 \newcommand{\dr}{\ensuremath{\Delta R}}
 \newcommand{\drll}{\ensuremath{\Delta R (\ell\ell)}}
+\newcommand{\mll}{\ensuremath{m_{\ell\ell}}}
+\newcommand{\mcoll}{\ensuremath{m_\text{coll}}}
+\newcommand{\absdetall}{\ensuremath{\abs{\Delta \eta (\ell\ell)}}}
 
 % particles
 \newcommand{\Higgs}{\ensuremath{H}}
@@ -139,17 +145,27 @@
 \newcommand{\mpmm}{\ensuremath{\mu^+\mu^-}}
 \newcommand{\lplm}{\ensuremath{\ell^+\ell^-}}
 \newcommand{\tauptaum}{\ensuremath{\tau^+\tau^-}}
+\newcommand{\taul}{\ensuremath{\tau_\ell}}
 \newcommand{\tauhad}{\ensuremath{\tau_\text{had}}}
 \newcommand{\tauhadvis}{\ensuremath{\tau_\text{had--vis}}}
 \newcommand{\ttbar}{\ensuremath{t\overline{t}}}
 
 % processes
+\newcommand{\Htt}{\ensuremath{\Higgs \to \tau \tau}}
+\newcommand{\Httll}{\ensuremath{\Higgs \to \taul \taul}}
+\newcommand{\Httlh}{\ensuremath{\Higgs \to \taul \tauhad}}
+\newcommand{\Htthh}{\ensuremath{\Higgs \to \tauhad \tauhad}}
 \newcommand{\Httllfull}{\ensuremath{\Higgs \to \tauptaum \to \lplm 4\nu}}
+\newcommand{\Zgammall}{\ensuremath{\Z / \gamma^* \to \ell \ell}}
+\newcommand{\Zll}{\ensuremath{\Z  \to \ell \ell}}
+\newcommand{\Ztautau}{\ensuremath{\Z \to \tau \tau}}
 
 % other stuff
 \newcommand{\runone}{Run-1}
 \newcommand{\runtwo}{Run-2}
 \newcommand{\antikt}{\ensuremath{\text{anti-}k_t}}
+\newcommand{\lumi}{\ensuremath{\mathcal{L}}}
+\newcommand{\lumiint}{\ensuremath{\int \lumi \dif t}}
 
 \begin{document}
 
@@ -164,7 +180,8 @@
 \include{processes}
 \include{object_selection}
 \include{event_selection}
-\include{optimization}
+\include{background_estimation}
+\include{mva}
 \include{systematics}
 \include{results}
 \include{conclusion}

@@ -49,6 +49,8 @@
 \usepackage[labelfont=bf]{caption} % bold captions
 \usepackage{subcaption}
 \usepackage{graphbox}  % center graphics vertically
+\usepackage{multirow}  % cells that span multiplre rows
+\usepackage[section]{placeins}  % force floats to be in section where it was defined
 
 %hyperref
 \newcommand{\hreftitle}{Master thesis} % TODO set right title
@@ -131,10 +133,15 @@
 \newcommand{\etmissvecobj}[1]{\ensuremath{\vec{E}_\text{T}^{\text{miss},#1}}}
 \newcommand{\etmisshpto}{\ensuremath{E_\text{T}^\text{miss,HPTO}}}
 \newcommand{\dr}{\ensuremath{\Delta R}}
-\newcommand{\drll}{\ensuremath{\Delta R (\ell\ell)}}
+\newcommand{\drll}{\ensuremath{\Delta R_{\ell\ell}}}
 \newcommand{\mll}{\ensuremath{m_{\ell\ell}}}
+\newcommand{\mjj}{\ensuremath{m_{\text{jj}}}}
 \newcommand{\mcoll}{\ensuremath{m_\text{coll}}}
-\newcommand{\absdetall}{\ensuremath{\abs{\Delta \eta (\ell\ell)}}}
+\newcommand{\mmc}{\ensuremath{m_\text{MMC}}}
+\newcommand{\detall}{\ensuremath{\Delta \eta_{\ell\ell}}}
+\newcommand{\detajj}{\ensuremath{\Delta \eta_\text{jj}}}
+\newcommand{\absdetall}{\ensuremath{\abs{\detall}}}
+\newcommand{\absdetajj}{\ensuremath{\abs{\detajj}}}
 
 % particles
 \newcommand{\Higgs}{\ensuremath{H}}
@@ -145,18 +152,20 @@
 \newcommand{\mpmm}{\ensuremath{\mu^+\mu^-}}
 \newcommand{\lplm}{\ensuremath{\ell^+\ell^-}}
 \newcommand{\tauptaum}{\ensuremath{\tau^+\tau^-}}
-\newcommand{\taul}{\ensuremath{\tau_\ell}}
+\newcommand{\taulep}{\ensuremath{\tau_\text{lep}}}
 \newcommand{\tauhad}{\ensuremath{\tau_\text{had}}}
 \newcommand{\tauhadvis}{\ensuremath{\tau_\text{had--vis}}}
 \newcommand{\ttbar}{\ensuremath{t\overline{t}}}
 
 % processes
 \newcommand{\Htt}{\ensuremath{\Higgs \to \tau \tau}}
-\newcommand{\Httll}{\ensuremath{\Higgs \to \taul \taul}}
-\newcommand{\Httlh}{\ensuremath{\Higgs \to \taul \tauhad}}
+\newcommand{\Httll}{\ensuremath{\Higgs \to \taulep \taulep}}
+\newcommand{\Httlh}{\ensuremath{\Higgs \to \taulep \tauhad}}
 \newcommand{\Htthh}{\ensuremath{\Higgs \to \tauhad \tauhad}}
 \newcommand{\Httllfull}{\ensuremath{\Higgs \to \tauptaum \to \lplm 4\nu}}
+\newcommand{\HWW}{\ensuremath{\Higgs \to WW}}
 \newcommand{\Zgammall}{\ensuremath{\Z / \gamma^* \to \ell \ell}}
+\newcommand{\Zgammatt}{\ensuremath{\Z / \gamma^* \to \tau \tau}}
 \newcommand{\Zll}{\ensuremath{\Z  \to \ell \ell}}
 \newcommand{\Ztautau}{\ensuremath{\Z \to \tau \tau}}
 

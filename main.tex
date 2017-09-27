@@ -1,7 +1,9 @@
-\documentclass[12pt,a4paper,openright]{scrreprt}
+\documentclass[12pt,a4paper,openright,twoside]{scrbook}
 
 % DEBUG stuff
 \usepackage{refcheck}
+\norefnames{}
+\usepackage[textsize=tiny,shadow]{todonotes}
 
 % PACKAGES + MODIFICATIONS
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -9,6 +11,7 @@
 \usepackage{lmodern}
 \usepackage{textgreek}
 \usepackage[activate={true,nocompatibility},draft,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
+%\usepackage[activate={true,nocompatibility},final,tracking=true,factor=1100,stretch=10,shrink=10]{microtype}
 % activate={true,nocompatibility} - activate protrusion and expansion
 % final - enable microtype; use "draft" to disable
 % factor=1100 - add 10% to the protrusion amount (default is 1000)
@@ -28,14 +31,15 @@
 %layout and style
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 \setlength{\parindent}{0pt}  % no indendation for new paragraphs
+\usepackage{enumitem}  % customize lists
 
 \usepackage[automark,headsepline]{scrlayer-scrpage} %headings
+\automark[chapter]{chapter}
+\automark*[section]{} % Add odd side marks without removing previous marks
+\clearpairofpagestyles{}
 \pagestyle{scrheadings}
-% \ihead{Benjamin Rottler}
-% \chead{Term Paper}
-% \ohead{August 2016}
-% \ofoot{\pagemark}
-% \cfoot{}
+\ihead{\headmark}
+\ohead{\pagemark}
 
 %graphics
 \usepackage{graphicx}
@@ -44,6 +48,10 @@
 \usepackage{float}
 \usepackage{booktabs}   % tables for publications
 \usepackage[labelfont=bf]{caption} % bold captions
+\usepackage{subcaption}
+\usepackage{graphbox}  % center graphics vertically
+\usepackage{multirow}  % cells that span multiplre rows
+\usepackage[section]{placeins}  % force floats to be in section where it was defined
 
 %hyperref
 \newcommand{\hreftitle}{Master thesis} % TODO set right title
@@ -74,7 +82,7 @@
     filecolor=magenta,      % color of file links
     urlcolor=blue			% color of external links
 }
-\usepackage[nottoc,numbib]{tocbibind} % put references in TOC
+\usepackage[nottoc]{tocbibind} % put references in TOC
 
 % other packages
 \usepackage{cite} % improved citation handling
@@ -111,9 +119,69 @@
 % \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
 % \renewcommand{\right}{\aftergroup\egroup\originalright}
 
+% math
+\renewcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+\renewcommand{\vec}{\mathbf}
+
+% variables
+\newcommand{\pt}{\ensuremath{p_\text{T}}}
+\newcommand{\ptvec}{\ensuremath{\vec{p}_\text{T}}}
+\newcommand{\et}{\ensuremath{E_\text{T}}}
+\newcommand{\etmiss}{\ensuremath{E_\text{T}^\text{miss}}}
+\newcommand{\etmissx}{\ensuremath{E_x^\text{miss}}}
+\newcommand{\etmissy}{\ensuremath{E_y^\text{miss}}}
+\newcommand{\etmissvec}{\ensuremath{\vec{E}_\text{T}^\text{miss}}}
+\newcommand{\etmissvecobj}[1]{\ensuremath{\vec{E}_\text{T}^{\text{miss},#1}}}
+\newcommand{\etmisshpto}{\ensuremath{E_\text{T}^\text{miss,HPTO}}}
+\newcommand{\dr}{\ensuremath{\Delta R}}
+\newcommand{\drll}{\ensuremath{\Delta R_{\ell\ell}}}
+\newcommand{\mll}{\ensuremath{m_{\ell\ell}}}
+\newcommand{\mjj}{\ensuremath{m_{\text{jj}}}}
+\newcommand{\mcoll}{\ensuremath{m_\text{coll}}}
+\newcommand{\mmc}{\ensuremath{m_\text{MMC}}}
+\newcommand{\detall}{\ensuremath{\Delta \eta_{\ell\ell}}}
+\newcommand{\detajj}{\ensuremath{\Delta \eta_\text{jj}}}
+\newcommand{\absdetall}{\ensuremath{\abs{\detall}}}
+\newcommand{\absdetajj}{\ensuremath{\abs{\detajj}}}
+
+% particles
+\newcommand{\Higgs}{\ensuremath{H}}
+\newcommand{\W}{\ensuremath{W}}
+\newcommand{\Z}{\ensuremath{Z}}
+\newcommand{\JPsi}{\ensuremath{J/\Psi}}
+\newcommand{\epem}{\ensuremath{e^+e^-}}
+\newcommand{\mpmm}{\ensuremath{\mu^+\mu^-}}
+\newcommand{\lplm}{\ensuremath{\ell^+\ell^-}}
+\newcommand{\tauptaum}{\ensuremath{\tau^+\tau^-}}
+\newcommand{\taulep}{\ensuremath{\tau_\text{lep}}}
+\newcommand{\tauhad}{\ensuremath{\tau_\text{had}}}
+\newcommand{\tauhadvis}{\ensuremath{\tau_\text{had--vis}}}
+\newcommand{\ttbar}{\ensuremath{t\overline{t}}}
+
+% processes
+\newcommand{\Htt}{\ensuremath{\Higgs \to \tau \tau}}
+\newcommand{\Httll}{\ensuremath{\Higgs \to \taulep \taulep}}
+\newcommand{\Httlh}{\ensuremath{\Higgs \to \taulep \tauhad}}
+\newcommand{\Htthh}{\ensuremath{\Higgs \to \tauhad \tauhad}}
+\newcommand{\Httllfull}{\ensuremath{\Higgs \to \tauptaum \to \lplm 4\nu}}
+\newcommand{\HWW}{\ensuremath{\Higgs \to WW}}
+\newcommand{\Zgammall}{\ensuremath{\Z / \gamma^* \to \ell \ell}}
+\newcommand{\Zgammatt}{\ensuremath{\Z / \gamma^* \to \tau \tau}}
+\newcommand{\Zll}{\ensuremath{\Z  \to \ell \ell}}
+\newcommand{\Ztautau}{\ensuremath{\Z \to \tau \tau}}
+
+% other stuff
+\newcommand{\runone}{Run-1}
+\newcommand{\runtwo}{Run-2}
+\newcommand{\antikt}{\ensuremath{\text{anti-}k_t}}
+\newcommand{\lumi}{\ensuremath{\mathcal{L}}}
+\newcommand{\lumiint}{\ensuremath{\int \lumi \dif t}}
+
 \begin{document}
 
 \tableofcontents
+
+\listoftodos{}
 
 \include{introduction}
 \include{theory}
@@ -122,7 +190,8 @@
 \include{processes}
 \include{object_selection}
 \include{event_selection}
-\include{optimization}
+\include{background_estimation}
+\include{mva}
 \include{systematics}
 \include{results}
 \include{conclusion}

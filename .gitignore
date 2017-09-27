@@ -3,7 +3,6 @@
 *.fls
 *.log
 *.out
-*.pdf
 *.toc
 *.bbl
 *.blg
@@ -15,3 +14,7 @@
 *.ilg
 *.ind
 *.xdy
+*.tdo
+
+main.pdf
+*converted-to.pdf

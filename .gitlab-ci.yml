@@ -3,9 +3,7 @@ stages:
 
 compile_pdf:
     stage: Build
-    image: aergus/latex
-    before_script:
-        - apt-get install -y xindy
+    image: tianon/latex
     script:
         - make
     artifacts:

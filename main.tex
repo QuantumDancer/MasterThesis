@@ -88,27 +88,6 @@
 \usepackage{cite} % improved citation handling
 \usepackage[capitalise]{cleveref}  % clever references
 
-%----------------------------------------------------------------------------------------
-%	Glossary
-%----------------------------------------------------------------------------------------
-\usepackage[xindy]{glossaries}
-\makeglossaries%
-\usepackage[xindy]{imakeidx}
-\makeindex%
-
-\newacronym{HEP}{HEP}{high-energy physics}
-\newacronym{ML}{ML}{machine learning}
-\newacronym{DT}{DT}{decision tree}
-\newacronym{BDT}{BDT}{Boosted Decision Tree}
-\newacronym{NN}{NN}{Neural Network}
-
-\newcommand{\hep}{\gls{HEP}}
-\newcommand{\ml}{\gls{ML}}
-\newcommand{\bdt}{\gls{BDT}}
-\newcommand{\bdts}{\glspl{BDT}}
-\newcommand{\nn}{\gls{NN}}
-\newcommand{\nns}{\glspl{NN}}
-
 
 %----------------------------------------------------------------------------------------
 %	NEW COMMANDS
@@ -203,8 +182,5 @@
 \thispagestyle{plain}
 \bibliographystyle{atlasBibStyleWithTitle}
 \bibliography{bib}
-
-\printindex%
-\printglossaries%
 
 \end{document}

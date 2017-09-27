@@ -1,6 +1,6 @@
 \chapter{Boosted Decision Trees}\label{cha:boosted_decision_trees}
 
-In most \hep{} analyses the goal is to measure a rare process (signal), which is contained in a
+In most high energy physics analyses the goal is to measure a rare process (signal), which is contained in a
 large dataset of measurements of particle collisions.
 However, most of the measured collisions (events) originate from other processes (background).
 One goal of an analysis is to separate the signal events from the background events in order to obtain a pure
@@ -12,19 +12,19 @@ Such a restriction is called cut.
 Usually different quantities are cut on to limit different sources of background.
 Such an approach is described in \cref{cha:event_selection}.
 
-Another way to achieve separation between signal and background is with the help of \ml{} algorithms.
-The most common \ml{} algorithms in \hep{} are \bdts{} and \nns{}.
+Another way to achieve separation between signal and background is with the help of machine learning (ML) algorithms.
+The most common ML algorithms in high energy physics are Boosted Decision Trees (BDTs) and Neural Networks.
 
-This chapter will describe what \bdts{} are and how they are built.
-First, \glspl{DT} are introduced in \cref{sec:bdt:decision_trees}, since they are the foundation for \bdts.
+This chapter will describe what BDTs are and how they are built.
+First, decision trees are introduced in \cref{sec:bdt:decision_trees}, since they are the foundation for BDTs.
 Then, the concept of boosting is explained in \cref{sec:bdt:boosting} and different boosting algorithms are presented.
-Finally, in \cref{sec:bdt:hyperparameters} a summary of all possible configuration parameters of \bdts{} is given.
+Finally, in \cref{sec:bdt:hyperparameters} a summary of all possible configuration parameters of BDTs is given.
 
 The contents of this chapter are mainly based on Refs.~\cite{ML_HASTIE,ML_TMVA}.
 
 \section{Decision Trees}\label{sec:bdt:decision_trees}
 
-A \gls{DT} has a binary tree-like structure as shown in \cref{fig:decision_tree}.
+A decision tree has a binary tree-like structure as shown in \cref{fig:decision_tree}.
 The root node contains all signal and background events.
 Each internal node represents
 

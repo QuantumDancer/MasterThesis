@@ -12,7 +12,7 @@ the next one is denoted as \emph{subleading}.
 If a quantity uses both leading and subleading lepton or jet, it will be indicated by a $\ell\ell$ or jj label, respectively.
 
 This chapter gives an overview of the selection criteria applied to select signal candidate events.
-The requirements are applied to both data and simulation.
+The requirements are applied to both data and simulated events.
 Since the mass reconstruction in the \Httllfull{} decay channel is non-trivial due to the multiple neutrinos,
 advanced mass reconstruction methods are introduced in \cref{sec:event_selection:mass}.
 Triggers (\cref{sec:event_selection:trigger}) are used to select events with two final state leptons.
@@ -20,15 +20,14 @@ After a common preselection (\cref{sec:event_selection:preselection}) further se
 to select events which fall in the VBF and boosted topology (\cref{sec:event_selection:categorization}).
 This allows to separate the Higgs bosons which are produced via the VBF and ggF mechanism.
 
-The selection introduced in this chapter will be referred to as cut-based analysis (CBA) to differentiate
-between the multivariate analysis (MVA) as discussed in \cref{cha:mva}, which has a slightly different event selection.
+The selection criteria introduced in this chapter belongs to the cut-based analysis (CBA), which is the baseline
+of the multivariate analysis (MVA). The MVA is presented in \cref{cha:mva}, where the slightly different event selection is discussed.
 
 \section{Invariant mass reconstruction}\label{sec:event_selection:mass}
 
 The invariant mass of the Higgs boson candidates (i.e.\ the invariant mass of the di-$\tau$ system)
-cannot be calculated without ambiguity since there are four neutrinos in the final state of the $\Httll$ decay.
-Since the di-$\tau$ mass can be used to discriminate between signal and background processes and enables
-a direct measurement of the mass of the Higgs boson a, correct and precise reconstruction is needed.
+cannot be calculated without ambiguity from only the two leptons and \etmiss, since there are four neutrinos in the final state of the $\Httll$ decay.
+A correct and precise reconstruction is needed, because the di-$\tau$ mass can be used to discriminate between signal and background processes.
 In the next sections two approaches are introduced, the collinear approximation and the missing mass calculator.
 
 \subsection{Collinear approximation}\label{sub:event_selection:mcoll}
@@ -52,7 +51,7 @@ is denoted as $x_{1,2}$,
     \label{eq:mcoll:xdef}
     \pt^{\ell_i} = x_i \pt^{\tau_i} \,, \qquad i = 1,2 \,.
 \end{equation}
-It can be calculated with
+They can be calculated with
 \begin{equation}
     \label{eq:mcoll:xcalc}
     x_{1,2} = \frac{p_x^{\ell_1} p_y^{\ell_2} - p_y^{\ell_1} p_x^{\ell_2}}{p_x^{\ell_1} p_y^{\ell_2} \pm \etmissx p_y^{\ell_{2,1}} - p_y^{\ell_1} p_x^{\ell_2} \mp \etmissy p_x^{\ell_{2,1}}} \,.
@@ -88,7 +87,7 @@ the following set of equations can be constructed.
 The known variables are the components of the missing transverse energy ($\etmissx$ and $\etmissy$)
 and the momenta and invariant masses of the visible decay products of the $\tau$-leptons ($\ell_1$ and $\ell_2$).
 Unknown are the momenta, masses, and angles ($\phi$ and $\theta$) of the two neutrino systems, which are composed of two neutrinos each.
-These quantities are labeled with $\text{miss}_1$ and $\text{miss}_2$.
+These quantities are labeled with $\text{miss}_1$ and $\text{miss}_2$ depending on the associated $\tau$-lepton.
 
 Since this system of equations is underconstrained there is no single solution.
 However, the different solutions have different probabilities to occur due to the matrix element of the $\tau$-decay.
@@ -105,8 +104,9 @@ In this analysis the former approach is chosen.
 
 \section{Trigger}\label{sec:event_selection:trigger}
 
-Triggers are used to select events with two leptons ($ee$, $e\mu$\footnote{In this section $e\mu$ indicates all events
-with one electron and one muon, the differentiation between $e\mu$ and $\mu e$ is not made here.}, $\mu\mu$) in the final state.
+Triggers are used for the inital decision if an event will be further analyzed or discared, because it is not relevat to the analysis.
+For this analysis events with two leptons ($ee$, $e\mu$\footnote{In this section $e\mu$ indicates all events
+with one electron and one muon, the differentiation between $e\mu$ and $\mu e$ is not made here.}, $\mu\mu$) in the final state are selected.
 A general overview of the ATLAS trigger system was given in \cref{sub:setup:trigger}.
 Both single-lepton and dilepton triggers are used.
 They differ between the 2015 and 2016 data taking period due to the increase in luminosity.
@@ -133,7 +133,7 @@ They differ between the 2015 and 2016 data taking period due to the increase in 
 
 \begin{table}[htpb]
     \centering
-    \caption{Dilepton triggers offline $\pt$ thresholds for the 2015 and 2016 data set used in the $\Httll$ analysis.}\label{tab:event_selection:trigger:di}
+    \caption{Dilepton triggers and offline $\pt$ thresholds for the 2015 and 2016 data set used in the $\Httll$ analysis.}\label{tab:event_selection:trigger:di}
     \begin{tabular}{@{}llll@{}}
         \toprule
         Channel  & Year & Trigger & Threshold \\ \midrule
@@ -148,13 +148,13 @@ They differ between the 2015 and 2016 data taking period due to the increase in 
 \end{table}
 
 The triggers for the $\Httll$ analysis are listed in \cref{tab:event_selection:trigger:single,tab:event_selection:trigger:di}.
-Multiple triggers for the same object and data taking period are combined with a logical `or'.
+Multiple triggers for the same object (or object combination) and data taking period are combined with a logical `or'.
 The overlap of single-lepton and dilepton triggers is avoided to prevent difficulties with the trigger efficiencies
 by selecting the triggers based on the transverse momentum of the lepton.
 Lower $\pt$ thresholds are used for dilepton triggers and higher ones for single-lepton triggers as
 illustrated in \cref{fig:event_selection:triggers}.
 
-\begin{figure}[htpb]
+\begin{figure}[htb]
     \centering
         \includegraphics[width=0.3\textwidth]{./figures/event_selection/triggers_ee.eps}
         \includegraphics[width=0.3\textwidth]{./figures/event_selection/triggers_emu.eps}
@@ -175,20 +175,23 @@ can be imposed on the triggered objects, which is decoded as \texttt{lhID}
 and \texttt{iISO}, where \texttt{ID} and \texttt{ISO} specify the corresponding working points.
 If there is no requirement on the distance of the observed tracks to the primary vertex the term \texttt{nod0}
 is included.
-HLTs can be seeded by L1 triggers, which is indicated by including \texttt{L1} in the trigger name.
-L1 trigger names also contain the type of the object to trigger, \texttt{E} and \texttt{M} for electrons and muons, respectively.
-Usually, there is a threshold on the missing transverse energy, denoted as \texttt{M} followed by a number,
-which corresponds to the threshold in GeV.
-The \etmiss{} thresholds can vary slightly as a function of $\eta$, which is denoted with \texttt{V}.
-An additional hadronic veto can be applied, which is indicated by \texttt{H}.
 
-To account for differences in the trigger efficiencies correction factors are calculated by comparing
+HLTs can be seeded by L1 triggers, which is indicated by appending the L1 trigger name to to the HLT name.
+All L1 trigger names start with \texttt{L1}.
+The next part indicates which subdetector fired the L1 trigger.
+The electromagnetic calorimeter is referred to as \texttt{EM} and the muon spectrometer as \texttt{MU}.
+Next, the transverse energy or transverse momentum threshold in units of GeV is denoted, depending on the subdetector.
+The \et{} thresholds can vary slightly as a function of $\eta$, which is denoted with \texttt{V}.
+An additional veto on energy depositions in the hadronic calorimeter can be applied, which is indicated by \texttt{H}.
+
+To account for differences in the trigger efficiencies, correction factors are calculated by comparing
 the efficiencies between data and simulation~\cite{Trigger2015,Trigger2016}.
 An additional offline $\pt$ requirement is introduced to ensure that the trigger efficiencies are in the plateau region.
 The thresholds are $\unit[1-3]{GeV}$ higher than the trigger $\pt$ thresholds.
 They can be found in \cref{tab:event_selection:trigger:single,tab:event_selection:trigger:di}.
 
 \section{Preselection}\label{sec:event_selection:preselection}
+
 
 Before requiring kinematic cuts to purify signal events a series of
 requirements to ensure data quality are applied.

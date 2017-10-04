@@ -2,7 +2,7 @@
 
 The \Httllfull{} decay has a detector signature of exactly two light leptons ($e$ or $\mu$) of opposite electric
 charge and some amount of missing transverse energy due to the neutrinos.
-The lepton combinations can be either two electrons ($\epem$), two muons ($\mpmm$), or one electron and on muon ($e^\pm \mu^\mp$).
+The lepton combinations can be either two electrons ($\epem$), two muons ($\mpmm$), or one electron and one muon ($e^\pm \mu^\mp$).
 The decay channels are labeled as $ee$ and $\mu\mu$ for same flavour (SF) combinations and $e\mu$ or $\mu e$ for
 different flavour (DF) combinations.
 The leptons and jets are each arranged according to their transverse momentum in descending order.
@@ -117,15 +117,15 @@ They differ between the 2015 and 2016 data taking period due to the increase in 
     \begin{tabular}{@{}llll@{}}
         \toprule
         Lepton flavour & Year & Trigger & Threshold \\ \midrule
-        Electron       & 2015 & \texttt{HLT\_e24\_lhmedium\_L1EM20VH} & \multirow{3}{*}{$\pt > \unit[25]{GeV}$} \\
+        Electron       & 2015 & \texttt{HLT\_e24\_lhmedium\_L1EM20VH} & \multirow{3}{*}{$\pt > \SI{25}{\GeV}$} \\
                        &      & \texttt{HLT\_e60\_lhmedium} \\
                        &      & \texttt{HLT\_e120\_lhloose} \\ \cmidrule(l){2-4}
-                       & 2016 & \texttt{HLT\_e26\_lhtight\_nod0\_ivarloose} & \multirow{3}{*}{$\pt > \unit[27]{GeV}$} \\
+                       & 2016 & \texttt{HLT\_e26\_lhtight\_nod0\_ivarloose} & \multirow{3}{*}{$\pt > \SI{27}{\GeV}$} \\
                        &      & \texttt{HLT\_e60\_lhmedium\_nod0} \\
                        &      & \texttt{HLT\_e140\_lhloose\_nod0} \\ \midrule
-        Muon           & 2015 & \texttt{HLT\_mu20\_iloose\_L1MU15} & \multirow{2}{*}{$\pt > \unit[21]{GeV}$} \\
+        Muon           & 2015 & \texttt{HLT\_mu20\_iloose\_L1MU15} & \multirow{2}{*}{$\pt > \SI{21}{\GeV}$} \\
                        &      & \texttt{HLT\_mu50} \\ \cmidrule(l){2-4}
-                       & 2016 & \texttt{HLT\_mu26\_ivarmedium} & \multirow{2}{*}{$\pt > \unit[28]{GeV}$} \\
+                       & 2016 & \texttt{HLT\_mu26\_ivarmedium} & \multirow{2}{*}{$\pt > \SI{28}{\GeV}$} \\
                        &      & \texttt{HLT\_mu50} \\
         \bottomrule
     \end{tabular}
@@ -137,12 +137,12 @@ They differ between the 2015 and 2016 data taking period due to the increase in 
     \begin{tabular}{@{}llll@{}}
         \toprule
         Channel  & Year & Trigger & Threshold \\ \midrule
-        $ee$     & 2015 & \texttt{HLT\_2e12\_lhloose\_L12EM10VH} & $\pt^{e_1, e_2} > \unit[15]{GeV}$ \\
-                 & 2016 & \texttt{HLT\_2e17\_lhvloose\_nod0} & $\pt^{e_1, e_2} > \unit[18]{GeV}$ \\ \cmidrule{1-4}
-        $e\mu$   & 2015 & \texttt{HLT\_e17\_loose\_mu14} & $\pt^{e} > \unit[18]{GeV}, \pt^\mu > \unit[15]{GeV}$ \\
-                 & 2016 & \texttt{HLT\_e17\_lhloose\_nod0\_mu14} & $\pt^{e} > \unit[18]{GeV}, \pt^\mu > \unit[15]{GeV}$ \\ \cmidrule{1-4}
-        $\mu\mu$ & 2015 & \texttt{HLT\_mu18\_mu8noL1} & $\pt^{\mu_1} > \unit[19]{GeV}, \pt^{\mu_2} > \unit[10]{GeV}$ \\
-                 & 2016 & \texttt{HLT\_mu22\_mu8noL1} & $\pt^{\mu_1} > \unit[24]{GeV}, \pt^{\mu_2} > \unit[9]{GeV}$ \\
+        $ee$     & 2015 & \texttt{HLT\_2e12\_lhloose\_L12EM10VH} & $\pt^{e_1, e_2} > \SI{15}{\GeV}$ \\
+                 & 2016 & \texttt{HLT\_2e17\_lhvloose\_nod0} & $\pt^{e_1, e_2} > \SI{18}{\GeV}$ \\ \cmidrule{1-4}
+        $e\mu$   & 2015 & \texttt{HLT\_e17\_loose\_mu14} & $\pt^{e} > \SI{18}{\GeV}, \pt^\mu > \SI{15}{\GeV}$ \\
+                 & 2016 & \texttt{HLT\_e17\_lhloose\_nod0\_mu14} & $\pt^{e} > \SI{18}{\GeV}, \pt^\mu > \SI{15}{\GeV}$ \\ \cmidrule{1-4}
+        $\mu\mu$ & 2015 & \texttt{HLT\_mu18\_mu8noL1} & $\pt^{\mu_1} > \SI{19}{\GeV}, \pt^{\mu_2} > \SI{10}{\GeV}$ \\
+                 & 2016 & \texttt{HLT\_mu22\_mu8noL1} & $\pt^{\mu_1} > \SI{24}{GeV}, \pt^{\mu_2} > \SI{9}{\GeV}$ \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -187,11 +187,10 @@ An additional veto on energy depositions in the hadronic calorimeter can be appl
 To account for differences in the trigger efficiencies, correction factors are calculated by comparing
 the efficiencies between data and simulation~\cite{Trigger2015,Trigger2016}.
 An additional offline $\pt$ requirement is introduced to ensure that the trigger efficiencies are in the plateau region.
-The thresholds are $\unit[1-3]{GeV}$ higher than the trigger $\pt$ thresholds.
+The thresholds are \SIrange{1}{3}{\GeV} higher than the trigger $\pt$ thresholds.
 They can be found in \cref{tab:event_selection:trigger:single,tab:event_selection:trigger:di}.
 
 \section{Preselection}\label{sec:event_selection:preselection}
-
 
 Before requiring kinematic cuts to purify signal events a series of
 requirements to ensure data quality are applied.
@@ -199,7 +198,7 @@ requirements to ensure data quality are applied.
     \item[\ \,(1) Good Run List]
         Data events are discarded if they are not included in the good run list,
         which contains the events which were recorded when all sub-detector systems have been in full operational mode.
-        This results in an integrated luminosity of $\lumiint = \unit[36.1]{fb^{-1}}$.
+        This results in an integrated luminosity of $\lumiint = \SI{36.1}{\invfb}$.
     \item[\ \,(2) Primary vertex]
         At least on reconstructed vertex is required, which is consistent with the IP\@.\todo{Additional requirements on the vertex?}\
         This is used to reject events from cosmic rays and beam-halo effects.
@@ -227,26 +226,26 @@ The error bands only contain statistical uncertainties.
         The triggered leptons have to match with the reconstructed leptons.
     \item[\ \,(9) Opposite sign] The electric charge of the two leptons has to be opposite.
     \item[(10) Dilepton mass]
-        The mass of the dilepton systems is restricted to $\unit[30]{GeV} < \mll < \unit[75\,(100)]{GeV}$ for SF (DF) events.
+        The mass of the dilepton systems is restricted to $\SI{30}{\GeV} < \mll < \SI{75\,(100)}{\GeV}$ for SF (DF) events.
         This helps to reduce the Drell-Yan $\Zgammall$ background.
         \cref{fig:event_selection:cutflow:mll} shows the $\mll$ distribution for SF and DF events before Cut~10.
     \item[(11) Jet momentum]
-        Jets need to have a transverse momentum of $\pt > \unit[25]{GeV}$. At least one jet with $\pt > \unit[40]{GeV}$ is
+        Jets need to have a transverse momentum of $\pt > \SI{25}{\GeV}$. At least one jet with $\pt > \SI{40}{\GeV}$ is
         required.
         This helps to select both the VBF and boosted category (\cref{sec:event_selection:categorization}).
         The transverse momentum distribution of the leading jet, $\pt^{\text{jet}_1}$, before Cut~11 is shown in \cref{fig:event_selection:cutflow:jetlead}.
     \item[(12) Missing transverse energy]
-        For DF events a cut on $\etmiss > \unit[20]{GeV}$ is applied, since neutrinos are expected in the final state.
-        To reduce $\Zgammall$ background, the requirement is tightened to $\etmiss > \unit[55]{GeV}$ for SF events.
+        For DF events a cut on $\etmiss > \SI{20}{\GeV}$ is applied, since neutrinos are expected in the final state.
+        To reduce $\Zgammall$ background, the requirement is tightened to $\etmiss > \SI{55}{\GeV}$ for SF events.
         \cref{fig:event_selection:cutflow:met} shows the $\etmiss$ distribution for SF and DF events before Cut~12.
     \item[(13) Missing transverse energy (HPTO)]
         The missing transverse energy is calculated from only high-$\pt$ objects (HPTO). Only the two decay leptons and
-        all jets with a transverse momentum of $\pt > \unit[30]{GeV}$ are used.
+        all jets with a transverse momentum of $\pt > \SI{30}{\GeV}$ are used.
         \begin{equation}
             \label{eq:met:hpto}
-            \etmissvecobj{\text{HPTO}} = - \ptvec^{\ell_0} - \ptvec^{\ell_1} - \sum_{\mathclap{\substack{\text{jets} \\ \pt > \unit[30]{GeV}}}} \ptvec^\text{jet}
+            \etmissvecobj{\text{HPTO}} = - \ptvec^{\ell_0} - \ptvec^{\ell_1} - \sum_{\mathclap{\substack{\text{jets} \\ \pt > \SI{30}{\GeV}}}} \ptvec^\text{jet}
         \end{equation}
-        A HPTO missing transverse energy of $\etmisshpto > \unit[55]{GeV}$ for SF events is required to further reject
+        A HPTO missing transverse energy of $\etmisshpto > \SI{55}{\GeV}$ for SF events is required to further reject
         $\Zgammall$ background.
         The \etmisshpto{} distribution is shown for SF events before Cut~13 in \cref{fig:event_selection:cutflow:hpto}.
     \item[(14) Momentum fraction]
@@ -261,12 +260,12 @@ The error bands only contain statistical uncertainties.
         The $\dr$ separation between the two leptons is required to be $\drll < 2$.
         \cref{fig:event_selection:cutflow:drll} shows the $\drll$ distribution before Cut~16.
     \item[(17) Collinear mass]
-        To ensure orthogonality with the $H \to WW$ analysis, the collinear mass (\cref{sub:event_selection:mcoll}) is limited to $\mcoll > m_\Z - \unit[25]{GeV}$.
+        To ensure orthogonality with the $H \to WW$ analysis, the collinear mass (\cref{sub:event_selection:mcoll}) is limited to $\mcoll > m_\Z - \SI{25}{\GeV}$.
         The $\mcoll$ distribution before Cut~17 is shown in \cref{fig:event_selection:cutflow:mcoll}.
     \item[(18) MMC mass]
         Events where the MMC mass reconstruction algorithm (\cref{sub:event_selection:mmc}) did not converge are discarded.
     \item[(19) b-jet veto]
-        Events which contain $b$-jets (\cref{sec:object_selection:jets}) with $\pt > \unit[25]{GeV}$ are vetoed.
+        Events which contain $b$-jets (\cref{sec:object_selection:jets}) with $\pt > \SI{25}{\GeV}$ are vetoed.
         This helps to reduce the single-top and $\ttbar$ background.
 \end{description}
 
@@ -363,7 +362,7 @@ in the forward region of the detector.
 The following cuts are applied to select this topology:\todo{Add plots with variables before they are cut on.}
 \begin{description}[style=nextline,leftmargin=1cm]
     \item[(1V) Subleading jet momentum]
-        A second jet is required with at least $\pt > \unit[30]{GeV}$.
+        A second jet is required with at least $\pt > \SI{30}{\GeV}$.
     \item[(2V) Opposite hemispheres]
         The two leading jets need to occupy different hemispheres of the detector due to the VBF topology.
         This can be achieved by applying the $\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2} < 0$ requirement.
@@ -373,10 +372,10 @@ The following cuts are applied to select this topology:\todo{Add plots with vari
     \item[(4V) Lepton candidate centrality]
         The $\eta$ of the selected leptons must lie in between the two jets.
     \item[(5V) Invariant mass of the dijet system]
-        The dijet system is required to have an invariant mass of $\mjj > \unit[400]{GeV}$.
+        The dijet system is required to have an invariant mass of $\mjj > \SI{400}{\GeV}$.
 \end{description}
 Furthermore, the VBF category is split into a \emph{high} and \emph{low} VBF category,
-with requirements on the transverse momentum of the di-$\tau$ system, $\pt^{\tau\tau} > \unit[100]{GeV}$ and $\pt^{\tau\tau} < \unit[100]{GeV}$, respectively.
+with requirements on the transverse momentum of the di-$\tau$ system, $\pt^{\tau\tau} > \SI{100}{\GeV}$ and $\pt^{\tau\tau} < \SI{100}{\GeV}$, respectively.
 The transverse momentum of the di-$\tau$ system is calculated from the transverse momenta of the visible decay products of the
 $\tau$-leptons and the missing transverse energy.
 This helps to increase the sensitivity, provided that the statistics in the sub-categories are still high enough.
@@ -405,10 +404,10 @@ The selection criteria for the boosted category are as follows:\todo{Add plots w
     \item[(1B) Veto on VBF selection]
         The events have to pass the preselection, but not the VBF selection.
     \item[(2B) Higgs boson transverse momentum]
-        The transverse momentum of the di-$\tau$ system is required to be $\pt^{\tau\tau} > \unit[100]{GeV}$.
+        The transverse momentum of the di-$\tau$ system is required to be $\pt^{\tau\tau} > \SI{100}{\GeV}$.
 \end{description}
 Similar to the VBF category, also the boosted category is divided into two sub-categories.
-All events which pass the requirements $\pt^{\tau\tau} > \unit[140]{GeV}$ and $\drll < 1.5$ are sorted
+All events which pass the requirements $\pt^{\tau\tau} > \SI{140}{\GeV}$ and $\drll < 1.5$ are sorted
 into the \emph{high-boosted} category. All other events which do not pass these criteria are filled in the
 \emph{low-boosted} category.
 
@@ -437,7 +436,7 @@ the preselection and in the inclusive VBF and boosted categories.
 \begin{table}[htpb]
     \centering
     \caption{Event yields for the different signal and background processes after the preselection
-             and in the inclusive VBF and boosted categories with a combined 2016 and 2016 dataset of $\unit[36.1]{fb^{-1}}$.
+             and in the inclusive VBF and boosted categories with a combined 2016 and 2016 dataset of $\SI{36.1}{\invfb}$.
              Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
              Only statistical uncertainties are shown.}\label{tab:event_selection:yields}
     \begin{tabular}{lrrr}

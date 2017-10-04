@@ -53,7 +53,7 @@ labeled as  \emph{loose}, \emph{medium}, and \emph{tight}.
 They provide a different level of electron identification efficiency and background rejection.
 
 In this analysis the \emph{loose} criterion is chosen.
-Additional requirements are $\pt > \unit[15]{GeV}$ and $\abs{\eta} < 2.47$.
+Additional requirements are $\pt > \SI{15}{\GeV}$ and $\abs{\eta} < 2.47$.
 The Pixel Detector and SCT can only provide information for reconstruction and identification in this $\eta$-range.
 Electrons within $1.37 < \abs{\eta} < 1.52$ are excluded, because of the poor reconstruction and identification
 performance caused by the transition region between the barrel and end-cap calorimeters.
@@ -62,13 +62,13 @@ To increase the background rejection, isolation requirements are introduced by t
 The calorimetric isolation energy $\et^{\text{cone}0.2}$ is defined as the sum of transverse energy deposited within
 $\dr = 0.2$ around the electron candidates.
 Corrections for electron energy leakage, pile-up, and the underlying event activity are applied.
-The sum of the transverse momentum of all tracks within $\dr = \min(0.2, \unit[10]{GeV} / \et)$ builds the
+The sum of the transverse momentum of all tracks within $\dr = \min(0.2, \SI{10}{\GeV} / \et)$ builds the
 track isolation $\pt^{\text{varcone}0.2}$. The tracks need to fulfill certain quality requirements and have to originate
 from the primary vertex.
 Based on different selection criteria on the quantities $\et^{\text{cone}0.2} / \et$ and
 $\pt^{\text{varcone}0.2} / \et$ multiple operating points are constructed. This analysis uses the \emph{gradient}
 isolation criterion with a targeted efficiency of
-$\unit[0.1143]{\%} \times \et / \text{GeV} + \unit[92.14]{\%}$~\cite{ATLAS-CONF-2016-024}.
+$\SI{0.1143}{\percent} \times \et / \si{\GeV} + \SI{92.14}{\percent}$~\cite{ATLAS-CONF-2016-024}.
 
 The efficiencies of the electron identification and isolation criteria are measured using a \emph{tag-and-probe} technique
 in $\Z \to \epem$ and $\JPsi \to \epem$ events~\cite{ATLAS-CONF-2016-024}.
@@ -118,7 +118,7 @@ To reduce background from mainly pion and kaon decays, different muon identifica
 For \emph{medium} muons only CB and ME tracks are used with some additional requirements on the number of hits in
 different layers and the \emph{q/p significance}\footnote{The \emph{q/p significance} is the absolute value of the
 difference between charge and momentum measured in ID and MS divided by the sum of squares of the respective uncertainties.}.
-In this analysis \emph{loose} muons are used with $\pt > \unit[10]{GeV}$ and $\abs{\eta} < 2.5$.
+In this analysis \emph{loose} muons are used with $\pt > \SI{10}{\GeV}$ and $\abs{\eta} < 2.5$.
 This includes all \emph{medium} muons as well as CT and ST muons, which are however restricted to $\abs{\eta} < 0.1$.
 
 Isolation requirements can further reduce background, because muons originating from heavy particles like $\W$, $\Z$,
@@ -126,12 +126,12 @@ or Higgs bosons are often produced isolated. Two discriminating variables are in
 The calorimetric isolation energy $\et^{\text{topocone}20}$ is defined as the sum of transverse energy deposited within
 $\dr = 0.2$ around the muon candidates.
 Corrections for pile-up and the underlying event activity are applied.
-The sum of the transverse momentum of all tracks with $\pt > \unit[1]{GeV}$ within $\dr = \min(0.3, \unit[10]{GeV} / \pt^\mu)$
+The sum of the transverse momentum of all tracks with $\pt > \SI{1}{\GeV}$ within $\dr = \min(0.3, \SI{10}{\GeV} / \pt^\mu)$
 is defined as the track isolation $\pt^{\text{varcone}0.3}$.
 Based on different selection criteria on the quantities $\et^{\text{topocone}20} / \pt^\mu$ and
 $\pt^{\text{varcone}30} / \pt^\mu$ multiple operating points are constructed.
 This analysis uses the \emph{gradient} isolation criterion which provides an efficiency of more than
-$\unit[90(99)]{\%}$ at $\unit[20(60)]{GeV}$~\cite{PERF-2015-10}.
+\SI{90(99)}{\percent} at \SI{20(60)}{\GeV}~\cite{PERF-2015-10}.
 
 The muon reconstruction and identification efficiencies are obtained with a \emph{tag-and-probe} technique using
 $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events~\cite{PERF-2015-10}.
@@ -165,7 +165,7 @@ They provide infrared and collinear safety by construction.
 
 In this analysis the \antikt{}~\cite{Cacciari:2008gp,Cacciari:2005hq} sequential clustering algorithm, based on energy clusters in the
 hadronic calorimeter, with a distance parameter of $R = 0.4$ is used for jet reconstruction.
-Not all jets are considered in the analysis, only jets with $\pt > \unit[20]{GeV}$ and $\abs{\eta} < 4.5$ are used.
+Not all jets are considered in the analysis, only jets with $\pt > \SI{20}{\GeV}$ and $\abs{\eta} < 4.5$ are used.
 
 The jet four-momenta undergo a series of corrections~\cite{PERF-2016-04}, to take several insufficiencies into account.
 First, the jet origin is corrected to point back to the primary vertex. Next excess energy due to pile-up is removed.
@@ -177,18 +177,18 @@ These corrections raise a list of systematic uncertainties, which are discussed 
 
 \emph{Pile-up} jets can be suppressed with the output of the jet vertex tagger (JVT) algorithm~\cite{PERF-2014-03}, which
 uses tracking and vertexing information to distinguish jets from hard- and soft-scatter interactions.
-All jets in this analysis with $\pt < \unit[50]{GeV}$ and $\abs{\eta} < 2.4$ are required to have $\abs{\text{JVT}} > 0.59$, where the output of the
+All jets in this analysis with $\pt < \SI{50}{\GeV}$ and $\abs{\eta} < 2.4$ are required to have $\abs{\text{JVT}} > 0.59$, where the output of the
 JVT algorithm is also labeled JVT\@.
 In the forward region a special algorithm for forward jets (fJVT) is used~\cite{ATL-PHYS-PUB-2015-034}.
-For this analysis jets with $\pt < \unit[50]{GeV}$ and $\abs{\eta} > 2.5$ need to pass the fJVT algorithm with
+For this analysis jets with $\pt < \SI{50}{\GeV}$ and $\abs{\eta} > 2.5$ need to pass the fJVT algorithm with
 $\text{fJVT} > 0.4$.
 \\[\baselineskip]
 Jets originating from $b$-quarks, also called $b$-jets, can be identified with \emph{$b$-tagging} algorithms.
 These algorithms exploit the fact that $b$-flavoured hadrons (B-hadrons) have quite a long mean life time
-($\tau \approx \unit[1.5]{ps}$~\cite{PDG}) compared to other hadrons.
+($\tau \approx \SI{1.5}{\ps}$~\cite{PDG}) compared to other hadrons.
 The decay creates a secondary vertex several millimeters away from the primary vertex due to time
-dilation.\footnote{If a lifetime of $\tau = \unit[1.5]{ps}$ and rest mass of $m_0 = \unit[5.3]{GeV}$ are assumed (approximate values, taken from~\cite{PDG}),
-the B-hadron travels $c\tau' = c \tau \gamma = c \tau \frac{E}{m_0} = \unit[4.24]{mm}$ in the laboratory frame, if it has an energy of $E = \unit[50]{GeV}$.}.
+dilation.\footnote{If a lifetime of $\tau = \SI{1.5}{\ps}$ and rest mass of $m_0 = \SI{5.3}{\GeV}$ are assumed (approximate values, taken from~\cite{PDG}),
+the B-hadron travels $c\tau' = c \tau \gamma = c \tau \frac{E}{m_0} = \SI{4.24}{\mm}$ in the laboratory frame, if it has an energy of $E = \SI{50}{\GeV}$.}.
 The secondary vertex is reconstructed with the tracks of the charged particles which formed the jet.
 
 Since this analysis focuses on the gluon--gluon fusion and VBF production modes of the Higgs boson, jets produced from
@@ -197,16 +197,16 @@ However, top quarks, which produce a large background in this analysis, almost a
 Therefore, identifying jets originating from $b$-Hadrons gives the possibility to reduce the background produced by top quarks.
 
 This analysis uses the multivariate-based $b$-tagging algorithm MV2c20~\cite{PERF-2012-04,ATL-PHYS-PUB-2016-012} with
-a working point resulting in \unit[85]{\%} efficiency for $b$-jets in simulated $t\overline{t}$ events.
+a working point resulting in \SI{85}{\percent} efficiency for $b$-jets in simulated $t\overline{t}$ events.
 The comparison to data is used to calculate tagging and mis-tagging correction factors.
-The requirements of $\pt > \unit[25]{GeV}$ and $\abs{\eta} < 2.4$ are additionally applied to the $b$-tagged jets.
+The requirements of $\pt > \SI{25}{\GeV}$ and $\abs{\eta} < 2.4$ are additionally applied to the $b$-tagged jets.
 
 
 \section{Hadronically decaying  $\tau$-leptons}\label{sec:object_selection:tau_leptons}
 
 Tau leptons can either decay into leptons ($\tau \to \ell \nu_\tau \nu_\ell$, $\ell = e, \mu$) or hadrons
 ($\tau \to \text{hadrons}$, denoted as \tauhad{}).
-With a mass of \unit[1.777]{GeV} and a proper decay length of $\unit[87]{\mu m}$~\cite{PDG}, the decay usually happens before
+With a mass of \SI{1.777}{\GeV} and a proper decay length of \SI{87}{\um}~\cite{PDG}, the decay usually happens before
 the $\tau$-lepton reaches the active part of the ID\@.
 
 Leptonically decaying $\tau$-leptons are identified as electrons ore muons, only hadronically decaying $\tau$-leptons can be reconstructed,
@@ -219,9 +219,9 @@ However a veto on $\tauhadvis$ candidates can be used to reduce background (see 
 
 The reconstruction starts by selecting jets which are reconstructed by using the \antikt{} algorithm~\cite{Cacciari:2008gp,Cacciari:2005hq}
 with an distance parameter of $\dr = 0.4$.
-Only jets with $\pt > \unit[10]{GeV}$ and $\abs{\eta} < 2.5$ are considered.
+Only jets with $\pt > \SI{10}{\GeV}$ and $\abs{\eta} < 2.5$ are considered.
 $\tauhadvis$ candidates within the transition region of the barrel end-cap calorimeters ($1.37 < \abs{\eta} < 1.52$) are discarded.
-A tau vertex is calculated from the associated tracks ($\dr < 0.2$, $\pt > \unit[1]{GeV}$) of the $\tauhadvis$ candidates.
+A tau vertex is calculated from the associated tracks ($\dr < 0.2$, $\pt > \SI{1}{\GeV}$) of the $\tauhadvis$ candidates.
 The $\eta$-$\phi$ direction is determined with information from the calorimeters. % actually: TopoCLusters
 The mass and all mass related variables are set to zero.
 The energy is  obtained by a tau-specific calibration scheme~\cite{Run1TauPaper}.
@@ -233,7 +233,7 @@ The BDT provides multiple working points labeled as \emph{loose}, \emph{medium},
 with a targeted efficiency of $0.6$ ($0.5$), $0.55$ ($0.4$), and $0.45$ ($0.35$) for 1(3)-pronged \tauhadvis{} candidates, respectively.
 
 In this analysis the \tauhadvis{} candidates need to pass the \emph{loose} working point, with the additional requirements
-of $\pt > \unit[20]{GeV}$ and $\abs{\eta} < 2.5$.
+of $\pt > \SI{20}{\GeV}$ and $\abs{\eta} < 2.5$.
 Candidates within $1.37 < \abs{\eta} < 1.52$ are excluded.
 
 Since the BDT was trained to discriminate between quark- and gluon-initiated jets and jets from $\tau$-leptons, it

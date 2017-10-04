@@ -21,7 +21,7 @@
 \usepackage{tensor}
 \usepackage{commath}
 \usepackage{bm} % bold in math mode
-\usepackage{units}
+\usepackage{siunitx}
 
 %layout and style
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
@@ -92,6 +92,10 @@
 % \let\originalright\right
 % \renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
 % \renewcommand{\right}{\aftergroup\egroup\originalright}
+
+% units
+\DeclareSIUnit\rad{rad}
+\newcommand{\invfb}{\per\femto\barn}
 
 % math
 \renewcommand{\abs}[1]{\ensuremath{\left|#1\right|}}

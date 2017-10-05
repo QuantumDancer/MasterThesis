@@ -15,7 +15,11 @@
 *.ind
 *.xdy
 *.tdo
+*.1
+*.mp
+*.t1
 
 main.pdf
 *converted-to.pdf
 corrections/
+feynman/*.pdf

@@ -1,0 +1,48 @@
+% !TEX program = pdflatex
+% !TEX encoding = UTF-8
+\documentclass[12pt]{standalone}
+
+% language, encoding, font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{commath}
+\usepackage{bm} % bold in math mode
+\usepackage{units}
+\usepackage{color}
+\usepackage{feynmp-auto}
+
+\begin{document}
+
+\begin{fmffile}{fmf_h_ggf}
+    \begin{fmfgraph*}(130,75)
+        \fmftop{i1,d1,o1}
+        \fmfright{o2}
+        \fmfbottom{i2,d2,o3}
+        \fmf{phantom}{i1,v1,d3,o1}
+        \fmf{phantom}{i2,v2,d4,o3}
+        \fmffreeze
+        \fmf{gluon}{i1,v1}
+        \fmf{gluon}{i2,v2}
+        \fmf{fermion, label=$t,,b$, label.side=left}{v1,v2}
+        \fmf{fermion}{v2,v3,v1}
+        \fmf{dashes, tension=2}{v3,v4}
+        \fmf{phantom, tension=5}{v4,o2}
+        \fmfdot{v1,v2,v3}
+        \fmfv{label=$H$, label.dist=-2}{v4}
+        \fmfv{label=$g$, label.dist=1, label.angle=180}{i1}
+        \fmfv{label=$g$, label.dist=1, label.angle=180}{i2}
+        %\fmfdot{d1,d2,d3,d4,o1,o3}
+    \end{fmfgraph*}
+\end{fmffile}
+
+\end{document}
+
+% vim: filetype=tex

@@ -1,0 +1,41 @@
+% !TEX program = pdflatex
+% !TEX encoding = UTF-8
+\documentclass[12pt]{standalone}
+
+% language, encoding, font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{commath}
+\usepackage{bm} % bold in math mode
+\usepackage{units}
+\usepackage{color}
+\usepackage{feynmp-auto}
+
+\begin{document}
+
+\begin{fmffile}{fmf_h_strahl}
+    \begin{fmfgraph*}(90,75)
+        \fmfleft{i1,i2}
+        \fmfright{o1,o2}
+        \fmf{fermion}{i1,v1,i2}
+        \fmf{boson,label=$W,,Z$, label.side=left}{v1,v2}
+        \fmf{boson}{v2,o2}
+        \fmf{dashes}{v2,o1}
+        \fmfdot{v1,v2}
+        \fmfv{label=$\overline{q}$, label.angle=135, label.dist=2}{i1}
+        \fmfv{label=$q$, label.angle=-135, label.dist=2}{i2}
+        \fmfv{label=$H$, label.angle=45, label.dist=1}{o1}
+    \end{fmfgraph*}
+\end{fmffile}
+
+\end{document}
+
+% vim: filetype=tex

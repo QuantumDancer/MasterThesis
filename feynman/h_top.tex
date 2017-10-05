@@ -1,0 +1,63 @@
+% !TEX program = pdflatex
+% !TEX encoding = UTF-8
+\documentclass[12pt]{standalone}
+
+% language, encoding, font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+% math
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{tensor}
+\usepackage{commath}
+\usepackage{bm} % bold in math mode
+\usepackage{units}
+\usepackage{color}
+\usepackage{feynmp-auto}
+
+\begin{document}
+
+\begin{fmffile}{fmf_h_top}
+    \begin{fmfgraph*}(110,75)
+        \fmfstraight
+        \fmfleft{dl1,i1,dl2,i2,dl3}
+        \fmfright{dr0,dr1,o1,dr2,dr3}
+        \fmftop{t1,t2,t3,t4}
+        \fmfbottom{b1,b2,b3,b4}
+
+        \fmf{phantom}{i1,v1}
+        \fmf{phantom, tension=4}{v1,dv1}
+        \fmf{phantom}{dv1,dr1}
+
+        \fmf{phantom}{i2,v2}
+        \fmf{phantom, tension=4}{v2,dv2}
+        \fmf{phantom}{dv2,dr2}
+
+        \fmf{phantom}{dl2,dv3,v3,o1}
+        \fmffreeze
+        \fmf{gluon}{i1,v1}
+        \fmf{gluon}{i2,v2}
+        \fmf{fermion}{b3,v1}
+        \fmf{fermion}{v1,v3}
+        \fmf{fermion}{v3,v2}
+        \fmf{fermion}{v2,t3}
+        \fmf{dashes}{v3,o1}
+        \fmfdot{v1,v2,v3}
+        \fmfv{label=$g$, label.dist=1}{i1}
+        \fmfv{label=$g$, label.dist=1}{i2}
+        \fmfv{label=$\overline{t}$, label.angle=110}{b3}
+        \fmfv{label=$\overline{t}$, label.angle=110}{v3}
+        \fmfv{label=$t$, label.angle=20, label.dist=21.5}{v1}
+        \fmfv{label=$t$, label.angle=20, label.dist=21.5}{v2}
+        \fmfv{label=$H$, label.dist=1.5, label.angle=-110}{o1}
+        %\fmfdot{i1,i2,dl1,dl2,dl3,dr0,dr1,dr2,dr3,o1,dv1,dv2,dv3,t2,t3,b2,b3}
+    \end{fmfgraph*}
+\end{fmffile}
+
+\end{document}
+
+% vim: filetype=tex

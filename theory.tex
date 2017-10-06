@@ -135,9 +135,60 @@ at the LHC\@.
         \includegraphics[width=\textwidth]{feynman/h_top.pdf}
         \caption{associated \mbox{production} with top-quarks}\label{fig:theory:higgs:vbf}
     \end{subfigure}
-    \caption{Feynman diagrams of the most important production modes of the Higgs boson at the LHC\@. The cross-section
+    \caption{Feynman diagrams of the dominant production modes of the Higgs boson at the LHC\@. The cross-section
              decreases from left to right.}\label{fig:theory:higgs:production}
 \end{figure}
+
+The production mode with the highest cross-section is gluon--gluon fusion (ggF).
+This is due to the high contribution of gluon PDF in protons for small momentum fractions $x$, which enables
+a quark loop producing a Higgs boson. Because coupling strength of the Higgs boson is proportional to the mass of the
+interaction particle, top and bottom quarks contributions dominate in the quark loop.
+At leading order only the Higgs boson is produced, therefore it has no transverse momentum.
+However, at higher orders final state QCD radiation is possible, which acts as a recoil partner for the Higgs boson.
+This is important for measurements, because otherwise the Higgs boson could not be detected.
+
+One order below the cross-section of gluon--gluon fusion the vector-boson fusion (VBF) production mode can be found.
+Here two initial state quarks radiate a $Z^0$ or $W^\pm$ boson.
+The bosons annihilate and produce a Higgs boson.
+The two final state quarks provide a characteristic signature, which is defined by a high mass of the dijet system
+and a large separation of the two jets in the pseudorapidity $\eta$ as defined in \cref{eq:pseudorapidity}.
+
+Another production mode is the so-called Higgs-Strahlung, where one weak boson created by the annihilation of
+a quark--antiquark pair radiates a Higgs boson.
+
+The Higgs boson production associated with a top-quark pair has a suppressed cross-section compared with the
+other production modes.
+Because of the large mass of the top quark a high invariant mass is required, which reduces the available phase space.
+
+A distribution of the cross-sections for different Higgs-boson production-modes as a function of the center-of-mass
+energy $\sqrt{s}$ is shown in \cref{fig:theory:higgs:xsecs}.
+The values of the cross-sections of the most dominant production modes of the Higgs boson at $\sqrt{s} = \SI{13}{\GeV}$
+and corresponding uncertainties are listed in \cref{tab:theory:higgs:prodxsec}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./figures/theory/higgs_xsec_production.pdf}
+    \includegraphics[width=0.45\textwidth]{./figures/theory/higgs_xsec_decay.eps}
+    \caption{Production cross-sections of the Higgs boson as a function of the center-of-mass energy $\sqrt{s}$ (left)~\cite{YR4}
+             and cross-sections of the Higgs boson decay-modes depeding in the mass $m_H$ of the Higgs boson (right)~\cite{YR3}.}\label{fig:theory:higgs:xsecs}
+\end{figure}
+
+\begin{table}[htpb]
+    \centering
+    \caption{Inclusive cross-sections of different production modes of the Higgs boson with different uncertainties
+             for proton--proton collisions at $\sqrt{s} = \SI{13}{\GeV}$ and a mass of the Higgs boson
+             of $m_H = \SI{125}{\GeV}$~\cite{YR4}.}\label{tab:theory:higgs:prodxsec}
+    \begin{tabular}{cScSS}
+        \toprule
+        Mode & $\sigma / \si{\pico\barn}$ & $\delta_\text{QCD scale}$ & $\delta_\text{PDF}$ & $\delta_{\alpha_s}$ \\ \midrule
+        ggF & 48.58 & \errud{\SI{4.6}{\percent}}{\SI{6.7}{\percent}} & \SI{\pm 1.9}{\percent} & \SI{\pm 2.6}{\percent} \\ \addlinespace[0.2em]
+        VBF & 3.782 & \errud{\SI{0.4}{\percent}}{\SI{0.3}{\percent}} & \SI{\pm 2.1}{\percent} & \SI{\pm 0.5}{\percent} \\ \addlinespace[0.2em]
+        WH  & 1.373 & \errud{\SI{0.5}{\percent}}{\SI{0.7}{\percent}} & \SI{\pm 1.7}{\percent} & \SI{\pm 0.9}{\percent} \\ \addlinespace[0.2em]
+        ZH  & 0.8839 & \errud{\SI{3.8}{\percent}}{\SI{3.1}{\percent}} & \SI{\pm 1.3}{\percent} & \SI{\pm 0.9}{\percent} \\ \addlinespace[0.2em]
+        ttH & 0.5071 & \errud{\SI{5.8}{\percent}}{\SI{9.2}{\percent}} & \SI{\pm 3.0}{\percent} & \SI{\pm 2.0}{\percent} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Decay Modes of the Higgs Boson}
 \label{sub:theory:higgs:decay}

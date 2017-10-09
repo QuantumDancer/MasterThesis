@@ -192,53 +192,64 @@ They can be found in \cref{tab:event_selection:trigger:single,tab:event_selectio
 
 \section{Preselection}\label{sec:event_selection:preselection}
 
-Before requiring kinematic cuts to purify signal events a series of
-requirements to ensure data quality are applied.
+First, all events are selected which pass the triggers as described in the section above.
+Before applying kinematic cuts to suppress background contributions a series of requirements to
+ensure data quality are applied.
+
+Data events are discarded if they are not included in the good run list,
+which contains the runs where all subdetector systems have been in full operational mode.
+The total integrated luminosity of all the good runs in 2015 and 2016 is $\lumiint = \SI{36.1}{\invfb}$.
+Additionally, at least one reconstructed vertex consistent with the IP is required.
+This rejects events from cosmic rays and beam-halo effects.
+Furthermore, badly reconstructed events are removed.
+
+Now basic preselection requirements (\emph{cuts}) are applied to select the decay topology of the \Httll{} decay.
+The cuts are numbered for future references.
+In \cref{fig:event_selection:cutflow:1,fig:event_selection:cutflow:2}
+distributions of the signal and different backgrounds is shown for a variable before the cut on this variable is performed.
+Normalization factors as defined in \cref{sec:background_estimation:normalization} are applied.
+Their values are $1.06$ (top), $1.19$ (\Zll), and $1.07$ (\Ztautau) respectively.
+The signal is scaled by factor $50$.
+Underflow and overflow bins are included in the first and last bin, respectively.
+Only statistical uncertainties are contained in the error band.
 \begin{description}[style=nextline,leftmargin=1cm]
-    \item[\ \,(1) Good Run List]
-        Data events are discarded if they are not included in the good run list,
-        which contains the events which were recorded when all sub-detector systems have been in full operational mode.
-        This results in an integrated luminosity of $\lumiint = \SI{36.1}{\invfb}$.
-    \item[\ \,(2) Primary vertex]
-        At least on reconstructed vertex is required, which is consistent with the IP\@.\todo{Additional requirements on the vertex?}\
-        This is used to reject events from cosmic rays and beam-halo effects.
-    \item[\ \,(3) Jet cleaning and crazy muon veto]
-        Events with jet contributions which can not be associated with hard scattering are removed~\cite{JetCleaning2015,JetCleaning2016}. \todo{Crazy muon veto?}
-\end{description}
-Now basic trigger and preselection cuts are applied to select the decay topology of the \Httll{} decay.
-Whenever viable, a distribution of  the signal and different backgrounds is shown for a variable before the cut on
-this variable was applied. Normalization factors as defined in \cref{sec:background_estimation:normalization} are applied.
-Their values are 1.06 (top), 1.19 (\Zll), and 1.07 (\Ztautau) respectively.
-The signal is scaled by factor 20.\todo{Change signal scaling to x50}\
-The error bands only contain statistical uncertainties.
-\begin{description}[style=nextline,leftmargin=1cm]
-    \item[\ \,(4) Number of leptons]
+    \item[\ \,(1) Number of leptons]
         Exactly two leptons, either two electrons, one electron and on muon, or two muons, with the reconstruction
         and identification criteria defined in \cref{sec:object_selection:electrons,sec:object_selection:muons} are required.
-    \item[\ \,(5) Lepton identification and isolation criteria]
+    \item[\ \,(2) Lepton identification and isolation criteria]
         The electrons and muons need to pass the \emph{medium} identification and \emph{gradient} isolation criteria.
-    \item[\ \,(6) Hadronic tau veto]
+    \item[\ \,(3) Hadronic tau veto]
         To ensure orthogonality to the \Httlh{} and \Htthh{} channels all events with one or more hadronic $\tau$-leptons
         obeying the \emph{medium} criterion are vetoed.
-    \item[\ \,(7) Trigger]
-        The event has to pass on of the triggers as defined in \cref{sec:event_selection:trigger}.
-    \item[\ \,(8) Trigger matching]
-        The triggered leptons have to match with the reconstructed leptons.
-    \item[\ \,(9) Opposite sign] The electric charge of the two leptons has to be opposite.
-    \item[(10) Dilepton mass]
-        The mass of the dilepton systems is restricted to $\SI{30}{\GeV} < \mll < \SI{75\,(100)}{\GeV}$ for SF (DF) events.
-        This helps to reduce the Drell-Yan $\Zgammall$ background.
-        \cref{fig:event_selection:cutflow:mll} shows the $\mll$ distribution for SF and DF events before Cut~10.
-    \item[(11) Jet momentum]
+    \item[\ \,(4) Trigger]
+        The event is associated with the trigger which selected it by testing which trigger is passed by the event.
+        Since the trigger efficiency is not the same for data and simulated events, correction factors
+        are derived by comparing the trigger efficiency in data and simulation.
+        Those correction factors need to be applied to the simulated events.
+        However, different triggers have different efficiencies and correction factors, so it is important that the
+        correction factor of the right trigger is applied.
+    \item[\ \,(5) Trigger matching]
+        The objects which caused the event to pass the trigger have to match with the reconstructed leptons.
+    \item[\ \,(6) Opposite sign]
+        The electric charge of the two leptons has to be opposite.
+    \item[\ \,(7) Dilepton mass]
+        The mass of the dilepton system is restricted to $\SI{30}{\GeV} < \mll < \SI{75\,(100)}{\GeV}$ for SF (DF) events.
+        For SF events this helps to reduce the Drell-Yan $\Zgammall$ background, since the signal distribution peaks at around \SI{50}{\GeV}
+        and the $\Zll$ background has its maximum at the mass of the $Z$ boson, $m_Z = \SI{91}{\GeV}$, as shown in \cref{fig:event_selection:cutflow:mllsf}.
+        The $\gamma^* \to \ell\ell$ background is reduced by the lower cut, because it rises for low values of $\mll$.
+        The main discrimination for DF events is against the top background, which is the dominating background outside of the range spanned by the cut.
+        The distribution of $\mll$ for DF events is displayed in \cref{fig:event_selection:cutflow:mlldf}.
+    \item[\ \,(8) Jet momentum]
         Jets need to have a transverse momentum of $\pt > \SI{25}{\GeV}$. At least one jet with $\pt > \SI{40}{\GeV}$ is
         required.
         This helps to select both the VBF and boosted category (\cref{sec:event_selection:categorization}).
-        The transverse momentum distribution of the leading jet, $\pt^{\text{jet}_1}$, before Cut~11 is shown in \cref{fig:event_selection:cutflow:jetlead}.
-    \item[(12) Missing transverse energy]
+        The transverse momentum distribution of the leading jet, $\pt^{\text{jet}_1}$, before Cut~8 is shown in \cref{fig:event_selection:cutflow:jetlead}.
+        Mainly $\Zll$ and $\Ztautau$ events are rejected by this cut.
+    \item[\ \,(9) Missing transverse energy]
         For DF events a cut on $\etmiss > \SI{20}{\GeV}$ is applied, since neutrinos are expected in the final state.
-        To reduce $\Zgammall$ background, the requirement is tightened to $\etmiss > \SI{55}{\GeV}$ for SF events.
-        \cref{fig:event_selection:cutflow:met} shows the $\etmiss$ distribution for SF and DF events before Cut~12.
-    \item[(13) Missing transverse energy (HPTO)]
+        Since the $\Zgammall$ background is largest for low values of \etmiss{}, as can be seen in \cref{fig:event_selection:cutflow:metsf},
+        the requirement is tightened to $\etmiss > \SI{55}{\GeV}$ for SF events.
+    \item[(10) Missing transverse energy (HPTO)]
         The missing transverse energy is calculated from only high-$\pt$ objects (HPTO). Only the two decay leptons and
         all jets with a transverse momentum of $\pt > \SI{30}{\GeV}$ are used.
         \begin{equation}
@@ -246,104 +257,91 @@ The error bands only contain statistical uncertainties.
             \etmissvecobj{\text{HPTO}} = - \ptvec^{\ell_0} - \ptvec^{\ell_1} - \sum_{\mathclap{\substack{\text{jets} \\ \pt > \SI{30}{\GeV}}}} \ptvec^\text{jet}
         \end{equation}
         A HPTO missing transverse energy of $\etmisshpto > \SI{55}{\GeV}$ for SF events is required to further reject
-        $\Zgammall$ background.
-        The \etmisshpto{} distribution is shown for SF events before Cut~13 in \cref{fig:event_selection:cutflow:hpto}.
-    \item[(14) Momentum fraction]
+        $\Zgammall$ background, which can be seen in \cref{fig:event_selection:cutflow:hpto}.
+    \item[(11) Momentum fraction]
         The momentum fractions carried by the visible decay products of the $\tau$-lepton decay are restricted to $0.1 < x_{1,2} < 1.0$.
         They are calculated in the collinear mass approximation (\cref{sub:event_selection:mcoll}).
         This rejects background events where the assumption of collinearity of the $\tau$-lepton and its visible decay product is not valid.
-        \cref{fig:event_selection:cutflow:x} shows the distributions of $x_1$ and $x_2$ before Cut~14.
-    \item[(15) Angular difference in $\bm{\eta}$]
+        \cref{fig:event_selection:cutflow:x1,fig:event_selection:cutflow:x2} show the distributions of $x_1$ and $x_2$ before Cut~11.
+    \item[(12) Angular difference in $\bm{\eta}$]
         This cut limits the $\eta$ difference between the two leptons to $\absdetall < 1.5$.
-        The $\absdetall$ distribution before Cut~15 is shown in \cref{fig:event_selection:cutflow:detall}.
-    \item[(16) Angular difference in $\bm{\dr}$]
+        The $\absdetall$ distribution before Cut~12 is shown in \cref{fig:event_selection:cutflow:detall}.
+    \item[(13) Angular difference in $\bm{\dr}$]
         The $\dr$ separation between the two leptons is required to be $\drll < 2$.
         \cref{fig:event_selection:cutflow:drll} shows the $\drll$ distribution before Cut~16.
-    \item[(17) Collinear mass]
+    \item[(14) Collinear mass]
         To ensure orthogonality with the $H \to WW$ analysis, the collinear mass (\cref{sub:event_selection:mcoll}) is limited to $\mcoll > m_\Z - \SI{25}{\GeV}$.
-        The $\mcoll$ distribution before Cut~17 is shown in \cref{fig:event_selection:cutflow:mcoll}.
-    \item[(18) MMC mass]
+        The $\mcoll$ distribution before Cut~13 is shown in \cref{fig:event_selection:cutflow:mcoll}.
+    \item[(15) MMC mass]
         Events where the MMC mass reconstruction algorithm (\cref{sub:event_selection:mmc}) did not converge are discarded.
-    \item[(19) b-jet veto]
+    \item[(16) b-jet veto]
         Events which contain $b$-jets (\cref{sec:object_selection:jets}) with $\pt > \SI{25}{\GeV}$ are vetoed.
         This helps to reduce the single-top and $\ttbar$ background.
 \end{description}
 
-\todo{Some labels of the plots need to be updated to the new indexing scheme. Also the $x_{1,2}$ distributions need a wider range.}
-
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/eemm-CutOS-mvis-lin.eps}
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/emme-CutOS-mvis-lin.eps}
-    \caption{Distribution of $\mll$ after Cut~9 for SF (left) and DF (right) events.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:mll}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/eemm-CutOS-mvis-log.eps}
+        \caption{$\mll$ for SF events after Cut~6.}\label{fig:event_selection:cutflow:mllsf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/emme-CutOS-mvis-lin.eps}
+        \caption{$\mll$ for DF events after Cut~6.}\label{fig:event_selection:cutflow:mlldf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutMVis-JetPt0-log.eps}
+        \caption{$\pt^{\text{jet}_1}$ after Cut~7.
+                 The first bin shows all events where no jet has a transverse momentum above \SI{25}{\GeV}.}\label{fig:event_selection:cutflow:jetlead}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/eemm-CutJet0Pt-MET-log.eps}
+        \caption{$\etmiss$ for SF events after Cut~8.}\label{fig:event_selection:cutflow:metsf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/emme-CutJet0Pt-MET-lin.eps}
+        \caption{$\etmiss$ for DF events after Cut~8.}\label{fig:event_selection:cutflow:metdf}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/eemm-CutMET-METhpto-lin.eps}
+        \caption{$\etmisshpto$ for SF events after Cut~9.}\label{fig:event_selection:cutflow:hpto}
+    \end{subfigure}
+    \caption{Distribution of several variables which are used in the preselection before the corresponding cut is applied.
+             The signal and background distributions are normalized to their theory cross-section and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 50.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:1}
 \end{figure}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/ll-CutMVis-JetPt0-lin.eps}
-    \caption{Distribution of $\pt^{\text{jet}_1}$ after Cut~10.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:jetlead}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/eemm-CutJet0Pt-MET-lin.eps}
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/emme-CutJet0Pt-MET-lin.eps}
-    \caption{Distribution of $\etmiss$ after Cut~11 for SF (left) and DF (right) events.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:met}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/eemm-CutMET-METhpto-lin.eps}
-    \caption{Distribution of $\etmisshpto$ after Cut~12.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:hpto}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/ll-CutHPTO-x0-lin.eps}
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/ll-CutHPTO-x1-lin.eps}
-    \caption{Distributions of $x_1$ (left) and $x_2$ (right) after Cut~13.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:x}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/ll-CutX-DeltaEtaLL-lin.eps}
-    \caption{Distribution of $\absdetall$ after Cut~14.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:detall}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/ll-CutDEtaLL-DeltaRLL-lin.eps}
-    \caption{Distribution of $\drll$ after Cut~15.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:drll}
-\end{figure}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.45\textwidth]{./plots/event_selection/ll-CutDRLL-mcoll-lin.eps}
-    \caption{Distribution of $\mcoll$ after Cut~16.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:mcoll}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutHPTO-x0wide-lin.eps}
+        \caption{$x_1$ after Cut~10.}\label{fig:event_selection:cutflow:x1}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutHPTO-x1wide-lin.eps}
+        \caption{$x_2$ after Cut~10.}\label{fig:event_selection:cutflow:x2}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutX-DeltaEtaLL-lin.eps}
+        \caption{$\absdetall$ after Cut~11.}\label{fig:event_selection:cutflow:detall}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutDEtaLL-DeltaRLL-lin.eps}
+        \caption{$\drll$ after Cut~12.}\label{fig:event_selection:cutflow:drll}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutDRLL-mcoll-lin.eps}
+        \caption{$\mcoll$ after Cut~13}\label{fig:event_selection:cutflow:mcoll}
+    \end{subfigure}
+    \caption{Distribution of several variables which are used in the preselection before the corresponding cut is applied.
+             The signal and background distributions are normalized to their theory cross-section and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 50.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:2}
 \end{figure}
 
 
@@ -353,85 +351,149 @@ Since the goal of this analysis is to measure the coupling strength of the Higgs
 in different production modes, dedicated categories for the VBF and gluon--gluon fusion production mode
 are defined by exploiting production-mode specific event topologies.
 They are referred to as the \emph{VBF} and \emph{boosted category}, respectively.
+Further subcategories formed in both cases to improve the sensitivity.
 
 \subsection{VBF category}\label{sub:event_selection:vbf}
 
 In the VBF production mode two vector bosons are used to produce the Higgs boson.
 The vector bosons originate from two partons, which produce two jets with high transverse momentum
 in the forward region of the detector.
-The following cuts are applied to select this topology:\todo{Add plots with variables before they are cut on.}
+No further jets are expected between the two VBF jets, because there is no color flow between the inital partons.
+The following cuts are applied to select this topology:
 \begin{description}[style=nextline,leftmargin=1cm]
     \item[(1V) Subleading jet momentum]
-        A second jet is required with at least $\pt > \SI{30}{\GeV}$.
+        A second jet is required with at least $\pt > \SI{30}{\GeV}$, because the VBF topology has two jets.
+        \cref{fig:event_selection:cutflow:vbf:jet2} shows the distribution of the transverse momentum of the second
+        jet before this cut.
     \item[(2V) Opposite hemispheres]
         The two leading jets need to occupy different hemispheres of the detector due to the VBF topology.
         This can be achieved by applying the $\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2} < 0$ requirement.
+        The distribution of $\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2}$ before Cut~2V is shown in \cref{fig:event_selection:cutflow:vbf:hemispheres}.
     \item[(3V) Angular separation of two leading jets]
-        The separation in $\eta$ between the two VBF jets is expected to be large.
+        The separation in $\eta$ between the two VBF jets is expected to be large, as shown in \cref{fig:event_selection:cutflow:vbf:detajj}.
         Therefore, a cut of $\absdetajj > 3$ is applied.
     \item[(4V) Lepton candidate centrality]
         The $\eta$ of the selected leptons must lie in between the two jets.
     \item[(5V) Invariant mass of the dijet system]
         The dijet system is required to have an invariant mass of $\mjj > \SI{400}{\GeV}$.
+        The distribution of $\mjj$ before Cut~5V is shown in \cref{fig:event_selection:cutflow:vbf:mjj}.
 \end{description}
+
 Furthermore, the VBF category is split into a \emph{high} and \emph{low} VBF category,
 with requirements on the transverse momentum of the di-$\tau$ system, $\pt^{\tau\tau} > \SI{100}{\GeV}$ and $\pt^{\tau\tau} < \SI{100}{\GeV}$, respectively.
 The transverse momentum of the di-$\tau$ system is calculated from the transverse momenta of the visible decay products of the
 $\tau$-leptons and the missing transverse energy.
-This helps to increase the sensitivity, provided that the statistics in the sub-categories are still high enough.
+This helps to increase the sensitivity, provided that the statistics in the subcategories are still high enough.
 
-The distributions of $\mmc$ in the inclusive, high, and low VBF category is shown in \cref{fig:event_selection:vbf:mmc}.\todo{Include systematic uncertainties}
+%The distributions of $\mmc$ in the inclusive, high, and low VBF category is shown in \cref{fig:event_selection:vbf:mmc}.
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.3\textwidth]{./plots/event_selection/ll-CutVBFCat-dilep_mmc_mlm_m_vbf-lin.eps}
-    \includegraphics[width=0.3\textwidth]{./plots/event_selection/ll-CutVBFCatA-dilep_mmc_mlm_m_vbf-lin.eps}
-    \includegraphics[width=0.3\textwidth]{./plots/event_selection/ll-CutVBFCatB-dilep_mmc_mlm_m_vbf-lin.eps}
-    \caption{Distributions of the output of the missing mass calculator algorithm, $\mmc$, in the inclusive (left),
-             low (middle), and high (right) VBF category.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
-             The error band includes statistic and systematic uncertainties.}\label{fig:event_selection:vbf:mmc}
-\end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.3\textwidth]{./plots/event_selection/presel/ll-CutVBFCatMjj-dilep_mmc_mlm_m_vbf-lin.eps}
+%     \includegraphics[width=0.3\textwidth]{./plots/event_selection/presel/ll-CutVBFCatA-dilep_mmc_mlm_m_vbf-lin.eps}
+%     \includegraphics[width=0.3\textwidth]{./plots/event_selection/presel/ll-CutVBFCatB-dilep_mmc_mlm_m_vbf-lin.eps}
+%     \caption{Distributions of the output of the missing mass calculator algorithm, $\mmc$, in the inclusive (left),
+%              low (middle), and high (right) VBF category.
+%              Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+%              The signal is scaled by a factor of 20.
+%              The error band includes statistic and systematic uncertainties.}\label{fig:event_selection:vbf:mmc}
+% \end{figure}
 
 \subsection{Boosted category}\label{sub:event_selection:boosted}
 
-In contrast to the VBF production mode, the gluon--gluon fusion production mode has no outgoing partons at tree-level.\todo{Ref feynman graph in theory chapter}
+In contrast to the VBF production mode, the gluon--gluon fusion production mode has no outgoing partons at tree-level.
 However, higher order QCD corrections can produce a recoil jet, which leads to a high transverse momentum of the Higgs boson.
-This helps to suppress the irreducible $\Ztautau$ background.
-The selection criteria for the boosted category are as follows:\todo{Add plots with variables before they are cut on.}
+An example Feynman diagram for such a process is displayed in \cref{fig:event_selection:boostedjet}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./feynman/boosted.pdf}
+    \caption{Production of a Higgs boson via gluon--gluon fusion with an additional jet.}\label{fig:event_selection:boostedjet}
+\end{figure}
+
+
+The selection criteria for the boosted category are as follows:
 \begin{description}[style=nextline,leftmargin=1cm]
     \item[(1B) Veto on VBF selection]
         The events have to pass the preselection, but not the VBF selection.
     \item[(2B) Higgs boson transverse momentum]
-        The transverse momentum of the di-$\tau$ system is required to be $\pt^{\tau\tau} > \SI{100}{\GeV}$.
+        The transverse momentum of the di-$\tau$ system is required to be $\pt^{\tau\tau} > \SI{100}{\GeV}$, since
+        the goal is to select the boosted topology.
+        A distribution of $\pt^{\tau\tau}$ before Cut~2B is shown in \cref{fig:event_selection:cutflow:boosted:pttautau}.
 \end{description}
-Similar to the VBF category, also the boosted category is divided into two sub-categories.
+Similar to the VBF category, also the boosted category is divided into two subcategories.
 All events which pass the requirements $\pt^{\tau\tau} > \SI{140}{\GeV}$ and $\drll < 1.5$ are sorted
 into the \emph{high-boosted} category. All other events which do not pass these criteria are filled in the
 \emph{low-boosted} category.
 
-\cref{fig:event_selection:boosted:mmc} shows the distributions of $\mmc$ in the inclusive boosted, low-boosted, and high-boosted regions.
-\todo{Include systematic uncertainties}
-
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.3\textwidth]{./plots/event_selection/ll-CutBoostedCat-dilep_mmc_mlm_m-lin.eps}
-    \includegraphics[width=0.3\textwidth]{./plots/event_selection/ll-CutBoostedCatA-dilep_mmc_mlm_m-lin.eps}
-    \includegraphics[width=0.3\textwidth]{./plots/event_selection/ll-CutBoostedCatB-dilep_mmc_mlm_m-lin.eps}
-    \caption{Distributions of the output of the missing mass calculator algorithm, $\mmc$, in the inclusive boosted (left),
-             low-boosted (middle), and high-boosted (right) boosted category.
-             Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutbVeto-JetPt1-lin.eps}
+        \caption{$\pt^{\text{jet}_2}$ after Cut~16. The first bin contains all events with no second jet.}\label{fig:event_selection:cutflow:vbf:jet2}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutVBFCatJet1Pt-EtaProductJ0J1-lin.eps}
+        \caption{$\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2}$ after Cut~1V.}\label{fig:event_selection:cutflow:vbf:hemispheres}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutVBFCatOppositeHemispheres-DJetEta-lin.eps}
+        \caption{$\detajj$ after Cut~2V.}\label{fig:event_selection:cutflow:vbf:detajj}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutVBFCatLCentrality-Mjj-lin.eps}
+        \caption{$m_{jj}$ after Cut~4V.}\label{fig:event_selection:cutflow:vbf:mjj}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutBoostedCatNoVBF-PtTauTau-lin.eps}
+        \caption{$\pt^{\tau\tau}$ after Cut~1B.}\label{fig:event_selection:cutflow:boosted:pttautau}
+    \end{subfigure}
+    \caption{Distribution of several variables which are used in the categorization before the corresponding cut is applied.
+             The signal and background distributions are normalized to their theory cross-section and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
              The signal is scaled by a factor of 20.
-             The error band includes statistic and systematic uncertainties.}\label{fig:event_selection:boosted:mmc}
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:event_selection:cutflow:2}
 \end{figure}
+
+
+% \cref{fig:event_selection:boosted:mmc} shows the distributions of $\mmc$ in the inclusive boosted, low-boosted, and high-boosted regions.
+
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.3\textwidth]{./plots/event_selection/presel/ll-CutBoostedCatHiggsPt-dilep_mmc_mlm_m-lin.eps}
+%     \includegraphics[width=0.3\textwidth]{./plots/event_selection/presel/ll-CutBoostedCatA-dilep_mmc_mlm_m-lin.eps}
+%     \includegraphics[width=0.3\textwidth]{./plots/event_selection/presel/ll-CutBoostedCatB-dilep_mmc_mlm_m-lin.eps}
+%     \caption{Distributions of the output of the missing mass calculator algorithm, $\mmc$, in the inclusive boosted (left),
+%              low-boosted (middle), and high-boosted (right) boosted category.
+%              Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+%              The signal is scaled by a factor of 20.
+%              The error band includes statistic and systematic uncertainties.}\label{fig:event_selection:boosted:mmc}
+% \end{figure}
 
 \section{Event yields}\label{sec:event_selection:yields}
 
+\todo{Richtig runden in Tabelle?}
 \cref{tab:event_selection:yields} shows the event yields for the different signal and background processes after
 the preselection and in the inclusive VBF and boosted categories.
-\todo{Observations in event yields}
-\todo{Fill out table}
+After the preselection the fraction of signal events is \SI{1.05}{\percent}.
+For events from the ggF and VBF production mode the fractions are \SI{0.67}{\percent} and \SI{0.27}{\percent}, respectively.
+
+In the VBF category the proportion of the VBF $\Htt$ process increases to \SI{2.65}{\percent}, but also the ggF production mode
+contributes now \SI{0.93}{\percent}.
+The overall contribution signal events to the total event count is \SI{3.63}{\percent}.
+
+It was also possible to enhance the signal fraction in the boosted category.
+The total signal contribution increases to \SI{1.09}{\percent}.
+The proportions of the ggF and VBF production mode are \SI{0.79}{\percent} and \SI{0.12}{\percent}.
+The fraction of VBF events is slightly worse than in the preselection, because most VBF events fell in the VBF category.
+
+A large fraction of background events was rejected in the VBF category compared to the boosted category.
+This can be explained by the distinct event topology of a VBF event, which makes it easier to separate signal and background events.
+
+The most dominant background is the $\Zgammatt$ background with \SI{56}{\percent} (\SI{72}{\percent}) contribution for the
+VBF (boosted) category, followed by the
+$\Zgammall$ and top-quark background with a fraction of \SI{12}{\percent} (\SI{7}{\percent}) and \SI{11}{\percent} (\SI{7}{\percent}), respectively.
 
 \begin{table}[htpb]
     \centering
@@ -439,22 +501,26 @@ the preselection and in the inclusive VBF and boosted categories.
              and in the inclusive VBF and boosted categories with a combined 2016 and 2016 dataset of $\SI{36.1}{\invfb}$.
              Normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
              Only statistical uncertainties are shown.}\label{tab:event_selection:yields}
-    \begin{tabular}{lrrr}
+    \begin{tabular}{@{}l@{}
+                    S[separate-uncertainty,table-figures-uncertainty=1]
+                    S[separate-uncertainty,table-figures-uncertainty=1]
+                    S[separate-uncertainty,table-figures-uncertainty=1]
+                    @{}}
         \toprule
-        Process             & Preselection & VBF category & Boosted category \\ \midrule
-        ggF $\Htt$          & & & \\
-        VBF $\Htt$          & & & \\
-        WH  $\Htt$          & & & \\
-        ZH  $\Htt$          & & & \\
-        ttH $\Htt$          & & & \\ \midrule
-        Fakes               & & & \\
-        Top                 & & & \\
-        Diboson             & & & \\
-        $\Zgammall$         & & & \\
-        $\Zgammatt$         & & & \\
-        $\HWW$              & & & \\ \midrule
-        Total signal        & & & \\
-        Total background    & & & \\ \midrule
-        Data                & & & \\ \bottomrule
+        Process             & {Preselection} & {VBF category} & {Boosted category} \\ \midrule
+        ggF $\Htt$          & 74.17 \pm 0.55    &  5.18 \pm 0.15    & 60.71 \pm 0.49 \\
+        VBF $\Htt$          & 28.97 \pm 0.15    & 14.77 \pm 0.10      & 12.88 \pm 0.10 \\
+        WH  $\Htt$          &  5.48 \pm 0.20    &  0.10 \pm 0.02      & 4.94 \pm 0.19 \\
+        ZH  $\Htt$          &  2.91 \pm 0.12    &  0.04 \pm 0.01      & 2.67 \pm 0.11 \\
+        ttH $\Htt$          & 2.32 \pm 0.20     &  0.12 \pm 0.05      & 2.12 \pm 0.19 \\ \midrule
+        Fakes               & 841.34\pm 31.75   & 59.06 \pm 8.83      & 529.25 \pm 26.28 \\
+        Top                 & 684.23\pm 11.79   & 60.42 \pm 3.36      & 540.07 \pm 10.66 \\
+        Diboson             & 438.00\pm 5.43    & 21.55 \pm 1.10      & 368.10 \pm 4.51 \\
+        $\Zgammall$         & 684.86\pm 85.54   & 64.73 \pm 12.96     & 567.98 \pm 79.12 \\
+        $\Zgammatt$         & 7992.32\pm 62.85  & 322.03 \pm 10.52    & 5541.34 \pm 50.81 \\
+        $\HWW$              & 46.36\pm1.20      & 8.66 \pm 0.36       & 32.63 \pm 1.07 \\ \midrule
+        Total signal        & 113.85\pm 0.65    & 20.21 \pm 0.19    & 83.33 \pm 0.58 \\
+        Total background    & 10687.11\pm 111.56& 536.45 \pm 19.21    & 7579.37 \pm 98.33 \\ \bottomrule
+        % Data                & 10630             & 489 & 7522 \\ \bottomrule
     \end{tabular}
 \end{table}

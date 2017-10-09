@@ -1,6 +1,6 @@
 % !TEX program = pdflatex
 % !TEX encoding = UTF-8
-\documentclass{standalone}
+\documentclass[12pt,border=12pt]{standalone}
 
 % language, encoding, font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -28,18 +28,22 @@
         \fmf{phantom}{i1,v1,d3,o1}
         \fmf{phantom}{i2,v2,d4,o3}
         \fmffreeze
-        \fmf{gluon, label=\textcolor[rgb]{0.0,,0.4,,0.0}{$g$}, label.dist=+12, foreground=(0.0,,0.4,,0.0)}{i1,v1}
-        \fmf{gluon, label=\textcolor[rgb]{0.0,,0.4,,0.0}{$g$}, label.dist=+8, label.side=left, foreground=(0.0,,0.4,,0.0)}{i2,v2}
-        \fmf{fermion, foreground=(0.5,,0.1,,0.1), label=\textcolor[rgb]{0.5,,0.1,,0.1}{$t,,b$}, label.side=left}{v1,v2}
-        \fmf{fermion, foreground=(0.5,,0.1,,0.1)}{v2,v3,v1}
+        \fmf{gluon}{i1,v1}
+        \fmf{gluon}{i2,v2}
+        \fmf{fermion, label=$t,,b$, label.side=left}{v1,v2}
+        \fmf{fermion}{v2,v3,v1}
         \fmf{dashes, tension=2}{v3,v4}
         \fmf{phantom, tension=5}{v4,o2}
-        \fmfv{label=$H$, label.dist=-2}{v4}
         \fmffreeze
         \fmfright{r1,r2}
         \fmfforce{(0.52w,0.633h)}{r1}
         \fmfforce{(0.75w,0.95h)}{r2}
-        \fmf{gluon, label=\textcolor[rgb]{0.0,,0.4,,0.0}{$g$}, label.side=right, label.dist=+8, foreground=(0.0,,0.4,,0.0)}{r1,r2}
+        \fmf{gluon}{r1,r2}
+        \fmfdot{v1,v2,v3,r1}
+        \fmfv{label=$g$, label.angle=180}{i1}
+        \fmfv{label=$g$, label.angle=180}{i2}
+        \fmfv{label=$g$, label.angle=45}{r2}
+        \fmfv{label=$H$, label.angle=0, label.dist=1}{v4}
     \end{fmfgraph*}
 \end{fmffile}
 

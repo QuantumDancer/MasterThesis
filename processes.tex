@@ -1,7 +1,182 @@
-\chapter{Signal and Background Processes}\label{cha:signal_and_background_processes}
+\chapter{Signal and Background Processes}\label{cha:processes}
+
+This chapter discusses shortly the signal process which is considered in this analysis and gives an overview
+over the relevant background contributions.
+For a precise measurements it is important that the background processes are understood and modeled well.
+In \cref{sec:processes:mc} the used software to predict and simulated signal and background processes is discussed.
 
 \section{Signal Process}\label{sec:processes:signal}
 
+The Higgs boson has several production modes and decay channels, as discussed in \cref{sec:theory:higgs}.
+In this analysis the four main production mechanisms, namely the gluon--gluon fusion, vector-boson fusion, Higgs-Strahlung, and
+top-quark pair associated production are considered, which are explained in more detail in \cref{sub:theory:higgs:production}.
+The two dominant production modes are gluon--gluon fusion and vector-boson fusion.
+
+The decay of the Higgs boson into two $\tau$-leptons, $\Htt$ is analyzed, which has a branching ratio of
+$\SI{6.32}{\percent}$ for a mass of the Higgs boson of $m_H = \SI{125}{\GeV}$.
+Since $\tau$-leptons have a very short mean decay lifetime of $\SI{2.9e-13}{\s}$ they cannot be detected
+directly.
+It is only possible detect $\tau$-leptons by reconstructing their decay products.
+A $\tau$-lepton can decay either into leptons (electrons or muons) or hadrons (combinations of charged and neutral pions)
+via electroweak interactions, with a branching ratio of \SI{35}{\percent} and \SI{65}{\percent}, respectively~\cite{PDG}.
+Thus, the $\Htt$ decay can be categorized into three subchannels, depending on the final state of the decaying $\tau$-leptons.
+The focus of this analysis lies on the full-leptonic decay channel, $\Httllfull$, where both $\tau$-leptons decay leptonically.
+This decay channel as a branching ratio of \SI{12}{\percent}.
+The other two decay channels are the semi-leptonic and full-hadronic channel with one lepton and one hadron or two hadrons
+in the final state, respectively.
+The corresponding branching ratios are \SI{46}{\percent} and \SI{42}{\percent}.
+
 \section{Background Processes}\label{sec:processes:background}
 
+At the LHC a lot of different interactions can happen during the collisions.
+Some processes have a similar detector signature as the signal process, the so-called \emph{background}.
+There are two kinds of background processes, \emph{reducible} and \emph{irreducible} ones.
+Irreducible backgrounds have the exact final state as the signal process, which makes the separation very hard or nearly impossible.
+The analysis has to rely on simulations to model the background.
+But also processes with a different final state topology can contribute to the background.
+Errors in the identification of physical objects or reconstruction of the missing transverse energy can lead
+to a signal-like detector signature, even if the real event topology is different from the signal process.
+These processes are called reducible.
+In the following sections all background processes are discussed, which are relevant to this analysis.
+
+\subsection{$Z$ Boson Production in Association with Jets}\label{sub:processes:z}
+
+One of the most important background processes is the production of a $Z$-boson or
+virtual photon, with a subsequent decay into $\tau$-leptons or light leptons (electrons or muons).
+This background features both an irreducible and a reducible part.
+The $Z / \gamma^* \to \tau\tau \to \ell\ell + 2 \nu$ background is irreducible, due to the same final state topology.
+If the $Z$-boson or virtual photon decay directly into electrons or muons, no transverse energy is produced.
+However, additional jets in the final state can lead to a misreconstruction of the missing transverse energy.
+Example Feynman diagrams of the production of a $Z$-boson with up to $2$ additional jets in the final state are
+shown in \cref{fig:processes:z}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./feynman/z_0jet.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/z_1jet.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/z_2jet.pdf}
+    \caption{Example Feynman diagrams for $Z$-boson production with up to two associated jets.}\label{fig:processes:z}
+\end{figure}
+
+\subsection{Diboson production}\label{sub:processes:diboson}
+
+The production of $WW$-, $WZ$-, and $ZZ$-diboson pairs is combined in the
+diboson background.
+Here both $W$- and $Z$-bosons can decay either leptonically or hadronically.
+The most important contribution comes from $WW$-boson decays, $WW \to 2 \ell 2 \nu$, since they have
+the same final state as the signal process.
+\cref{fig:processes:diboson} shows Feynman diagrams for the different diboson production mechanisms.
+Additionally, the decay of Higgs bosons into a pair of $W$-bosons is also considered as background.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./feynman/diboson_ww.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/diboson_wz.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/diboson_zz.pdf}
+    \caption{Example Feynman diagrams for dominant diboson production modes.}\label{fig:processes:diboson}
+\end{figure}
+
+
+\subsection{Single Top-Quark and Top-Quark Pair Production}\label{sub:processes:top}
+
+Another important background is the production of one or two top-quarks, whose decay is accompanied by
+large amounts of jets.
+Single top-quarks can be produced both in the $s$- and $t$-channel and in association with a $W$-boson, as shown in \cref{fig:processes:stop}.
+The top-quarks decay in almost all cases into a $b$-quark and $W$-boson.
+Since the $b$-quark can also decay into a $W$-boson and a lighter quark, two leptons and missing transverse energy can be in the final state due to
+the decay of the $W$-bosons.
+Additionally, decays of $B$-hadrons can also provide a prompt lepton in the final state.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./feynman/stop_1.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/stop_2.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/stop_3.pdf}
+    \caption{Example Feynman diagrams for single top-quark production.}\label{fig:processes:stop}
+\end{figure}
+
+The production of top-quark pairs is however the more dominant part of this background.
+Top-quark pairs can be produced in processes containing quarks, which can be seen in \cref{fig:processes:ttbar}.
+The decay chain form top-quarks to leptons is described above.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./feynman/ttbar_1.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/ttbar_2.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/ttbar_3.pdf}
+    \caption{Example Feynman diagrams for the production of top-quark pairs, $t\overline{t}$.}\label{fig:processes:ttbar}
+\end{figure}
+
+\subsection{QCD Multi-Jet Production}\label{sub:processes:qcd}
+
+Because protons are collided at the LHC, QCD interactions with outgoing quarks and gluons have a high cross-section.
+The quarks and gluons create jets due to hadronization, which sometimes are misidentified as leptons.
+With the additional misreconstruction of missing transverse energy some events have a signal-like event topology.
+Example Feynman diagrams for QCD multi-jet processes are shown in \cref{fig:processes:qcd}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.3\textwidth]{./feynman/qcd_1.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/qcd_2.pdf}
+    \includegraphics[width=0.3\textwidth]{./feynman/qcd_3.pdf}
+    \caption{Example Feynman diagrams for QCD multi-jet production.}\label{fig:processes:qcd}
+\end{figure}
+
 \section{Monte Carlo Simulations}\label{sec:processes:mc}
+
+\todo{Some references are missing}
+All signal processes except for the production mode associated with a top-quark pair are modelled with
+\textsc{Powheg-Box v2}~\cite{PowhegBox2} interfaced to \textsc{Pythia8}~\cite{Pythia8}.
+For gluon--gluon fusion and vector-boson fusion the \textsc{NNLOPS}~\cite{NNLOPS} PDF set is used for the matrix element and the \textsc{AZNLO CTEQ6L1}~\cite{CTEQ6} PDF tune for the
+modelling of non-perturbative effects, while for the Higgs-boson production associated with a vector boson the
+\textsc{NNPDF3.0} and \textsc{AZNLO} tune is used.
+For the simulation of $t\overline{t}H$ events \textsc{aMC@NLO} combined with \textsc{Pythia8} is used.
+Here the PDFs are described by \textsc{NNPDF3.0}~\cite{NNPDF30}.
+All decay channels of the $\Htt$ decay are included in the signal samples.
+
+Events originating from the $Z/\gamma^*$ and diboson background are generated by
+\textsc{Sherpa 2.2.1}~\cite{Sherpa,Gleisberg:2008fv,Cascioli:2011va,Schumann:2007mg,Hoeche:2012yf}
+with the \textsc{NNPDF30NNLO}~\cite{NNPDF30} PDF tune.
+The electroweak contributions of $Z/\gamma^*$ are calculated seperately with the same settings.
+To simulate events of the top-quark background a combination of \textsc{Powheg} and \textsc{Pythia6}~\cite{Pythia6}
+is used with the \textsc{CT10} PDF set and \textsc{Perugia 2012} tune.
+The $H\to W^+W^-$ process is generated by \textsc{Powheg} and \textsc{Pythia?} with the \textsc{CT10} PDF set.
+The generators and cross-sections for all processes are listed in \cref{tab:processes:mc}.
+
+For all events the full response of the ATLAS detector is simulated~\cite{SOFT-2010-01} with the help of \textsc{Geant4}~\cite{Geant4}.
+Pile-up events are generated with \textsc{Pythia8} and overlaid corresponding to the pile-up profile.
+
+% \pagebreak[4]
+% \global\pdfpageattr\expandafter{\the\pdfpageattr/Rotate 90}
+
+\todo{Table needs to be completed}
+\begin{sidewaysfigure}
+    \centering
+    \caption{Signal and background processes used in the $\Httll$ analysis. The product of cross-section and branching ratio corresponds to a $2015+2016$ dataset
+    at $\sqrt{s} = \SI{13}{\TeV}$. The generators and PDF sets which are used to predict the events are also listed.}\label{tab:processes:mc}
+    \begin{tabular}{lllll}
+        \toprule
+        Signal  & $\sigma \times \mathcal{B}$ [\si{\pico\barn}] & Order & Generator & PDF tune \\ 
+        $m_H = \SI{125}{\GeV}$ & at $\sqrt{s} = \SI{13}{\TeV}$ & & & \\ \midrule
+        ggF $\Htt$ & 3.0469   & & Powheg + Pythia8 & NNLOPS + AZNLO CTEQ6L1 \\
+        VBF $\Htt$ & 0.23721  & & Powheg + Pythia8 & NNLOPS + AZNLO CTEQ6L1 \\
+        WH  $\Htt$ & 0.086102 & & Powheg + Pythia8 & NNPDF30 + AZNLO \\
+        ZH  $\Htt$ & 0.055438 & & Powheg + Pythia8 & NNPDF30 + AZNLO \\
+        ttH $\Htt$ & 0.5071   & & aMC@NLO + Pythia8 & NNPDF3.0 \\ \midrule
+        Background & & & & \\ \midrule
+        $Z/\gamma^* \to e^+e^-$          & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        $Z/\gamma^* \to e^+e^-$ EW       & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        $Z/\gamma^* \to \mu^+\mu^-$      & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        $Z/\gamma^* \to \mu^+\mu^-$ EW   & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        $Z/\gamma^* \to \tau^+\tau^-$    & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        $Z/\gamma^* \to \tau^+\tau^-$ EW & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        Diboson & & & Sherpa 2.2.1 & NNPDF30NNLO \\
+        single $t$, $s$-channel & & & Powheg + Pythia6 & CT10 + Perugia 2012 \\
+        single $t$, $t$-channel & & & Powheg + Pythia6 & CT10 + Perugia 2012 \\
+        $tW$ & & & Powheg + Pythia6 & CT10 + Perugia 2012 \\
+        $t\overline{t}$  & & & Powheg + Pythia6 & CT10 + Perugia 2012 \\
+        ggF $H \to W^+ W^-$ & & & Powheg + Pythia? & CT10 \\
+        VBF $H \to W^+ W^-$ & & & Powheg + Pythia? & CT10 \\
+        \bottomrule
+    \end{tabular}
+\end{sidewaysfigure}

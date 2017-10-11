@@ -3,7 +3,7 @@
 This chapter discusses shortly the signal process which is considered in this analysis and gives an overview
 over the relevant background contributions.
 For a precise measurements it is important that the background processes are understood and modeled well.
-In \cref{sec:processes:mc} the used software to predict and simulated signal and background processes is discussed.
+In \cref{sec:processes:mc} the used software to predict and simulate signal and background processes is discussed.
 
 \section{Signal Process}\label{sec:processes:signal}
 
@@ -16,12 +16,12 @@ The decay of the Higgs boson into two $\tau$-leptons, $\Htt$ is analyzed, which 
 $\SI{6.32}{\percent}$ for a mass of the Higgs boson of $m_H = \SI{125}{\GeV}$.
 Since $\tau$-leptons have a very short mean decay lifetime of $\SI{2.9e-13}{\s}$ they cannot be detected
 directly.
-It is only possible detect $\tau$-leptons by reconstructing their decay products.
+It is only possible to detect $\tau$-leptons by reconstructing their decay products.
 A $\tau$-lepton can decay either into leptons (electrons or muons) or hadrons (combinations of charged and neutral pions)
 via electroweak interactions, with a branching ratio of \SI{35}{\percent} and \SI{65}{\percent}, respectively~\cite{PDG}.
 Thus, the $\Htt$ decay can be categorized into three subchannels, depending on the final state of the decaying $\tau$-leptons.
 The focus of this analysis lies on the full-leptonic decay channel, $\Httllfull$, where both $\tau$-leptons decay leptonically.
-This decay channel as a branching ratio of \SI{12}{\percent}.
+This decay channel has a branching ratio of \SI{12}{\percent}.
 The other two decay channels are the semi-leptonic and full-hadronic channel with one lepton and one hadron or two hadrons
 in the final state, respectively.
 The corresponding branching ratios are \SI{46}{\percent} and \SI{42}{\percent}.
@@ -31,8 +31,8 @@ The corresponding branching ratios are \SI{46}{\percent} and \SI{42}{\percent}.
 At the LHC a lot of different interactions can happen during the collisions.
 Some processes have a similar detector signature as the signal process, the so-called \emph{background}.
 There are two kinds of background processes, \emph{reducible} and \emph{irreducible} ones.
-Irreducible backgrounds have the exact final state as the signal process, which makes the separation very hard or nearly impossible.
-The analysis has to rely on simulations to model the background.
+Irreducible backgrounds have the same final state as the signal process (i.e.\ same number of leptons, jets, $b$-jets, etc.), which makes the separation very hard.
+For an accurate analysis, those backgrounds need to be modelled by simulations or estimated in a data driven way.
 But also processes with a different final state topology can contribute to the background.
 Errors in the identification of physical objects or reconstruction of the missing transverse energy can lead
 to a signal-like detector signature, even if the real event topology is different from the signal process.
@@ -44,11 +44,12 @@ In the following sections all background processes are discussed, which are rele
 One of the most important background processes is the production of a $Z$-boson or
 virtual photon, with a subsequent decay into $\tau$-leptons or light leptons (electrons or muons).
 This background features both an irreducible and a reducible part.
-The $Z / \gamma^* \to \tau\tau \to \ell\ell + 2 \nu$ background is irreducible, due to the same final state topology.
+The $Z / \gamma^* \to \tau\tau \to \ell\ell + 4 \nu$ background is irreducible, due to the same final state topology.
 If the $Z$-boson or virtual photon decay directly into electrons or muons, no transverse energy is produced.
 However, additional jets in the final state can lead to a misreconstruction of the missing transverse energy.
 Example Feynman diagrams of the production of a $Z$-boson with up to $2$ additional jets in the final state are
 shown in \cref{fig:processes:z}.
+\todo{Explain EW, include Feynman diagram}
 
 \begin{figure}[htb]
     \centering
@@ -92,11 +93,14 @@ Additionally, decays of $B$-hadrons can also provide a prompt lepton in the fina
     \includegraphics[width=0.3\textwidth]{./feynman/stop_1.pdf}
     \includegraphics[width=0.3\textwidth]{./feynman/stop_2.pdf}
     \includegraphics[width=0.3\textwidth]{./feynman/stop_3.pdf}
-    \caption{Example Feynman diagrams for single top-quark production.}\label{fig:processes:stop}
+    \caption{Example Feynman diagrams for single top-quark production in the $s$-channel (left),
+             $t$-channel (middle), and $tW^\pm$ production (right).}\label{fig:processes:stop}
 \end{figure}
 
 The production of top-quark pairs is however the more dominant part of this background.
-Top-quark pairs can be produced in processes containing quarks, which can be seen in \cref{fig:processes:ttbar}.
+Top-quark pairs can be produced in processes with quarks and gluons in the initial state, which can be seen in \cref{fig:processes:ttbar}.
+At the LHC the $gg \to t\overline{t}$ processed dominate, due to the high values of the gluon PDF in protons at low values of the
+momentum fraction $x$.\todo{Numbers, Ref.}\
 The decay chain form top-quarks to leptons is described above.
 
 \begin{figure}[htb]

@@ -1,8 +1,6 @@
 \documentclass[12pt,a4paper,openright,twoside]{scrbook}
 
 % DEBUG stuff
-\usepackage{refcheck}
-\norefnames{}
 \usepackage[textsize=tiny,shadow]{todonotes}
 
 % PACKAGES + MODIFICATIONS
@@ -103,6 +101,8 @@
 \renewcommand{\vec}{\mathbf}
 \newcommand{\matrixm}{\mathcal{M}}
 \newcommand{\errud}[2]{\ensuremath{{}^{+{#1}}_{-{#2}}}}
+\DeclareMathOperator{\err}{err}
+\DeclareMathOperator{\sign}{sign}
 
 % variables
 \newcommand{\pt}{\ensuremath{p_\text{T}}}

@@ -7,7 +7,7 @@ Since the goal is to extract information from the signal, one challenge of this 
 background contributions as much as possible.
 
 An established approach to separate signal and background is to restrict observables to a given range.
-The observables and thresholds (cuts) are selected and optimized by hand, which can be a tedious task.
+The observables and thresholds (cuts) are usually selected and optimized by hand, which can be a tedious task.
 However, it is very easy to implement in the analysis and the effect of each threshold is easily comprehensible.
 Multiple observables are used to reject different types of background contributions.
 Such an approach is described in \cref{cha:event_selection}.
@@ -15,7 +15,7 @@ Such an approach is described in \cref{cha:event_selection}.
 Another way to achieve separation between signal and background is with the help of machine learning (ML) algorithms.
 The most common ML algorithms used in high energy physics are \emph{boosted decision trees} (BDTs) and neural networks.
 In this thesis an approach to use BDTs for the analysis of the \Httll{} process in the 2015 + 2016 dataset is developed.
-This chapter focuses on the general and theoretical aspects of boosted decision trees, while the application of BDTs in this analysis
+This chapter focuses on the general and theoretical aspects of boosted decision trees, while the application of BDTs in the analysis
 is discussed in \cref{cha:mva}. For this the ROOT~\cite{ROOT} library TMVA~\cite{TMVA} is used.
 
 First, decision trees are introduced in \cref{sec:bdt:decision_trees}, since they are the foundation of BDTs.
@@ -39,7 +39,7 @@ The data used can either come from measurements or simulation.
 After the model is trained it can be applied to another set of data.
 It is important that the data which was used for training the model is not used in the real measurement, because
 the model would perform better on the training set than on a independent data set.
-This issue is discussed in more detail in \cref{sec:mva:kfold-xval}.
+This issue is discussed in more detail in \cref{sec:mva:sets}.
 
 It can happen that a model performs much worse on a independent data set than on the training set.
 This effect is known as \emph{overtraining}.
@@ -66,7 +66,7 @@ signal- or background-like.
     \end{center}
 \end{figure}
 
-A decision tree can be interpreted as a function $G(x_i)$, which takes multiple input variables of one event $x_i$, with
+A decision tree can be interpreted as a function $G(x_i)$, which takes a vector of input variables of one event $x_i$, with
 the following output:
 \begin{equation}
     \label{eq:dt}
@@ -77,7 +77,7 @@ the following output:
     \end{cases} \,.
 \end{equation}
 If some signal and background events have similar properties, the decision tree cannot reach a perfect performance.
-Some signal events are classified as background events and the other way around.
+Some signal events are classified as background events and vice versa.
 This is called \emph{misclassification}.
 A good decision tree has only a small number of misclassified events.
 
@@ -87,7 +87,7 @@ The process of deciding which observable and threshold is used to split each sub
 is called \emph{growing} or \emph{building} a decision tree.
 The goal of the splitting is to improve the pureness in of either signal or background events in the subnodes with respect to the parent node.
 
-The purity $p$ of a node is defined as
+The signal purity $p$ of a node is defined as
 \begin{equation}
     \label{eq:purity}
     p = \frac{s}{s+b}\,,

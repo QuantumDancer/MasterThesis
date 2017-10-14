@@ -1,9 +1,110 @@
 \chapter{Theory}\label{cha:theory}
 
+This chapter introduced the theoretical background on which this analysis is based on.
+First, the Standard Model (SM) of particle physics, which describes the fundamental particles and their interactions, is discussed.
+Then an overview of the phenomenology of hadron scattering is given.
+Afterwards the Higgs-boson production and decay is discussed in detail and past measurements of the Higgs boson are presented.
+
 \section{The Standard Model of Particle Physics}\label{sec:theory:sm}
 
+The Standard Model of particle physics was developed during the 1960s and 1970s and
+describes elementary particles and their fundamental interactions to great precision.
+It is a relativistic quantum field theory based on the principle of local gauge symmetries.
+Several particles like the $W^\pm$- and $Z^0$- bosons and the top-quark were predicted by the SM and later discovered in
+nature~\cite{ZDiscovery,WDiscovery,TopDiscovery,ZeeDiscovery,WeDiscovery,TopDiscoveryD0}.
+Out of the four fundamental forces it describes only three, it was not yet successful to combine the
+formulation of gravity with the other interactions.
+But because gravity has only a minor effect on particles at the energy scales accessible at current collider experiments
+it can be neglected.
 
-\section{Hadronic scattering and parton model}\label{sub:theory:hadronscattering}
+The contents of this section are based on~\cite{Griffiths,HalsenMartin,PeskinSchroeder} if not noted otherwise.
+
+\subsection{Elementary Particles}\label{sub:theory:particles}
+
+The elementary particles of the SM can be divided into fermions which carry half integer spin and bosons with a full integer spin.
+Fermions can further be split into leptons which only interact via the electroweak force and quarks which interact via
+both the electroweak and strong force.
+Empirical evidence shows that there are three generations of both leptons and quarks.
+This cannot be predicted by the SM, it was rather used as input.
+The three generations are copies of each other which are identical expect for the flavour and mass of the particles.
+They are sorted in ascending order by the masses of the particles..
+There exist two elementary particles for each flavour.
+
+In the case of leptons there is the electron ($e$), muon ($\mu$), and tau lepton ($\tau$) which all have a
+charge\footnote{The electric charge is given in units of the fundamental electric charge $q_e = \SI{1.602e-19}{\coulomb}$~\cite{PDG}.} of $Q = -1$.
+Each lepton is associated with a neutral particle called the neutrino ($\nu_e$, $\nu_\mu$, $\nu_\tau$).
+
+For quarks one particle of each flavour has a charge of $Q = \frac{2}{3}$. These particles are called the up-, charm-, and
+top-quark.
+The other quarks are the down-, strange-, and bottom-quark with charge of $Q = -\frac{1}{3}$.
+An overview of the fermions in the SM with their charges and approximate masses is given in \cref{tab:theory:fermions}.
+
+Each particle has its corresponding anti-particle, which has the same quantum numbers up to charge and magnetic momentum properties.
+
+Most matter surrounding us consists only of fermions from the first generation, namely the up- and down-quark which form protons and neutrons and the electron.
+All other particles are only accessible via cosmic radiation or collider experiments.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Overview of the fermions in the Standard Model~\cite{PDG}.}\label{tab:theory:fermions}
+    \begin{tabular}{lcclcl}
+        \toprule
+                                 & Generation               & \multicolumn{2}{l}{Flavour}           & Charge [$q_e$] & Mass [GeV] \\  \midrule
+        \multirow{6}{*}{Leptons} & \multirow{2}{*}{\nth{1}} & $e$        & Electron                 & $-1$    & $\approx \num{0.5e-3}$ \\
+                                 &                          & $\nu_e$    & Electron neutrino        & $ 0$    & $ < \num{2e-9}$        \\ \cmidrule{2-6}
+                                 & \multirow{2}{*}{\nth{2}} & $\mu$      & Muon                     & $-1$    & $\approx \num{106e-3}$ \\
+                                 &                          & $\nu_\mu$  & Muon Neutrino            & $ 0$    & $ < \num{0.19e-3}$ \\ \cmidrule{2-6}
+                                 & \multirow{2}{*}{\nth{3}} & $\tau$     & $\tau$-lepton            & $-1$    & $\approx \num{1.777}$ \\
+                                 &                          & $\nu_\tau$ & $\tau$-lepton neutrino   & $ 0$    & $ < \num{18e-3}$ \\ \midrule
+        \multirow{6}{*}{Quarks}  & \multirow{2}{*}{\nth{1}} & $u$        & Up                       & $ \frac{2}{3}$ & $\approx \num{2.2e-3}$ \\
+                                 &                          & $d$        & Down                     & $-\frac{1}{3}$ & $\approx \num{4.7e-3}$ \\ \cmidrule{2-6}
+                                 & \multirow{2}{*}{\nth{2}} & $c$        & Charm                    & $ \frac{2}{3}$ & $\approx \num{1.28}$ \\
+                                 &                          & $s$        & Strange                  & $-\frac{1}{3}$ & $\approx \num{96e-3}$ \\ \cmidrule{2-6}
+                                 & \multirow{2}{*}{\nth{3}} & $t$        & Top                      & $ \frac{2}{3}$ & $\approx \num{173}$ \\
+                                 &                          & $b$        & Bottom                   & $-\frac{1}{3}$ & $\approx \num{4.18}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The fundamental interactions of the SM are mediated by gauge bosons with spin one.
+An overview of the gauge bosons in the SM is given in \cref{tab:theory:bosons}.
+
+The photon ($\gamma$) is the mediator of the electromagnetic force.
+It couples to the electric charge $Q$ of the particles.
+Due to the fact that the photon is massless and stable, the electromagnetic force has infinite range.
+
+The weak interaction is transmitted via the massive $W^\pm/Z^0$-bosons, which couple to the weak isospin $I_3$ of the particles.
+All fermions have a weak isospin of $I_3 = \frac{1}{2}$, the $W^\pm$-bosons have a weak isospin of $I_3 = \pm 1$ and the $Z^0$ boson
+has a weak isospin of $I_3 = 0$. %TODO neutral / weak charged current, w: right handed particles, left handed anti particles
+In contract to the photon the $W^\pm$- and $Z^0$-bosons are quite massive with a mass of $m_{W^\pm} = \SI{80.4}{\GeV}$ and
+$m_{Z^0} = \SI{91.2}{\GeV}$, respectively~\cite{PDG}.
+This leads to the weak coupling at low energies and the low range of the weak interaction.
+
+The strong force is mediated by eight gluons ($g$), which are massless and couple to the color charge.
+All quarks and gluons have a color charge.
+Because the gluons have a color charge themselves, self-interaction is possible, which limits the range of the
+strong force.
+
+The Standard Model contains also one scalar spin-0 particle, the Higgs boson.
+It has been detected in 2012 with the ATLAS and CMS detectors~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryCMS}.
+The Higgs boson and the current measurements of Higgs-boson properties are discussed in detail in \cref{sec:theory:higgs,sec:theory:measurements}.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Overview of the gauge bosons in the Standard Model~\cite{PDG}.}\label{tab:theory:bosons}
+    \begin{tabular}{lclccc}
+        \toprule
+        Interaction             & \multicolumn{2}{l}{Gauge boson}   & Charge [$q_e$]    & Mass [GeV] & Distance [m] \\  \midrule
+        Electromagnetic         & $\gamma$  & Photon                & $0$               & 0          & $\infty$                         \\ \cmidrule{1-6}
+        \multirow{2}{*}{Weak}   & $W^\pm$   & $W^\pm$ boson         & $\pm 1$           & 80.4       & \multirow{2}{*}{$< \num{e-15}$}  \\
+                                & $Z^0$     & $Z^0$ boson           & $0$               & 91.2       &                                  \\ \cmidrule{1-6}
+        Strong                  & $g$       & Gluon (8x)            & $0$               & 0          & $\approx \num{e-15}$             \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+\section{Hadronic scattering and parton model}\label{sec:theory:hadronscattering}
 
 Today Higgs bosons can only be investigated at hadron colliders.
 A hadron is no fundamental particles, it is a combination of several quarks bound by the strong force.
@@ -73,11 +174,11 @@ These quarks constantly exchange gluons, which may produce a temporary quark--an
 Because the sea quarks only exists in pairs, the probability to find an up or down quark in a proton is larger than finding an
 antiup or antidown quark.
 \begin{figure}[htb]
-	\centering
-	\includegraphics[width=0.7\textwidth]{./figures/theory/nnpdf.png}
-	\caption{PDFs for different partons as a function of the Bjorken scaling variable $x$
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figures/theory/nnpdf.png}
+    \caption{PDFs for different partons as a function of the Bjorken scaling variable $x$
              for two different factorization scales $Q^2 = \SI{10}{\GeV\squared}$ and $Q^2 = \SI{e4}{\GeV\squared}$.
-			 The PDF set is NNPDF3.1 (NNLO)~\cite{nnpdf3.1}.}\label{fig:theory:pdfs}
+             The PDF set is NNPDF3.1 (NNLO)~\cite{nnpdf3.1}.}\label{fig:theory:pdfs}
 \end{figure}
 Another property of quark partons is indicated: It is less probable to find a quark with a higher mass.
 The probability to find a photon is highly repressed, in contrast to the gluon PDF, which has the highest value for small $x$.
@@ -104,7 +205,7 @@ Mathematically speaking this is a convolution of the PDFs with the partonic cros
     \sigma_{ij\to X} = \int_{0}^{1} \dif x_i \int_{0}^{1} \dif x_j \,
     f_i \left( x_i \right ) f_j \left( x_j \right ) \hat{\sigma}_{ij\to X} \,.
 \end{equation}
-The general expression of the partonic cross-section is~\cite{griffiths}
+The general expression of the partonic cross-section is~\cite{Griffiths}
 \begin{equation}
     \hat{\sigma}_{ij\to X} = \frac{1}{j} \int \matrixm \left(ij \to X \right) \dif \Phi \,,
 \end{equation}

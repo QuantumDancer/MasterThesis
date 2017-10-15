@@ -1,6 +1,6 @@
 % !TEX program = pdflatex
 % !TEX encoding = UTF-8
-\documentclass[12pt]{standalone}
+\documentclass[12pt,border=12pt]{standalone}
 
 % language, encoding, font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -36,9 +36,9 @@
         \fmf{dashes}{v3,v4}
         \fmf{phantom, tension=5}{v4,o2}
         \fmfdot{v1,v2}
-        \fmfv{label=$H$, label.dist=-2}{v4}
-        \fmfv{label=$q$, label.dist=4}{v1}
-        \fmfv{label=$q$, label.dist=4}{v2}
+        \fmfv{label=$H$, label.angle=0}{v4}
+        \fmfv{label=$q$, label.angle=90}{v1}
+        \fmfv{label=$q$, label.angle=-90}{v2}
     \end{fmfgraph*}
 \end{fmffile}
 

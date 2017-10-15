@@ -1,6 +1,6 @@
 % !TEX program = pdflatex
 % !TEX encoding = UTF-8
-\documentclass[12pt]{standalone}
+\documentclass[12pt,border=12pt]{standalone}
 
 % language, encoding, font
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
@@ -47,13 +47,13 @@
         \fmf{fermion}{v2,t3}
         \fmf{dashes}{v3,o1}
         \fmfdot{v1,v2,v3}
-        \fmfv{label=$g$, label.dist=1}{i1}
-        \fmfv{label=$g$, label.dist=1}{i2}
+        \fmfv{label=$g$}{i1}
+        \fmfv{label=$g$}{i2}
         \fmfv{label=$\overline{t}$, label.angle=110}{b3}
         \fmfv{label=$\overline{t}$, label.angle=110}{v3}
         \fmfv{label=$t$, label.angle=20, label.dist=21.5}{v1}
         \fmfv{label=$t$, label.angle=20, label.dist=21.5}{v2}
-        \fmfv{label=$H$, label.dist=1.5, label.angle=-110}{o1}
+        \fmfv{label=$H$, label.dist=1.5}{o1}
         %\fmfdot{i1,i2,dl1,dl2,dl3,dr0,dr1,dr2,dr3,o1,dv1,dv2,dv3,t2,t3,b2,b3}
     \end{fmfgraph*}
 \end{fmffile}

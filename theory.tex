@@ -183,7 +183,7 @@ Under a local $SU(3)$ transformation a free quark field $\psi(x)$ transforms lik
 \begin{equation}
     \psi(x) \mapsto \psi'(x) = \exp \left[ i \frac{g_s}{2} \sum_{a=1}^8 \lambda_a \beta_a (x) \right] \psi(x) \,.
 \end{equation}
-Here, the coupling strength is denoted as $\alpha_s$, the eight Gell-Mann matrices as $\lambda_a$, and the eight-component gauge functions as $\vec{\beta}(x)$. %TODO source beta
+Here, the coupling strength is denoted as $\alpha_s$, the eight Gell-Mann matrices as $\lambda_a$, and the eight-component gauge functions as $\vec{\beta}(x)$~\cite{Schmuser}.
 
 The $SU(3)$ group is a \emph{non-abelian} group, since its generators do not commute.
 This results in an additional term in the field strength tensor $G_{\mu\nu}^a$ of the gluon fields $G_\mu^a$ ($a = 1, \ldots, 8$),
@@ -298,6 +298,7 @@ To preserve gauge invariance three vector fields $W^a$ ($a = 1,2,3$) for $SU{(2)
 for $U{(1)}_Y$ need to be introduced.
 With the covariant derivates for left- and right-handed fermion fields,
 \begin{align}
+    \label{eq:theory:ew:D}
     D_\mu^L &= \partial_\mu + i \frac{g}{2} \tau_a W_\mu^a + i \frac{g'}{2} Y B_\mu \,, \\
     D_\mu^R &= \partial_\mu + i \frac{g'}{2} Y B_\mu \,,
 \end{align}
@@ -359,34 +360,93 @@ It introduces a new scalar field in the context of spontaneous symmetry and is d
 
 \subsection{Spontaneous Symmetry Breaking and Higgs Mechanism}\label{sub:theory:sm:higgsmechanism}
 
+The Higgs-mechanism~\cite{HiggsMecha1,HiggsMecha2,HiggsMecha3,HiggsMecha4,HiggsMecha5,HiggsMecha6} was
+developed in $1964$ in a quest to solve the problem that no massive fermions and gauge bosons are allowed
+in the theory of electroweak interaction, which clearly contradicts experimental measurements.
+With the concept of spontaneous symmetry breaking it is possible to include mass terms in the electroweak part of the Standard Model.
+The mass terms are introduced by spontaneously breaking the symmetry with a state of minimum energy, the so-called \emph{vacuum state},
+of a doublet of complex scalar fields with four degrees of freedom, following the $SU(2)$ symmetry.
+This field is called the \emph{Higgs field}.
+Its quantum numbers are $Y = 1$ and $I_w = \frac{1}{2}$ and it can be written as~\cite{Schmuser}
+\begin{equation}
+    \Phi =
+    \begin{pmatrix}
+        \Phi^+ \\ \Phi^0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \Phi_1 + i \Phi_3 \\
+        \Phi_2 + i \Phi_4
+    \end{pmatrix} \,, \qquad \Phi_i \in \mathbb{R} \,.
+\end{equation}
+The corresponding Lagrangian density reads
+\begin{equation}
+    \lagl = {\left(\partial_\mu\Phi\right)}^\dagger \left(\partial^\mu\Phi\right) - V(\Phi) \,.
+\end{equation}
+This Lagrangian has also to be invariant under transformations of the $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry,
+thus the normal derivatives $\partial_\mu$ are replaced with the covariant derivative of the electroweak theory given in \cref{eq:theory:ew:D},
+\begin{equation}
+    \lagl = {\left(D_\mu\Phi\right)}^\dagger \left(D^\mu\Phi\right) + \mu^2 \Phi^\dagger \Phi - \lambda \left(\Phi^\dagger \Phi\right) - \frac{1}{4} W_{\mu\nu}^a W^{\mu_\nu,a} - \frac{1}{4} B_{\mu\nu} \,.
+\end{equation}
+Thus, the most general form of the Higgs potential $V(\Psi)$ which still is invariant under the $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry and providing renormalizability
+is given by
+\begin{equation}
+    - \mu^2 \Phi^\dagger \Phi + \lambda \left(\Phi^\dagger \Phi\right) \,, \qquad \lambda > 0 \,.
+\end{equation}
+It has a minimum for non-vanishing values of $\mu$, which corresponds to a broken $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry.
+A two-dimensional illustration of the Higgs potential is shown in \cref{fig:theory:sm:higgspotential}.
+If a fixed point in the minimum of the potential is chosen, the rotational symmetry is broken.
+Spontaneous symmetry breaking refers to choosing a specific value for this fixed point.
+\todo{Breaking SU2XU1 but not U1}
+
+\begin{figure}[tb]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./figures/theory/higgs_potential.png}
+    \caption{Two-dimensional Higgs potential for a scenario of spontaneous symmetry breaking~\cite{deBoer:2013pud}.}\label{fig:theory:sm:higgspotential}
+\end{figure}
+
+The Higgs potential can be minimized with respect to $\left(\Phi^\dagger\Phi\right)$ by
+\begin{equation}
+    \abs{\Phi_0}^2 = \frac{v}{\sqrt{2}} \,, v = \sqrt{\frac{\mu^2}{\lambda}} \,.
+\end{equation}
+Here, $v$ is the vacuum expectation value.
+The usual choice of the ground state is $\Phi_1 = \Phi_2 = \Phi_4 = 0$ and $\Phi_3 = \abs{\Phi_0}$, which leads to
+\begin{equation}
+    \Phi_0 = \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        0 \\ v
+    \end{pmatrix} \,.
+\end{equation}
+The vacuum expectation value $v$ can bet set in relation to the Fermi constant $G_F$~\cite{PDG},
+\begin{equation}
+    v = {\left(\sqrt{2} G_F \right)}^{-\frac{1}{2}} = \SI{246}{\GeV} \,.
+\end{equation}
+
+
+
+
+
+
+
+
 
 
 
 \section{Hadronic scattering and parton model}\label{sec:theory:hadronscattering}
 
-Today Higgs bosons can only be investigated at hadron colliders.
-A hadron is no fundamental particles, it is a combination of several quarks bound by the strong force.
-In the following a two-particle scattering
-\begin{equation}
-    1 + 2 \to 3 + 4
-\end{equation}
-is discussed.
-The four-momenta of the particles are denoted by $p_i$ with $i = 1,\ldots,4$.
+Today the Higgs boson can only be investigated at hadron colliders.
+A hadron is no fundamental particle, but a combination of several quarks bound by the strong force.
 
 The structure of hadrons can be described with the structure functions $W_1(Q^2, \nu)$ and $W_2(Q^2, \nu)$,
-which depend on the squared four-momentum transfer
-\begin{equation}
-    Q^2 = -q^2 = - (p_1 - p_3)^2
-\end{equation}
-and the transferred energy $\nu = E' - E$.
+which depend on the squared four-momentum transfer $Q^2$ and the transferred energy $\nu = E' - E$.
 The structure functions are measured in deep inelastic electron--nucleon scattering experiments.
-The cross-section for those scatterings can be written as~\cite{drell64, bjo:scaling}
+The cross-section of those scatterings can be written as~\cite{drell64, bjo:scaling}
 \begin{equation}
     \frac{\dif \sigma}{\dif\Omega \dif E'} = \frac{\alpha^2}{4 E^2 \sin^4 \frac{\theta}{2}}
     \left[ W_2(Q^2, \nu) \cos^2 \frac{\theta}{2} + 2 W_1(Q^2, \nu) \sin^2 \frac{\theta}{2} \right ],
 \end{equation}
 with the fine-structure constant $\alpha$, the energies $E$ and $E'$ of the electron before and after the scattering,
-and the scattering angle $\theta$, the angle between the electron beam, and the scattered electron.
+and the scattering angle $\theta$, the angle between the electron beam and the scattered electron.
 
 For large energies the quantities $Q^2$ and $\nu$ are not longer independent of each other.
 $W_1$ and $\nu W_2$ only depend on a single variable, the \emph{Bjorken scaling variable}, $x$:
@@ -401,15 +461,14 @@ In the asymptotic limit the structure of hadrons can be described with the struc
         \lim_{Q^2, \nu \to \infty} \nu W_2(Q^2, \nu) &= F_2(x) \,.
     \end{split}
 \end{equation}
-This phenomenon was discovered experimentally and is called \emph{Bjorken scaling} after its discoverer, J.\ D.\ Bjorken~\cite{bjo:scaling}.
+This phenomenon was discovered experimentally and is called \emph{Bjorken scaling}~\cite{bjo:scaling}.
 
-Richard Feynman and E. A. Paschos proposed a descriptive model for the structure of the proton, the so called
-\emph{parton model}~\cite{feyn69,bjo:epscattering}.
-According to this model the proton can be described as an accumulation of free, charged, point-like particles, the \emph{partons}.
-This view makes only sense in the \emph{infinite momentum frame}, a reference frame where the proton has infinite
+The \emph{parton model}~\cite{feyn69,bjo:epscattering} is a descriptive model for the structure of the proton.
+It describes the proton as an accumulation of free, charged, point-like particles, the \emph{partons}.
+However, this model holds only in the \emph{infinite momentum frame}, a reference frame where the proton has infinite
 momentum.\footnote{The center-of-mass frame of the colliding particle and the proton is a good approximation
 for such a frame at high energies~\cite{bjo:epscattering}.}
-In this frame the transverse momenta and masses of the partons are negligible.
+The transverse momenta and masses of the partons are negligible.
 The four-momentum $p_i$ of a parton $i$ is a fraction $x_i \ (0 \leq x_i \leq 1)$ of the total four-momentum $p$ of the proton:
 \begin{equation}
     p_i = x_i p\,, \qquad\text{with } \sum_i x_i = 1\,.
@@ -418,19 +477,21 @@ The fraction $x_i$ can be identified with the Bjorken scaling variable~\cite{bjo
 by which the lepton has been scattered.
 
 The generalized probability density to find a parton $i$ with the longitudinal momentum fraction $x_i$ is defined as the
-parton distribution function (PDF) $f_i(x, M_\text{F}^2)$.
-$M_\text{F}$ is the factorization scale, a distinction between hard and soft scattering.
-Since PDFs cannot be calculated within perturbation theory, they are determined with the help of fits to experimental data.
+parton distribution function (PDF), $f_i(x, M_\text{F}^2)$.
+The PDF depends on the factorization scale $M_\text{F}$, which is a distinction between hard and soft scattering.
+Since PDFs cannot be calculated within perturbation theory, they need to be determined by fits to experimental data.
 The DGLAP evolution equations (Dokshitzer, Gribov, Lipatov, Altarelli, Parisi)~\cite{dglap:d, dglap:gl, dglap:ap}
 can be used to evolve the experimentally provided PDFs to other factorization scales, which may not be accessible by experiments.
 
-\cref{fig:theory:pdfs} displays the PDFs of different partons in protons.
-The PDFs of the up and down quarks are not equal to the PDFs of their antiquarks.
-This is caused by the internal structure of the proton.
+The PDFs for different partons in protons are displayed in \cref{fig:theory:pdfs}.
+Due to the internal structure of the proton, the PDFs of the up- and down-quark are not equal to the PDFs of their corresponding anti-quarks.
 There are three \emph{valence quarks}, two up and one down quark, which together determine the quantum numbers of the proton.
 These quarks constantly exchange gluons, which may produce a temporary quark--antiquark pair, the so-called \emph{sea quarks}.
-Because the sea quarks only exists in pairs, the probability to find an up or down quark in a proton is larger than finding an
-antiup or antidown quark.
+Because the sea quarks only exists in pairs, the probability to find an up- or down-quark in a proton is larger than finding an
+anti-up- or anti-down-quark.
+It can also be seen that it is less probable to find a quark with a higher mass.
+The parton with the highest probability to find at low momentum fractions $x$ is the gluon.
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\textwidth]{./figures/theory/nnpdf.png}
@@ -438,21 +499,34 @@ antiup or antidown quark.
              for two different factorization scales $Q^2 = \SI{10}{\GeV\squared}$ and $Q^2 = \SI{e4}{\GeV\squared}$.
              The PDF set is NNPDF3.1 (NNLO)~\cite{nnpdf3.1}.}\label{fig:theory:pdfs}
 \end{figure}
-Another property of quark partons is indicated: It is less probable to find a quark with a higher mass.
-The probability to find a photon is highly repressed, in contrast to the gluon PDF, which has the highest value for small $x$.
 
-A dependency on the factorization scale $Q^2$ is recognizable.
-The predicted independence of the PDFs from $Q^2$ only holds approximately for certain values.
-But the parton model of Feynman still can be used as a foundation to describe inelastic scattering.
-There are more complicated models like the \emph{QCD-improved parton model}~\cite{col98}, where
+Comparing the PDFs at different factorization scales $Q^2$ a dependency is recognizable,
+despite the predicted independence of the PDFs from $Q^2$.
+This can be solved by extending the parton model, which is done for example in the \emph{QCD-improved parton model}~\cite{col98}, where
 partons are allowed to interact between each other by exchanging gluons.
-
-\todo{Shorten/rephrase section}
+However, as a first approximation the naive parton model still can be used.
 
 \section{The Higgs Boson}\label{sec:theory:higgs}
 
-\subsection{Higgs Boson Production in Proton--Proton Collisions}
-\label{sub:theory:higgs:production}
+The Higgs boson was predicted by Higgs mechanism in Standard Model since the 1960s.
+It has no electric or color charge and has a spin-parity configuration of $J^{CP} = 0^+$, its mass can only be obtained by experiments.
+The coupling strength to fermions and gauge bosons is proportional to the mass of those particles.
+
+In 2012 the Higgs boson was observed with the ATLAS and CMS experiments at CERN~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryCMS} with a
+mass of $m_H = \SI{125}{\GeV}$.
+Due to its short lifetime of about $\SI{e-22}{\s}$ it cannot be observed directly, but only via its decay products.
+Because the cross-section of the Higgs boson is several magnitudes smaller than the ones from other processes produced at the LHC,
+as can be seen in \cref{fig:theory:higgs:smxsec}, refined analysis strategies are needed.
+In this section the production of the Higgs boson at the LHC is discussed, followed by an overview of the decay modes of the Higgs boson.
+Precision measurements of the Higgs boson are discussed in \cref{sec:theory:measurements}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./figures/theory/sm_xsec.eps}
+    \caption{Overview of inclusive and fiducial SM cross-sections measured during Run-1 and Run-2 and compared to theory predictions~\cite{SMPublicResults}.}\label{fig:theory:higgs:smxsec}
+\end{figure}
+
+\subsection{Higgs Boson Production in Proton--Proton Collisions}\label{sub:theory:higgs:production}
 
 In proton--proton collisions at the LHC the parton model as described above can be applied.
 To calculate the cross-section of the production of a particle $X$ in proton--proton collisions the
@@ -473,8 +547,6 @@ particle flux $j$, and the phase-space factor $\dif \Phi$ depending on the kinem
 The Higgs boson can be produced in multiple ways, which vary in cross-section and phenomenology.
 In \cref{fig:theory:higgs:production} the leading order (LO) Feynman diagrams are shown for the dominant production modes
 at the LHC\@.
-
-\todo{Add border to feynman graphs, fix label position}
 
 \begin{figure}[htb]
     \centering
@@ -528,10 +600,16 @@ and corresponding uncertainties are listed in \cref{tab:theory:higgs:prodxsec}.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.45\textwidth]{./figures/theory/higgs_xsec_production.pdf}
-    \includegraphics[width=0.45\textwidth]{./figures/theory/higgs_xsec_decay.eps}
-    \caption{Production cross-sections of the Higgs boson as a function of the center-of-mass energy $\sqrt{s}$ (left)~\cite{YR4}
-             and cross-sections of the Higgs boson decay-modes depeding in the mass $m_H$ of the Higgs boson (right)~\cite{YR3}.}\label{fig:theory:higgs:xsecs}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figures/theory/higgs_xsec_production.pdf}
+        \caption{Production cross-sections.}\label{fig:theory:higgs:xsecs}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figures/theory/higgs_xsec_decay.eps}
+        \caption{Decay modes.}\label{fig:theory:higgs:decay}
+    \end{subfigure}
+    \caption{Production cross-sections of the Higgs boson as a function of the center-of-mass energy $\sqrt{s}$ (a)~\cite{YR4}
+             and cross-sections of the Higgs boson decay-modes depeding in the mass $m_H$ of the Higgs boson (b)~\cite{YR3}.}
 \end{figure}
 
 \begin{table}[htpb]
@@ -554,6 +632,43 @@ and corresponding uncertainties are listed in \cref{tab:theory:higgs:prodxsec}.
 \subsection{Decay Modes of the Higgs Boson}
 \label{sub:theory:higgs:decay}
 
+The coupling strengths $m_f/v$ and $m_V^2/v$ of the Higgs-boson coupling to fermions $f$ and gauge bosons $V$ are proportional to the masses
+of the interacting particles.
+Thus, the branching ratio (BR), which is defined as the fraction of partial decay width to the total decay width,
+\begin{equation}
+    BR(H\to X) = \frac{\Gamma(H\to X)}{\Gamma_\text{total}} \,,
+\end{equation}
+increasing for higher masses of the decaying particles.
+
+The dominant decay channels for fermions are $H\to b \overline{b}$, $H \to \tau^+\tau^-$, $H \to c\overline{c}$, and $H \to \mu^+\mu^-$.
+Furthermore, the Higgs boson can decay directly into massive gauge bosons, $H \to WW^*$ and $H \to ZZ*$.
+With the help of a heavy quark loop and $W$-boson loop, it can also decay into massless gauge bosons, $H \to gg$ and $H \to \gamma\gamma$.
+
+The Feynman diagrams for those decays can be seen in \cref{fig:theory:higgs:decay}.
+The corresponding branching rations are listed in \cref{tab:theory:higgs:br}.
+At the LHC the two most dominant decay modes for a Higgs boson with a mass of $m_H = \SI{125}{\GeV}$ are the decay into
+a bottom-quark pair with a branching ratio of \SI{57.7}{\percent} and the decay into a pair of $W$-bosons with a BR
+of \SI{21,5}{\percent}.
+The focus of this analysis is on the decay into a pair of $\tau$-leptons, which has a branching ratio of \SI{6.32}{\percent}.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Branching ratios for the most dominant decay modes of the Higgs boson with a mass of $m_H = \SI{125}{\GeV}$~\cite{YR3}.}\label{tab:theory:higgs:br}
+    \begin{tabular}{cS}
+        \toprule
+        Decay channel       & {Branching Ratio [\%]} \\ \midrule
+        $b \overline{b}$    & 57.7 \\
+        $WW$                & 21.5 \\
+        $gg$                & 8.75 \\
+        $\tau^+\tau^-$      & 6.32 \\
+        $c\overline{c}$     & 2.91 \\
+        $ZZ$                & 2.64 \\
+        $\gamma\gamma$      & 0.23 \\
+        $Z\gamma$           & 0.15 \\
+        $\mu^+\mu^-$        & 0.02 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 \section{Measurements of the Higgs Boson at the LHC}
 \label{sec:theory:measurements}
 

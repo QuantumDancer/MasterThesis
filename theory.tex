@@ -19,7 +19,7 @@ it can be neglected.
 
 The contents of this section are based on~\cite{Griffiths,HalsenMartin,PeskinSchroeder} if not noted otherwise.
 
-\subsection{Elementary Particles}\label{sub:theory:particles}
+\subsection{Elementary Particles}\label{sub:theory:sm:particles}
 
 The elementary particles of the SM can be divided into fermions which carry half integer spin and bosons with a full integer spin.
 Fermions can further be split into leptons which only interact via the electroweak force and quarks which interact via
@@ -73,9 +73,9 @@ The photon ($\gamma$) is the mediator of the electromagnetic force.
 It couples to the electric charge $Q$ of the particles.
 Due to the fact that the photon is massless and stable, the electromagnetic force has infinite range.
 
-The weak interaction is transmitted via the massive $W^\pm/Z^0$-bosons, which couple to the weak isospin $I_3$ of the particles.
-All fermions have a weak isospin of $I_3 = \frac{1}{2}$, the $W^\pm$-bosons have a weak isospin of $I_3 = \pm 1$ and the $Z^0$ boson
-has a weak isospin of $I_3 = 0$. %TODO neutral / weak charged current, w: right handed particles, left handed anti particles
+The weak interaction is transmitted via the massive $W^\pm/Z^0$-bosons, which couple to the weak isospin $I_w$ of the particles.
+All fermions have a weak isospin of $I_w = \frac{1}{2}$, the $W^\pm$-bosons have a weak isospin of $I_w = \pm 1$ and the $Z^0$ boson
+has a weak isospin of $I_w = 0$. %TODO neutral / weak charged current, w: right handed particles, left handed anti particles
 In contract to the photon the $W^\pm$- and $Z^0$-bosons are quite massive with a mass of $m_{W^\pm} = \SI{80.4}{\GeV}$ and
 $m_{Z^0} = \SI{91.2}{\GeV}$, respectively~\cite{PDG}.
 This leads to the weak coupling at low energies and the low range of the weak interaction.
@@ -84,10 +84,6 @@ The strong force is mediated by eight gluons ($g$), which are massless and coupl
 All quarks and gluons have a color charge.
 Because the gluons have a color charge themselves, self-interaction is possible, which limits the range of the
 strong force.
-
-The Standard Model contains also one scalar spin-0 particle, the Higgs boson.
-It has been detected in 2012 with the ATLAS and CMS detectors~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryCMS}.
-The Higgs boson and the current measurements of Higgs-boson properties are discussed in detail in \cref{sec:theory:higgs,sec:theory:measurements}.
 
 \begin{table}[htpb]
     \centering
@@ -102,6 +98,268 @@ The Higgs boson and the current measurements of Higgs-boson properties are discu
         \bottomrule
     \end{tabular}
 \end{table}
+
+The Standard Model contains also one scalar spin-0 particle, the Higgs boson.
+It has been detected in 2012 with the ATLAS and CMS detectors~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryCMS}.
+The Higgs boson and the current measurements of Higgs-boson properties are discussed in detail in \cref{sec:theory:higgs,sec:theory:measurements}.
+
+\subsection{Fundamental interactions}\label{sub:theory:sm:interactions}
+
+A gauge theory is a field theory where the Lagrangian density is invariant under a group of global or local transformations.
+In the Standard Model the fundamental interactions are described with local gauge symmetries.
+The symmetries force a certain structure on the Lagrangian which reflects in the resulting theory.
+The correct symmetry group has to be selected based on empirical observations, so that theory prediction can match with measurements in nature.
+
+\subsubsection{Quantum Electrodynamics}
+
+The electromagnetic interaction is described by Quantum Electrodynamics (QED), which is based on the $U(1)$ symmetry group.
+It is carried by the photon, which is massless and couples to the electric charge $Q$.
+A free fermion with mass $m$ can be described with the Lagrangian density
+\begin{equation}
+    \label{eq:theory:qed:l}
+    \lagl = \psibar \left( i \gamma^\mu \partial_\mu - m\right) \psi \,,
+\end{equation}
+where the Dirac spinor is denoted as $\psi$, the gamma matrices as $\gamma^\mu$, and the partial derivative as $\partial_\mu = \frac{\partial}{\partial x^\mu}$.
+By applying the Euler--Lagrange equation,
+\begin{equation}
+    \frac{\partial \lagl}{\partial \psibar} - \partial^\mu \left( \frac{\partial \lagl}{\partial \left(\partial^\mu \psibar \right)} \right) = 0 \,,
+\end{equation}
+the corresponding equation of motion can be obtained,
+\begin{equation}
+     \left( i \gamma^\mu \partial_\mu - m\right) \psi = 0\,.
+\end{equation}
+Because every gauge theory has to be invariant under local transformations of the symmetry group, the lagrangian density in \cref{eq:theory:qed:l} has to be
+invariant under local transformations of the $U(1)$ group, which have the following form:
+\begin{equation}
+    \psi \mapsto \psi' = e^{-iq\alpha(x)} \psi \,.
+\end{equation}
+The electric charge is denoted as $q$ and the local phase depending on time and space as $\alpha(x)$.
+However, if this transformation is applied to \cref{eq:theory:qed:l} and additional term appears the
+gauge invariance is broken,
+\begin{equation}
+    \partial_\mu \psi \mapsto \partial_\mu \psi' = -i q \alpha(x) \psi + e^{-iq\alpha(x)} \partial_\mu \psi \,.
+\end{equation}
+To restore the gauge invariance a new vector field $A_\mu$, which transforms as
+\begin{equation}
+    A_\mu \mapsto A'_\mu = A_\mu + \partial_\mu \alpha(x) \,,
+\end{equation}
+and the covariant derivative,
+\begin{equation}
+    D_\mu = \partial_\mu + i q A_\mu \,,
+\end{equation}
+need to be introduced.
+The gauge-invariant Lagrangian density of QED reads
+\begin{equation}
+    \lagl = \psibar \left( i \gamma^\mu D_\mu -m \right) \psi \,.
+\end{equation}
+The new vector field $A_\mu$ couples to fermions with a coupling strength of $e$ and ensure the local gauge invariance.
+It can be identified with the photon when a kinematic term, which is formed by the field strength tensor
+\begin{equation}
+    F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu \,,
+\end{equation}
+is added to the Lagrangian density,
+\begin{equation}
+    \lagl_\text{QED} = \psibar \left( i \gamma^\mu D_\mu -m \right) \psi - \frac{1}{4} F^{\mu\nu} F_{\nu\nu} \,.
+\end{equation}
+If a mass term of the form $-\frac{1}{2}m^2 A^\mu A_\mu $ was introduced, it would break again the gauge invariance.
+Therefore, a massless photon is required in QED, which corresponds with the upper limit of the photon mass of $m_\gamma < \SI{3e-27}{\eV}$
+obtained by experimental measurements~\cite{PhotonMass}.
+
+\subsubsection{Quantum Chromodynamics}
+
+The interaction of quarks and gluons with the strong force is described by Quantum Chromodynamics (QCD), which is based on the $SU(3)$ symmetry group.
+The charge associated with the strong interaction is the color charge, which is the equivalent to the electric charge in QED\@.
+Experimental measurement show that there are three different color states: red, green, and blue.
+Those three states can be described by building a vector of three spinor fields, which replaces the single Dirac spinor $\psi$ from QED,
+\begin{equation}
+    \psi =
+    \begin{pmatrix}
+        \psi_\text{red} \\
+        \psi_\text{green} \\
+        \psi_\text{blue} \\
+    \end{pmatrix} \,.
+\end{equation}
+Under a local $SU(3)$ transformation a free quark field $\psi(x)$ transforms like
+\begin{equation}
+    \psi(x) \mapsto \psi'(x) = \exp \left[ i \frac{g_s}{2} \sum_{a=1}^8 \lambda_a \beta_a (x) \right] \psi(x) \,.
+\end{equation}
+Here, the coupling strength is denoted as $\alpha_s$, the eight Gell-Mann matrices as $\lambda_a$, and the eight-component gauge functions as $\vec{\beta}(x)$. %TODO source beta
+
+The $SU(3)$ group is a \emph{non-abelian} group, since its generators do not commute.
+This results in an additional term in the field strength tensor $G_{\mu\nu}^a$ of the gluon fields $G_\mu^a$ ($a = 1, \ldots, 8$),
+\begin{equation}
+    G_{\mu\nu}^a = \partial_\mu G_\nu^a -  \partial_\nu G_\mu^a - g_s f^{abc} G_\mu^b G_\nu^c \,,
+\end{equation}
+with the structure constants $f^{abc}$ of the $SU(3)$ group.
+Because there are eight Gell-Mann matrices, which are the generators of $SU(3)$, there are also eight gluon fields defined.
+
+To ensure gauge invariance again a covariant derivative is introduced,
+\begin{equation}
+    D_\mu = \partial_\mu + i g_s \frac{\lambda_a}{2} G_\mu^a \,.
+\end{equation}
+The Lagrangian density of QCD can then be written as
+\begin{equation}
+    \lagl_\text{QED} = \psibar \left( i \gamma^\mu D_\mu -m \right) \psi - \frac{1}{4} G^{\mu\nu} G_{\nu\nu} \,.
+\end{equation}
+The non-abelian structure of $SU(3)$ leads to gluon self-interaction.
+Similarly to photons, the gluons need also to be massless to ensure the gauge invariance, which agrees with experimental observations.
+Because of the gluon self-interaction the strong force has not unlimited range.
+At very short distances, the strong force becomes weak, which is also known as \emph{asymptotic freedom}~\cite{AsymFreedom1,AsymFreedom2}.
+For interactions and long distances the interaction potential increases for color-charged particles.
+Therefore, free quarks are not stable but form colorless bound states which are called mesons (quark and anti-quark) and
+baryons (three quarks or three anti-quarks).
+This is called \emph{confinement}.
+
+For quarks a mass term is allowed and does not break the symmetry, unlike for gluons.
+The masses are different for each flavour but do not depend on the color charge.
+
+\subsubsection{Electroweak Unification}
+
+The weak interaction is mediated by the charged $W^\pm$-bosons and the neutral $Z^0$-boson, which couple to the weak
+isospin, $I_w$.
+The exchange of a $W^\pm$-boson is called \emph{charged current}, because it modifies the flavour of quarks.
+In contract, the exchange of a $Z$-boson does not change the flavour of quarks, which leads to the label \emph{neutral current}.
+It was discovered that weak interactions mediated by $W^\pm$-bosons is maximally parity violating, because the bosons couple only to
+left-handed particles and right-handed anti-particles~\cite{PhysRev.104.254,PhysRev.105.1413}.
+This lead to the unification of the electromagnetic and weak interaction by Glashow, Salam, and Weinberg in the
+so-called electroweak unification~\cite{Glashow1961,Salam1959,Weinberg1967}.
+
+The electroweak interaction is based on an underlying $SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry
+and is able to describe both the electromagnetic and weak interaction.
+Here, the hypercharge $Y$ was introduced and $L$ denotes the coupling to only left-handed particles.
+A connection between the electric charge $Q$, the hypercharge $y$, and the third component of the weak isospin $I_3$
+is given by the Gell-Mann--Nishijima formula~\cite{Nishijima1955,GellMann1956},
+\begin{equation}
+    Q = I_3 + \frac{Y}{2} \,.
+\end{equation}
+Left-handed fermions are described by by $SU{(2)}_{L,I_w}$ doublets with $I_w = \frac{1}{2}$ and $I_3 = \pm \frac{1}{2}$,
+Right-handed fermions are assigned to $SU{(2)}_{L,I_w}$ singlets with $I_w = I_3 = 0$.
+An overview of the quantum numbers of fermions in the electroweak theory is given in \cref{tab:theory:quantumnumbers}.
+Right-handed neutrinos are not included, since they do not couple to other particles of the SM\@.
+Recent results from neutrino-oscillation experiments which also yielded a Nobel Price in Physics in 2015 show that at
+least two neutrino masses are not zero~\cite{NeutrinoOsc1,NeutrinoOsc2,NeutrinoOsc3,NeutrinoOsc4,NeutrinoOsc5,NeutrinoOsc6}.
+However, in this thesis neutrinos are assumed to be massless.
+
+Quarks are described in weak eigenstates ($d',s',b'$) with $I_3 = -\frac{1}{2}$ which are a mixture of their mass eigenstates ($u, s, b$).
+The degree of mixing is defined in the Cabibbo--Kobayashi--Maskawa (CKM) matrix~\cite{CKM:KM,CKM:C},
+\begin{equation}
+    \begin{pmatrix}
+        d' \\ s' \\ b' \\
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        V_{ud} & V_{us} & V_{ub} \\
+        V_{cd} & V_{cs} & V_{cb} \\
+        V_{td} & V_{ts} & V_{tb} \\
+    \end{pmatrix}
+    \begin{pmatrix}
+        d \\ s \\ b \\
+    \end{pmatrix} \,.
+\end{equation}
+The elements $\abs{V_{ij}}$ give the probability of a quark changing its flavour from $i$ to $j$ when interacting with a $W^\pm$-boson.
+Due to the complex phase of the CKM matrix the CP invariance is violated~\cite{PhysRevLett.13.138}.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Overview of singlets and doublets in the electroweak theory and their associated quantum numbers.}\label{tab:theory:quantumnumbers}
+    \begin{tabular}{cccccccc}
+        \toprule
+         & \multicolumn{3}{c}{Generations} & \multicolumn{4}{c}{Quantum numbers} \\ \cmidrule{2-8}
+         & \nth{1} & \nth{2} & \nth{3} & $I_w$ & $I_3$ & $Y$ & $Q$ [$q_e$] \\ \midrule
+        \multirow{3}{*}{Leptons} & \multirow{2}{*}{${\begin{pmatrix}\nu_e \\ e \end{pmatrix}}_L$}
+                                 & \multirow{2}{*}{${\begin{pmatrix}\nu_\mu \\ \mu \end{pmatrix}}_L$}
+                                 & \multirow{2}{*}{${\begin{pmatrix}\nu_\tau \\ \tau \end{pmatrix}}_L$} & $\frac{1}{2}$ & $\frac{1}{2}$ & $-1$ & $0$ \\
+         & & & & $\frac{1}{2}$ & $-\frac{1}{2}$ & $-1$ & $-1$ \\
+         & $e_R$ & $\mu_R$ & $\tau_R$ & $0$ & $0$ & $-2$ & $-1$ \\ \cmidrule{1-8}
+        \multirow{4}{*}{Quarks} & \multirow{2}{*}{${\begin{pmatrix}u \\ d' \end{pmatrix}}_L$}
+                                & \multirow{2}{*}{${\begin{pmatrix}c \\ s' \end{pmatrix}}_L$}
+                                & \multirow{2}{*}{${\begin{pmatrix}t \\ b' \end{pmatrix}}_L$} & $\frac{1}{2}$ & $\frac{1}{2}$ & $\frac{1}{3}$ & $\frac{2}{3}$ \\
+         & & & & $\frac{1}{2}$ & $-\frac{1}{2}$ & $\frac{1}{3}$ & $-\frac{1}{3}$ \\
+         & $u_R$ & $c_R$ & $t_R$ & $0$ & $0$ & $\frac{4}{3}$ & $\frac{2}{3}$ \\
+         & $d_R$ & $s_R$ & $b_R$ & $0$ & $0$ & $-\frac{2}{3}$ & $-\frac{1}{3}$ \\
+         \bottomrule
+    \end{tabular}
+\end{table}
+
+Left-handed isospin doublets transform under the $SU{(2)}_{L,I_w}$ symmetry as
+\begin{equation}
+    \psi_L(x) \mapsto \psi'_L(x) = \exp \left[ i \frac{g}{2} \sum_{a=1}^{3} \tau_a \alpha_a(x) \right] \psi_L(x) \,,
+\end{equation}
+with the generators $\tau_a$ ($a = 1, 2, 3$) of the $SU{(2)}_{L,I_w}$ symmetry which are the $2\times 2$ Pauli matrices,
+the coupling strength $g$, and the local phase $\alpha_a(x)$.
+The left-handed isospin doublets and the right-handed singlets transform have the following transformation behaviour under the $U{(1)}_Y$ symmetry:
+\begin{gather}
+    \psi_L(x) \mapsto \psi'_L(x) = \exp \left[ i \frac{g'}{2} Y \beta(x) \right] \psi_L(x) \,, \\
+    \psi_R(x) \mapsto \psi'_L(x) = \exp \left[ i \frac{g'}{2} Y \beta(x) \right] \psi_R(x) \,,
+\end{gather}
+where $g'$ is a second coupling constant, $Y$ the generator of the hypercharge, and $\beta(x)$ the local phase.
+
+To preserve gauge invariance three vector fields $W^a$ ($a = 1,2,3$) for $SU{(2)}_{L,I_w}$ and one gauge field $B$
+for $U{(1)}_Y$ need to be introduced.
+With the covariant derivates for left- and right-handed fermion fields,
+\begin{align}
+    D_\mu^L &= \partial_\mu + i \frac{g}{2} \tau_a W_\mu^a + i \frac{g'}{2} Y B_\mu \,, \\
+    D_\mu^R &= \partial_\mu + i \frac{g'}{2} Y B_\mu \,,
+\end{align}
+the Lagrangian density for the electroweak interaction, including all mas terms, reads
+\begin{equation}
+    \label{eq:theory:ew:l}
+    \lagl_\text{EW} = \psibar_L i \gamma^\mu D_\mu^L \psi_L + \psibar_R i \gamma^\mu D_\mu^R \psi_R - \frac{1}{4} W_{\mu\nu}^a W^{\mu_\nu,a} - \frac{1}{4} B_{\mu\nu} \,.
+\end{equation}
+Here, the field strengh tensors are defined as
+\begin{align}
+    \label{eq:theory:field_tensor:w}
+    W_{\mu\nu}^a &= \partial_\mu W_\nu^a - \partial_\nu W_\mu^a - g \epsilon^{abc} W_\mu^b W_\nu^c \,, \\
+    B_{\mu\nu}   &= \partial_\mu B_\nu - \partial_\nu B_\mu \,,
+\end{align}
+with the fine structure constants $\epsilon^{abc}$ of the $SU{(2)}_{L,I_w}$ symmetry.
+The third term in \cref{eq:theory:field_tensor:w} enables self-interaction of the vector fields $W^a_\mu$, while the $B_\mu$ field
+can only interact with fermions.
+
+Because the electroweak theory combines the electromagnetic and weak interaction, it should yield the photon field $A^\mu$.
+However, since $B_\mu$ and $W_\mu^3$ can both couple to neutrinos, they cannot be identified with $A^\mu$.
+Only a linear combination of those two fields can lead to the photon field.
+Of course, the linear combination needs to yield the same coupling properites as $A^\mu$, i.e.\ it needs to couple to
+right- and left-handed fermions with the same coupling strenght but is not allowed to interact with neutrinos.
+Additionally, it has to be orthogonal to the field of the $Z^0$-boson.
+A weak mixim angle $\theta_w$ is introduced,
+\begin{equation}
+    \cos \left( \theta_w \right) = \frac{g}{\sqrt{g^2 + {g'}^2}} \,.
+\end{equation}
+The photon and $Z^0$-boson fields can now be constructed as a mixing of the $W_\mu^3$ and $B_\mu$ field from the
+$SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry,
+\begin{equation}
+    \begin{pmatrix}
+        Z_\mu \\ A_\mu
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        \cos \left(\theta_w\right) & -\sin \left(\theta_w\right) \\
+        \sin \left(\theta_w\right) & \cos \left(\theta_w\right)
+    \end{pmatrix}
+    \begin{pmatrix}
+        W_\mu^3 \\ B_\mu
+    \end{pmatrix} \,.
+\end{equation}
+Furthermore, the coupling strenght $e$ of the electromagnetic interaction can be written as a function
+of the coupling constants $g$ and $g'$ of the $SU{(2)}_{L,I_w}$ and $U{(1)}_Y$ transformations,
+\begin{equation}
+    e = \frac{g g'}{\sqrt{g^2 + {g'}^2}} = g' \cos \left(\theta_w\right) = g \sin \left(\theta_w\right) \,.
+\end{equation}
+The charged eigenstates of the $W^\pm$-bosons are formed from a superposition of the $W_\mu^1$ and $W_\mu^2$ fields,
+\begin{equation}
+    W^\pm_\mu = \frac{1}{\sqrt{2}} \left(W_\mu^1 \mp i W_\mu^2 \right) \,.
+\end{equation}
+
+In this electroweak theory all gauge bosons and fermions are massless, because any mass term in \cref{eq:theory:ew:l}
+would lead to symmetry breaking.
+This is of course not in agreement with the observation of massive fermions and the masses of the $W^\pm$- and $Z^0$-bosons~\cite{PDG}.
+This conflict of theory and experiment is resolved by the Englert--Brout--Higgs--Guralnik--Hagen--Kibble\footnote{For simplicity this mechanism will be referred to as \emph{Higgs-mechanism}} mechanism.
+It introduces a new scalar field in the context of spontaneous symmetry and is discussed in the next section.
+
+\subsection{Spontaneous Symmetry Breaking and Higgs Mechanism}\label{sub:theory:sm:higgsmechanism}
+
+
 
 
 \section{Hadronic scattering and parton model}\label{sec:theory:hadronscattering}

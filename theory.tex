@@ -1,8 +1,8 @@
 \chapter{Theory}\label{cha:theory}
 
-This chapter introduced the theoretical background on which this analysis is based on.
+This chapter introduces the theoretical background on which this analysis is based on.
 First, the Standard Model (SM) of particle physics, which describes the fundamental particles and their interactions, is discussed.
-Then an overview of the phenomenology of hadron scattering is given.
+Then, an overview of the phenomenology of hadron scattering is given.
 Afterwards the Higgs-boson production and decay is discussed in detail and past measurements of the Higgs boson are presented.
 
 \section{The Standard Model of Particle Physics}\label{sec:theory:sm}
@@ -12,7 +12,7 @@ describes elementary particles and their fundamental interactions to great preci
 It is a relativistic quantum field theory based on the principle of local gauge symmetries.
 Several particles like the $W^\pm$- and $Z^0$- bosons and the top-quark were predicted by the SM and later discovered in
 nature~\cite{ZDiscovery,WDiscovery,TopDiscovery,ZeeDiscovery,WeDiscovery,TopDiscoveryD0}.
-Out of the four fundamental forces it describes only three, it was not yet successful to combine the
+Out of the four fundamental forces it describes only three, since it was not yet successful to combine the
 formulation of gravity with the other interactions.
 But because gravity has only a minor effect on particles at the energy scales accessible at current collider experiments
 it can be neglected.
@@ -27,7 +27,7 @@ both the electroweak and strong force.
 Empirical evidence shows that there are three generations of both leptons and quarks.
 This cannot be predicted by the SM, it was rather used as input.
 The three generations are copies of each other which are identical expect for the flavour and mass of the particles.
-They are sorted in ascending order by the masses of the particles..
+They are sorted in ascending order by the masses of the particles.
 There exist two elementary particles for each flavour.
 
 In the case of leptons there is the electron ($e$), muon ($\mu$), and tau lepton ($\tau$) which all have a
@@ -108,11 +108,11 @@ The Higgs boson and the current measurements of Higgs-boson properties are discu
 A gauge theory is a field theory where the Lagrangian density is invariant under a group of global or local transformations.
 In the Standard Model the fundamental interactions are described with local gauge symmetries.
 The symmetries force a certain structure on the Lagrangian which reflects in the resulting theory.
-The correct symmetry group has to be selected based on empirical observations, so that theory prediction can match with measurements in nature.
+The correct symmetry group has to be selected based on empirical observations, so that theory predictions are in agreement with measurements of nature.
 
 \subsubsection{Quantum Electrodynamics}
 
-The electromagnetic interaction is described by Quantum Electrodynamics (QED), which is based on the $U(1)$ symmetry group.
+The electromagnetic interaction is described by Quantum Electrodynamics (QED), which is based on the $U(1)_Q$ symmetry group.
 It is carried by the photon, which is massless and couples to the electric charge $Q$.
 A free fermion with mass $m$ can be described with the Lagrangian density
 \begin{equation}
@@ -129,12 +129,12 @@ the corresponding equation of motion can be obtained,
      \left( i \gamma^\mu \partial_\mu - m\right) \psi = 0\,.
 \end{equation}
 Because every gauge theory has to be invariant under local transformations of the symmetry group, the lagrangian density in \cref{eq:theory:qed:l} has to be
-invariant under local transformations of the $U(1)$ group, which have the following form:
+invariant under local transformations of the $U(1)_Q$ group, which have the following form:
 \begin{equation}
     \psi \mapsto \psi' = e^{-iq\alpha(x)} \psi \,.
 \end{equation}
 The electric charge is denoted as $q$ and the local phase depending on time and space as $\alpha(x)$.
-However, if this transformation is applied to \cref{eq:theory:qed:l} and additional term appears the
+However, if this transformation is applied to \cref{eq:theory:qed:l} an additional term appears and the
 gauge invariance is broken,
 \begin{equation}
     \partial_\mu \psi \mapsto \partial_\mu \psi' = -i q \alpha(x) \psi + e^{-iq\alpha(x)} \partial_\mu \psi \,.
@@ -167,9 +167,9 @@ obtained by experimental measurements~\cite{PhotonMass}.
 
 \subsubsection{Quantum Chromodynamics}
 
-The interaction of quarks and gluons with the strong force is described by Quantum Chromodynamics (QCD), which is based on the $SU(3)$ symmetry group.
+The interaction of quarks and gluons with the strong force is described by Quantum Chromodynamics (QCD), which is based on the $SU(3)_C$ symmetry group.
 The charge associated with the strong interaction is the color charge, which is the equivalent to the electric charge in QED\@.
-Experimental measurement show that there are three different color states: red, green, and blue.
+Experimental measurements show that there are three different color states: red, green, and blue.
 Those three states can be described by building a vector of three spinor fields, which replaces the single Dirac spinor $\psi$ from QED,
 \begin{equation}
     \psi =
@@ -179,19 +179,19 @@ Those three states can be described by building a vector of three spinor fields,
         \psi_\text{blue} \\
     \end{pmatrix} \,.
 \end{equation}
-Under a local $SU(3)$ transformation a free quark field $\psi(x)$ transforms like
+Under a local $SU(3)_C$ transformation a free quark field $\psi(x)$ transforms like
 \begin{equation}
     \psi(x) \mapsto \psi'(x) = \exp \left[ i \frac{g_s}{2} \sum_{a=1}^8 \lambda_a \beta_a (x) \right] \psi(x) \,.
 \end{equation}
 Here, the coupling strength is denoted as $\alpha_s$, the eight Gell-Mann matrices as $\lambda_a$, and the eight-component gauge functions as $\vec{\beta}(x)$~\cite{Schmuser}.
 
-The $SU(3)$ group is a \emph{non-abelian} group, since its generators do not commute.
+The $SU(3)_C$ group is a \emph{non-abelian} group, since its generators do not commute.
 This results in an additional term in the field strength tensor $G_{\mu\nu}^a$ of the gluon fields $G_\mu^a$ ($a = 1, \ldots, 8$),
 \begin{equation}
     G_{\mu\nu}^a = \partial_\mu G_\nu^a -  \partial_\nu G_\mu^a - g_s f^{abc} G_\mu^b G_\nu^c \,,
 \end{equation}
-with the structure constants $f^{abc}$ of the $SU(3)$ group.
-Because there are eight Gell-Mann matrices, which are the generators of $SU(3)$, there are also eight gluon fields defined.
+with the structure constants $f^{abc}$ of the $SU(3)_C$ group.
+Because there are eight Gell-Mann matrices, which are the generators of $SU(3)_C$, there are also eight gluon fields defined.
 
 To ensure gauge invariance again a covariant derivative is introduced,
 \begin{equation}
@@ -201,7 +201,7 @@ The Lagrangian density of QCD can then be written as
 \begin{equation}
     \lagl_\text{QED} = \psibar \left( i \gamma^\mu D_\mu -m \right) \psi - \frac{1}{4} G^{\mu\nu} G_{\nu\nu} \,.
 \end{equation}
-The non-abelian structure of $SU(3)$ leads to gluon self-interaction.
+The non-abelian structure of $SU(3)_C$ leads to gluon self-interaction.
 Similarly to photons, the gluons need also to be massless to ensure the gauge invariance, which agrees with experimental observations.
 Because of the gluon self-interaction the strong force has not unlimited range.
 At very short distances, the strong force becomes weak, which is also known as \emph{asymptotic freedom}~\cite{AsymFreedom1,AsymFreedom2}.
@@ -218,8 +218,8 @@ The masses are different for each flavour but do not depend on the color charge.
 The weak interaction is mediated by the charged $W^\pm$-bosons and the neutral $Z^0$-boson, which couple to the weak
 isospin, $I_w$.
 The exchange of a $W^\pm$-boson is called \emph{charged current}, because it modifies the flavour of quarks.
-In contract, the exchange of a $Z$-boson does not change the flavour of quarks, which leads to the label \emph{neutral current}.
-It was discovered that weak interactions mediated by $W^\pm$-bosons is maximally parity violating, because the bosons couple only to
+In contrast, the exchange of a $Z$-boson does not change the flavour of quarks, which leads to the name \emph{neutral current}.
+It was discovered that weak interactions mediated by $W^\pm$-bosons are maximally parity violating, because the bosons couple only to
 left-handed particles and right-handed anti-particles~\cite{PhysRev.104.254,PhysRev.105.1413}.
 This lead to the unification of the electromagnetic and weak interaction by Glashow, Salam, and Weinberg in the
 so-called electroweak unification~\cite{Glashow1961,Salam1959,Weinberg1967}.
@@ -227,12 +227,12 @@ so-called electroweak unification~\cite{Glashow1961,Salam1959,Weinberg1967}.
 The electroweak interaction is based on an underlying $SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry
 and is able to describe both the electromagnetic and weak interaction.
 Here, the hypercharge $Y$ was introduced and $L$ denotes the coupling to only left-handed particles.
-A connection between the electric charge $Q$, the hypercharge $y$, and the third component of the weak isospin $I_3$
+A connection between the electric charge $Q$, the hypercharge $Y$, and the third component of the weak isospin $I_3$
 is given by the Gell-Mann--Nishijima formula~\cite{Nishijima1955,GellMann1956},
 \begin{equation}
     Q = I_3 + \frac{Y}{2} \,.
 \end{equation}
-Left-handed fermions are described by by $SU{(2)}_{L,I_w}$ doublets with $I_w = \frac{1}{2}$ and $I_3 = \pm \frac{1}{2}$,
+Left-handed fermions are described by $SU{(2)}_{L,I_w}$ doublets with $I_w = \frac{1}{2}$ and $I_3 = \pm \frac{1}{2}$.
 Right-handed fermions are assigned to $SU{(2)}_{L,I_w}$ singlets with $I_w = I_3 = 0$.
 An overview of the quantum numbers of fermions in the electroweak theory is given in \cref{tab:theory:quantumnumbers}.
 Right-handed neutrinos are not included, since they do not couple to other particles of the SM\@.
@@ -259,7 +259,7 @@ The degree of mixing is defined in the Cabibbo--Kobayashi--Maskawa (CKM) matrix~
 The elements $\abs{V_{ij}}$ give the probability of a quark changing its flavour from $i$ to $j$ when interacting with a $W^\pm$-boson.
 Due to the complex phase of the CKM matrix the CP invariance is violated~\cite{PhysRevLett.13.138}.
 
-\begin{table}[htpb]
+\begin{table}[tb]
     \centering
     \caption{Overview of singlets and doublets in the electroweak theory and their associated quantum numbers.}\label{tab:theory:quantumnumbers}
     \begin{tabular}{cccccccc}
@@ -287,27 +287,27 @@ Left-handed isospin doublets transform under the $SU{(2)}_{L,I_w}$ symmetry as
 \end{equation}
 with the generators $\tau_a$ ($a = 1, 2, 3$) of the $SU{(2)}_{L,I_w}$ symmetry which are the $2\times 2$ Pauli matrices,
 the coupling strength $g$, and the local phase $\alpha_a(x)$.
-The left-handed isospin doublets and the right-handed singlets transform have the following transformation behaviour under the $U{(1)}_Y$ symmetry:
+The left-handed isospin doublets and the right-handed singlets transform have the following transformation behavior under the $U{(1)}_Y$ symmetry:
 \begin{gather}
     \psi_L(x) \mapsto \psi'_L(x) = \exp \left[ i \frac{g'}{2} Y \beta(x) \right] \psi_L(x) \,, \\
-    \psi_R(x) \mapsto \psi'_L(x) = \exp \left[ i \frac{g'}{2} Y \beta(x) \right] \psi_R(x) \,,
+    \psi_R(x) \mapsto \psi'_R(x) = \exp \left[ i \frac{g'}{2} Y \beta(x) \right] \psi_R(x) \,,
 \end{gather}
 where $g'$ is a second coupling constant, $Y$ the generator of the hypercharge, and $\beta(x)$ the local phase.
 
 To preserve gauge invariance three vector fields $W^a$ ($a = 1,2,3$) for $SU{(2)}_{L,I_w}$ and one gauge field $B$
 for $U{(1)}_Y$ need to be introduced.
-With the covariant derivates for left- and right-handed fermion fields,
+With the covariant derivatives for left- and right-handed fermion fields,
 \begin{align}
     \label{eq:theory:ew:D}
     D_\mu^L &= \partial_\mu + i \frac{g}{2} \tau_a W_\mu^a + i \frac{g'}{2} Y B_\mu \,, \\
     D_\mu^R &= \partial_\mu + i \frac{g'}{2} Y B_\mu \,,
 \end{align}
-the Lagrangian density for the electroweak interaction, including all mas terms, reads
+the Lagrangian density for the electroweak interaction, including all mass terms, reads
 \begin{equation}
     \label{eq:theory:ew:l}
     \lagl_\text{EW} = \psibar_L i \gamma^\mu D_\mu^L \psi_L + \psibar_R i \gamma^\mu D_\mu^R \psi_R - \frac{1}{4} W_{\mu\nu}^a W^{\mu_\nu,a} - \frac{1}{4} B_{\mu\nu} \,.
 \end{equation}
-Here, the field strengh tensors are defined as
+Here, the field strength tensors are defined as
 \begin{align}
     \label{eq:theory:field_tensor:w}
     W_{\mu\nu}^a &= \partial_\mu W_\nu^a - \partial_\nu W_\mu^a - g \epsilon^{abc} W_\mu^b W_\nu^c \,, \\
@@ -318,7 +318,7 @@ The third term in \cref{eq:theory:field_tensor:w} enables self-interaction of th
 can only interact with fermions.
 
 Because the electroweak theory combines the electromagnetic and weak interaction, it should yield the photon field $A^\mu$.
-However, since $B_\mu$ and $W_\mu^3$ can both couple to neutrinos, they cannot be identified with $A^\mu$.
+However, since $B_\mu$ and $W_\mu^3$ both couple to neutrinos, they cannot be identified with $A^\mu$.
 Only a linear combination of those two fields can lead to the photon field.
 Of course, the linear combination needs to yield the same coupling properites as $A^\mu$, i.e.\ it needs to couple to
 right- and left-handed fermions with the same coupling strenght but is not allowed to interact with neutrinos.
@@ -330,6 +330,7 @@ A weak mixim angle $\theta_w$ is introduced,
 The photon and $Z^0$-boson fields can now be constructed as a mixing of the $W_\mu^3$ and $B_\mu$ field from the
 $SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry,
 \begin{equation}
+    \label{eq:theory:ew:zafield}
     \begin{pmatrix}
         Z_\mu \\ A_\mu
     \end{pmatrix}
@@ -349,6 +350,7 @@ of the coupling constants $g$ and $g'$ of the $SU{(2)}_{L,I_w}$ and $U{(1)}_Y$ t
 \end{equation}
 The charged eigenstates of the $W^\pm$-bosons are formed from a superposition of the $W_\mu^1$ and $W_\mu^2$ fields,
 \begin{equation}
+    \label{eq:theory:ew:wfield}
     W^\pm_\mu = \frac{1}{\sqrt{2}} \left(W_\mu^1 \mp i W_\mu^2 \right) \,.
 \end{equation}
 
@@ -383,21 +385,20 @@ The corresponding Lagrangian density reads
 \begin{equation}
     \lagl = {\left(\partial_\mu\Phi\right)}^\dagger \left(\partial^\mu\Phi\right) - V(\Phi) \,.
 \end{equation}
-This Lagrangian has also to be invariant under transformations of the $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry,
+This Lagrangian density also has to be invariant under transformations of the $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry,
 thus the normal derivatives $\partial_\mu$ are replaced with the covariant derivative of the electroweak theory given in \cref{eq:theory:ew:D},
 \begin{equation}
     \lagl = {\left(D_\mu\Phi\right)}^\dagger \left(D^\mu\Phi\right) + \mu^2 \Phi^\dagger \Phi - \lambda \left(\Phi^\dagger \Phi\right) - \frac{1}{4} W_{\mu\nu}^a W^{\mu_\nu,a} - \frac{1}{4} B_{\mu\nu} \,.
 \end{equation}
-Thus, the most general form of the Higgs potential $V(\Psi)$ which still is invariant under the $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry and providing renormalizability
+Thus, the most general form of the Higgs potential $V(\Psi)$ which still is invariant under the $SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry and providing renormalizability
 is given by
 \begin{equation}
     - \mu^2 \Phi^\dagger \Phi + \lambda \left(\Phi^\dagger \Phi\right) \,, \qquad \lambda > 0 \,.
 \end{equation}
-It has a minimum for non-vanishing values of $\mu$, which corresponds to a broken $SU{(2)}_{L,I_w} \times U{(1)}_Y$A symmetry.
+It has a minimum for non-vanishing values of $\mu$, which corresponds to a broken $SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry.
 A two-dimensional illustration of the Higgs potential is shown in \cref{fig:theory:sm:higgspotential}.
 If a fixed point in the minimum of the potential is chosen, the rotational symmetry is broken.
 Spontaneous symmetry breaking refers to choosing a specific value for this fixed point.
-\todo{Breaking SU2XU1 but not U1}
 
 \begin{figure}[tb]
     \centering
@@ -405,32 +406,116 @@ Spontaneous symmetry breaking refers to choosing a specific value for this fixed
     \caption{Two-dimensional Higgs potential for a scenario of spontaneous symmetry breaking~\cite{deBoer:2013pud}.}\label{fig:theory:sm:higgspotential}
 \end{figure}
 
-The Higgs potential can be minimized with respect to $\left(\Phi^\dagger\Phi\right)$ by
+The Higgs potential can be minimized with respect to $\Phi^\dagger\Phi$ by
 \begin{equation}
     \abs{\Phi_0}^2 = \frac{v}{\sqrt{2}} \,, v = \sqrt{\frac{\mu^2}{\lambda}} \,.
 \end{equation}
 Here, $v$ is the vacuum expectation value.
 The usual choice of the ground state is $\Phi_1 = \Phi_2 = \Phi_4 = 0$ and $\Phi_3 = \abs{\Phi_0}$, which leads to
 \begin{equation}
+    \label{eq:theo:higgs:doublet}
     \Phi_0 = \frac{1}{\sqrt{2}}
     \begin{pmatrix}
         0 \\ v
     \end{pmatrix} \,.
 \end{equation}
+The ground state has the quantum numbers $Y = 0$ and $I_3 = - \frac{1}{2}$.
+This breaks the $SU{(2)}_{L,I_w} \times U{(1)}_Y$ symmetry spontaneously to $U{(1)}_Q$.
+However, the $U{(1)}_Q$ needs to remain unbroken, therefore $\Phi_1$ and $\Phi_2$ are set to zero, to obtain a neutral ground state.
+
 The vacuum expectation value $v$ can bet set in relation to the Fermi constant $G_F$~\cite{PDG},
 \begin{equation}
     v = {\left(\sqrt{2} G_F \right)}^{-\frac{1}{2}} = \SI{246}{\GeV} \,.
 \end{equation}
 
+To describe the potential around the ground state $\Psi_0$, the following parametrization can be made:
+\begin{equation}
+    \Phi_0 (x) = \frac{1}{\sqrt{2}} \exp \left[ i \sum_{a=1}^{3} \frac{\tau_a G_a(x)}{v} \right]
+    \begin{pmatrix}
+         0 \\ v + H(x)
+    \end{pmatrix} \,.
+\end{equation}
+Four new real scalar fields need to be introduced.
+The three fields $G_a(x), (a=1,2,3)$ can be associated with the massless scalar Goldstone bosons~\cite{GoldstoneBoson1,GoldstoneBoson2}.
+They can be eliminated by using a unitary gauge transformation of the form
+\begin{equation}
+    \Phi_0(x) \mapsto \Phi'_0(x) = \exp \left[ i \sum_{a=1}^{3} \frac{\tau_a G_a(x)}{v} \right] \Phi_0(x) \,.
+\end{equation}
+The fourth field, $H(x)$, can be interpreted as an excitation of the ground state.
 
+Using the definitions of the gauge boson fields from \cref{eq:theory:ew:zafield,eq:theory:ew:wfield}, the
+Lagrangian density can be constructed,
+\begin{equation}
+    \begin{split}
+        \lagl_\text{Higgs} =& \frac{1}{2} (\partial_\mu H)(\partial^\mu H) - \lambda v^2 H^2 - \lambda v H^3 - \frac{1}{4} \lambda H^4 \\
+        & + \frac{1}{2} {\left(\frac{1}{2} v g \right)}^2 W^\mu_+ W^-_\mu + \frac{1}{2} {\left(\frac{v g}{2 \cos (\theta_w)}\right)}^2 Z^\mu Z_\mu \\
+        & + g \left(\frac{v g }{2}\right) H W^\mu_+ W^-_\mu + g \frac{f g}{4 \cos^2 (\theta_w)} H Z^\mu Z_\mu \\
+        & \frac{g^2}{4} H^2 W^\mu_+ W^-_\mu + \frac{g^2}{4 \cos^2 (\theta_w)} H^2 Z^\mu Z_\mu + \text{const}.  \,.
+    \end{split}
+\end{equation}
+The second line directly enables to read of the masses of the $W^\pm$- and $Z^0$-bosons\footnote{A mass term for particle $X$ has generally a form of $\frac{1}{2}m^2 X^\mu X_\mu$.},
+\begin{equation}
+    m_{W^\pm} = \frac{1}{2} v g \qquad \text{and} \qquad m_{Z^0} = \frac{v g }{2 \cos(\theta_w)} = \frac{m_{W^\pm}}{\cos(\theta_w)} \,.
+\end{equation}
+Therefore, the ratio of the masses of the $W^\pm$- and $Z^0$-bosons depends only on the weak mixing angle.
 
+Furthermore, the Higgs field also acquires a mass term with a mass of
+\begin{equation}
+    m_H = \sqrt{2\lambda} v \,.
+\end{equation}
+This mass can be associated with a new scalar particle, the Higgs boson.
 
+Additionally, the Lagrangian density contains cubic ($HV^\dagger V$) and quartic ($HHV^\dagger V$) terms, which describe
+interactions between the Higgs boson and massive gauge bosons ($V$).
+The coupling strength of the cubic and quartic interactions is proportional
+to the mass of the gauge bosons, $m_{w^\pm}$ or $m_{Z^0}$, and the mass of the Higgs boson, $m_H$, respectively.
+There are also cubic ($H^3$) and quartic ($H^4$) Higgs-boson self-interaction terms in the Lagrangian density.
+All these couplings predicted by the spontaneous symmetry breaking enable to measure the relation between gauge boson
+masses and coupling strengths.
 
+Up until now only the gauge bosons and the Higgs boson have a mass.
+Fermion masses can be included in the theory by introducing a new coupling, which has to be invariant under the $SU{(2)}_{L,I_w} \times U{(1)}_Y$.
+The new coupling is called \emph{Yukawa coupling} and describes the coupling between left-handed fermion $SU{(2)}_{L,I_w}$-doublets,
+right-handed fermion $U{(1)}_Y$-singles, and the Higgs-doublet.
 
+For first-generation leptons the Lagrangian density of the Yukawa coupling is given by
+\begin{equation}
+    \lagl_\text{Yukawa}^\text{lep,1} = - g_e {(\overline{\nu}_e, \overline{e})}_L \Phi e_R + h.c. \,,
+\end{equation}
+where $h.c.$ denotes the corresponding hermitian conjugated term.
+Because of the form of the Higgs doublet $\Phi$ as defined in \cref{eq:theo:higgs:doublet} only the electron
+acquires a mass, the neutrino remains massless.
 
+Before the Yukawa coupling for quarks can defined, first an additional charge conjugated Higgs doublet $\Phi_C$
+needs to be introduced, to enable couplings to quarks with $I_3 = \frac{1}{2}$,
+\begin{equation}
+    \Phi_C(x) = \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+        v + H(x) \\ 0
+    \end{pmatrix} \,.
+\end{equation}
+Now, the Lagrangian density for the Yukawa coupling for quarks of the first generation can be written down,
+\begin{equation}
+    \lagl_\text{Yukawa}^\text{quark,1} = -g_d {(\overline{u}, \overline{d})}_L \Phi d_R + g_u {(\overline{u}, \overline{d})}_L \Phi_C u_R + h.c.
+\end{equation}
+For fermions of the second and third generation the same approach can be used.
 
+It turns out that the coupling constant $g_f$ for fermions is directly proportional to the correspinding mass $m_f$ of the fermion,
+\begin{equation}
+    m_f  = v \frac{g_f}{\sqrt{2}} \,.
+\end{equation}
+If the excitation of the ground state is considered, the Lagrangian density of the Yukawa coupling to fermions can be written as
+\begin{equation}
+    \lagl_\text{Yukawa} = - m_f \overline{f} f \left(1 + \frac{H}{v}\right) \,.
+\end{equation}
 
-
+This is the last missing piece of the full Lagrangian density of the Standard Model,
+\begin{equation}
+    \lagl_\text{SM} = \lagl_\text{QCD} + \lagl_\text{EW} + \lagl_\text{Higgs} + \lagl_\text{Yukawa} \,.
+\end{equation}
+The only coupling paramter is $\lambda$, since all other paraters are fixed by the masses of the gauge bosons and fermions, which
+can be experimentally measured.
+Thus, $\lambda$ needs to be determined by measuring the mass of the Higgs boson.
 
 \section{Hadronic scattering and parton model}\label{sec:theory:hadronscattering}
 
@@ -508,8 +593,9 @@ However, as a first approximation the naive parton model still can be used.
 
 \section{The Higgs Boson}\label{sec:theory:higgs}
 
-The Higgs boson was predicted by Higgs mechanism in Standard Model since the 1960s.
-It has no electric or color charge and has a spin-parity configuration of $J^{CP} = 0^+$, its mass can only be obtained by experiments.
+The Higgs boson was predicted by the Higgs mechanism in Standard Model since the 1960s.
+It has no electric or color charge and has a spin-parity configuration of $J^{CP} = 0^+$.
+Its mass can only be obtained by experiments.
 The coupling strength to fermions and gauge bosons is proportional to the mass of those particles.
 
 In 2012 the Higgs boson was observed with the ATLAS and CMS experiments at CERN~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryCMS} with a
@@ -537,7 +623,7 @@ Mathematically speaking this is a convolution of the PDFs with the partonic cros
     \sigma_{ij\to X} = \int_{0}^{1} \dif x_i \int_{0}^{1} \dif x_j \,
     f_i \left( x_i \right ) f_j \left( x_j \right ) \hat{\sigma}_{ij\to X} \,.
 \end{equation}
-The general expression of the partonic cross-section is~\cite{Griffiths}
+The general expression for the partonic cross-section is~\cite{Griffiths}
 \begin{equation}
     \hat{\sigma}_{ij\to X} = \frac{1}{j} \int \matrixm \left(ij \to X \right) \dif \Phi \,,
 \end{equation}
@@ -573,7 +659,7 @@ at the LHC\@.
 \end{figure}
 
 The production mode with the highest cross-section is gluon--gluon fusion (ggF).
-This is due to the high contribution of gluon PDF in protons for small momentum fractions $x$, which enables
+This is caused by the high contribution of the gluon PDF in protons for small momentum fractions $x$, which enables
 a quark loop producing a Higgs boson. Because coupling strength of the Higgs boson is proportional to the mass of the
 interaction particle, top and bottom quarks contributions dominate in the quark loop.
 At leading order only the Higgs boson is produced, therefore it has no transverse momentum.
@@ -641,7 +727,7 @@ Thus, the branching ratio (BR), which is defined as the fraction of partial deca
 increasing for higher masses of the decaying particles.
 
 The dominant decay channels for fermions are $H\to b \overline{b}$, $H \to \tau^+\tau^-$, $H \to c\overline{c}$, and $H \to \mu^+\mu^-$.
-Furthermore, the Higgs boson can decay directly into massive gauge bosons, $H \to WW^*$ and $H \to ZZ*$.
+Furthermore, the Higgs boson can decay directly into massive gauge bosons, $H \to WW^*$ and $H \to ZZ^*$.
 With the help of a heavy quark loop and $W$-boson loop, it can also decay into massless gauge bosons, $H \to gg$ and $H \to \gamma\gamma$.
 
 The branching ratios depending on the mass of the Higgs boson are shown in \cref{fig:theory:higgs:br}.\todo{If time, add feynman graphs for decay}\ 
@@ -723,7 +809,7 @@ to the prediction of the SM is used,
 \begin{equation}
     \mu = \frac{\sigma_\text{experimental}}{\sigma_\text{SM}} \,.
 \end{equation}
-This ratio is the so-called \emph{signal strength} ans is denoted with $\mu$.
+This ratio is the so-called \emph{signal strength} and is denoted with $\mu$.
 This makes it very easy to check if the measured cross section is in agreement with the standard model value for different processes, which would be
 always indicated by $\mu = 1$.
 
@@ -802,7 +888,7 @@ Both the $WW$ and $ZZ$ decay channel can be used.
 The combined limit of those two channels from the CMS collaboration is $\Gamma_H < \SI{13}{\MeV}$~\cite{HiggsGammaOffshellCMSZZ,HiggsGammaOffshellCMSWW}
 and from the ATLAS collaboration $\Gamma_H < \SI{22.7}{\MeV}$~\cite{HiggsGammaOffshellATLAS} at \SI{95}{\percent} confidence level (CL).
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.45\textwidth]{./figures/theory/width_ZZ+WW_CMS.png}
     \includegraphics[width=0.45\textwidth]{./figures/theory/width_ZZ+WW_ATLAS.pdf}
@@ -818,7 +904,7 @@ Both ATLAS and CMS could confirm this prediction and exclude models with other v
 in measurements using the $H \to \gamma\gamma$ and $H\to ZZ \to 4\ell$ decay channel~\cite{HiggsCPATLAS,HiggsCPCMS}.
 Especially the CMS collaboration tested a multitude of alternative spin-2 models, as shown in \cref{fig:theory:meas:run1:cp}.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{./figures/theory/cp_cms_results.pdf}
     \caption{Observed and expected values of the test statistic discriminating between the SM
@@ -840,7 +926,7 @@ A CP-even Higgs-boson results in $\tilde{0}$ while deviations from zero of the C
 The results of the measurements in~\cite{HiggsCPTauTau} are in agreement with the SM prediction of $\tilde{d} = 0$ and exclude values of $\tilde{d}$ outside of
 $\left[-0.11, 0.05\right]$ at a confidence level of \SI{68}{\percent}, as can be seen in \cref{fig:theory:meas:run1:oo}.
 
-\begin{figure}[htb]
+\begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{./figures/theory/cpeven_dtilde.eps}
     \caption{The negative log likelihood ($\Delta \text{NNL}$) as a function of the CP-mixing parameter $\tilde{d}$
@@ -848,6 +934,8 @@ $\left[-0.11, 0.05\right]$ at a confidence level of \SI{68}{\percent}, as can be
              The minimum of the $\Delta \text{NNL}$ curve corresponds to the best fit value.
              The \SI{68}{\percent} confidence level is indicated by the gray dashed line~\cite{HiggsCPTauTau}.}\label{fig:theory:meas:run1:oo}
 \end{figure}
+
+\FloatBarrier{}
 
 \subsection{Measurements during Run-2}\label{sub:theory:meas:run2}
 
@@ -884,7 +972,7 @@ This is in agreement with the prediction of the Standard Model and previous meas
 
 The mass of the Higgs boson was also determined again using the $H\to\gamma\gamma$ and $H \to ZZ \to 4\ell$ decay channels.
 In the measurement the full 2015 and 2016 dataset corresponding to $\SI{36.1}{\invfb}$ is used.
-The result is
+The result is~\cite{ATLAS-CONF-2017-046}
 \begin{equation}
     m_H = (124.98 \pm 0.19 \text{(stat.)} + 0.21 \text{(sys.)}) \,, \text{GeV} \,,
 \end{equation}

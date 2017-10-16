@@ -606,10 +606,10 @@ and corresponding uncertainties are listed in \cref{tab:theory:higgs:prodxsec}.
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./figures/theory/higgs_xsec_decay.eps}
-        \caption{Decay modes.}\label{fig:theory:higgs:decay}
+        \caption{Decay modes.}\label{fig:theory:higgs:br}
     \end{subfigure}
     \caption{Production cross-sections of the Higgs boson as a function of the center-of-mass energy $\sqrt{s}$ (a)~\cite{YR4}
-             and cross-sections of the Higgs boson decay-modes depeding in the mass $m_H$ of the Higgs boson (b)~\cite{YR3}.}
+             and cross-sections of the Higgs boson decay-modes depending in the mass $m_H$ of the Higgs boson (b)~\cite{YR3}.}
 \end{figure}
 
 \begin{table}[htpb]
@@ -644,9 +644,9 @@ The dominant decay channels for fermions are $H\to b \overline{b}$, $H \to \tau^
 Furthermore, the Higgs boson can decay directly into massive gauge bosons, $H \to WW^*$ and $H \to ZZ*$.
 With the help of a heavy quark loop and $W$-boson loop, it can also decay into massless gauge bosons, $H \to gg$ and $H \to \gamma\gamma$.
 
-The Feynman diagrams for those decays can be seen in \cref{fig:theory:higgs:decay}.
-The corresponding branching rations are listed in \cref{tab:theory:higgs:br}.
-At the LHC the two most dominant decay modes for a Higgs boson with a mass of $m_H = \SI{125}{\GeV}$ are the decay into
+The branching ratios depending on the mass of the Higgs boson are shown in \cref{fig:theory:higgs:br}.\todo{If time, add feynman graphs for decay}\ 
+The corresponding values for a Higgs boson with a mass $m_H = \SI{125}{\GeV}$ are listed in \cref{tab:theory:higgs:br}.
+At the LHC the two most dominant decay modes are the decay into
 a bottom-quark pair with a branching ratio of \SI{57.7}{\percent} and the decay into a pair of $W$-bosons with a BR
 of \SI{21,5}{\percent}.
 The focus of this analysis is on the decay into a pair of $\tau$-leptons, which has a branching ratio of \SI{6.32}{\percent}.
@@ -669,7 +669,223 @@ The focus of this analysis is on the decay into a pair of $\tau$-leptons, which 
         \bottomrule
     \end{tabular}
 \end{table}
-\section{Measurements of the Higgs Boson at the LHC}
-\label{sec:theory:measurements}
+\section{Measurements of the Higgs Boson at the LHC}\label{sec:theory:measurements}
+
+This section gives an overview of recent measurements of Higgs-boson properties during Run-1 and Run-2 of the LHC\@.
+
+\subsection{Discovery}\label{sub:theory:meas:discovery}
+
+The observation of a new particle with a mass of \SI{125}{\GeV} in the search for a SM Higgs-boson was
+announced by both the ATLAS and CMS experiment on \nth{4} of July 2012~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryATLAS}.
+The observed significance was $5.9\sigma$ and $5.0\sigma$ for ATLAS and CMS, respectively, which is passing the threshold of $5\sigma$
+needed for an observation.
+This corresponds to a local $p_0$ value of $xx$ (ATLAS) and $xx$ (CMS).
+The $p_0$ values as a function of the mass of the Higgs boson can be seen in \cref{fig:theory:meas:disc:p0}.
+Results from the $H\to\gamma\gamma$, $H\to ZZ$, $H \to WW$, $H\to\tau\tau$, $H\to b\overline{b}$ decay channels were used for the observation.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./figures/theory/atlas_higgs_p0.eps}
+    \includegraphics[width=0.45\textwidth]{./figures/theory/cms_higgs_p0.png}
+    \caption{Values for $p_0$ depending on the mass of the Higgs boson, $m_H$, from the observation of the
+             Higgs boson during Run-1 with the ATLAS (left,~\cite{HiggsDiscoveryATLAS}) and CMS (right,~\cite{HiggsDiscoveryCMS}) experiments.
+             The black dashed lines show the expected values.
+             The corresponding significances are indicated by red lines.}\label{fig:theory:meas:disc:p0}
+\end{figure}
+
+\subsection{Measurements during Run-1}\label{sub:theory:meas:run1}
+
+During Run-1 several properties of Higgs boson were measured, like the mass, signal strength, decay width, as well as
+spin and CP properties.
+
+\subsubsection{Mass measurement}\label{subsub:theory:meas:run1:mass}
+
+While the mass of the Higgs boson was determined individually by the ATLAS and CMS experiment during its discovery,
+both experiments combined their results using the full Run-1 for a combined measurement of the Higgs-boson mass.
+For the mass measurement only the $H\to\gamma\gamma$ and $H\to ZZ \to 4\ell$ channels were used, since other channels
+provide a worse mass resolution or do not have direct access to the mass of the Higgs boson.
+The combined result is~\cite{MassCombinedMeas}
+\begin{equation}
+    m_H = (125.09 \pm 0.21 \text{(stat.)} \pm 0.11 \text{(sys.)})\,\text{GeV} \,,
+\end{equation}
+individual results are shown in \cref{fig:theory:meas:run1:mass}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./figures/theory/mass_combination_atlascms.pdf}
+    \caption{Measurement of the mass of the Higgs boson in the $H\to\gamma\gamma$ and $H \to ZZ \to 4\ell$ decay channels during Run-1 with the ATLAS and CMS detector~\cite{MassCombinedMeas}.}\label{fig:theory:meas:run1:mass}
+\end{figure}
+
+\subsubsection{Signal strength}\label{subsub:theory:meas:run1:mu}
+
+The measured cross section of a process is usually not given directly, but the ratio of the measured cross section
+to the prediction of the SM is used,
+\begin{equation}
+    \mu = \frac{\sigma_\text{experimental}}{\sigma_\text{SM}} \,.
+\end{equation}
+This ratio is the so-called \emph{signal strength} ans is denoted with $\mu$.
+This makes it very easy to check if the measured cross section is in agreement with the standard model value for different processes, which would be
+always indicated by $\mu = 1$.
+
+The signal strength of the Higgs boson can be determined for different production modes and decay channels, as shown in \cref{fig:theory:meas:run1:mu}.
+All signal strengths agree within uncertainties with the predicted SM value of $\mu = 1$.
+The combined signal strength is~\cite{HiggsMuCombined}
+\begin{equation}
+    \mu = 1.09 \pm  0.07 \text{(stat.)} \errud{0.09}{0.08} \text{(sys.)} \,,
+\end{equation}
+which matches with the SM expectation within the uncertainties.
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figures/theory/signal_strength_production.png}
+        \caption{Production modes.}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figures/theory/signal_strength_decay.png}
+        \caption{Decay channels}
+    \end{subfigure}
+    \caption{Values of the signal strength of the Higgs boson in different production modes (a) and decay channels (b)
+             obtained in a combined measurement of the ATLAS and CMS collaborations~\cite{HiggsMuCombined}.}\label{fig:theory:meas:run1:mu}
+\end{figure}
+
+Additionally, the normalized coupling strengths
+\begin{equation}
+    \kappa_i = \frac{g_i}{g_{,\text{SM}}}
+\end{equation}
+can be measured, where $g_i$ is the measured coupling strength and $g_{i,\text{SM}}$ the prediction of the Standard Model.
+Here, the assumption that beyond the Standard-Model contributions are not present in loops and decay needs to be made.
+The normalized coupling strengths are shown in \cref{fig:theory:meas:run1:kappanorm}.
+All values are in agreement with the SM expectation of $\kappa_i = 1$.
+
+Furthermore, the reduced coupling strengths $\kappa_F \frac{m_F}{v}$ for fermions and $\sqrt{\kappa_V} \frac{m_V}{v}$ for gauge bosons
+can be calculated.
+The vacuum expectation value is denoted by $v$.
+If all the reduced coupling strengths are plotted as a function of the particle mass, a linear dependence is predicted by the Standard Model.
+This is can be seen in \cref{fig:theory:meas:run1:kappareduced}, all values agree within uncertainties with the SM expectation~\cite{HiggsMuCombined}.
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[c]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figures/theory/coupling_strength.pdf}
+        \caption{Normalized coupling strength.}\label{fig:theory:meas:run1:kappanorm}
+    \end{subfigure}
+    \begin{subfigure}[c]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./figures/theory/reduced_coupling_strength.pdf}
+        \caption{Reduced coupling strength}\label{fig:theory:meas:run1:kappareduced}
+    \end{subfigure}
+    \caption{Normalized coupling strengths of the Higgs boson to different particles (a) and reduced coupling strengths of
+             the Higgs boson to different particles as the function of the particle mass (b) determined in a combined measurement
+             of the ATLAS and CMS collaboration.
+             The prediction of the Standard Model is indicated by a dashed line~\cite{HiggsMuCombined}.}
+\end{figure}
 
 
+\subsubsection{Decay width}\label{subsub:theory:meas:run1:width}
+
+The Standard Model prediction for the decay width of a Higgs boson with a mass of \SI{125}{\GeV} is $\Gamma_H \SI{4}{\MeV}$~\cite{YR1}.
+This makes the direct measurement of the decay width nearly impossible, since the detector resolution for the $H\to\gamma\gamma$ and
+$H \to ZZ \to 4\ell$ channels is around three magnitudes large.
+
+A direct measurement of the decay width of the Higgs boson yielded an upper limit of around \SI{1}{\GeV}~\cite{HiggsGammaDirectATLAS,HiggsGammaDirectCMS}.
+
+Refined analysis techniques are needed for a better limit.
+One option is to measure the flight distance of the Higgs boson in the detector, from which the lifetime and subsequently the decay width can be calculated.
+This was done by the CMS collaboration and resulted in a lower limit of $\Gamma_H > \SI{3.5e-9}{\MeV}$~\cite{HiggsGammaLifetimeCMS}.
+
+Another possibility is to exploit the production of off-shell production $gg \to H \to VV$ channel.
+The ratio between the on- and off-shell signal strengths can be used to determine the decay width of the Higgs boson~\cite{HiggsGammaOffshellCMSZZ},
+\begin{equation}
+    \frac{\mu_\text{off-shell}}{\mu_\text{on-shell}} = \frac{\Gamma_H}{\Gamma_H^\text{Theory}} \,.
+\end{equation}
+Both the $WW$ and $ZZ$ decay channel can be used.
+The combined limit of those two channels from the CMS collaboration is $\Gamma_H < \SI{13}{\MeV}$~\cite{HiggsGammaOffshellCMSZZ,HiggsGammaOffshellCMSWW}
+and from the ATLAS collaboration $\Gamma_H < \SI{22.7}{\MeV}$~\cite{HiggsGammaOffshellATLAS} at \SI{95}{\percent} confidence level (CL).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.45\textwidth]{./figures/theory/width_ZZ+WW_CMS.png}
+    \includegraphics[width=0.45\textwidth]{./figures/theory/width_ZZ+WW_ATLAS.pdf}
+    \caption{Profile likelihood of the CMS (left,~\cite{HiggsGammaOffshellCMSZZ}) and ATLAS (right,~\cite{HiggsGammaOffshellATLAS}) of the decay width of the Higgs boson.}\label{fig:theory:meas:run1:gamma}
+\end{figure}
+
+\subsubsection{Spin and CP properties}\label{subsub:theory:meas:run1:cp}
+
+In the Standard Model the spin and CP properties of the Higgs boson are predicted to be $J^{CP} = 0^+$, i.e.\ a Higgs boson with spin zero
+which is invariant under charge and parity transformations is expected.
+
+Both ATLAS and CMS could confirm this prediction and exclude models with other values of $J^{CP}$ at more than \SI{99.9}{\percent} CL
+in measurements using the $H \to \gamma\gamma$ and $H\to ZZ \to 4\ell$ decay channel~\cite{HiggsCPATLAS,HiggsCPCMS}.
+Especially the CMS collaboration tested a multitude of alternative spin-2 models, as shown in \cref{fig:theory:meas:run1:cp}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./figures/theory/cp_cms_results.pdf}
+    \caption{Observed and expected values of the test statistic discriminating between the SM
+             prediction and other hypothesis from the spin and parity analysis of the CMS
+             collaboration~\cite{HiggsCPCMS}.}\label{fig:theory:meas:run1:cp}
+\end{figure}
+
+Those measurements do not give information about the sign of the CP operator.
+The state $J^{CP} = 1^+$ only indicates that the Higgs boson is invariant under CP transformations.
+However, this does not fix the value of the eigenstate of the CP operator.
+The possibilities are either $+1$ or $-1$, which are also called CP even or CP odd, respectively, or a mixing between those states.
+
+The mixing between CP-even and CP-odd eigenstates can be measured using the so-called \emph{Optimal Observable}, which
+was already used during Run-1 in the $H \to \tau\tau$ decay channel analysis~\cite{HiggsCPTauTau}.
+Here, the CP-mixing parameter $\tilde{d}$ provided by the Optimal Observable is directly related to the CP-even nature of the Higgs boson in the
+VBF production mode.
+A CP-even Higgs-boson results in $\tilde{0}$ while deviations from zero of the CP-mixing parameter would indicate a CP-violating nature of the Higgs boson.
+
+The results of the measurements in~\cite{HiggsCPTauTau} are in agreement with the SM prediction of $\tilde{d} = 0$ and exclude values of $\tilde{d}$ outside of
+$\left[-0.11, 0.05\right]$ at a confidence level of \SI{68}{\percent}, as can be seen in \cref{fig:theory:meas:run1:oo}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.5\textwidth]{./figures/theory/cpeven_dtilde.eps}
+    \caption{The negative log likelihood ($\Delta \text{NNL}$) as a function of the CP-mixing parameter $\tilde{d}$
+             obtained by the Optimal Observable method during Run-1 with the ATLAS detector.
+             The minimum of the $\Delta \text{NNL}$ curve corresponds to the best fit value.
+             The \SI{68}{\percent} confidence level is indicated by the gray dashed line~\cite{HiggsCPTauTau}.}\label{fig:theory:meas:run1:oo}
+\end{figure}
+
+\subsection{Measurements during Run-2}\label{sub:theory:meas:run2}
+
+In 2015 the second data-taking period, Run-2, started with an increased center-of-mass energy of \SI{13}{\TeV}.
+In the following a few results from the ATLAS experiment using the 2015 and 2016 dataset are presented.
+
+\subsubsection{Total cross section}\label{subsub:theory:meas:run2:totalxsec}
+
+Due to the changing center-of-mass energy the dependence of the total cross section on $\sqrt{s}$ can be investigated.
+For this the $H\to\gamma\gamma$ and $H \to ZZ \to 4\ell$ decay channels are used.
+The cross section is measured for a center-of-mass energy of $7$ (2011), $8$ (2012), and \SI{13}{\TeV} (2015+2016),
+with a dataset corresponding to $4.5$, $20.3$, and $\SI{36.1}{\invfb}$, respectively~\cite{ATLAS-CONF-2017-047}.
+The results are shown in \cref{fig:theory:meas:run2:totalxsec}.
+Due to the increased cross-section from Run-1 to Run-2, the total cross section is increased by a factor 2.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\textwidth]{./figures/theory/total_xsec_run2.pdf}
+    \caption{Measurement of the total cross section as a function of the center-of-mass energy in the $H \to \gamma\gamma$
+             and $H \to ZZ \to 4\ell$ decay channels with the ATLAS detector~\cite{ATLAS-CONF-2017-047}.}\label{fig:theory:meas:run2:totalxsec}
+\end{figure}
+
+\subsubsection{Signal strength}\label{subsub:theory:meas:run2:totalxsec}
+
+The signal strength was measured again with the 2015 and 2016 dataset from Run-2 corresponding to $\SI{36.1}{\invfb}$ with the ATLAS detector.
+In the measurement the $H\to\gamma\gamma$ and $H \to ZZ \to 4\ell$ decay channels were used,
+yielding a combined signal strength of~\cite{ATLAS-CONF-2017-047}
+\begin{equation}
+    \mu = 1.09 \pm 0.09 \text{(stat.)} \errud{0.06}{0.05} \text{(exp.)} \errud{0.06}{0.05} \text{(theo.)} \,.
+\end{equation}
+This is in agreement with the prediction of the Standard Model and previous measurements.
+
+\subsubsection{Mass measurement}\label{subsub:theory:meas:run2:totalxsec}
+
+The mass of the Higgs boson was also determined again using the $H\to\gamma\gamma$ and $H \to ZZ \to 4\ell$ decay channels.
+In the measurement the full 2015 and 2016 dataset corresponding to $\SI{36.1}{\invfb}$ is used.
+The result is
+\begin{equation}
+    m_H = (124.98 \pm 0.19 \text{(stat.)} + 0.21 \text{(sys.)}) \,, \text{GeV} \,,
+\end{equation}
+which is in agreement of the combined measurement of Run-1.

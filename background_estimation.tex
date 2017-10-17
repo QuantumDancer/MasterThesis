@@ -1,5 +1,102 @@
 \chapter{Background Estimation}\label{cha:background_estimation}
 
+The background contributions as described in \cref{sec:processes:background} play an important role
+in the analysis of the $\Httll$ process.
+Most background contributions are modeled by simulated events.
+However, data-driven background estimation techniques allow a better control of the modeling of the simulated
+events while simultaneously reducing systematic uncertainties.
+
+For this analysis the background contribution of events with misidentified jets is estimated in a data-driven way.
+Additionally, the normalization of simulated events from the $\Zgammall$, $\Zgammatt$, and top-quark background is determined
+in so-called \emph{control regions}.
+This allows a better comparison between simulated events, and data before the statistical analysis is performed.
+
 \section{Background Estimation of Events with Misidentified Leptons}\label{sec:background_estimation:fakes}
 
+Sometimes other objects like jets are misidentified as leptons.
+This happens most of the time in events which originate from QCD multi-jet production, $W$-boson production in association with jets
+and semi-leptonic decay of top-quark pairs.
+This background is called \emph{fake background}.
+In contrast, real leptons can be found in processes with a so-called \emph{prompt} lepton, for example the leptonic decay of
+a $\tau$-lepton or a massive vector boson.
+
+The estimation of the fake background is based on a control region where the isolation criterion on the subleading lepton
+is inverted.
+Additionally, the identification criterion is loosened from \emph{medium} to \emph{loose} and some requirements for the preselection are modified.
+For events with different-flavour (DF) final-state leptons, the invariant mass of the dilepton system has to fulfill $\SI{30}{\GeV} < \mll < \SI{150}{\GeV}$.
+A further requirement is $n_{\text{jets},40} \geq 1$, and if there is no jet in the event, the
+transverse momenta of the two leading leptons are restricted to $\pt^{\ell_1} > \SI{35}{\GeV}$ and
+$\pt^{\ell_2} > \SI{15}{\GeV}$.\footnote{The notation $n_{\text{jets},40}$ indicates, that for the jet counting only jets with $\pt > \SI{40}{\GeV}$ and $\abs{\eta} < 4.5$ are used.}
+For same flavour events also $n_{\text{jets},40} \geq 1$ is used instead of the normal jet counting.
+
+Events from backgrounds without fake leptons (diboson, $\Zll$, $\Ztautau$, $H\to WW$, and leptonically decaying top quarks) are subtracted from data in this control region.
+The remaining data events form the  \emph{fake distribution}.
+However, this distribution is not correctly normalized.
+The normalization is obtained by fitting the $\pt$ distribution of the subleading lepton in the control region
+with a template fit to the same distribution in the signal region (nominal region).
+
+To correct for discrepancies between the nominal and fake region, correction factors are calculated in two different regions
+and then applied to the fake region.
+For this events with two same-sign (SS) leptons are used, which are obtained by inverting the requirement of the opposite sign (OS)
+of the two leptons.
+The correction factors $f_\text{cor}$ are calculated by
+\begin{equation}
+    f_\text{cor} = \frac{N^\text{SS}_\text{nom}}{N^\text{SS}_\text{fake}} \,,
+\end{equation}
+where $N$ denotes the number of events in the corresponding region.
+Now, the correction factors are applied to the OS fake region,
+\begin{equation}
+    N^\text{OS}_\text{nom} = f_\text{cor} N^\text{OS}_\text{fake} \,.
+\end{equation}
+The correction factors are applied to the distributions of the following observables:
+$\pt^{\ell_1}, \pt^{\ell_2}, \Delta \phi (\ell_1, \etmiss), \Delta \phi (\ell_2, \etmiss), n_{\text{jets},40}, pt^{\tau\tau}, \pt^\tau / \pt^{\ell_1}, \drll, m_\text{T}^{\ell_1}$, and $m_\text{T}^{\ell_2}$.
+The assumption was made, that the correction factors are not changed when transferring them from the SS to the OS region.
+
 \section{Normalization of the $\Zll$, $\Ztautau$, and top backgrounds}\label{sec:background_estimation:normalization}
+
+The other important backgrounds of this analysis, i.e.\ the $\Zll$, $\Ztautau$, and top background, are not estimated with
+a data-driven technique.
+Their shape is taken from simulations, but the normalization can be obtained from data events in control regions.
+Similarly to the estimation of the fake lepton background, the control regions are here also defined by inverting one requirement of the event selection.
+For each background contribution a separate control region is needed, which should be enriched with events from the corresponding background.
+
+The $\Zll$ control region is defined by changing the requirement of $\SI{30}{\GeV} < \mll < \SI{75}{\GeV}$ to $\SI{80}{\GeV} < \mll < \SI{100}{\GeV}$, in order to
+select the $Z$-peak. Additionally, only same flavour events are considered.
+Events where the MMC algorithm failed to converge are also used.
+
+The control region for the background originating from top-quarks are formed by requiring at least one jet which is $b$-tagged in each event.
+Furthermore, events where the MMC algorithm failed to converge are also included.
+
+For the $\Ztautau$ background there is no dedicated control region.
+Instead the signal region is used, but only events with $\mcoll < \SI{100}{\GeV}$ are used to avoid high signal contributions.
+
+To obtain the normalization factors a $3 \times 3$ matrix $\mathbb{N}$ is constructed, which contains the number of events for each of those three backgrounds
+in each control region.
+Additionally, a vector $\vec{N}^\text{Data}$ contains the number of data events in each control region.
+Contributions from other backgrounds which are not normalized need to be subtracted.
+Now, the vector of normalization factors, \textbf{NF}, can be calculated by multiplying the inverted matrix with the data vector,
+\begin{equation}
+    \vec{\textbf{NF}} = \mathbb{N}^{-1} \vec{N}^\text{Data} \,.
+\end{equation}
+Uncertainties on the normalization factors can be obtained by varying the entries of the $\mathbb{N}$ matrix within their uncertainties multiple times and then
+inverting each of the matrices.
+
+These normalization factors are also called pre-fit normalization factors, since they are used to compare distributions
+before the statistical analysis is carried out, in which the normalizations incorporated as a part of the full fit model.
+
+
+The normalization factors can be in principle calculated after each requirement listed in \cref{sec:event_selection:preselection,sec:event_selection:categorization}.
+For the analysis presented in \cref{cha:event_selection} the normalization factors are calculated after the preselection.
+The results are shown in \cref{tab:background_estimation:nfs}.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Pre-fit normalization factors for the multivariate analysis.}\label{tab:background_estimation:nfs}
+    \begin{tabular}{lccc}
+        \toprule
+        Selection        & $Z \to \ell\ell$ & $Z \to \tau\tau$ & Top \\ \midrule
+        Preselection    & $1.19 \pm 0.05$ & $1.06 \pm 0.02$ & $1.07 \pm 0.02$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+

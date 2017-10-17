@@ -1,1 +1,86 @@
 \chapter{Systematic Uncertainties}\label{cha:systematics}
+
+Systematic uncertainties arise from various sources in the analysis of $\Httllfull$.
+They affect the event yields in the final distributions, which are used in the fit.
+There are two types of systematic uncertainties: the \emph{shape uncertainties}, which have an impact on
+the distributions of the used observables, and the \emph{normalization systematics}, which affect the
+expected signal and background yields.
+
+Systematic uncertainties can by classified by the type of their source.
+Experimental systematics arise due to measurements of for example the luminosity or
+efficiencies of object identification and reconstruction.
+The calibration of the detectors, especially the calorimeters, is another contribution.
+Another source are uncertainties related to theory predictions.
+These depend for example on the choice of the QCD scale or PDF uncertainties.
+Additionally, the data-driven estimation of background processes result in another class of systematic uncertainties.
+
+For most of the systematic uncertainties the source is varied upwards or downwards within one standard deviation and the full
+analysis is repeated on the modified input, in order to propagate the systematic uncertainty correctly.
+Then, the impact on the shape of the observable used in the fit and the total signal and background yield is compared
+with respect to the nominal case.
+Systematic variations which have only a very minor impact are discarded by a \emph{pruning} procedure.
+
+This chapter gives an overview of the systematic uncertainties which are considered in this analysis.
+Their incorporation in the fit is discussed in \cref{sec:fit:nps}.
+
+\section{Experimental uncertainties}\label{sec:systematics:exp}
+
+\begin{description}[leftmargin=0cm]
+    \item[Luminosity:] The uncertainty of the integrated luminosity is $\SI{\pm 2.1}{\percent}$ for the combined 2015 and 2016 dataset~\cite{LumiUncertRun2}.
+        This value was derived in a procedure similar to the method described in~\cite{LumiUncertRun1}
+        from a calibration of the luminosity scale using x-y beam-separation scans performed in August 2015 and May 2016.
+    \item[Electrons:] The uncertainties on the electron trigger, identification, and isolation efficiencies
+        are derived in $J/\Psi \to ee$ and $Z \to ee$ events. The relative variations are within \SI{0.5}{\percent}
+        and \SI{5}{\percent}~\cite{ATLAS-CONF-2016-024,ElectronSFUncert}.
+        Additionally, systematic variations on the electron energy resolution are applied, which is most of the
+        time less than \SI{1}{\percent}~\cite{PERF-2013-05}.
+    \item[Muons:] The muon momentum scale and energy resolutions are varied by $\pm 1 \sigma$
+        in the event reconstruction. The variations are derived in $J/\Psi \to \mu\mu$ and $Z \to \mu\mu$
+        are range between \SI{1.7}{\percent} and \SI{2.9}{\percent}.
+        The systematic variations on the trigger, identification, and isolation efficiencies for muons
+        are derived in the same events.
+        The variations are between \SI{1}{\percent} and \SI{7}{\percent}~\cite{PERF-2015-10}.
+    \item[Jet energy:] The jet uncertainties depend on the transverse momentum and $\eta$ of the jet.
+        The uncertainties on the jet energy resolution (JER) and jet energy scale (JES) are obtained
+        by smearing the nominal jet energy resolution.
+        The JES uncertainty is \SI{6}{\percent} for jets with $\pt = \SI{20}{\GeV}$,
+        decreases to \SI{1}{\percent} for jets between with a transverse momentum between \SI{200}{\GeV} and \SI{1800}{\GeV} and rises again to \SI{3}{\percent}
+        for jets with higher $\pt$.
+        For the JER and JES uncertainties the 11 and 19 parameter scheme is used, respectively.~\cite{ATL-PHYS-PUB-2015-015,PERF-2016-04}
+    \item[Jet vertex tagger:] The jet vertex tagger (JVT) algorithm is used to suppress jets from pile-up events
+        by applying a threshold on the output of the JVT algorithm, as described in \cref{sec:object_selection:jets}.
+        The variation of this threshold is used as a systematic uncertainty.
+    \item[b-tagging:] Scale factors are used to correct the $b$-tagging efficiencies and mistag rate for light flavour jets.
+        This class of systematic variations refers to the variation of these scale factors.
+        The systematic variation affects mainly the single-top and $t\overline{t}$ background.
+    \item[Transverse missing energy:] For the systematic uncertainty on the missing transverse energy the soft-term
+        contribution is smeared to match the data~\cite{METUncertainty}.
+    \item[Pile-up reweighting:] In the generation of simulated events a generalized profile for the distribution of the number of interactions
+        per bunch crossing (pile-up distribution) is used. To match with the observed profile of the 2015 and 2016 dataset, a correction factor
+        of $1/1.16$ needs to be applied to the pile-up distribution..
+        It was determined that the uncertainty for a $1\sigma$ variation is $1/(1.16 \pm 0.07)$.
+        However, the more conservative estimation of $1/(1.16^{+0.07}_{-0.16})$ is used in this analysis.
+\end{description}
+
+\section{Uncerainties on data-driven background estimations}\label{sec:systematics:exp}
+
+The background of events with misidentified leptons (fake leptons) is estimated in this analysis in a data-driven way,
+as described in \cref{sec:background_estimation:fakes}.
+The systematic variations are constructed from variations of the efficiencies of the triggers, which are used to select the events.
+Additionally, non-closure systematics are derived by comparing data events from the opposite sign and same sign fake control region.
+
+\section{Theory uncerainties}\label{sec:systematics:exp}
+
+\begin{description}[leftmargin=0cm]
+    \item[Signal theory systmatics:] For the gluon--gluon fusion, vector boson fusion, and Higgs-Strahlung production
+        modes of the Higgs boson several systematic variations are applied.
+        For the uncertainties on the parton distribution function (PDF) several parametrizations of different PDF sets are compared~\cite{YR4}.
+        Additionally, the value of the strong coupling constant $\alpha_s$ is varied, $\alpha_s(M_Z) = 0.118 \pm 0.0015$~\cite{YR4}.
+        Discrepancies due to missing higher-order calculations of the cross-sections are estimated by the QCD scale uncertainty.
+        Here, the factorization and renormalization scales are varied by a factor $2$ in both up and down direction.
+        All these uncertainties are shape uncertainties.
+    \item[$\mathbf{Z\tau\tau}$ theory systmatics:] For the $\Ztautau$ background there are variations applied on the PDF set and
+        renormalization, factorization, CKK, and QSF scale.
+    \item[$\mathbf{\Htt}$ branching ratio:] The uncertainty on the $\Htt$ branching ratio is $\pm \SI{5.7}{\percent}$~\cite{YR3}.
+\end{description}
+

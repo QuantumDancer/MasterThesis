@@ -9,7 +9,7 @@
 \usepackage{lmodern}
 \usepackage{textgreek}
 \usepackage[final]{microtype}
-\usepackage[english]{babel}
+\usepackage[ngerman,english]{babel}
 
 % math
 \usepackage{amsmath}
@@ -26,6 +26,8 @@
 \setlength{\parindent}{0pt}  % no indendation for new paragraphs
 \usepackage{enumitem}  % customize lists
 \usepackage{rotating} % landscape mode
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand*\EmptyPage{\newpage\null\thispagestyle{empty}\newpage}
 
 \usepackage[automark,headsepline]{scrlayer-scrpage} %headings
 \automark[chapter]{chapter}
@@ -48,7 +50,7 @@
 \usepackage[section]{placeins}  % force floats to be in section where it was defined
 
 %hyperref
-\newcommand{\hreftitle}{Search for H -> TauTau in the di-leptonic decay channel using multivariate techniques at sqrt(s) = 13 TeV with the ATLAS detector}
+\newcommand{\hreftitle}{Application of multivariate techniques in the search for H->TauTau using the dileptonic decay channel using multivariate techniques at sqrt(s) = 13 TeV with the ATLAS detector}
 \newcommand{\hrefauthor}{Benjamin Rottler}
 \usepackage[pdftex]{hyperref}
 \hypersetup{%
@@ -163,7 +165,28 @@
 
 \begin{document}
 
+\pagenumbering{alph}
+\hypersetup{pageanchor=false} %stop page numbering (hyperref) to prevent for double page numers
+
+\include{cover}
+\EmptyPage{}
+
+\include{titlepage}
+\EmptyPage{}
+
+\include{declaration}
+\EmptyPage{}
+
+\pagenumbering{roman}
+\setcounter{page}{1} %set to page 1
 \tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+\hypersetup{pageanchor=true} %start page numbering again
+\setcounter{page}{1} %set to page 1
+
 
 \listoftodos{}
 

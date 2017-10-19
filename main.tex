@@ -85,6 +85,14 @@
 \usepackage[capitalise]{cleveref}  % clever references
 \usepackage[super]{nth} % typeset 1st, 2nd, etc
 
+% two abstracts
+\newenvironment{abstractpage}
+  {\cleardoublepage\vspace*{\fill}\thispagestyle{empty}}
+  {\vfill\cleardoublepage}
+\newenvironment{abstract}[1]
+  {\bigskip\selectlanguage{#1}%
+   \begin{center}\bfseries\abstractname\end{center}}
+  {\par\bigskip}
 
 %----------------------------------------------------------------------------------------
 %	NEW COMMANDS
@@ -179,6 +187,9 @@
 
 \pagenumbering{roman}
 \setcounter{page}{1} %set to page 1
+
+\include{abstract}
+
 \tableofcontents
 
 \newpage
@@ -211,5 +222,10 @@
 \thispagestyle{plain}
 \bibliographystyle{atlasBibStyleWithTitle}
 \bibliography{bib}
+
+\include{acknowledgment}
+
+\EmptyPage{}
+\EmptyPage{}
 
 \end{document}

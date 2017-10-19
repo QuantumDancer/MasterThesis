@@ -597,7 +597,7 @@ In the end, $9$ variables were chosen for the VBF SF region and $8$ for the VBF 
 The chosen observables are discussed below.
 Not all observable are used in every region.
 A list of observables used for each region can be found in \cref{tab:mva:variables:vbf,tab:mva:variables:boost}.
-The variable rankings can be found in \cref{tab:mva:variables:ranking:VBFSF,tab:mva:variables:ranking:VBFDF,tab:mva:variables:ranking:BOOSTSF,tab:mva:variables:ranking:BOOSTSF}
+The variable rankings can be found in \cref{tab:mva:variables:ranking:VBFSF,tab:mva:variables:ranking:VBFDF,tab:mva:variables:ranking:BOOSTSF,tab:mva:variables:ranking:BOOSTDF}
 Distributions of all variables are shown in the next section.
 
 \begin{table}[htpb]
@@ -727,26 +727,501 @@ The correlation plots of the input variables can be found in \cref{app:mva:corre
 
 It is important that there is no mismodelling of the simulated backgrounds if compared to data events.
 Therefore, the modelling needs to be checked for all distributions of observables which are used as an input variable for the BDTs.
-Additionally the BDT output distributions themselves need also need to be checked for mismodelling.
-Because the analysis is performed blinded, the full distributions of the BDT output can only be compared to data in the control regions, which
+Additionally the BDT output distributions themselves need also to be checked for mismodelling.
+Because the analysis is performed blinded, the full distributions of the BDT output and $\mmc$ can only be compared to data in the control regions, which
 are defined in \cref{sec:background_estimation:normalization}.
+In the signal regions the $\mmc$ distributions are blinded for $\SI{100}{\GeV} \leq \mmc \leq \SI{150}{\GeV}$
+and the BDT distributions are blinded for an BDT output value greater than zero.
+
+To quantify the agreement between background model and observed data a $\chi^2$-test is performed for all observables.
+Due to the blinding this cannot be done for the $\mmc$ distribution in the signal regions.
+Unless the $\chi^2$-test probability is zero, the mismodelling can be accepted, since only statistical fluctuations but
+not systematic variations are considered.
 
 \subsection{Signal region}
 
-% \begin{figure}[htb]
-%     \centering
-%     \begin{subfigure}[t]{0.3\textwidth}
-%     \end{subfigure}
-%     \caption{Distributions of the observables which are used as an input variable for the BDTs in the VBF SF category.}
-%     \label{fig:mva:modeling:sr:vbfsf}
-% \end{figure}
+The distributions of the observables used in the BDT of the VBF SF region are shown in \cref{fig:mva:modeling:sr:vbfsf}.
+Due to the events with large negative weights there is a lot of fluctuation in the $\Zll$ background which sometimes leads
+to bins with an expected negative event yield and large statistical errors.
+Some minor disagreement between expected background distributions and distributions of observed data can be seen for
+all observables.
+However, the $\chi^2$-test probabilities, which are listed in \cref{tab:mva:modeling:sr:vbf}, are in an acceptable range.
+For the VBF DF region, the modeling is better, since there is only a very minor contribution of the $\Zll$ background.
+This results in higher $\chi^2$-test probabilities.
+Only the $m_\text{jj}$ distribution shows some larger mismodelling.
+In the distributions of the observables used in the BDTs of the boosted categories (\cref{fig:mva:modeling:sr:boostsf,fig:mva:modeling:sr:boostdf})
+generally a good agreement between simulated and observed events can be seen, except for the $\Delta R (\ell, \ell)$,
+$\etmiss / \pt^{\ell_1}$, Sphericity and $\min \Delta \eta (\ell\ell, \text{jets})$ distributions.
+This leads to high $\chi^2$-test probabilities, expect for the just mentioned distributions.
+
+The distributions of the BDT output in the different signal regions are shown in \cref{fig:mva:modeling:sr:bdts}.
+For the BDTs in the VBF category a good separation between signal and background is reached.
+However, the background distributions of the BDTs in the boosted category start rising again for very high values
+of the BDT output.
+Additionally, there are two peaks in the distribution of the BDT for the boosted SF category.
+Due to the large errors in the VBF SF category the background distributions agrees with the observed data within uncertainties.
+A slight overshoot of simulated events can be seen in the BDT distribution of the VBF DF category.
+In the BDT distributions of the boosted category the data events agree with the simulated distributions within uncertainties except for
+one bin in the BDT of the boosted DF region.
 
 \subsection{Control regions}
 
-\subsubsection{Input Variables}
+As a further validation, the distributions of observables and BDT outputs can also be checked in the control regions.
+The modeling in the top control regions (\cref{fig:mva:modeling:cr:vbftop,fig:mva:modeling:cr:boosttop})
+is much better than in the $\Zll$ control regions (\cref{fig:mva:modeling:cr:vbfzll,fig:mva:modeling:cr:boostzll}).
+This can also be seen in the $\chi^2$-test probabilities (\cref{tab:mva:modeling:cr:vbf,tab:mva:modeling:cr:boost}), 
+where the probabilities for multiple observables are zero in the $\Zll$ control region.
+The cause are again events with high negative weights in the $\Zll$ background.
+However, in the statistical analysis only only the yield in the control regions is used and not the shape, so
+if the overall yields are modeled well this should be no major issue.
 
-\subsubsection{BDT Distributions}
+The distributions of the BDT output in the different control regions are shown in \cref{fig:mva:modeling:cr:bdts}.
+The same trend in modeling as for the input variables can be seen.
+In all these distributions the BDT output peaks at low values, which indicates that the BDTs indeed categorize
+most background events correctly.
 
-\subsection{Correlation plots}
+\FloatBarrier{}
 
+\begin{table}
+	\centering
+    \caption{$\chi^2$-test probabilities between the background distributions of simulated events and data distributions for the observables
+    used as input variables in the VBF SF and DF regions.
+    Only statistical uncertainties are considered.}\label{tab:mva:modeling:sr:vbf}
+	\begin{tabular}{lcc}
+		\toprule
+		variable & $\chi^2$ prob. SF & $\chi^2$ prob. DF \\ \midrule
+		$\min \Delta \eta (\ell\ell, \text{jets})$  & 0.03 & 0.84 \\
+		$m_\text{jj}$                               & 0.35 & 0.02 \\
+		$\Delta R(\ell,\ell)$                       & 0.84 & 0.78 \\
+		$n_\text{jets}$                             & 0.05 & 0.84 \\
+		$\etmiss$ $\Phi$ centrality                 & 0.02 & 0.80 \\
+		$\pt^\text{total}$                          & 0.13 & 0.28 \\
+		$\etmiss$                                   & 0.87 & -- \\
+		$\min \Delta R (\ell_1, \text{jets})$       & 0.10 & -- \\
+		$\min \Delta R (\ell_0, \text{jets})$       & -- & 0.92 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}
+	\centering
+    \caption{$\chi^2$-test probabilities between the background distributions of simulated events and data distributions for the observables
+    used as input variables in the boosted SF and DF regions.
+    Only statistical uncertainties are considered.}\label{tab:mva:modeling:sr:boost}
+	\begin{tabular}{lcc}
+		\toprule
+		variable & $\chi^2$ prob. SF & $\chi^2$ prob. DF \\ \midrule
+		$m_{\ell\ell}$                              & 0.25 & 0.27 \\
+		$\etmiss$                                   & 0.61 & -- \\
+		$\Delta R (\ell, \ell)$                     & 0.15 & 0.02 \\
+		$m_{\tau\tau,\text{j}_0} $                  & -- & 0.57 \\
+		$\etmiss / \pt^{\ell_1}$                    & -- & 0.09 \\
+		Sphericity                                  & -- & 0.08 \\
+		$m_\text{T}^{\ell_0}$                       & -- & 0.95 \\
+		$\eta_{\ell_0}$                             & -- & 0.78 \\
+		$\min \Delta \eta (\ell\ell, \text{jets})$  & -- & 0.03 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-dilep_mmc_mlm_m-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-dRminLep1Jet-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-MET-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-METPhiCentrality2-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-Mjj-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-nJets30Stacked3-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-PtTotal-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the BDTs in the VBF SF category.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_2, \text{jets})$,
+             $\etmiss$, $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:sr:vbfsf}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-dilep_mmc_mlm_m-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-dRminLep0Jet-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-METPhiCentrality2-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-Mjj-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-nJets30Stacked3-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-PtTotal-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the BDTs in the VBF DF category.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_1, \text{jets})$,
+             $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:sr:vbfdf}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_SF/ll-CutMVABoostedCatSF-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_SF/ll-CutMVABoostedCatSF-dilep_mmc_mlm_m-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_SF/ll-CutMVABoostedCatSF-MET-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_SF/ll-CutMVABoostedCatSF-mvis-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the BDTs in the boosted SF category.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\etmiss$, and $\mll$.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:sr:boostsf}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-dilep_mmc_mlm_m-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-LeptonEta0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-MassTauTauJ0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-MtLep0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-mvis-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-RatioMETPtL1-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-Sphericity-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the BDTs in the boosted DF category.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\eta_{\ell_1}$, $m_{\tau\tau,j_{1}}$,
+             $\min \Delta \eta (\ell, \text{jets})$, $m_\text{T}^{\ell_1}$, $\mll$, $\etmiss / \pt^{\ell_2}$, and Sphericity.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:sr:boostdf}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/SR/eemm-CutMVAVBFCatSF-BDT_VBF_SF-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/SR/emme-CutMVAVBFCatDF-BDT_VBF_DF-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/SR/eemm-CutMVABoostedCatSF-BDT_BOOST_SF-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/SR/emme-CutMVABoostedCatDF-BDT_BOOST_DF-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of BDT outputs in the VBF SF (top left), VBF DF (top right), boosted SF (bottom left), and boosted DF (bottom right) region.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:sr:bdts}
+\end{figure}
+
+\begin{table}
+	\centering
+    \caption{$\chi^2$-test probabilities between the background distributions in the control regions for the VBF category of simulated events and data distributions for the observables
+    used as input variables in the VBF SF and DF regions.
+    Only statistical uncertainties are considered.}\label{tab:mva:modeling:cr:vbf}
+	\begin{tabular}{lcc}
+		\toprule
+		variable & $\chi^2$ prob. Zll CR & $\chi^2$ prob. Top CR \\ \midrule
+		$m_\text{MMC}^\text{mlm}$                   & 0.00 & 0.62 \\
+		$\min \Delta \eta (\ell\ell, \text{jets})$  & 0.14 & 0.95 \\
+		$m_\text{jj}$                               & 0.00 & 0.31 \\
+		$\Delta R(\ell,\ell)$                       & 0.55 & 0.06 \\
+		$n_\text{jets}$                             & 0.00 & 0.34 \\
+		$\etmiss$ $\Phi$ centrality                 & 0.19 & 0.57 \\
+		$\pt^\text{total}$                          & 0.00 & 0.08 \\
+		$\etmiss$                                   & 0.00 & 0.19 \\
+		$\min \Delta R (\ell_0, \text{jets})$       & 0.13 & 0.08 \\
+		$\min \Delta R (\ell_1, \text{jets})$       & 0.14 & 0.18 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}
+	\centering
+    \caption{$\chi^2$-test probabilities between the background distributions in the control regions for the boosted category of simulated events and data distributions for the observables
+    used as input variables in the boosted SF and DF regions.
+    Only statistical uncertainties are considered.}\label{tab:mva:modeling:cr:boost}
+	\begin{tabular}{lcc}
+		\toprule
+		variable & $\chi^2$ prob. Zll CR & $\chi^2$ prob. Top CR \\ \midrule
+		$m_\text{MMC}^\text{mlm}$                   & 0.00 & 0.16 \\
+		$m_{\ell\ell}$                              & 0.14 & 0.47 \\
+		$\etmiss$                                   & 0.00 & 0.20 \\
+		$\Delta R (\ell, \ell)$                     & 0.00 & 0.06 \\
+		$m_{\tau\tau,\text{j}_0} $                  & 0.06 & 0.71 \\
+		$\etmiss / \pt^{\ell_1}$                    & 0.00 & 0.22 \\
+		sphericity                                  & 0.50 & 0.17 \\
+		$m_\text{T}^{\ell_0}$                       & 0.00 & 0.13 \\
+		$\eta_{\ell_0}$                             & 0.13 & 0.12 \\
+		$\min \Delta \eta (\ell\ell, \text{jets})$  & 0.10 & 0.55 \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-dilep_mmc_mlm_m_ub-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-dRminLep0Jet-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-dRminLep1Jet-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-MET-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-METPhiCentrality2-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-Mjj-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-nJets30Stacked3-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-PtTotal-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the VBF SF and VBF DF BDTs in the top control region.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_1, \text{jets})$, $\min \Delta R (\ell_2, \text{jets})$,
+             $\etmiss$, $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:cr:vbftop}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-dilep_mmc_mlm_m_ub-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-dRminLep0Jet-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-dRminLep1Jet-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-MET-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-METPhiCentrality2-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-Mjj-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-nJets30Stacked3-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-PtTotal-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the VBF SF and VBF DF BDTs in the $\Zll$ control region.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_1, \text{jets})$, $\min \Delta R (\ell_2, \text{jets})$,
+             $\etmiss$, $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:cr:vbfzll}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-dilep_mmc_mlm_m_ub-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-LeptonEta0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-MET-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-MassTauTauJ0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-MtLep0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-mvis-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-RatioMETPtL1-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-Sphericity-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the boosted SF and boosted DF BDTs in the top control region.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\eta_{\ell_1}$, $\etmiss$, $m_{\tau\tau,j_{1}}$,
+             $\min \Delta \eta (\ell, \text{jets})$, $m_\text{T}^{\ell_1}$, $\mll$, $\etmiss / \pt^{\ell_2}$, and Sphericity.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:cr:boosttop}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-DeltaRLL-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-dilep_mmc_mlm_m_ub-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-LeptonEta0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-MET-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-MassTauTauJ0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-MinDEtaDilepJets-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-MtLep0-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-mvis2-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-RatioMETPtL1-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-Sphericity-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of the observables which are used as an input variable for the boosted SF and boosted DF BDTs in the $\Zll$ control region.
+             The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\eta_{\ell_1}$, $\etmiss$, $m_{\tau\tau,j_{1}}$,
+             $\min \Delta \eta (\ell, \text{jets})$, $m_\text{T}^{\ell_1}$, $\mll$, $\etmiss / \pt^{\ell_2}$, and Sphericity.
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:cr:boostzll}
+\end{figure}
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/eemm-CutMVAVBFCatTopCR-BDT_VBF_CR-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/emme-CutMVAVBFCatTopCR-BDT_VBF_CR-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/eemm-CutMVABoostedCatTopCR-BDT_BOOST_CR-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/emme-CutMVABoostedCatTopCR-BDT_BOOST_CR-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/eemm-CutMVAVBFCatZllCR-BDT_VBF_CR-lin.eps}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/eemm-CutMVABoostedCatZllCR-BDT_BOOST_CR-lin.eps}
+    \end{subfigure}
+    \caption{Distributions of BDT outputs in the top control region (VBF SF:\ top left, VBF DF:\ top right, boosted SF:\ center left, boosted DF:\ center right)
+             and $\Zll$ control region (VBF SF:\ bottom left, boosted SF\: bottom right).
+             The signal and background distributions are normalized to their theory cross-sections and luminosity.
+             Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
+             The signal is scaled by a factor of 20.
+             Underflow and overflow bins are included in the first and last bin, respectively.
+             Only statistical uncertainties are included in the error band.}\label{fig:mva:modeling:cr:bdts}
+\end{figure}
 

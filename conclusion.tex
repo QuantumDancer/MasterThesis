@@ -7,7 +7,7 @@ After introducing the event selection of the cut-based analysis
 a method to use boosted decision trees (BDTs) in the analysis in order to increase the sensitivity on the signal
 is developed.
 
-First, the event selection of the cut-based analysis was modified to allow for more inclusive signal regions.
+First, the event selection of the cut-based analysis is modified to allow for more inclusive signal regions.
 The idea is, that the separation between signal and background events is not achieved by applying requirements on the
 events but to use a multivariate approach in the form of BDTs.
 The categorization into the VBF and boosted category, which are used to select the VBF and ggF production mode
@@ -33,7 +33,7 @@ into $k$ independent slices.
 Now, $k$ BDTs are trained, each using $k-2$ slices for training, one slice for validation, and one slice for testing.
 The slices are assigned in such a ways, that every slice is used $k-2$ times for training, and once for validation and testing.
 The validation and test steps are performed on the whole set of simulated events by combining all $k$ BDTs.
-For this thesis the value $k=10$ was chosen.
+For this thesis the value $k=10$ is chosen.
 
 The following hyperparameters are optimized: boosting algorithm, number of trees used in the boosting, maximum depth of one decision tree,
 minimum number of events in the final nodes of the decision tree, and learning rate of the boosting algorithm.
@@ -43,29 +43,29 @@ In all regions the best performing BDTs use the gradient boost algorithm with $2
 
 In a second optimization step, the number of observables which are used as input variables for the BDTs is optimized in
 an iterative way.
-In every step the influence of each used observable on the splitting power of the BDT calculated and the least performing observable is discarded.
+In every step the influence of each used observable on the splitting power of the BDT is calculated and the least performing observable is discarded.
 Based on the drop in significance the final observable count is determined.
 In the end 9 and 8 variables are used for the BDTs in the VBF SF and VBF DF region, whereas the BDTs in the boosted SF
 and boosted DF region use 4 and 9 variables, respectively.
 
-The expected sensitivity of the multivariate analysis is calculated in a likelihood fit and compared to the sensitivity of
+The expected sensitivity of the multivariate analysis is calculated in a likelihood fit and compared to the expected sensitivity of
 the cut-based analysis.
-To improve the sensitivity the binnings of the BDT distributions where optimized.
-An expected sensitivity of $0.83\sigma$ was reached in the cut-based analysis, whereas the multivariate analysis resulted in
+To improve the sensitivity the binning of the BDT distributions is optimized.
+An expected sensitivity of $0.83\sigma$ is reached in the cut-based analysis, whereas the multivariate analysis resulted in
 an expected sensitivity of $1.35\sigma$.
 The attempt to increase the sensitivity with multivariate techniques was therefore successful.
 Additionally, the expected uncertainty on the measured signal strength is also reduced by a factor of two.
 
 Of course, there is still room for further studies and improvements.
-The categorization of the ggF and VBF production modes was achieved by requirements of different observables.
+The categorization of the ggF and VBF production modes is achieved by requirements of different observables.
 Here also multivariate techniques in form of BDTs could be applied.
 A first BDT can be used to separate signal and background events and the splitting between ggF and VBF production
 mode is accomplished by a second BDT\@.
 In general other multivariate techniques like neutral networks could be used instead of BDTs.
 It is known, that neural networks achieve a similar or even better separation power~\cite{TMVA}, which could be used to increase
 the sensitivity even more.
-Also the $k$-fold cross-validation approach could be improved.
-Currently the data events have also to be split into $k$ sets.
+Also, the $k$-fold cross-validation approach could be improved.
+Currently data events have also to be split into $k$ sets.
 This can be avoided when using only half the simulated events for the $k$-fold cross validation.
 After fixing the parameters and input variables a $2$-fold cross-evaluation scheme can be applied on the two outer sets of simulated events.
 This way, data events only need to be split in two sets.

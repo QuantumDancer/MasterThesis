@@ -1,1 +1,55 @@
 \chapter{Introduction}\label{cha:introduction}
+
+In elementary particle physics the fundamental constituents of nature and their interactions are studied.
+In the 1960s and 1970s the Standard Model (SM) of particle physics was developed to provide an accurate description of all elementary particles which are known today
+and their fundamental interactions.
+The particles can be classified based on their spin: \emph{fermions} have a half-integer spin and \emph{bosons} have an integer spin.
+Three out of the four fundamental interactions, the electromagnetic, strong, and weak interaction, are incorporated in the SM as
+relativistic quantum field theories.
+No formulation of gravity as a relativistic quantum field theory is found yet.
+However, the influence of gravity at the energy scales considered in particle physics is minor and therefore can be neglected.
+
+With the help of the Standard Model it was possible to predict several particles, which were later found in nature,
+for example the massive $W^\pm$- and $Z^0$-bosons which were first observed in 1983~\cite{ZDiscovery,WDiscovery,ZeeDiscovery,WeDiscovery}.
+In earlier formulations of the SM no mass terms for fermions and bosons were included, which stands in contrast to measurements of fermion and boson masses.
+For example, the $W^\pm$- and $Z^0$-bosons have a mass of $m_{W^\pm} = \SI{80.4}{\GeV}$ and $m_{Z^0} = \SI{91.2}{\GeV}$, respectively~\cite{PDG}.
+This conflict was solved by the introduction of the
+Englert--Brout--Higgs--Guralnik--Hagen--Kibble mechanism~\cite{HiggsMecha1,HiggsMecha2,HiggsMecha3,HiggsMecha4,HiggsMecha5,HiggsMecha6} (short: Higgs mechanism)
+which uses the principle of spontaneous symmetry breaking.
+A new scalar field, the Higgs field, is introduced.
+The interaction of fermions and bosons with vacuum expectation value of the Higgs field leads to required mass terms of the particles.
+The particle associated with the Higgs field is the \emph{Higgs boson}, which was however, at that time, not yet observed.
+During the last decades great effort was put into the search for the Higgs boson at different collider experiments, until it
+was found with the ATLAS\footnote{\textbf{A} \textbf{T}oroidal \textbf{L}HC \textbf{A}pparatu\textbf{S}} and
+CMS\footnote{\textbf{C}ompact \textbf{M}uon \textbf{S}olenoid} experiments at
+CERN\footnote{\textbf{C}onseil \textbf{E}uropéen pour la \textbf{R}echerche \textbf{N}ucléaire} in 2012~\cite{HiggsDiscoveryATLAS,HiggsDiscoveryCMS}.
+The mass of the newly found particle was determined to be $m_H = (125.09 \pm 0.21 \text{(stat.)} \pm 0.11 \text{(sys.)})\,\text{GeV}$
+in a combined measurement of the ATLAS and CMS collaboration~\cite{MassCombinedMeas}.
+After the Higgs boson was found at CERN, Peter Higgs and Francois Englert were awarded the Nobel Prize in 2015 for the formulation of
+the underlying theory.
+
+The $H \to \tau\tau$ decay mode is an important decay channel of the Higgs boson, since it it provides the most sensitive measurement
+of the Yukawa couplings of the Higgs boson.
+Additional, the $H \to \tau\tau$ decay channel can be used to probe a potential CP mixing and lepton-flavour violating decays of the Higgs boson.
+During the first data-taking period at the LHC in 2011 and 2012 evidence for this decay channel was found at the ATLAS experiment with
+a sensitive of $4.5\sigma$~\cite{HTauTauRun1}.
+Due to limited statistic the observation where a sensitivity of $5\sigma$ is required could not be made.
+
+In this thesis the $\Httllfull$ decay channel is considered, where both leptons decay Leptonically, with the
+combined 2015 and 2016 dataset of the second data-taking period corresponding to an integrated luminosity of $\lumi = \SI{36.1}{\invfb}$
+at a center-of-mass energy of $\sqrt{s} = \SI{13}{\TeV}$.
+A method is developed to increase the sensitivity in this decay channel with the help of multivariate techniques.
+More precisely, the usage of boosted decision trees (BDTs), a machine-learning algorithm, is investigated.
+
+This thesis is structured as follows.
+First the Standard Model is introduced and an overview of the current status of Higgs-boson property measurements is given in \cref{cha:theory}.
+In \cref{cha:setup} the LHC and ATLAS experiment are described.
+The signal and background processes considered in the analysis of $\Httllfull$ are discussed in \cref{cha:processes}, followed by an overview
+of the reconstruction of physical objects in \cref{cha:object_selection}.
+The event selection is described in \cref{cha:event_selection} and the strategy to estimate specific backgrounds
+is presented in \cref{cha:background_estimation}.
+An overview of the theoretical aspects of BDTs is given in \cref{cha:bdt} and their application to the analysis of the $\Httllfull$ process
+is discussed in \cref{cha:mva}.
+In \cref{cha:systematics} the systematic uncertainties are presented.
+The thesis closes with a description of the statistical procedure and a discussion of the results in \cref{cha:fit}, followed
+by a summary of the analysis and an outlook for further studies in \cref{cha:conclusion}.

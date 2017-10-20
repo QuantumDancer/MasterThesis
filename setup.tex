@@ -26,15 +26,15 @@ The ATLAS experiment is discussed in detail in \cref{sec:setup:atlas}.
     \centering
     \includegraphics[width=0.9\textwidth]{./figures/setup/accelerators.png}
     \caption{The CERN accelerator complex, including the LHC and its preaccelerators.
-             The four main experiments (ATLAS, CMS, LHCb, ALICE) are shown as a yellow dot.~\cite{ImageLHC}}\label{fig:setup:accelerators}
+             The four main experiments (ATLAS, CMS, LHCb, ALICE) are shown as a yellow dot~\cite{ImageLHC}.}\label{fig:setup:accelerators}
 \end{figure}
 
-The number of events per second which are generated in LHC collisions is given by
+The number of events per second which are generated in LHC collisions for a particular process is given by
 \begin{equation}
     \label{eq:lumi:def}
-    N_\text{event} = \lumi \sigma_\text{event} \,,
+    N_\text{proc} = \lumi \sigma_\text{proc} \,,
 \end{equation}
-where $\sigma_\text{event}$ is the cross-section of the event and $\lumi$ the instantaneous luminosity.
+where $\sigma_\text{proc}$ is the cross-section for thiss process and $\lumi$ the instantaneous luminosity.
 The instantaneous luminosity is a quantity of the LHC and depends only the parameters of the beams.
 For bunches with a Gaussian shape distribution it can be written as~\cite{LHC}
 \begin{equation}
@@ -55,22 +55,22 @@ The first data-taking period, labeled Run-1, was in 2011 and 2012 with center-of
 \SI{8}{\TeV}, respectively.
 A total amount of \SI{28.3}{\invfb} of data was provided by the LHC~\cite{PublicLumiRun1}.
 The second data-taking period, Run-2, started in 2015 and will continue until 2018 with a center-of-mass energy of \SI{13}{TeV}.
-For the years 2015 and 2016 data corresponding to an integrated luminosity of $\lumi_\text{int} = \SI{42.7}{\invfb}$ was produced~\cite{PublicLumiRun2}.
+For the years 2015 and 2016 data corresponding to an integrated luminosity of $\lumi_\text{int} = \SI{42.7}{\invfb}$ were produced~\cite{PublicLumiRun2}.
 
 \section{The ATLAS Experiment}\label{sec:setup:atlas}
 
 The ATLAS (A Toroidal LHC ApparatuS)~\cite{ATLAS} detector is a general-purpose detector located at LHC \emph{Point 1}
 about 100 meters below ground level.
-It is designed to measure properties of SM particles with a high precision and for the discovery of new particles
+It is designed to measure properties of SM particles and processes with a high precision and for the discovery of new particles
 in hadron collisions at high energies.
 
-The detector is of cylindrical shape with a length of 40 meters and a diameter of 25 meters, and weights around 7000 metric tons.
+The detector is of cylindrical shape with a length of 40 meters and a diameter of 25 meters, and weighs around 7000 metric tons.
 It is forward-backward symmetric with respect to the interaction point.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{./figures/setup/atlas.jpg}
-    \caption{Overview of the ATLAS detector and its subsystems.~\cite{ImageATLAS}}\label{fig:setup:atlas}
+    \caption{Overview of the ATLAS detector and its subsystems~\cite{ATLAS}.}\label{fig:setup:atlas}
 \end{figure}
 
 The ATLAS detector consists of several subdetector systems, which are illustrated in \cref{fig:setup:atlas}.
@@ -101,7 +101,7 @@ A sophisticated trigger system as discussed in \cref{sub:setup:trigger} is used 
         Subdetector & Required Resolution & \multicolumn{2}{c}{$\eta$-coverage}   \\
                     &                     & Measurement & Trigger \\ \midrule
         Inner Detector & $\sigma_{\pt} / \pt = 0.05\,\% \pt \oplus 1\,\%$ & $\abs{\eta} < 2.5$ & \\ \cmidrule{0-3}
-        Electromagnetic & \multirow{2}{*}{$\sigma_E / E = 10\,\% / \sqrt{E} \oplus 7\,\%$} & \multirow{2}{*}{$\abs{\eta} < 3.2$} & \multirow{2}{*}{$\abs{\eta} < 2.5$} \\
+        Electromagnetic & \multirow{2}{*}{$\sigma_E / E = 10\,\% / \sqrt{E} \oplus 0.7\,\%$} & \multirow{2}{*}{$\abs{\eta} < 3.2$} & \multirow{2}{*}{$\abs{\eta} < 2.5$} \\
         Calorimeter & & & \\ \cmidrule{0-3}
         Hadronic Calorimeter & & & \\
         \quad barrel and end-cap & $\sigma_E / E = 50\,\% / \sqrt{E} \oplus 3\,\% $ & $\abs{\eta} < 3.2$ & $\abs{\eta} < 3.2$ \\
@@ -130,14 +130,14 @@ The rapidity of an object is defined as
     y = \frac{1}{2} \log \left( \frac{E + p_z}{E - p_z}\right) \,,
 \end{equation}
 where $p_z$ is the $z$-component of the momentum of the object.
-In the case an relativistic or massless particle ($E \gg m$) the rapidity can be replaced with the pseudorapidity $\eta$,
+In the case of a relativistic or massless particle ($E \gg m$) the rapidity can be replaced with the pseudorapidity $\eta$,
 which is defined as
 \begin{equation}
     \label{eq:pseudorapidity}
     \eta = - \log \tan \frac{\theta}{2} \,,
 \end{equation}
 which only depends on the polar angle $\theta$.
-Differences of pseudorapidity, $\Delta \eta$, are \emph{Lorentz invariant} under boosts along the $z$-axis,
+Differences of rapidity, $\Delta y$ and $\Delta \eta$, are \emph{Lorentz invariant} under boosts along the $z$-axis,
 which is convenient when working with objects originating from hadron collisions.
 This holds also true for the $\Delta R$ separation, a quantity which describes the angular separation of two objects
 in the $\eta$\nobreakdash--$\Phi$ plane,
@@ -152,9 +152,9 @@ The ATLAS inner detector is used to measure the trajectories (tracks) and moment
 a transverse momentum above $\pt > \SI{0.5}{\GeV}$.
 Those tracks can be used to reconstruct the primary and secondary vertices.
 The ID has a cylindrical shape with a length of \SI{6.2}{\m} and diameter of \SI{2.1}{\m}.
-A \SI{2}{\tesla} strong magnetic field produced by the central solenoid magnets, which cover the ID, is used to bend the flight path of the particles.
+A \SI{2}{\tesla} strong magnetic field produced by the central solenoid magnet, which cover the ID, is used to bend the flight path of the particles.
 The inner detector consists of several subsystems: the pixel detector, semiconductor tracker (SCT), and transition
-radiation tracker, as shown in \cref{fig:setup:id}.
+radiation tracker (TRT), as shown in \cref{fig:setup:id}.
 Due to the close proximity of the inner detector to the beam pipe and the interaction point, the detector material
 is exposed to huge amounts of radiation and high temperatures.
 Therefore, extra radiation-hard material is used for the detectors.
@@ -163,7 +163,7 @@ Additionally, the pixel detector and SCT are cooled down to around \SI{-7}{\degr
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{./figures/setup/inner_detector.jpg}
-    \caption{Schematic overview of the inner detector with its submodules, the pixel detector, SCT, and TRT\@.~\cite{ImageID}}\label{fig:setup:id}
+    \caption{Schematic overview of the inner detector with its submodules, the pixel detector, SCT, and TRT~\cite{ATLAS}.}\label{fig:setup:id}
 \end{figure}
 
 The pixel detector is closest to the beam pipe.
@@ -172,7 +172,7 @@ Both the barrel and end-cap layers are made of small silicon semiconductors call
 The layers are segmented in $R$\nobreakdash--$\phi$ and $z$.
 The innermost barrel layer is the insertable B-layer (IBL), which was only added during the shutdown period
 between Run-1 and Run-2~\cite{ATLAS-TDR-19}.
-The pixel detector covers the region of $\abs{\eta} < 2.5$ and reaches a resolution of \SI{10}{\um} in
+The pixel detector covers the region of $\abs{\eta} < 2.5$ and reaches a hit resolution of \SI{10}{\um} in
 $R$\nobreakdash--$\phi$ and \SI{115}{\um} in $z$-direction.
 
 The semiconductor tracker uses similar concepts as the pixel detector, silicon semiconductors are used as well.
@@ -183,14 +183,14 @@ end-caps.
 This ensures that every charged particles traverses at least four layers of detectors.
 For each double layer in the barrel region one set of the silicon strip modules is aligned to the beam axis and the other set
 is rotated by \SI{40}{\milli\rad}, which enables to measure the position along the beam axis.
-A resolution of \SI{17}{\um} in the $R$\nobreakdash--$\phi$ plane and \SI{580}{\um} along the
+A hit resolution of \SI{17}{\um} in the $R$\nobreakdash--$\phi$ plane and \SI{580}{\um} along the
 $z$-axis is achieved which a coverage of $\abs{\eta} < 2.5$.
 
 The outermost part of the inner detector is the transition radiation tracker.
 It is made of gas-filled tubes, which are stabilized by carbon fibers.
 In the barrel region the tubes are aligned to the $z$-axis, for the end-caps they are positioned radially.
 Thus, only a position measurement in $R$\nobreakdash--$\phi$ in the barrel region is possible, with a
-nominal resolution of \SI{130}{\um}.
+nominal hit resolution of \SI{130}{\um}.
 The coverage is only $\abs{\eta} < 2.5$.
 However, the TRT contributes substantially to the measurement of tracks, because of the high number of
 measured points per track (usually 36 points).
@@ -205,23 +205,22 @@ The ATLAS calorimeter system is placed around the solenoid which produces the ma
 There are two types of calorimeters, the electromagnetic calorimeters and the hadronic calorimeter,
 as shown in \cref{fig:setup:calo}.
 They cover the full $\phi$ range and a pseudorapidity of up to $\abs{\eta} < 4.9$.
-The electromagnetic calorimeter is used to measure the energy and momentum of particles which interact via the electromagnetic force like photons and
-electron.
-For particles which interact via the strong force like hadrons the hadronic calorimeter is used.
+Electrons and photons are absorbed in the electromagnetic calorimeter, which enables a measurement of their energy.
+The hadronic calorimter is used to determine the energy of hadrons.
 The missing transverse energy as defined in \cref{eq:met:vector} is reconstructed by combining information from the two
-calorimeters.
+calorimeters, the tracking detectors, and the muon spectrometer.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{./figures/setup/calorimeters.jpg}
-    \caption{Schematic overview of the electromagnetic and hadronic calorimeter.~\cite{ImageCalo}}\label{fig:setup:calo}
+    \caption{Schematic overview of the electromagnetic and hadronic calorimeter~\cite{ATLAS}.}\label{fig:setup:calo}
 \end{figure}
 
 Both calorimeters are \emph{sampling calorimeters}, which means that they are made of
 alternating layers of active and absorbing material.
 It is essential for the calorimeters that a \emph{punch-through} into the muon system is prevented.
 The calorimeters has to be thick enough that all energy depositions are contained within the calorimeters.
-This is important for an correct energy and \etmiss{} measurement.
+This is important for a correct energy and \etmiss{} measurement.
 
 \subsubsection{Electromagnetic Calorimeter}\label{subsub:setup:ecal}
 
@@ -232,11 +231,11 @@ It uses liquid argon (LAr) as the active sampling material and lead as absorber 
 The barrel part is composed of three layers of modules.
 The first layer has a fine segmentation in $\eta$ which allows a precision measurement of the position
 of electrons and photons.
-The second and third layer have a coarser structure because they are used to collect the bulk and tail of
+The second and third layer have a coarser structure and are used to collect the bulk and tail of
 the electromagnetic showers, respectively.
 In all layers the calorimeter modules are arranged into an accordion-shaped structure to avoid gaps
 and enable coverage over the full $\phi$ range.
-A distribution of the energy resolution in the barrel is shown in \cref{fig:setup:calo:eres}.
+The energy resolution in the barrel is shown in \cref{fig:setup:calo:eres}.
 
 The two end-caps use the same accordion geometry.
 They are composed of an outer and inner wheel which cover $1.375 < \abs{\eta} < 2.5$ and $2.5 < \abs{\eta} < 3.2$, respectively.
@@ -261,7 +260,9 @@ Here LAr is used as an active material and copper as an absorber.
 A distribution of the energy resolution in the hadronic end-cap calorimeter is shown in \cref{fig:setup:calo:eres}.
 
 Compared to the other two parts of the hadronic calorimeter the forward detector can also be used to reconstruct photons
-and electrons, because it uses more than one absorber material in its different modules.
+and electrons, because different absorber materials are used.
+In the fist module copper is used as the absorber material, whereas the second and third layer use tungsten.
+
 The first module is used to measure electromagnetic showers with copper as the absorber.
 The second and third module instead use tungsten as the absorber material which allows the measurement of hadronic showers.
 All modules uses LAr as the active material.
@@ -285,16 +286,19 @@ The MS is the outermost part of the ATLAS detector.
 A schematic overview can be found in \cref{fig:setup:muon}.
 It is composed of three regions: the barrel region covering $\abs{\eta} < 1.4$, the end-cap region which covers $1.6 < \abs{\eta} < 2.7$,
 and the transition region, which covers the region $1.4 < \abs{\eta} < 1.6$ between the two aforementioned regions.
+In the barrel region three layers of muon chambers are used, whereas four wheels perpendicular to the beam axis are installed
+in the end-cap region.
 
 Large toroidal magnets produce the magnetic field needed for the momentum measurements.
 There are two different magnet systems, one for the barrel part and one for the end-caps, with strengths up to
 \SI{2.5}{\tesla} and \SI{3.5}{\tesla}, respectively.
 In the transition region the magnetic fields of both systems are used.
+In total 24 coils are used.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.9\textwidth]{./figures/setup/muon.jpg}
-    \caption{Schematic overview of the ATLAS muon spectrometer with its different regions and the toroid system.~\cite{ImageMuon}}\label{fig:setup:muon}
+    \caption{Schematic overview of the ATLAS muon spectrometer with its different regions and the toroid system~\cite{ATLAS}.}\label{fig:setup:muon}
 \end{figure}
 
 In most parts of the MS the trajectories of the muons are measured by monitored drift tubes,  which provide a resolution
@@ -330,7 +334,7 @@ The decision time to accept an event is \SI{2.5}{\us} and results in an event ra
 Furthermore, the L1 trigger sends the $\eta$ and $\phi$ coordinates which caused the L1 trigger to fire,
 the so called \emph{region of interest} (ROI), to the HLT\@.
 
-The high level trigger uses information in the ROI or the whole event at full granularity.
+The high level trigger uses information in the ROI at full granularity.
 It reduced the event rate to around \SI{1}{\kHz} with a decision time of \SI{200}{\ms}.
 
 Several triggers are provided in a \emph{trigger menu} based on the number of objects,
@@ -343,7 +347,7 @@ The triggers which are used in this analysis are discussed in detail in \cref{se
     \centering
     \includegraphics[width=0.45\textwidth]{./figures/setup/l1_trigger_menu_2016.eps}
     \includegraphics[width=0.45\textwidth]{./figures/setup/hlt_trigger_menu_2016.eps}
-    \caption{Trigger menu and rates for the L1 trigger (left) and HLT (right) for data taken in July 2016.~\cite{TriggerMenu2016}}\label{fig:setup:triggermenu}
+    \caption{Trigger menu and rates for the L1 trigger (left) and HLT (right) for data taken in July 2016~\cite{TriggerMenu2016}.}\label{fig:setup:triggermenu}
 \end{figure}
 
 
@@ -352,15 +356,15 @@ The triggers which are used in this analysis are discussed in detail in \cref{se
 During 2015 and 2016 the ATLAS experiment recorded data from proton--proton collisions at a center-of-mass energy
 of $\sqrt{s} = \SI{13}{\TeV}$, which corresponds to an integrated luminosity of \SI{3.9}{\invfb} and \SI{35.6}{\invfb}, respectively.
 Not all data satisfies imposed data quality criteria, which are discussed in \cref{sec:event_selection:preselection},
-therefore not all date can be used for physics analyses.
+therefore not all data can be used for physics analyses.
 This analysis uses data corresponding to \SI{3.21}{\invfb} and \SI{32.86}{\invfb} for 2015 and 2016, respectively.
-The uncertainty on the luminosity measurement is \SI{3.6}{\percent}.
+The uncertainty on the luminosity measurement is \SI{2.1}{\percent}~\cite{LumiUncertRun2}.
 
 Because there are $10^{11}$ protons in each bunch it is likely that more than one interaction occurs per bunch crossing.
 This is called \emph{in-time pile-up}.
 Due to the low time distance of \SI{25}{\ns} between each bunch crossing interactions which happen directly before or after
-the interaction of interest can also be recorded.
-This is caused by slow parts of the detectors and is called \emph{out-of-time pile-up}.
+the interaction of interest can also be recorded, since the read out time of the calorimeters is much slower.
+This is called \emph{out-of-time pile-up}.
 The mean of total interactions per bunch crossing in data taken in 2015 and 2016 is $23.7$~\cite{PublicLumiRun2}.
 \cref{fig:setup:pileup} shows a distribution of the mean pile-up for data taken in 2015 and 2016.
 

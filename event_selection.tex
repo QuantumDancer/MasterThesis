@@ -18,10 +18,11 @@ advanced mass reconstruction methods are introduced in \cref{sec:event_selection
 Triggers (\cref{sec:event_selection:trigger}) are used to select events with two final state leptons.
 After a common preselection (\cref{sec:event_selection:preselection}) further selection criteria are applied
 to select events which fall in the VBF and boosted topology (\cref{sec:event_selection:categorization}).
-This allows to separate the Higgs bosons which are produced via the VBF and ggF mechanism.
+This allows to separate the Higgs bosons which are produced via the VBF and ggF mechanism and to optimize the sensitivity of the measurement.
 
 The selection criteria introduced in this chapter belongs to the cut-based analysis (CBA), which is the baseline
-of the multivariate analysis (MVA). The MVA is presented in \cref{cha:mva}, where the slightly different event selection is discussed.
+for the multivariate analysis (MVA) developed in the context of this thesis.
+The MVA is presented in \cref{cha:mva}, where the slightly different event selection is discussed.
 
 \section{Invariant mass reconstruction}\label{sec:event_selection:mass}
 
@@ -33,19 +34,18 @@ In the next sections two approaches are introduced, the collinear approximation 
 \subsection{Collinear approximation}\label{sub:event_selection:mcoll}
 
 For the collinear approximation~\cite{MCollAssumption,MColl} it is assumed that the $\etmiss$ originates only
-from the $\Htt$ decay and that each $\tau$-lepton is emitted in the same direction as its corresponding visible decay
+from the neutrinos in the $\Htt$ decay and that each $\tau$-lepton is emitted in the same direction as its corresponding visible decay
 product (the lepton).
 The second assumption is called collinearity.
-This is a valid assumption, since $m_H / 2 \gg m_\tau$, which leads to highly boosted taus.
+This is a valid assumption, since $m_H / 2 \gg m_\tau$, which leads to highly boosted $\tau$-leptons.
 
 With those two assumptions the invariant mass $\mcoll$ of the di-$\tau$ system can be calculated with
 \begin{equation}
     \label{eq:mcoll}
-    \mcoll = \frac{\mll}{\sqrt{x_1 x_2}} \,,
+    \mcoll = \frac{m_\text{vis}}{\sqrt{x_1 x_2}} \,,
 \end{equation}
-where $\mll$ is the mass of the dilepton system, which is constituted of the visible decay products of the
-$\tau$-lepton decay.
-The momentum fraction which each visible decay product holds in comparison to the decaying $\tau$-lepton
+where $m_\text{vis}$ is the mass of the visible decay products of the $\tau$-lepton decay.
+The momentum fraction, which each visible decay product holds in comparison to the decaying $\tau$-lepton,
 is denoted as $x_{1,2}$,
 \begin{equation}
     \label{eq:mcoll:xdef}
@@ -58,18 +58,18 @@ They can be calculated with
 \end{equation}
 
 The collinear approximation works well when the di-$\tau$ system is boosted and the approximations are valid.
-However, if the two taus are back-to-back ($\Delta \eta (\tau_1,\tau_2) = \pi$), the missing transverse energy
+However, if the two taus are back-to-back ($\Delta \phi (\tau_1,\tau_2) = \pi$), the missing transverse energy
 due to the neutrinos cancels partially and the equation system which results in \cref{eq:mcoll:xcalc} cannot
 be solved anymore.
-This can be prevented by a requirement on the $\eta$ difference of the visible decay products, \detall, or a direct
+This can be prevented by a requirement on the $\phi$ difference of the visible decay products, $\Delta \phi_{\ell\ell}$, or a direct
 cut on the momentum fractions, which discards events with unphysical solutions ($x < 0$ or $x > 1$).
 
 \subsection{Missing mass calculator}\label{sub:event_selection:mmc}
 
 If the assumption of collinearity of the decay products of the $\tau$-leptons is not made, there
 is no unique solution for the invariant mass of the di-$\tau$ system.
-By using on-shell conditions for the $\tau$-lepton masses and the formula to calculate the
-missing transverse energy (assuming that all \etmiss{} originates from the $ \tau$-lepton decays),
+By using on-shell conditions for the $\tau$-lepton masses and assuming
+that all \etmiss{} originates from the $ \tau$-lepton decays,
 the following set of equations can be constructed.
 
 \begin{equation}
@@ -104,7 +104,7 @@ In this analysis the former approach is chosen.
 
 \section{Trigger}\label{sec:event_selection:trigger}
 
-Triggers are used for the inital decision if an event will be further analyzed or discared, because it is not relevat to the analysis.
+Triggers are used for the initial decision if an event will be further analyzed or discarded.
 For this analysis events with two leptons ($ee$, $e\mu$\footnote{In this section $e\mu$ indicates all events
 with one electron and one muon, the differentiation between $e\mu$ and $\mu e$ is not made here.}, $\mu\mu$) in the final state are selected.
 A general overview of the ATLAS trigger system was given in \cref{sub:setup:trigger}.
@@ -116,7 +116,7 @@ They differ between the 2015 and 2016 data taking period due to the increase in 
     \caption{Single-lepton triggers and offline $\pt$ thresholds for the 2015 and 2016 data set used in the $\Httll$ analysis.}\label{tab:event_selection:trigger:single}
     \begin{tabular}{@{}llll@{}}
         \toprule
-        Lepton flavour & Year & Trigger & Threshold \\ \midrule
+        Lepton flavour & Year & Trigger & offline $\pt$ Threshold \\ \midrule
         Electron       & 2015 & \texttt{HLT\_e24\_lhmedium\_L1EM20VH} & \multirow{3}{*}{$\pt > \SI{25}{\GeV}$} \\
                        &      & \texttt{HLT\_e60\_lhmedium} \\
                        &      & \texttt{HLT\_e120\_lhloose} \\ \cmidrule(l){2-4}
@@ -136,7 +136,7 @@ They differ between the 2015 and 2016 data taking period due to the increase in 
     \caption{Dilepton triggers and offline $\pt$ thresholds for the 2015 and 2016 data set used in the $\Httll$ analysis.}\label{tab:event_selection:trigger:di}
     \begin{tabular}{@{}llll@{}}
         \toprule
-        Channel  & Year & Trigger & Threshold \\ \midrule
+        Channel  & Year & Trigger & offline $\pt$ Threshold \\ \midrule
         $ee$     & 2015 & \texttt{HLT\_2e12\_lhloose\_L12EM10VH} & $\pt^{e_1, e_2} > \SI{15}{\GeV}$ \\
                  & 2016 & \texttt{HLT\_2e17\_lhvloose\_nod0} & $\pt^{e_1, e_2} > \SI{18}{\GeV}$ \\ \cmidrule{1-4}
         $e\mu$   & 2015 & \texttt{HLT\_e17\_loose\_mu14} & $\pt^{e} > \SI{18}{\GeV}, \pt^\mu > \SI{15}{\GeV}$ \\
@@ -160,7 +160,7 @@ illustrated in \cref{fig:event_selection:triggers}.
         \includegraphics[width=0.3\textwidth]{./figures/event_selection/triggers_emu.eps}
         \includegraphics[width=0.3\textwidth]{./figures/event_selection/triggers_mumu.eps}
         \caption{Transverse momentum criteria to select either single-lepton or dilepton triggers in order to avoid overlap.
-        The plots correspond to $ee$ (left), $e\mu$ (middle), and $\mu\mu$ (right) final states.~\cite{TauConfNote}}\label{fig:event_selection:triggers}
+        The plots correspond to $ee$ (left), $e\mu$ (middle), and $\mu\mu$ (right) final states~\cite{TauConfNote}.}\label{fig:event_selection:triggers}
 \end{figure}
 
 Trigger names are composed of a series of acronyms and abbreviations chained together, directly or with underscores,
@@ -204,11 +204,11 @@ This rejects events from cosmic rays and beam-halo effects.
 Furthermore, badly reconstructed events are removed.
 
 Now basic preselection requirements (\emph{cuts}) are applied to select the decay topology of the \Httll{} decay.
-The cuts are numbered for future references.
+The cuts are enumerated for future references.
 In \cref{fig:event_selection:cutflow:1,fig:event_selection:cutflow:2}
-distributions of the signal and different backgrounds is shown for a variable before the cut on this variable is performed.
+distributions of the signal and different backgrounds is shown for a observable before the cut on this observable is performed.
 Normalization factors as defined in \cref{sec:background_estimation:normalization} are applied.
-Their values are $1.06$ (top), $1.19$ (\Zll), and $1.07$ (\Ztautau) respectively.
+Their values are 1,06 for single and pair production of top quarks, and 1.19 and 1.07 for $\Zll$ and $\Ztautau$ production, respectively.
 The signal is scaled by factor $50$.
 Underflow and overflow bins are included in the first and last bin, respectively.
 Only statistical uncertainties are contained in the error band.
@@ -240,16 +240,17 @@ Only statistical uncertainties are contained in the error band.
         The main discrimination for DF events is against the top background, which is the dominating background outside of the range spanned by the cut.
         The distribution of $\mll$ for DF events is displayed in \cref{fig:event_selection:cutflow:mlldf}.
     \item[\ \,(8) Jet momentum]
-        Jets need to have a transverse momentum of $\pt > \SI{25}{\GeV}$. At least one jet with $\pt > \SI{40}{\GeV}$ is
+        At least one jet with $\pt > \SI{40}{\GeV}$ is
         required.
         This helps to select both the VBF and boosted category (\cref{sec:event_selection:categorization}).
         The transverse momentum distribution of the leading jet, $\pt^{\text{jet}_1}$, before Cut~8 is shown in \cref{fig:event_selection:cutflow:jetlead}.
         Mainly $\Zll$ and $\Ztautau$ events are rejected by this cut.
     \item[\ \,(9) Missing transverse energy]
-        For DF events a cut on $\etmiss > \SI{20}{\GeV}$ is applied, since neutrinos are expected in the final state.
-        Since the $\Zgammall$ background is largest for low values of \etmiss{}, as can be seen in \cref{fig:event_selection:cutflow:metsf},
-        the requirement is tightened to $\etmiss > \SI{55}{\GeV}$ for SF events.
-    \item[(10) Missing transverse energy (HPTO)]
+        Since the final state includes four neutrinos, a cut on $\etmiss > \SI{20}{\GeV}$ is applied for DF events.
+        The $\Zgammall$ background can be suppressed for SF by increasing this cut to $\etmiss > \SI{55}{\GeV}$.
+        The distributions for $\etmiss$ before this cut are shwon in \cref{fig:event_selection:cutflow:metsf,fig:event_selection:cutflow:metdf}
+        for SF and DF events, respectively.
+    \item[(10) Object based missing transverse energy (HPTO)]
         The missing transverse energy is calculated from only high-$\pt$ objects (HPTO). Only the two decay leptons and
         all jets with a transverse momentum of $\pt > \SI{30}{\GeV}$ are used.
         \begin{equation}
@@ -261,16 +262,18 @@ Only statistical uncertainties are contained in the error band.
     \item[(11) Momentum fraction]
         The momentum fractions carried by the visible decay products of the $\tau$-lepton decay are restricted to $0.1 < x_{1,2} < 1.0$.
         They are calculated in the collinear mass approximation (\cref{sub:event_selection:mcoll}).
-        This rejects background events where the assumption of collinearity of the $\tau$-lepton and its visible decay product is not valid.
+        This rejects background events where the assumption of collinearity of the $\tau$-lepton is not met, which leads to
+        unphysical solutions.
         \cref{fig:event_selection:cutflow:x1,fig:event_selection:cutflow:x2} show the distributions of $x_1$ and $x_2$ before Cut~11.
     \item[(12) Angular difference in $\bm{\eta}$]
-        This cut limits the $\eta$ difference between the two leptons to $\absdetall < 1.5$.
+        This cut limits the $\eta$ difference between the two leptons to $\absdetall < 1.5$ to suppress background from single top and top-pair production.
         The $\absdetall$ distribution before Cut~12 is shown in \cref{fig:event_selection:cutflow:detall}.
     \item[(13) Angular difference in $\bm{\dr}$]
-        The $\dr$ separation between the two leptons is required to be $\drll < 2$.
+        In order to suppress the $\Zll$ and top background, the $\dr$ separation between the two leptons is required to be $\drll < 2$.
         \cref{fig:event_selection:cutflow:drll} shows the $\drll$ distribution before Cut~16.
     \item[(14) Collinear mass]
         To ensure orthogonality with the $H \to WW$ analysis, the collinear mass (\cref{sub:event_selection:mcoll}) is limited to $\mcoll > m_\Z - \SI{25}{\GeV}$.
+        Here, a value of $m_\Z = \SI{91.1876}{\GeV}$ is used for the mass of the $Z$ boson.
         The $\mcoll$ distribution before Cut~13 is shown in \cref{fig:event_selection:cutflow:mcoll}.
     \item[(15) MMC mass]
         Events where the MMC mass reconstruction algorithm (\cref{sub:event_selection:mmc}) did not converge are discarded.
@@ -283,30 +286,31 @@ Only statistical uncertainties are contained in the error band.
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/eemm-CutOS-mvis-log.eps}
-        \caption{$\mll$ for SF events after Cut~6.}\label{fig:event_selection:cutflow:mllsf}
+        \caption{}\label{fig:event_selection:cutflow:mllsf}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/emme-CutOS-mvis-lin.eps}
-        \caption{$\mll$ for DF events after Cut~6.}\label{fig:event_selection:cutflow:mlldf}
+        \caption{}\label{fig:event_selection:cutflow:mlldf}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutMVis-JetPt0-log.eps}
-        \caption{$\pt^{\text{jet}_1}$ after Cut~7.
-                 The first bin shows all events where no jet has a transverse momentum above \SI{25}{\GeV}.}\label{fig:event_selection:cutflow:jetlead}
+        \caption{}\label{fig:event_selection:cutflow:jetlead}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/eemm-CutJet0Pt-MET-log.eps}
-        \caption{$\etmiss$ for SF events after Cut~8.}\label{fig:event_selection:cutflow:metsf}
+        \caption{}\label{fig:event_selection:cutflow:metsf}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/emme-CutJet0Pt-MET-lin.eps}
-        \caption{$\etmiss$ for DF events after Cut~8.}\label{fig:event_selection:cutflow:metdf}
+        \caption{}\label{fig:event_selection:cutflow:metdf}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/eemm-CutMET-METhpto-lin.eps}
-        \caption{$\etmisshpto$ for SF events after Cut~9.}\label{fig:event_selection:cutflow:hpto}
+        \caption{}\label{fig:event_selection:cutflow:hpto}
     \end{subfigure}
-    \caption{Distribution of several variables which are used in the preselection before the corresponding cut is applied.
+    \caption{Distribution of several observables which are used in the preselection before the corresponding cut is applied.
+             The following observables are shown: $\mll$ for SF events after Cut~6 (a), $\mll$ for DF events after Cut~6 (b), $\pt^{\text{jet}_1}$ after Cut~7 (c),
+             $\etmiss$ for SF events after Cut~8 (d), $\etmiss$ for DF events after Cut~8 (e), and $\etmisshpto$ for SF events after Cut~9 (e).
              The signal and background distributions are normalized to their theory cross-section and luminosity.
              Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
              The signal is scaled by a factor of 50.
@@ -318,25 +322,26 @@ Only statistical uncertainties are contained in the error band.
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutHPTO-x0wide-lin.eps}
-        \caption{$x_1$ after Cut~10.}\label{fig:event_selection:cutflow:x1}
+        \caption{}\label{fig:event_selection:cutflow:x1}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutHPTO-x1wide-lin.eps}
-        \caption{$x_2$ after Cut~10.}\label{fig:event_selection:cutflow:x2}
+        \caption{}\label{fig:event_selection:cutflow:x2}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutX-DeltaEtaLL-lin.eps}
-        \caption{$\absdetall$ after Cut~11.}\label{fig:event_selection:cutflow:detall}
+        \caption{}\label{fig:event_selection:cutflow:detall}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutDEtaLL-DeltaRLL-lin.eps}
-        \caption{$\drll$ after Cut~12.}\label{fig:event_selection:cutflow:drll}
+        \caption{}\label{fig:event_selection:cutflow:drll}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/presel/ll-CutDRLL-mcoll-lin.eps}
-        \caption{$\mcoll$ after Cut~13}\label{fig:event_selection:cutflow:mcoll}
+        \caption{}\label{fig:event_selection:cutflow:mcoll}
     \end{subfigure}
-    \caption{Distribution of several variables which are used in the preselection before the corresponding cut is applied.
+    \caption{Distribution of several observables which are used in the preselection before the corresponding cut is applied.
+             The following observables are shown: $x_1$ after Cut~10, $x_2$ after Cut~10, $\absdetall$ after Cut~11, $\drll$ after Cut~12, and $\mcoll$ after Cut~13.
              The signal and background distributions are normalized to their theory cross-section and luminosity.
              Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
              The signal is scaled by a factor of 50.
@@ -351,33 +356,36 @@ Since the goal of this analysis is to measure the coupling strength of the Higgs
 in different production modes, dedicated categories for the VBF and gluon--gluon fusion production mode
 are defined by exploiting production-mode specific event topologies.
 They are referred to as the \emph{VBF} and \emph{boosted category}, respectively.
-Further subcategories formed in both cases to improve the sensitivity.
+The signal-to-background ratio and background composition is different in those categories.
+Due to the splitting the overall sensitivity of the measurement is enhanced.
+Further subcategories formed in both cases to improve the sensitivity even more.
 
 \subsection{VBF category}\label{sub:event_selection:vbf}
 
 In the VBF production mode two vector bosons are used to produce the Higgs boson.
 The vector bosons originate from two partons, which produce two jets with high transverse momentum
-in the forward region of the detector.
-No further jets are expected between the two VBF jets, because there is no color flow between the inital partons.
+in the forward and backward region of the detector.
+Small jet activity is expected between the two VBF jets, because there is no color flow between the initial partons.
 The following cuts are applied to select this topology:
-\begin{description}[style=nextline,leftmargin=1cm]
-    \item[(1V) Subleading jet momentum]
+
+\begin{itemize}
+    \item Subleading jet momentum (Cut 1V) \\
         A second jet is required with at least $\pt > \SI{30}{\GeV}$, because the VBF topology has two jets.
         \cref{fig:event_selection:cutflow:vbf:jet2} shows the distribution of the transverse momentum of the second
         jet before this cut.
-    \item[(2V) Opposite hemispheres]
-        The two leading jets need to occupy different hemispheres of the detector due to the VBF topology.
+    \item Opposite hemispheres (Cut 2V) \\
+        The two leading jets most likely occupy different hemispheres of the detector due to the VBF topology.
         This can be achieved by applying the $\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2} < 0$ requirement.
         The distribution of $\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2}$ before Cut~2V is shown in \cref{fig:event_selection:cutflow:vbf:hemispheres}.
-    \item[(3V) Angular separation of two leading jets]
+    \item Angular separation of two leading jets (Cut 3V) \\
         The separation in $\eta$ between the two VBF jets is expected to be large, as shown in \cref{fig:event_selection:cutflow:vbf:detajj}.
         Therefore, a cut of $\absdetajj > 3$ is applied.
-    \item[(4V) Lepton candidate centrality]
+    \item Lepton candidate centrality (Cut 4V) \\
         The $\eta$ of the selected leptons must lie in between the two jets.
-    \item[(5V) Invariant mass of the dijet system]
+    \item Invariant mass of the dijet system (Cut 5V) \\
         The dijet system is required to have an invariant mass of $\mjj > \SI{400}{\GeV}$.
         The distribution of $\mjj$ before Cut~5V is shown in \cref{fig:event_selection:cutflow:vbf:mjj}.
-\end{description}
+\end{itemize}
 
 Furthermore, the VBF category is split into a \emph{high} and \emph{low} VBF category,
 with requirements on the transverse momentum of the di-$\tau$ system, $\pt^{\tau\tau} > \SI{100}{\GeV}$ and $\pt^{\tau\tau} < \SI{100}{\GeV}$, respectively.
@@ -402,7 +410,7 @@ This helps to increase the sensitivity, provided that the statistics in the subc
 \subsection{Boosted category}\label{sub:event_selection:boosted}
 
 In contrast to the VBF production mode, the gluon--gluon fusion production mode has no outgoing partons at tree-level.
-However, higher order QCD corrections can produce a recoil jet, which leads to a high transverse momentum of the Higgs boson.
+However, higher order QCD corrections can produce one or more jets, which leads to a high transverse momentum of the Higgs boson.
 An example Feynman diagram for such a process is displayed in \cref{fig:event_selection:boostedjet}.
 
 \begin{figure}[htb]
@@ -413,14 +421,15 @@ An example Feynman diagram for such a process is displayed in \cref{fig:event_se
 
 
 The selection criteria for the boosted category are as follows:
-\begin{description}[style=nextline,leftmargin=1cm]
-    \item[(1B) Veto on VBF selection]
+\begin{itemize}
+    \item 
+    \item Veto on VBF selection (Cut 1B)
         The events have to pass the preselection, but not the VBF selection.
-    \item[(2B) Higgs boson transverse momentum]
+    \item Higgs boson transverse momentum (Cut 2B)
         The transverse momentum of the di-$\tau$ system is required to be $\pt^{\tau\tau} > \SI{100}{\GeV}$, since
         the goal is to select the boosted topology.
         A distribution of $\pt^{\tau\tau}$ before Cut~2B is shown in \cref{fig:event_selection:cutflow:boosted:pttautau}.
-\end{description}
+\end{itemize}
 Similar to the VBF category, also the boosted category is divided into two subcategories.
 All events which pass the requirements $\pt^{\tau\tau} > \SI{140}{\GeV}$ and $\drll < 1.5$ are sorted
 into the \emph{high-boosted} category. All other events which do not pass these criteria are filled in the
@@ -430,28 +439,30 @@ into the \emph{high-boosted} category. All other events which do not pass these 
     \centering
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutbVeto-JetPt1-lin.eps}
-        \caption{$\pt^{\text{jet}_2}$ after Cut~16. The first bin contains all events with no second jet.}\label{fig:event_selection:cutflow:vbf:jet2}
+        \caption{}\label{fig:event_selection:cutflow:vbf:jet2}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutVBFCatJet1Pt-EtaProductJ0J1-lin.eps}
-        \caption{$\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2}$ after Cut~1V.}\label{fig:event_selection:cutflow:vbf:hemispheres}
+        \caption{}\label{fig:event_selection:cutflow:vbf:hemispheres}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutVBFCatOppositeHemispheres-DJetEta-lin.eps}
-        \caption{$\detajj$ after Cut~2V.}\label{fig:event_selection:cutflow:vbf:detajj}
+        \caption{}\label{fig:event_selection:cutflow:vbf:detajj}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutVBFCatLCentrality-Mjj-lin.eps}
-        \caption{$m_{jj}$ after Cut~4V.}\label{fig:event_selection:cutflow:vbf:mjj}
+        \caption{}\label{fig:event_selection:cutflow:vbf:mjj}
     \end{subfigure}
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/event_selection/categories/ll-CutBoostedCatNoVBF-PtTauTau-lin.eps}
-        \caption{$\pt^{\tau\tau}$ after Cut~1B.}\label{fig:event_selection:cutflow:boosted:pttautau}
+        \caption{}\label{fig:event_selection:cutflow:boosted:pttautau}
     \end{subfigure}
     \caption{Distribution of several variables which are used in the categorization before the corresponding cut is applied.
+             The following distributions are shown: $\pt^{\text{jet}_2}$ after Cut~16 (a, the first bin contains all events with no second jet),
+             $\eta_{\text{jet}_1} \cdot \eta_{\text{jet}_2}$ after Cut~1V, $\detajj$ after Cut~2V, $m_{jj}$ after Cut~4V, and $\pt^{\tau\tau}$ after Cut~1B.
              The signal and background distributions are normalized to their theory cross-section and luminosity.
              Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
-             The signal is scaled by a factor of 20.
+             The signal is scaled by a factor of 20 for visibility.
              Underflow and overflow bins are included in the first and last bin, respectively.
              Only statistical uncertainties are included in the error band.}\label{fig:event_selection:categories}
 \end{figure}
@@ -473,9 +484,8 @@ into the \emph{high-boosted} category. All other events which do not pass these 
 
 \section{Event yields}\label{sec:event_selection:yields}
 
-\todo{Richtig runden in Tabelle?}
-\cref{tab:event_selection:yields} shows the event yields for the different signal and background processes after
-the preselection and in the inclusive VBF and boosted categories.
+The event yields for the different signal and background processes after
+the preselection and in the inclusive VBF and boosted categories are shown in \cref{tab:event_selection:yields}.
 After the preselection the fraction of signal events is \SI{1.05}{\percent}.
 For events from the ggF and VBF production mode the fractions are \SI{0.67}{\percent} and \SI{0.27}{\percent}, respectively.
 
@@ -486,7 +496,7 @@ The overall contribution signal events to the total event count is \SI{3.63}{\pe
 It was also possible to enhance the signal fraction in the boosted category.
 The total signal contribution increases to \SI{1.09}{\percent}.
 The proportions of the ggF and VBF production mode are \SI{0.79}{\percent} and \SI{0.12}{\percent}.
-The fraction of VBF events is slightly worse than in the preselection, because most VBF events fell in the VBF category.
+The fraction of VBF events is slightly worse than after the preselection, because most VBF events fell in the VBF category.
 
 A large fraction of background events was rejected in the VBF category compared to the boosted category.
 This can be explained by the distinct event topology of a VBF event, which makes it easier to separate signal and background events.
@@ -494,6 +504,7 @@ This can be explained by the distinct event topology of a VBF event, which makes
 The most dominant background is the $\Zgammatt$ background with \SI{56}{\percent} (\SI{72}{\percent}) contribution for the
 VBF (boosted) category, followed by the
 $\Zgammall$ and top-quark background with a fraction of \SI{12}{\percent} (\SI{7}{\percent}) and \SI{11}{\percent} (\SI{7}{\percent}), respectively.
+The QCD multijet (``fake'') background has a contribution of \SI{11}{\percent} in the VBF category and \SI{0.7}{\percent} in the boosted category.
 
 \begin{table}[htpb]
     \centering

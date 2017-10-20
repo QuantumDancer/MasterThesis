@@ -27,8 +27,8 @@ The contents of this chapter are based on Refs.~\cite{Hastie2009,TMVA}.
 \section{Introduction to Machine Learning}\label{sec:bdt:intro}
 
 Machine learning has two different applications.
-It can be used to assign class labels to the data points (\emph{classification}) or to predict
-an outcome encoded in a continuous variable via \emph{regression}.
+It can be used to assign class labels to the data points (\emph{classification}) or to predict the repsonse
+to input data encoded in a continuous variable via \emph{regression}.
 For this analysis classification is used, since the goal is to split the events in signal and background.
 In general, there can be an arbitrary amount of output classes, but to simplify the discussion this chapter focuses
 only on two-class problems in the aspect of splitting signal and background events.
@@ -44,7 +44,7 @@ This issue is discussed in more detail in \cref{sec:mva:sets}.
 It can happen that a model performs much worse on a independent data set than on the training set.
 This effect is known as \emph{overtraining}.
 In this case the model was trained too much and is sensitive to statistical fluctuations in the training set.
-Overtraining can be avoided if the correct parameters of the model are chosen.
+Overtraining can be avoided if the correct parameters in the training of the model are chosen.
 
 \section{Decision Trees}\label{sec:bdt:decision_trees}
 
@@ -83,9 +83,9 @@ A good decision tree has only a small number of misclassified events.
 
 \subsection{Growing a decision tree}\label{sub:bdt:dt:growing}
 
-The process of deciding which observable and threshold is used to split each subnode
+The process of deciding which observable and threshold is used to split each node
 is called \emph{growing} or \emph{building} a decision tree.
-The goal of the splitting is to improve the pureness in of either signal or background events in the subnodes with respect to the parent node.
+The goal of the splitting is to improve the pureness in either signal or background events in the subnodes with respect to the parent node.
 
 The signal purity $p$ of a node is defined as
 \begin{equation}
@@ -99,17 +99,17 @@ Based on the purity of the node a separation criterion $Q$ is calculated.
 The separation criterion is a function which reaches its maximum when the node is fully mixed, i.e.\ for $p = 0.5$.
 Below some examples of different separation criteria are given.
 \begin{itemize}
-    \item Gini index: $Q = p (1-p)$
-    \item Cross entropy: $Q = -p  \log(p) - (1 - p) \log (1 - p)$
-    \item Misclassification error: $Q = 1 - \max (p, 1 - p)$
+    \item Gini index: $Q = p (1-p)$. The maximum value is $Q(0.5) = 0.25$.
+    \item Cross entropy: $Q = -p  \ln(p) - (1 - p) \ln (1 - p)$. The maximum value is $Q(0.5) \approx 0.69$
+    \item Misclassification error: $Q = 1 - \max (p, 1 - p)$. The maximum value is $Q(0.5) = 0.5$.
 \end{itemize}
 To increase the pureness of a node the increase of the separation criterion has to be optimized.
 The change of the separation criterion for a selected input variable $v$ and threshold $t$
-is the difference between the sum of the new separation criteria, weighted
+is the difference between the sum of the new separation criteria on the two new subnotes, weighted
 by the relative fraction of events, and the separation criterion of the parent node,
 \begin{equation}
     \label{eq:bdt:deltaQ}
-    \Delta Q(v, t) = \sum_{i=1,2} \frac{n_i}{n_\text{parent}} Q_i (v, t) - Q_\text{parent} \,.
+    \Delta Q(v, t) = \abs{\sum_{i=1,2} \frac{n_i}{n_\text{parent}} Q_i (v, t) - Q_\text{parent}} \,.
 \end{equation}
 Here $n_i$ is the number of events in each subnode, $n_\text{parent}$ the number of events in the parent node,
 $Q_i$ the value of the separation criterion of each subnode, and $Q_\text{parent}$ the value of the separation criterion
@@ -156,7 +156,7 @@ a similar structure.
 However, due to statistical fluctuations one variable and threshold could be selected differently, which could lead
 to a completely different structure of one decision tree.
 
-Also, decision trees are \emph{weak classifiers}, i.e.\ they provide only a performance slightly better than random guessing.
+Also, decision trees are \emph{weak classifiers}, i.e.\ they provide only a performance slightly better than random guessing~\cite{Hastie2009}.
 
 However, there are concepts which provide substantial improvements in both of those areas.
 One method is the co-called \emph{boosting}, which is introduced in the next section.
@@ -177,7 +177,7 @@ Because previously misclassified events have a higher weight they have more impa
 than corrctly classified events.
 This procedure is repeated multiple times, until a maximum number of iterations is reached.
 The final output is a combination of the output of all decision trees which were trained.
-This combination known as the \emph{boosted decision tree}.
+This combination is known as the \emph{boosted decision tree}.
 
 There are different algorithms which implement this general boosting strategy.
 In the next sections first the \emph{AdaBoost} algorithm is introduced, which is a simple boosting algorithm.
@@ -189,19 +189,21 @@ boosting algorithm which is discussed, the \emph{gradient boost}.
 The AdaBoost algorithm~\cite{AdaBoost} was developed initially in 1997 by Yoav Freund and Robert Schapire.
 Until today it is one the most popular boosting algorithms.
 
-Let $x$ be a set of $N$ input events and $y$ the corresponding output values.
-Single values are referred to as $x_i$ and $y_i$ with $i \in \{1, \ldots, N\}$, respectively.
+Let $x$ be a set of $N$ vectors of observables (input events) and $y$ the corresponding output values.
+Single events are referred to as $x_i$ and $y_i$ with $i \in \{1, \ldots, N\}$, respectively.
 The classifier, in this case the decision tree, is denoted as $G(x_i)$, with $G(x_i) \in \left\{ -1,1 \right\}$.
+The output values are either 1 for a signal event or -1 for a background event.
 
-In the beginning each event is assigned a weight $w_i$, where
+In the beginning each event is assigned the same weight $w_i$, where
 \begin{equation}
     w_i = \frac{1}{N} \,.
 \end{equation}
 For each boosting step $m$ the classifier is trained with the training events using the weights $w_i$.
-After the training the misclassification error, $\err_m$, is calculated, which is the weighted avereage of the number of misclassified events,
+After the training the misclassification error, $\err_m$, is calculated, which is the weighted average of the fraction of misclassified events,
 \begin{equation}
     \err_m = \frac{\sum_{i_1}^N w_i I(y_i \neq G_m(x_i))}{\sum_{i_1}^N w_i} \,.
 \end{equation}
+The misclassification error is zero if all events are correctly classified and one if no event is correctly classified.
 Here the indicator function $I$ is used, which is defined as follows:
 \begin{equation}
     I(cond.) =
@@ -231,12 +233,12 @@ In contrast to the discrete output of single decision trees the combined output 
 
 The learning rate can be adjusted by replacing the boost weight $\alpha_m$ with $\alpha_m^\beta$, where
 $\beta$ ($0 < \beta \leq 1$) is the so-called AdaBoost-beta.
-A small value for $\beta$ reduces the risk of overtraining but may reduce the performance.
+A small value for $\beta$ reduces the risk of overtraining because it takes longer to train on statistical fluctuations but may reduce the performance
 
 AdaBoost performs best on weak classifiers.
 This means that the maximum depth of decision trees should be limited to low numbers, if they are used in combination with
 AdaBoost.
-\cref{fig:bdt:adaboost_testerror} shows the test error, a quantity similar to the misclassification error but evaluated on
+\cref{fig:bdt:adaboost_testerror} shows the test error, a quantity equivalent to the misclassification error but evaluated on
 an independent test set, as a function of the number of boosting iterations.
 The decision tree which is used has a depth of only one.
 Its error rate is around $0.45$, which is only slightly better than random guessing, where the error rate is $0.5$.
@@ -262,7 +264,7 @@ A general basis function expansion can be written as
     f(x) = \sum_{m=1}^M \beta_m b(x; \gamma_m) \,,
 \end{equation}
 where $f(x)$ is the function to approximate, $\beta_m$ the expansion coefficients, and $b(x; \gamma_m)$
-the base function with the input observables $x$ as argument and $\gamma_m$ as parameter.
+the basis function with the input observables $x$ as argument and $\gamma_m$ as parameter.
 
 To obtain the best approximation the optimal values of $\beta_m$ and $\gamma_m$ need to be found.
 A measure to quantify the agreement between the model and the training data is needed.
@@ -282,7 +284,7 @@ The optimization described in \cref{eq:bdts:optimization_loss_function} is compu
 this is a optimization in a high-dimensional space.
 However, the optimization can be approximated with an iterative approach, known as \emph{forward stagewise additive modeling}.
 If the approximation up to step $m-1$ is already known, the parameters and coefficient of step $m$ can be found
-in the following way, while keeping the parameters and coefficients of the previous base functions constant:
+in the following way, while keeping the parameters and coefficients of the previous basis functions constant:
 \begin{equation}
     (\beta_m, \gamma_m) = \arg \min_{\beta, \gamma} \sum_{i=1}^N L(y_i, f_{m-1}(x_i) + \beta b(x_i, \gamma)) \,.
 \end{equation}
@@ -290,7 +292,7 @@ After finding $\beta_m$ and $\gamma_m$ the approximated function at step $m$ can
 \begin{equation}
     f_m(x) = f_{m-1}(x) + \beta_m b(x_i, \gamma_m)
 \end{equation}
-The first base function, $f_0$, is usually initialized with zero.
+The first basis function, $f_0$, is usually initialized with zero, i.e.\ $f_0(x) = 0$.
 
 It can be shown that the AdaBoost algorithm is equivalent to forward stagewise additive modeling if an exponential
 loss function,
@@ -298,7 +300,7 @@ loss function,
     L(y, f(x)) = \exp \left[ - y f(x) \right] \,,
 \end{equation}
 is used~\cite{Hastie2009}.
-The base functions are here the individual decision trees, $G_m(x)$.
+The basis functions are here the individual decision trees, $G_m(x)$.
 This connection is not trivial and was only observed several years after the AdaBoost algorithm was
 developed.
 
@@ -310,7 +312,7 @@ The margin in classification problems has the analogous role of the residual $y 
 A positive margin indicates that the event was classified correctly, a negative margin signals misclassification.
 The boundary between an correctly classified event and misclassified event is at $f(x) = 0$.
 
-Loss functions need to be monotone decreasing, so that misclassified events are penalized by a high value
+Loss functions are most of the time monotone decreasing functions, so that misclassified events are penalized by a high value
 of the loss function.
 A list of common loss functions is given below.
 \begin{itemize}
@@ -347,7 +349,7 @@ The gradient, which is used for the minimization, is calculated as follows:
 \begin{equation}
     g_{im} = {\left[ \frac{\partial L(y_i, f(x_i))}{\partial f(x_i)} \right]}_{f(x_i) = f_{m-1}(x_i)} \,.
 \end{equation}
-However, this leads to an issue.
+However, this leads to an problem.
 The gradient needs to be known for every point in the space of the input observables, $x_i$.
 But since those are provided from a finite amount of training data, the gradient is only known at those points.
 The solution is to use a regression tree for the estimation of values between the training data points.
@@ -368,13 +370,13 @@ A large part of the next chapter is dedicated to find optimal values for those p
 This section gives an overview of the hyperparameters and a general recommendation which values lead to the best
 performance.
 For some parameters a short identification string is introduced, which makes it easier to refer to
-those parameters late on.
+those parameters later on.
 
 To grow a single decision tree different thresholds for the observables are tested.
 The number of grid points in the range of the observable needs to be set.
 Studies suggest that a value of $20$ is high enough to get a good splitting performance.
 A notable increase of the separation power with a higher number of grid points could not be seen~\cite{TMVA}.
-Therefore, this analysis does not optimized the number of grid points but uses the suggested value.
+Therefore, this analysis does not optimize the number of grid points but uses the suggested value.
 
 For the cancellation criteria the maximum depth of the tree (\texttt{MaxDepth}) and the minimum number of events in one node
 given as the percentage w.r.t.\ the total event count (\texttt{MinNodeSize}) are used.
@@ -382,7 +384,7 @@ Since boosting works best with weak classifiers, a small amount of trees should 
 To prevent overtraining the minimum number of events in one node should not be to small.
 
 For boosting first it has to be decided which boosting algorithm (\texttt{BoostType}) should be used.
-In case of the gradient-boost algorithm the loss function has to set.
+In case of the gradient-boost algorithm the loss function has to be set.
 TMVA uses the binomial-deviance loss.
 Also the number of single decision trees which are used during the boosting (\texttt{NTrees}) and the
 learning rate (\texttt{Shrinkage} for gradient boost and \texttt{AdaBoostBeta} for AdaBoost) need to be set.

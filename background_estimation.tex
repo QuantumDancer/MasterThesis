@@ -6,10 +6,10 @@ Most background contributions are modeled by simulated events.
 However, data-driven background estimation techniques allow a better control of the modeling of the simulated
 events while simultaneously reducing systematic uncertainties.
 
-For this analysis the background contribution of events with misidentified jets is estimated in a data-driven way.
+For this analysis the background contribution of events with jets misidentified as leptons is estimated in a data-driven way.
 Additionally, the normalization of simulated events from the $\Zgammall$, $\Zgammatt$, and top-quark background is determined
 in so-called \emph{control regions}.
-This allows a better comparison between simulated events, and data before the statistical analysis is performed.
+The normalizations are treated as nuisance parameters in the fit determining  the signal strength, and are constrained from the event yields in the control regions.
 
 \section{Background Estimation of Events with Misidentified Leptons}\label{sec:background_estimation:fakes}
 
@@ -52,17 +52,20 @@ The correction factors are applied to the distributions of the following observa
 $\pt^{\ell_1}, \pt^{\ell_2}, \Delta \phi (\ell_1, \etmiss), \Delta \phi (\ell_2, \etmiss), n_{\text{jets},40}, pt^{\tau\tau}, \pt^\tau / \pt^{\ell_1}, \drll, m_\text{T}^{\ell_1}$, and $m_\text{T}^{\ell_2}$.
 The assumption was made, that the correction factors are not changed when transferring them from the SS to the OS region.
 
-\section{Normalization of the $\Zll$, $\Ztautau$, and top backgrounds}\label{sec:background_estimation:normalization}
+\section{Normalization of the $\Zll$, $\Ztautau$, and top-quark produced backgrounds}\label{sec:background_estimation:normalization}
 
-The other important backgrounds of this analysis, i.e.\ the $\Zll$, $\Ztautau$, and top background, are not estimated with
+The other important backgrounds of this analysis, i.e.\ the $\Zll$, $\Ztautau$, and top-quark produced background, are not estimated with
 a data-driven technique.
 Their shape is taken from simulations, but the normalization can be obtained from data events in control regions.
 Similarly to the estimation of the fake lepton background, the control regions are here also defined by inverting one requirement of the event selection.
 For each background contribution a separate control region is needed, which should be enriched with events from the corresponding background.
+The normalization of the fake background is calculated when constructing this background, therefore no further normalization is required.
+The other background contributions are not considered.
 
 The $\Zll$ control region is defined by changing the requirement of $\SI{30}{\GeV} < \mll < \SI{75}{\GeV}$ to $\SI{80}{\GeV} < \mll < \SI{100}{\GeV}$, in order to
 select the $Z$-peak. Additionally, only same flavour events are considered.
-Events where the MMC algorithm failed to converge are also used.
+Events where the MMC algorithm failed to converge are also used, because only the event yields are used and not the shape information
+of the $\mmc$ distribution.
 
 The control region for the background originating from top-quarks are formed by requiring at least one jet which is $b$-tagged in each event.
 Furthermore, events where the MMC algorithm failed to converge are also included.
@@ -71,6 +74,7 @@ For the $\Ztautau$ background there is no dedicated control region.
 Instead the signal region is used, but only events with $\mcoll < \SI{100}{\GeV}$ are used to avoid high signal contributions.
 
 To obtain the normalization factors a $3 \times 3$ matrix $\mathbb{N}$ is constructed, which contains the number of events for each of those three backgrounds
+($\Zll$, $\Ztautau$, top-quark production)
 in each control region.
 Additionally, a vector $\vec{N}^\text{Data}$ contains the number of data events in each control region.
 Contributions from other backgrounds which are not normalized need to be subtracted.
@@ -82,7 +86,7 @@ Uncertainties on the normalization factors can be obtained by varying the entrie
 inverting each of the matrices.
 
 These normalization factors are also called pre-fit normalization factors, since they are used to compare distributions
-before the statistical analysis is carried out, in which the normalizations incorporated as a part of the full fit model.
+before the statistical analysis is carried out, in which the normalizations are incorporated as a part of the full fit model.
 
 
 The normalization factors can be in principle calculated after each requirement listed in \cref{sec:event_selection:preselection,sec:event_selection:categorization}.

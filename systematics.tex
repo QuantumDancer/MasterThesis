@@ -1,7 +1,7 @@
 \chapter{Systematic Uncertainties}\label{cha:systematics}
 
 Systematic uncertainties arise from various sources in the analysis of $\Httllfull$.
-They affect the event yields in the final distributions, which are used in the fit.
+They affect the event yields in the final distributions, which are used in the fit for extracting the signal strength.
 There are two types of systematic uncertainties: the \emph{shape uncertainties}, which have an impact on
 the distributions of the used observables, and the \emph{normalization systematics}, which affect the
 expected signal and background yields.
@@ -11,7 +11,8 @@ Experimental systematics arise due to measurements of for example the luminosity
 efficiencies of object identification and reconstruction.
 The calibration of the detectors, especially the calorimeters, is another contribution.
 Another source are uncertainties related to theory predictions.
-These depend for example on the choice of the QCD scale or PDF uncertainties.
+These depend for example on the choice of the renormalization and factorization scales and uncertainties in $\alpha_s$
+and PDFs.
 Additionally, the data-driven estimation of background processes result in another class of systematic uncertainties.
 
 For most of the systematic uncertainties the source is varied upwards or downwards within one standard deviation and the full
@@ -21,7 +22,7 @@ with respect to the nominal case.
 Systematic variations which have only a very minor impact are discarded by a \emph{pruning} procedure.
 
 This chapter gives an overview of the systematic uncertainties which are considered in this analysis.
-Their incorporation in the fit is discussed in \cref{sec:fit:nps}.
+Their incorporation in the fit is discussed in \cref{cha:fit}.
 
 \section{Experimental uncertainties}\label{sec:systematics:exp}
 
@@ -40,7 +41,7 @@ Their incorporation in the fit is discussed in \cref{sec:fit:nps}.
         The systematic variations on the trigger, identification, and isolation efficiencies for muons
         are derived in the same events.
         The variations are between \SI{1}{\percent} and \SI{7}{\percent}~\cite{PERF-2015-10}.
-    \item[Jet energy:] The jet uncertainties depend on the transverse momentum and $\eta$ of the jet.
+    \item[Jet energy:] The jet uncertainties depend on the transverse energy and $\eta$ of the jet.
         The uncertainties on the jet energy resolution (JER) and jet energy scale (JES) are obtained
         by smearing the nominal jet energy resolution.
         The JES uncertainty is \SI{6}{\percent} for jets with $\pt = \SI{20}{\GeV}$,
@@ -53,8 +54,9 @@ Their incorporation in the fit is discussed in \cref{sec:fit:nps}.
     \item[b-tagging:] Scale factors are used to correct the $b$-tagging efficiencies and mistag rate for light flavour jets.
         This class of systematic variations refers to the variation of these scale factors.
         The systematic variation affects mainly the single-top and $t\overline{t}$ background.
-    \item[Transverse missing energy:] For the systematic uncertainty on the missing transverse energy the soft-term
-        contribution is smeared to match the data~\cite{METUncertainty}.
+    \item[Transverse missing energy:] For the systematic uncertainty on the missing transverse energy the different
+        contribution is smeared by a convolution of a Gaussian and fitted to data. The parameters of the Gaussian are used
+        to determine the uncertainties of $\etmiss$.~\cite{METUncertainty}.
     \item[Pile-up reweighting:] In the generation of simulated events a generalized profile for the distribution of the number of interactions
         per bunch crossing (pile-up distribution) is used. To match with the observed profile of the 2015 and 2016 dataset, a correction factor
         of $1/1.16$ needs to be applied to the pile-up distribution..
@@ -62,25 +64,61 @@ Their incorporation in the fit is discussed in \cref{sec:fit:nps}.
         However, the more conservative estimation of $1/(1.16^{+0.07}_{-0.16})$ is used in this analysis.
 \end{description}
 
-\section{Uncerainties on data-driven background estimations}\label{sec:systematics:bkg}
+\section{Uncertainties on data-driven background estimations}\label{sec:systematics:bkg}
 
 The background of events with misidentified leptons (fake leptons) is estimated in this analysis in a data-driven way,
 as described in \cref{sec:background_estimation:fakes}.
 The systematic variations are constructed from variations of the efficiencies of the triggers, which are used to select the events.
 Additionally, non-closure systematics are derived by comparing data events from the opposite sign and same sign fake control region.
+An overview of the variations in the non-closure uncertainties is given in \cref{tab:systematics:fake}.
 
-\section{Theory uncerainties}\label{sec:systematics:theo}
+\begin{table}[htpb]
+    \centering
+    \caption{Overview of the non-closure systematic variations for the fake background for different bins of the transverse momentum of the subleading lepton, $\pt^{\ell_2}$.}\label{tab:systematics:fake}
+    \begin{tabular}{ccc}
+        \toprule
+        $\pt^{\ell_2}$ [GeV] & VBF cat. & Boosted cat. \\ \midrule
+        $[10, 15)$        & \SI{39}{\percent} & \SI{37}{\percent} \\
+        $[15, 20)$        & \SI{90}{\percent} & \SI{42}{\percent} \\
+        $[20, 25)$        & \SI{90}{\percent} & \SI{24}{\percent} \\
+        $[25, \infty)$    & \SI{90}{\percent} & \SI{24}{\percent} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\section{Theory uncertainties}\label{sec:systematics:theo}
 
 \begin{description}[leftmargin=0cm]
     \item[Signal theory systmatics:] For the gluon--gluon fusion, vector boson fusion, and Higgs-Strahlung production
         modes of the Higgs boson several systematic variations are applied.
-        For the uncertainties on the parton distribution function (PDF) several parametrizations of different PDF sets are compared~\cite{YR4}.
-        Additionally, the value of the strong coupling constant $\alpha_s$ is varied, $\alpha_s(M_Z) = 0.118 \pm 0.0015$~\cite{YR4}.
-        Discrepancies due to missing higher-order calculations of the cross-sections are estimated by the QCD scale uncertainty.
-        Here, the factorization and renormalization scales are varied by a factor $2$ in both up and down direction.
-        All these uncertainties are shape uncertainties.
-    \item[$\mathbf{Z\tau\tau}$ theory systmatics:] For the $\Ztautau$ background there are variations applied on the PDF set and
-        renormalization, factorization, CKK, and QSF scale.
+        The sources of these variations are missing higher order calculations, which also affect the uncertainty of jet bin migration,
+        the underlying event and hadronization, and the uncertainty on the PDFs and $\alpha_s$.
+
+        The event yield in each bin of the final distribution which is used in the fit can be expressed by
+        \begin{equation}
+            n_\text{bin}  = \sigma_\text{tot} \times \lumi \times A \times f_\text{bin} \,,
+        \end{equation}
+        with the total cross section $\sigma_\text{tot}$, the luminosity $\lumi$, the acceptance $A$ of the total considered sample in the signal region,
+        and the fraction of events in the considered bin, $f_\text{bin}$.
+        The uncertainties are factorized into contributions on the total cross section, acceptance, and the shape of the distributions.
+
+        The uncertainties on the total cross section of the production modes are shown in \cref{tab:theory:higgs:prodxsec}.
+
+        Uncertainties due to missing higher orders are estimated by scaling the factorization and renormalization scales by a factor of 0.5 and 2.
+        The total up and down uncertainties the VBF production mode are estimated by the maximum negative and positive variations in the acceptances.
+        For the gluon--gluon fusion production mode jet bin migration uncertainties need to be considered.
+        Here, a method using the $H + 0 \text{jet}$, $H + 1 \text{jet}$, and $H+\geq2\text{jets}$ cross sections recommended by \cite{YR4}
+        is applied, where 4 scale variations, 2 VBF topology uncertainties, 2 Higgs $\pt$-shape uncertainties, and one top mass dependence are considered.
+
+        The uncertainties on the underlying event are studied on truth level by replacing the parton shower algorithm with a different one (\texttt{Herwig7}~\cite{Herwig7:1,Herwig7:2}).
+        This is a normalization uncertainty in the acceptance.
+
+        For the PDF uncertainties the latest PDF4LHC15~\cite{PDF4LHC15} recommendations are used, which are based on 30 eigenvector variations and 2 variations for $\alpha_s$.
+
+    \item[$\mathbf{Z\tau\tau}$ theory systmatics:] For the $\Ztautau$ signal uncertainties scale variations and PDF uncertainties are considered.
+        The scale uncertainties are evaluated the same way as the signal VBF uncertainties.
+        For the PDF uncertainties the same scheme as for the signal is used.
+
     \item[$\mathbf{\Htt}$ branching ratio:] The uncertainty on the $\Htt$ branching ratio is $\pm \SI{5.7}{\percent}$~\cite{YR3}.
 \end{description}
 

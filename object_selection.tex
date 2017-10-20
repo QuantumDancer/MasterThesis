@@ -1,6 +1,7 @@
 \chapter{Object Selection}\label{cha:object_selection}
 
 For any physics analysis in proton-proton collisions at the LHC the particles traversing the ATLAS detector
+immeres in magnetic fields
 need to be reconstructed and identified.
 For this information of the inner detector, calorimeters, and the muon spectrometer is used.
 The reconstruction is done both on data and simulation. Differences in reconstruction, identification, and trigger efficiencies are
@@ -19,13 +20,14 @@ The chapter closes with \cref{sec:object_selection:overlap_removal}, where the r
 
 \section{Tracks and Vertices}\label{sec:object_selection:tracks_and_vertices}
 
-Particle trajectories (\emph{tracks}) are the fundamental ingredient for the reconstruction and identification
+Charged particle trajectories (\emph{tracks}), as neutral particles do not leave tracks, are the fundamental ingredient for the reconstruction and identification
 of other physics objects, which are discussed in the following sections.
 The tracks are reconstructed in the inner detector by using various track reconstruction algorithms~\cite{ATL-SOFT-PUB-2007-007}.
 Information of the several ID sub-detector systems (IBL, Pixel, SCT, TRT) are taken into account.
 The transverse momentum and the sign of the charge of the track is calculated from the curvature of the track in the magnetic field.
 Quality criteria which are based on the number of hits in the sub-detectors depending on the transverse momentum $\pt$ and pseudorapidity $\eta$
 are applied.
+The track reconstruction efficiencies range between \SI{91}{\percent} and \SI{63}{\percent} depending on the $\eta$ of the track and different selection criteria~\cite{ATL-PHYS-PUB-2015-051}.
 
 Tracks can be used to reconstruct the primary and secondary interaction points (\emph{vertices}).
 For this the tracks are extrapolated back to the interaction point to check for intersections between different tracks.
@@ -33,6 +35,8 @@ Since multiple interactions are expected during one bunch crossing (\emph{pile-u
 are reconstructed.
 The vertex with the highest $\sum p_{\text{T},\text{track}}^2$ is chosen as the primary vertex, which corresponds to the
 point where the interaction was the hardest.
+The efficiency to reconstruct a vertex depends on the number of tracks which are associated with the vertex.
+For two tracks the efficiency is \SI{83}{\percent}, for three tracks \SI{97}{\percent}, and for more than 4 tracks around \SI{100}{\percent}~\cite{ATL-PHYS-PUB-2015-026}.
 
 Detailed information about tracking and vertexing in ATLAS for \runtwo{} of the LHC
 can be found in~\cite{ATL-PHYS-PUB-2015-051,ATL-PHYS-PUB-2015-006,ATL-PHYS-PUB-2015-026}.
@@ -51,6 +55,7 @@ $\frac{\mathcal{L}_S}{\mathcal{L}_S + \mathcal{L}_B}$, where $\mathcal{L}_S$ and
 the signal and background probability density functions of the used variables.} yield different operating points,
 labeled as  \emph{loose}, \emph{medium}, and \emph{tight}.
 They provide a different level of electron identification efficiency and background rejection.
+The reconstruction efficiencies range between \SI{95}{\percent} for the loose working point and \SI{80}{\percent} for the tight working point.
 
 In this analysis the \emph{loose} criterion is chosen.
 Additional requirements are $\pt > \SI{15}{\GeV}$ and $\abs{\eta} < 2.47$.
@@ -58,7 +63,8 @@ The Pixel Detector and SCT can only provide information for reconstruction and i
 Electrons within $1.37 < \abs{\eta} < 1.52$ are excluded, because of the poor reconstruction and identification
 performance caused by the transition region between the barrel and end-cap calorimeters.
 
-To increase the background rejection, isolation requirements are introduced by the following two discriminating variables.
+To increase the background rejection, isolation requirements are introduced by the following two discriminating variables to
+exlude electron candidates.
 The calorimetric isolation energy $\et^{\text{cone}0.2}$ is defined as the sum of transverse energy deposited within
 $\dr = 0.2$ around the electron candidates.
 Corrections for electron energy leakage, pile-up, and the underlying event activity are applied.
@@ -72,10 +78,6 @@ $\SI{0.1143}{\percent} \times \et / \si{\GeV} + \SI{92.14}{\percent}$~\cite{ATLA
 
 The efficiencies of the electron identification and isolation criteria are measured using a \emph{tag-and-probe} technique
 in $\Z \to \epem$ and $\JPsi \to \epem$ events~\cite{ATLAS-CONF-2016-024}.
-%The \emph{tag} electron must pass the \emph{tight} identification criterion as well as some other selection criteria.
-%Because of the chosen events it is very probable that a second electron, the \emph{probe}, is contained in this event.
-%By counting how many \emph{probe} electrons pass the different identification and isolation requirements the efficiencies
-%of those working points can be obtained.
 The combined reconstruction and identification efficiencies in $\Z \to \epem$ events as a function of $\et$ and $\eta$
 are shown in \cref{fig:object_selection:el_id_eff}.
 To account and correct for differences in data and simulated events the efficiencies are calculated for both event types.
@@ -87,19 +89,19 @@ The ratio is then used to derive \emph{scale factors}, which are applied to the 
     \includegraphics[width=0.45\textwidth]{./figures/object_selection/electron_efficiency_eta.pdf}
     \caption{Combined electron reconstruction and identification efficiencies for $\Z \to \epem$ events as a
              function of $\et$ (left) and $\eta$ (right) for the \emph{loose}, \emph{medium}, and \emph{tight}
-             working points. The inner error bars show the statistical uncertainty, the outer error bars combine
-             the statistical and systematic uncertainties.~\cite{ATLAS-CONF-2016-024}}\label{fig:object_selection:el_id_eff}
+             working points obtained for data and simulation. The inner error bars show the statistical uncertainty, the outer error bars combine
+             the statistical and systematic uncertainties~\cite{ATLAS-CONF-2016-024}.}\label{fig:object_selection:el_id_eff}
 \end{figure}
 
 \section{Muons}\label{sec:object_selection:muons}
 
-Muons are reconstructed by taking information of the inner detector, calorimeter, and the
-muon spectrometer into account.
+Muons are reconstructed by taking information of the inner detector (ID), calorimeter, and the
+muon spectrometer (MS) into account.
 Because  muons traverse the detectors with minimum energy loss, they have a clear signature in the detectors and the
 discrimination between them and other physics objects like electrons and jets reaches a high accuracy.
 
 First, muons are reconstructed independently in the ID and the MS\@.
-For the track reconstruction in the MS each muon chamber is searched for hit patterns, which are combined to track
+For the track reconstruction in the MS each of the muon chambers is searched for hit patterns, which are combined to track
 segments. The segments are then combined to muon track candidates. For each track candidate a global $\chi^2$ fit
 is performed to the hits associated with the track. If a certain threshold is reached the track is accepted~\cite{PERF-2015-10}.
 
@@ -120,13 +122,17 @@ different layers and the \emph{q/p significance}\footnote{The \emph{q/p signific
 difference between charge and momentum measured in ID and MS divided by the sum of squares of the respective uncertainties.}.
 In this analysis \emph{loose} muons are used with $\pt > \SI{10}{\GeV}$ and $\abs{\eta} < 2.5$.
 This includes all \emph{medium} muons as well as CT and ST muons, which are however restricted to $\abs{\eta} < 0.1$.
+The reconstruction efficiency for tight muons is about \SI{95}{\percent} and for medium muons \SI{0.99}{\percent}.
 
 Isolation requirements can further reduce background, because muons originating from heavy particles like $\W$, $\Z$,
-or Higgs bosons are often produced isolated. Two discriminating variables are introduced.
+or Higgs bosons are often produced isolated
+in contrast to muons from $b/c$-flavoured hadrons.
+Two discriminating variables are introduced.
 The calorimetric isolation energy $\et^{\text{topocone}20}$ is defined as the sum of transverse energy deposited within
 $\dr = 0.2$ around the muon candidates.
 Corrections for pile-up and the underlying event activity are applied.
 The sum of the transverse momentum of all tracks with $\pt > \SI{1}{\GeV}$ within $\dr = \min(0.3, \SI{10}{\GeV} / \pt^\mu)$
+excluding the muon candidate track
 is defined as the track isolation $\pt^{\text{varcone}0.3}$.
 Based on different selection criteria on the quantities $\et^{\text{topocone}20} / \pt^\mu$ and
 $\pt^{\text{varcone}30} / \pt^\mu$ multiple operating points are constructed.
@@ -145,14 +151,14 @@ applied to the simulated events to correct deviations of the efficiencies betwee
     \includegraphics[width=0.45\textwidth,align=c]{./figures/object_selection/muon_efficiency_medium_zmmjpsi.eps}
     \caption{Muon reconstruction efficiencies for \emph{loose} and \emph{medium} muons as a function of $\eta$
             measured in $\Z \to \mpmm$ events (left) and for \emph{medium} muons as a function of $\pt$ measured in
-            $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events (right).~\cite{PERF-2015-10}}\label{fig:object_selection:mu_id_eff}
+            $\Z \to \mpmm$ and $\JPsi \to \mpmm$ events (right) for data and simulation~\cite{PERF-2015-10}.}\label{fig:object_selection:mu_id_eff}
 \end{figure}
 
 
 \section{Jets}\label{sec:object_selection:jets}
 
 Particles with a color charge like quarks and gluons cannot exist in an unbound state,
-they form colorless states due to hadronization.\todo{Ref.\ to theory chapter}\
+they form colorless states due to hadronization.
 Collimated bunches of hadrons are produced, which are called \emph{jets}.
 
 An algorithm which reconstructs jets should be insensitive to soft radiation (\emph{infrared safety})
@@ -188,13 +194,13 @@ These algorithms exploit the fact that $b$-flavoured hadrons (B-hadrons) have qu
 ($\tau \approx \SI{1.5}{\ps}$~\cite{PDG}) compared to other hadrons.
 The decay creates a secondary vertex several millimeters away from the primary vertex due to time
 dilation.\footnote{If a lifetime of $\tau = \SI{1.5}{\ps}$ and rest mass of $m_0 = \SI{5.3}{\GeV}$ are assumed (approximate values, taken from~\cite{PDG}),
-the B-hadron travels $c\tau' = c \tau \gamma = c \tau \frac{E}{m_0} = \SI{4.24}{\mm}$ in the laboratory frame, if it has an energy of $E = \SI{50}{\GeV}$.}.
-The secondary vertex is reconstructed with the tracks of the charged particles which formed the jet.
+the B-hadron travels $c\tau' = c \tau \beta \gamma = c \tau \frac{E}{m_0} = \SI{4.24}{\mm}$ in the laboratory frame, if it has an energy of $E = \SI{50}{\GeV}$.}.
+The secondary vertex is reconstructed with the tracks of the charged particles within a jet.
 
 Since this analysis focuses on the gluon--gluon fusion and VBF production modes of the Higgs boson, jets produced from
 the decay of a $b$-quark are not expected.
 However, top quarks, which produce a large background in this analysis, almost always decay into $b$-quarks
-Therefore, identifying jets originating from $b$-Hadrons gives the possibility to reduce the background produced by top quarks.
+Therefore, identifying jets originating from $b$-hadrons gives the possibility to reduce the background produced by top quarks.
 
 This analysis uses the multivariate-based $b$-tagging algorithm MV2c20~\cite{PERF-2012-04,ATL-PHYS-PUB-2016-012} with
 a working point resulting in \SI{85}{\percent} efficiency for $b$-jets in simulated $t\overline{t}$ events.
@@ -209,21 +215,20 @@ Tau leptons can either decay into leptons ($\tau \to \ell \nu_\tau \nu_\ell$, $\
 With a mass of \SI{1.777}{\GeV} and a proper decay length of \SI{87}{\um}~\cite{PDG}, the decay usually happens before
 the $\tau$-lepton reaches the active part of the ID\@.
 
-Leptonically decaying $\tau$-leptons are identified as electrons ore muons, only hadronically decaying $\tau$-leptons can be reconstructed,
-Most of the time the decay products are either one ore three charged pions, an additional neutral pion can also be produced.
-Depending on the number of charged pions, the event is called either \emph{1-} or \emph{3-pronged}.
+Leptonically decaying $\tau$-leptons are identified as electrons ore muons, only hadronically decaying $\tau$-leptons are reconstructed as $\tau$-leptons.
+Most of the time the decay products are either one ore three charged pions or kaons, one ore more additional neutral pion can also be produced.
+Depending on the number of charged pions tracks, the event is called either \emph{1-} or \emph{3-pronged}.
 All visible decay products are denoted as \tauhadvis{}.
 
 Since this analysis is focusing on the \Httllfull{} decay, no hadronically decaying $\tau$-leptons are expected.
 However a veto on $\tauhadvis$ candidates can be used to reduce background (see \cref{sec:event_selection:preselection}).
 
 The reconstruction starts by selecting jets which are reconstructed by using the \antikt{} algorithm~\cite{Cacciari:2008gp,Cacciari:2005hq}
-with an distance parameter of $\dr = 0.4$.
+with a distance parameter of $\dr = 0.4$.
 Only jets with $\pt > \SI{10}{\GeV}$ and $\abs{\eta} < 2.5$ are considered.
-$\tauhadvis$ candidates within the transition region of the barrel end-cap calorimeters ($1.37 < \abs{\eta} < 1.52$) are discarded.
+$\tauhadvis$ candidates within the transition region of the barrel and end-cap calorimeters ($1.37 < \abs{\eta} < 1.52$) are discarded.
 A tau vertex is calculated from the associated tracks ($\dr < 0.2$, $\pt > \SI{1}{\GeV}$) of the $\tauhadvis$ candidates.
 The $\eta$-$\phi$ direction is determined with information from the calorimeters. % actually: TopoCLusters
-The mass and all mass related variables are set to zero.
 The energy is  obtained by a tau-specific calibration scheme~\cite{Run1TauPaper}.
 
 Quark- and gluon-initiated jets have a more broader shower profile than jets caused by $\tau$-leptons.
@@ -234,7 +239,6 @@ with a targeted efficiency of $0.6$ ($0.5$), $0.55$ ($0.4$), and $0.45$ ($0.35$)
 
 In this analysis the \tauhadvis{} candidates need to pass the \emph{loose} working point, with the additional requirements
 of $\pt > \SI{20}{\GeV}$ and $\abs{\eta} < 2.5$.
-Candidates within $1.37 < \abs{\eta} < 1.52$ are excluded.
 
 Since the BDT was trained to discriminate between quark- and gluon-initiated jets and jets from $\tau$-leptons, it
 does not perform well with regard to discriminating between 1-pronged hadronic $\tau$ decays and electrons.
@@ -255,7 +259,7 @@ The efficiencies and scale factors for 1-pronged tau decays are illustrated in \
     \includegraphics[width=0.45\textwidth]{./figures/object_selection/tau_trig_eff_tt_1p.eps}
     \caption{Tau trigger efficiencies and scale factors ($\epsilon_\text{Data} / \epsilon_\text{MC}$) for 1-pronged
     hadronic $\tau$ decays, measured in $\Z \to \tau\tau$ (left) and $\ttbar$ (right) events with
-    the 2015 dataset.~\cite{ATLAS-CONF-2017-029}}\label{fig:object_selection:tau_eff}
+    the 2015 dataset for data and simulation~\cite{ATLAS-CONF-2017-029}.}\label{fig:object_selection:tau_eff}
 \end{figure}
 
 
@@ -265,7 +269,7 @@ In proton-proton collisions the exact momentum of the initial partons is not kno
 However, the assumption can be made that partons carry no transverse momentum~\cite{PhysRev.185.1975}.
 Thus, the transverse momentum in the final state should also be zero, due to energy and momentum conservation.
 Any imbalance in the final state transverse momentum is known as the \emph{missing transverse energy} and denoted as \etmiss.
-It arises from weakly-interacting, stable particles produced in the collision.
+Ideally it arises from weakly-interacting, stable particles produced in the collision.
 In the SM these particles are the neutrinos, but it may also be an indication of weakly-interacting exotic particles.
 Since the focus of this analysis is the full leptonic decay $\Httllfull$, a large \etmiss{} contribution is expected
 due to the four final state neutrinos.
@@ -282,6 +286,7 @@ with reconstructed and calibrated physics objects~\cite{ATL-PHYS-PUB-2015-023}
 with the missing transverse energy $\etmissvecobj{\text{type}} = - \sum \ptvec^\text{type}$ for each type of object
 ($e$: electrons, $\gamma$: photons, $\tau$: $\tau$-leptons, jet: jets, soft: soft objects, $\mu$: muons).
 The individual contributions will be explained in the next paragraphs.
+Except for the soft and muon term all contributions originate from the calorimeters.
 Most of the time and also in this analysis the scalar missing transverse energy \etmiss{} is used,
 \begin{equation}
     \label{eq:met:scalar}
@@ -334,4 +339,3 @@ Depending on the object combination, a different \dr{} threshold is used:
             \item remove electrons within $\dr = 0.2$
         \end{itemize}
 \end{enumerate}
-\todo{Special electron-jet OLR?}

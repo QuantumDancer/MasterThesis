@@ -1,106 +1,47 @@
 \chapter{Additional Material for \cref*{cha:mva}}\label{cha:appendix_mva}
 
-\section{Observables used in the optimizattion}\label{app:mva:fulllistvars}
+\section{Observables used in the optimization}\label{app:mva:fulllistvars}
 
-TODO
+\begin{longtable}{ll}
+	\caption{List of all observables considered in the optimization of the multivariate analysis.} \\
+	\toprule
+	  Variable & Description \\
+    \midrule
+	\endfirsthead
+	\caption{List of all observables considered in the optimization of the multivariate analysis (continued).} \\
+	\toprule
+	  Variable & Description \\
+    \midrule
+	\endhead
+	\bottomrule
+	\endfoot
+	$\mmc$ & output of the missing mass calculator, see \cref{sub:event_selection:mmc} \\
+    $\pt^{ell_1}$           & transverse momentum of the leading lepton \\
+    $\eta_{\ell_1}$         & $\eta$ of the leading lepton \\
+    $m_\text{T}^{\ell_1}$   & transverse mass of the leading lepton with the transverse energy \\
+    $\pt^{ell_2}$           & transverse momentum of the subleading lepton \\
+    $\eta_{\ell_2}$         & $\eta$ of the subleading lepton \\
+    $m_\text{T}^{\ell_2}$   & transverse mass of the leading lepton with the transverse energy \\
+    $n_\text{jets}$         & number of jets above \SI{30}{\GeV}, bins for $n_\text{jets} \geq 3$ are merged\\
+    $\pt^{\text{j}_1}$      & transverse momentum of the leading jet \\
+    $\eta_{\text{j}_1}$     & $\eta$ of the leading jet \\
+    $\pt^{\text{j}_2}$      & transverse momentum of the subleading jet \\
+    $\eta_{\text{j}_2}$     & $\eta$ of the subleading jet \\
+    $\pt^{\text{j}_3}$      & transverse momentum of the subleading jet \\
+    $\eta_{\text{j}_3}$     & $\eta$ of the leading jet \\
+    $\mll$                  & invariant mass of the dilepton system \\
+    $\etmiss$               & missing transverse energy \\
+    $\sum \abs{\pt}$        & scalar sum of $\pt^{\ell_1}$, $\pt^{\ell_2}$, $\pt^{\text{jet}_1}$, $\pt^{\text{jet}_2}$, and $\etmiss$ \\
+    $\pt^\text{total}$      & vectorial sum of $\pt^{\ell_1}$, $\pt^{\ell_2}$, $\pt^{\text{jet}_1}$, $\pt^{\text{jet}_2}$, and $\etmiss$\\
+    $\etmisshptox$          & $x$ component of the high-$\pt$ object based missing transverse energy \\
+    $\etmisshptoy$          & $y$ component of the high-$\pt$ object based missing transverse energy \\
+    $\etmisshptophi$        & $\phi$ component of the high-$\pt$ object based missing transverse energy \\
+    $x_0^{HPTO}$            & momentum fraction of the leading lepton with respect to the \\
+    $x_1^{HPTO}$            & \\
+    $\pt^{\tau\tau}$        & \\
+    $\pt^{\ell\ell}$        & transverse momentum of the dilepton system \\
 
-\section{KS-Test Correlation Plots}
-
-\begin{figure}[htb]
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{./plots/mva/scan/VBF_SF_ks_test_sig_vs_bkg.pdf}
-        \caption{VBF SF}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{./plots/mva/scan/VBF_DF_ks_test_sig_vs_bkg.pdf}
-        \caption{VBF DF}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{./plots/mva/scan/BOOST_SF_ks_test_sig_vs_bkg.pdf}
-        \caption{Boosted SF}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-        \includegraphics[width=\textwidth]{./plots/mva/scan/BOOST_DF_ks_test_sig_vs_bkg.pdf}
-        \caption{Boosted DF}
-    \end{subfigure}
-    \caption{Correlation plots of the KS-test propability between the BDT output on the training and validaiton set for the signal and background distribution.}~\label{fig:mva:scan:kstest}
-\end{figure}
-
-
-\section{Variable Rankings}
-
-\begin{table}[htpb]
-    \centering
-    \caption{Variable ranking for the final BDT in the VBF SF region calculated by averaging over the individual
-             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:VBFSF}
-    \begin{tabular}{rlcc}
-        \toprule
-        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
-        1 & $\drll$ & 0.212 & 0.016 \\
-        2 & $\mmc$ & 0.178 & 0.015 \\
-        3 & $\min \Delta R (\ell\ell, \text{jets})$ & 0.154 & 0.014 \\
-        4 & $\mjj$ & 0.130 & 0.014 \\
-        5 & $\min \Delta R (\ell_2, \text{jets})$ & 0.098 & 0.018 \\
-        6 & $n_\text{jets}$ & 0.089 & 0.007 \\
-        7 & $\etmiss \phi$ centrality & 0.080 & 0.011 \\
-        8 & $\pt^\text{total}$ & 0.053 & 0.025 \\
-        9 & $\etmiss$ & 0.005 & 0.007 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-\begin{table}[htpb]
-    \centering
-    \caption{Variable ranking for the final BDT in the VBF DF region calculated by averaging over the individual
-             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:VBFDF}
-    \begin{tabular}{rlcc}
-        \toprule
-        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
-        1 & $\drll$ & 0.180 & 0.009 \\
-        2 & $\min \Delta R (\ell\ell, \text{jets})$ & 0.165 & 0.009 \\
-        3 & $\etmiss \phi$ centrality & 0.144 & 0.009 \\
-        4 & $\mmc$ & 0.132 & 0.014 \\
-        5 & $\min \Delta R (\ell_2, \text{jets})$ & 0.129 & 0.010 \\
-        6 & $\mjj$ & 0.112 & 0.011 \\
-        7 & $\pt^\text{total}$ & 0.090 & 0.017 \\
-        8 & $n_\text{jets}$ & 0.048 & 0.009 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-\begin{table}[htpb]
-    \centering
-    \caption{Variable ranking for the final BDT in the boosted SF region calculated by averaging over the individual
-             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:BOOSTSF}
-    \begin{tabular}{rlcc}
-        \toprule
-        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
-        1 & $\mmc$ & 0.446 & 0.038 \\
-        2 & $\drll$ & 0.238 & 0.031 \\
-        3 & $\mll$ & 0.227 & 0.019 \\
-        4 & $\etmiss$ & 0.089 & 0.017 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-\begin{table}[htpb]
-    \centering
-    \caption{Variable ranking for the final BDT in the boosted DF region calculated by averaging over the individual
-             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:BOOSTDF}
-    \begin{tabular}{rlcc}
-        \toprule
-        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
-        1 & $\mmc$ & 0.263 & 0.007 \\
-        2 & $m_\text{T}^{\ell_0}$ & 0.115 & 0.009 \\
-        3 & $\min \Delta R (\ell\ell, \text{jets})$ & 0.107 & 0.007 \\
-        4 & $\mll$ & 0.107 & 0.010 \\
-        5 & $m_{\tau\tau,\text{j}_1}$ & 0.097 & 0.006 \\
-        6 & $\drll$ & 0.085 & 0.009 \\
-        7 & $\etmiss / \pt^{\ell_2}$ & 0.078 & 0.015 \\
-        8 & Sphericity & 0.075 & 0.004 \\
-        9 & $\eta_{\ell_1}$ & 0.074 & 0.009 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
+\end{longtable}
 
 \section{Correlations of input variables}\label{app:mva:correlation_inputvars}
 

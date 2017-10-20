@@ -9,7 +9,7 @@ Finally, the fit results are presented and compared between MVA and CBA\@.
 \section{Likelihood fit}
 
 The likelihood fit is used to determine the signal strength $\mu$, which is the ratio of the measured (fitted) signal cross-section to the
-Standard Model prediction of the cross-section of $\Httll$.
+Standard Model prediction for cross-section times branching ratio of $\Httll$.
 A value of $\mu = 0$ indicates the absence of signal, $\mu = 1$ corresponds to the case that the amount of signal matches with the SM prediction.
 The fit is executed with the \texttt{HistFactory} tool~\cite{HistFactory} using the \texttt{RooStats}~\cite{RooStats} package and the \texttt{WSMaker}~\cite{WSMaker} script collection.
 
@@ -19,18 +19,14 @@ The fit is based on a binned likelihood function $\mathcal{L}$~\cite{FitATLAS}, 
 \end{equation}
 The binned likelihood function gives the probability of finding $n$ data events in the bin $i$, where $s$ signal events and $b$ background events are expected.
 Here, the bins are not limited to one observable, but different contributions, for example single bin categories and binned distributions, can be combined in the likelihood.
-Additionally, the likelihood function depends on several unknown parameters, $\bm{\theta} = (\theta_1, \ldots, \theta_m)$, which are discussed below.
+Additionally, the likelihood function depends on several nuisance parameters, $\bm{\theta} = (\theta_1, \ldots, \theta_m)$, which are discussed below.
 A large value of the likelihood function indicates a better agreement between prediction and data.
 
 The best fit value for $\mu$ is obtained by maximizing the likelihood function, and is denoted as $\hat{\mu}$.
 However, it is more convenient to minimize the negative logarithm of the likelihood function, $- \ln \mathcal{L}$, which is also known as the negative log-likelihood (NLL).
-Since the natural logarithm is a monotonically increasing function, this transformation can be made.
-The log-likelihood transforms the product of the contributions of the individual bins in the normal likelihood function into a sum.
-Due to the fact, that there are more advanced methods to minimize a function than finding its maximum, the negative sign is introduced.
 
 In the search of new physics the compatibility between the observed data and the background-only hypothesis is an important quantity.
 Therefore, the null hypothesis is $\mu = 0$ which needs to be rejected for an observation of the signal process.
-For this analysis, a modified frequentist method known as $\text{CL}_s$~\cite{CLs} is used.
 
 First, a test statistic $q_0$ is constructed~\cite{FitATLAS},
 \begin{equation}
@@ -43,15 +39,16 @@ First, a test statistic $q_0$ is constructed~\cite{FitATLAS},
 where $\mathcal{L}(\hat{\mu}, \hat{\theta})$ refers to the maximum of the likelihood function and $\mathcal{L}(0, \hat{\hat{\bm{\theta}}})$ to
 an conditional maximum where $\mu$ is fixed according to the null hypothesis.
 The test statistic should have a good separation between the null hypothesis and the alternative hypothesis, where the signal strength is non-vanishing.
+If a negative amount of signal events is observed ($\hat{\mu} < 0$), which is unphysical, the test statistic is set to zero, since a positive amount is expected.
 Using the probability density function of the test statistic, $g(q_0 | 0, \hat{\hat{\bm{\theta}}})$,
 the compatibility of the null hypothesis with the observed test statistic $q_{0,\text{obs}}$
 can be calculated, which is expressed with the $p_0$ value,
 \begin{equation}
     p_0 = \int_{q_0,\text{obs}}^{\infty} g(q_0 | 0, \hat{\hat{\bm{\theta}}}) \dif q_0 \,.
 \end{equation}
-The $p_0$ value is the probability that the observed test statistic $q_{0,\text{obs}}$ is more compatible than the test statistic $q_0$ under
-the null hypothesis.
-If a negative amount of signal events is observed, which is unphysical, the test statistic is set to zero, since a positive amount is expected.
+The $p_0$ value is the probability that the test statistic $q_{0}$
+is at least as incompatible with the null hypothesis (here:\ background only) as the observed one, assuming that the background only
+hypothesis is realized in nature.
 
 Usually the $p_0$-value is expressed in terms of Gaussian standard deviations.
 This is the so-called \emph{significance} $Z_0$, which can be calculated by
@@ -62,14 +59,14 @@ This is the so-called \emph{significance} $Z_0$, which can be calculated by
 Here, $\Phi$ is the cumulative distribution function of the Gaussian distribution.
 The asymptotic approximation~\cite{FitATLAS} is used in \cref{eq:fit:significance} to simplify the calculation.
 
-An observation is claimed for a $p_0$-value of $p_0 < \num{10.5e-7}$, which corresponds to a significance of $Z_0 \geq 5$.
+An observation is claimed for a $p_0$-value of $p_0 < \num{2.85e-7}$, which corresponds to a significance of $Z_0 \geq 5$.
 
 \section{Fitting Procedure}\label{sec:fit:procedure}
 
 For the construction of the likelihood function several signal and control regions are used, which are discussed below.
 
 In the cut-based analysis four signal regions, two for the VBF category and two for the boosted category as explained in \cref{sec:event_selection:categorization} is used.
-The binning in setup in such a ways that there is at least some amount of background in each bin.
+The binning is setup in such a ways that there is at least some amount of background in each bin.
 Under and overflow bins are included in the first and last bin, respectively.
 
 An overview of the binning is given in \cref{tab:fit:regions:cba}.

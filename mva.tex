@@ -6,9 +6,6 @@ Afterwards the BDT training and evaluation scheme is introduced in \cref{sec:mva
 which is then applied to the optimization of the hyperparameters and set of observables used for the BDTs (\cref{sec:mva:optimization}).
 The chapter closes with evaluation the modeling of the chosen observables and BDT output distributions.
 
-% The distributions which are most sensitive to signal contributions, i.e.\ the $\mmc$ and BDT-output distribution
-% are blinded in the signal regions to avoid that decisions are biased due to the observed data.
-
 \section{Event Selection}\label{sec:mva:event_selection}
 
 The boosted decision trees could be used to separate signal and background events in the VBF and boosted category as defined in \cref{sec:event_selection:categorization},
@@ -18,21 +15,21 @@ These thresholds were used to select the signal topology and to suppress backgro
 But BDTs offer an alternative way to separate between signal and background events, which is more powerful because no event is
 discarded.
 Therefore, some thresholds which are used to suppress background are removed to increase the signal yield.
-The increasing number of background events is handled by the BDTs, so that in the end the sensitivity should increase.
-Nevertheless, removing too much thresholds will result in the opposite effect, because the training of decision trees
-focuses first on background, which are easy to separate from the signal.
+The increased number of background events is handled by the BDTs, so that in the end the sensitivity should increase.
+Nevertheless, removing too many thresholds will result in the opposite effect, because the training of decision trees
+focuses first on background processes, which are easy to separate from the signal.
 Because the depth of the decision trees is limited, not the full splitting potential for background events which are harder to separate from signal events may be reached.
-Thus, requirements on observables which remove huge amounts of background while increasing the signal-to-background ration are not modified.
+Thus, requirements on observables which remove huge amounts of background while increasing the signal-to-background ratio are not modified.
 
 Only thresholds after the requirement of opposite charge of the two decay leptons (Cut~6) are considered for removal.
 The requirements on the dilepton mass, missing transverse energy, and missing transverse energy for high-$\pt$ objects
-(Cut~7, Cut~9, Cut~10) are kept, because they reduce a large amount of $\Zgammall$ background without removing a lot of signal
+(Cut~7, Cut~9, Cut~10) are kept, because they suppress a large amount of $\Zgammall$ background without removing a lot of signal
 events.
 Furthermore, the threshold on the transverse momentum of the leading jet (Cut~8) is also kept, since it helps to select
 both the VBF and boosted topology.
 The thresholds on the momentum fractions $x_{1,2}$ and the angular differences
 $\detall$ and $\drll$ (Cut~11, Cut~12, Cut~13) are removed, since they remove a sizable amount of signal events without
-increasing the signal-to-background ration.
+increasing the signal-to-background ratio.
 The requirement on the collinear mass (Cut~14) has to be kept, otherwise the orthogonality to the $H \to WW$ analysis would be violated.
 Since the output of the missing mass calculator, $\mmc$, will be used as an input variable for the BDTs, only events can be used where
 the MMC mass reconstruction algorithm did converge.
@@ -48,7 +45,7 @@ Because the thresholds are changed, the pre-fit normalization factors which are 
 need to be recalculated.
 The normalization factors are calculated both in the modified VBF and boosted category.
 The results are shown in \cref{tab:mva:event_selection:NF}.
-In the following the normalization factors for the individual categories are used.
+In the following these normalization factors for the individual categories are used.
 
 \begin{table}[htpb]
     \centering
@@ -68,14 +65,20 @@ In the following the normalization factors for the individual categories are use
 Furthermore, the categories are split into subcategories based on the flavour combination of the final state leptons.
 The SF category holds events where the final state leptons have the same flavour ($ee$ and $\mu\mu$).
 Events with $e\mu$ and $\mu e$ are sorted into the DF (\emph{different flavour}) category.
-This increases the sensitivity and leads to a better training of the BDT, since those regions have a different background composition.
+This increases the sensitivity and leads to a better training of the BDT, since those regions have a different background composition and signal-to-background ratio.
 The event yields in each subcategory are given in \cref{tab:mva:event_selection:yields}.
 
 For training BDTs it is also important that the number of simulated events is not too low.
 The number of simulated events for each subcategory is shown in \cref{tab:mva:event_selection:rawyields}.
 The training statistics for the ggF and VBF signal process are very good.
 Other signal processes are not used in the training, as discussed in \cref{sec:mva:optimization}.
-Also most background processes have at least $1000$ simulated events.
+Also most background processes have at least $1000$ simulated events left.
+
+There are around \SI{50}{\percent} more signal events in the VBF and boosted category of the multivariate analysis than
+for the cut-based analysis.
+However, the background yields also increase by a factor of 3 and 1.5 in the VBF and boosted category, respectively.
+This reduced the signal-to-background ratio of \SI{3.7}{\percent} and \SI{1.1}{\percent} the VBF and boosted category
+of the cut-based analysis to \SI{2.2}{\percent} and \SI{0.97}{\percent}, respectively.
 
 \begin{sidewaystable}
     \centering
@@ -97,14 +100,14 @@ Also most background processes have at least $1000$ simulated events.
         WH  $\Htt$          &   0.09 \pm  0.02 &    0.17 \pm  0.03 &    2.82 \pm   0.14 &    4.43 \pm  0.18     \\
         ZH  $\Htt$          &   0.02 \pm  0.01 &    0.10 \pm  0.02 &    1.67 \pm   0.08 &    2.11 \pm  0.10     \\
         ttH $\Htt$          &   0.07 \pm  0.04 &    0.32 \pm  0.10 &    1.94 \pm   0.18 &    3.52 \pm  0.24     \\ \cmidrule{1-5}
-        Fakes               &  73.35 \pm 13.35 &  293.13 \pm 16.07 &  713.03 \pm  35.69 &  987.23 \pm 31.28     \\
-        Top                 &  74.07 \pm  3.72 &  250.79 \pm  7.20 &  510.74 \pm  10.25 & 1368.49 \pm 16.01     \\
-        Diboson             &  22.30 \pm  0.91 &   64.58 \pm  1.92 &  306.60 \pm   4.22 &  670.51 \pm 14.70     \\
-        $\Zgammall$         & 210.78 \pm 90.23 &   10.52 \pm  3.72 & 1081.58 \pm 101.22 &   88.44 \pm 11.71     \\
-        $\Zgammatt$         & 187.17 \pm  8.53 &  574.45 \pm 16.53 & 2608.01 \pm  37.17 & 4365.83 \pm 42.57     \\
+        Fakes               &  73    \pm 13    &  293    \pm 16    &  713    \pm  36    &  987    \pm 31        \\
+        Top                 &  74    \pm  4    &  251    \pm  7    &  511    \pm  10    & 1368    \pm 16        \\
+        Diboson             &  22.30 \pm  0.91 &   64.58 \pm  1.92 &  306.60 \pm   4.22 &  671    \pm 14        \\
+        $\Zgammall$         & 211    \pm 90    &   10.52 \pm  3.72 & 1082    \pm 101    &   88    \pm 11        \\
+        $\Zgammatt$         & 187    \pm  9    &  574    \pm 17    & 2608    \pm  37    & 4365.83 \pm 42        \\
         $\HWW$              &   7.47 \pm  0.36 &   13.60 \pm  0.47 &   24.17 \pm   0.91 &   40.79 \pm  1.28     \\ \cmidrule{1-5}
         Total signal        &  12.83 \pm  0.16 &   26.46 \pm  0.26 &   46.80 \pm   0.44 &   74.61 \pm  0.58     \\
-        Total background    & 575.14 \pm 91.69 & 1207.08 \pm 24.52 & 5244.13 \pm 114.13 & 7521.29 \pm 58.32     \\ \bottomrule
+        Total background    & 575    \pm 92    & 1207    \pm 25    & 5244   \pm 114    & 7521     \pm 58        \\ \bottomrule
     \end{tabular}
 \end{sidewaystable}
 
@@ -157,7 +160,7 @@ The amount of simulated events is not unlimited, and especially the uncertainty 
 depends on the number of simulated events.
 On the other side the training statistics should also not be chosen to small, so that the performance of the BDT
 does not suffer.
-Because the training, validation, and test set need to be independent of each other there always is a tradeoff
+Because the training, validation, and test set need to be independent of each other there is always a tradeoff
 between the contributions to those sets.
 In a typical splitting scheme \SI{50}{\percent} of the events are used for the training set, \SI{25}{\percent} for the validation set, and
 \SI{25}{\percent} for the test set~\cite{Hastie2009}.
@@ -167,11 +170,12 @@ In a typical splitting scheme \SI{50}{\percent} of the events are used for the t
 The $k$-fold cross-validation approach~\cite{Hastie2009} is one solution to improve the statistics for the training, validation, and
 test set.
 Here the full set of simulated events is split into $k$ slices of equal size.
-Usual values for $k$ are 5 or 10~\cite{Hastie2009}, in this analysis $k=10$ is used.
+Usual values for $k$ are 5 or 10~\cite{Hastie2009}.
+In this analysis $k=10$ is used.
 There should be no or only a very small dependence on the choice of $k$.
-The splitting is done with the help of a random number, which is generated once for each event in every production cycle.
+The splitting is done with the help of a random number, which is generated once for each event.
 
-Now $k$ different BDTs are trained, each using $k-2$ slices for training, one slices for validation, and one slice for testing.
+Now $k$ different BDTs are trained, each using $k-2$ slices for training, one slice for validation, and one slice for testing.
 If the slices are distributed correctly as illustrated in \cref{fig:mva:kfold-xval} every slice is once used for validation
 and testing and $k - 2$ times for training.
 This improves the amount of training statistics for each BDT\@.
@@ -190,23 +194,23 @@ One BDT is used for validation and the other one for testing.
 
 In the testing stage the $k$ BDTs need also be applied to data events.
 The same approach as for simulated events could be used, where
-a random number decides which BDT is used for which slice.
-However, some scientists do not like the idea that data is treated randomly.
+a random number decides which BDT is used for which slice (random splitting).
+However, some scientists do not like the idea that data are treated randomly.
 Furthermore, random numbers cannot be reproduced on all computer systems, even if they are seeded.
 In this case for each data event the output of every BDT could be calculated
-and an average over all BDT outputs could be built.
-But this leads to another issues.
+and an average over all BDT outputs could be built (denoted as \emph{average}).
+But this leads to another issue.
 First, the simulated events and data events are treated in a different way.
 Second, averaging over $k$ BDTs could lead to the effect, that events in border regions
 are shifted towards the middle of the distribution, since the central limit theorem can be applied here.
 
-In this analysis a third approach is used.
+In this analysis a third approach is used, the so-called \emph{modulo splitting}.
 Every recorded data event in ATLAS is labeled with a unique number, the so-called event number.
 This number is set once and not modified again.
 The expression ``$\text{event number} \mod k$'' is used to split the data events into $k$ different slices.
 This method was chosen because it treats data events similar to simulated events, but takes out the randomness of the splitting.
 It needs to be checked that the data events are distributed equally in the different slices.
-The distribution of of ``$\text{event number} \mod k$'' is shown in \cref{fig:mva:event_number_mod} for all
+The distribution of ``$\text{event number} \mod k$'' is shown in \cref{fig:mva:event_number_mod} for all
 data events which pass the MVA selection.
 Within two standard deviations the count in each slice agrees with the average.
 Therefore this splitting procedure does not introduce slices of unequal size.
@@ -243,11 +247,11 @@ The other signal processes are discarded.
 This decision was made even though the contributions of the VBF process in the boosted category and
 the ggF process in the VBF category are not negligible.
 Since the goal of this thesis is to measure the signal strength of $\Htt$ in the VBF- and ggF-production channel,
-it makes sense to optimize the analysis for the production-channel-specific measurement.
+it makes sense to optimize the analysis for the measurement of the individual production modes.
 
 The optimization procedure is divided into two steps.
-First, the BDT hyperparameters are optimized. Here $58$ input variables are used, a full list can be found in \cref{app:mva:fulllistvars}.
-However, such a high amount observables is not preferred, since the modelling of every observable needs to be tested.
+First, the BDT hyperparameters are optimized. Here $58$ input variables are used. A full list of the considered observables can be found in \cref{app:mva:fulllistvars}.
+However, such a high number of observables is not preferred, since the modelling of every observable needs to be tested.
 Some observables are also highly correlated and provide only a tiny amount of new information.
 Thus, the number of input variables for the BDTs is reduced in a second step, keeping only the variables which provide
 the highest separation power.
@@ -296,19 +300,20 @@ The binned significance $Z_\text{binned}$ is the quadratic sum of the significan
 This significance is a simple approximation of the significance of the complete fit model, which is discussed in \cref{cha:fit}.
 
 Of course the significance of the fit model can also be used to estimate the performance of a BDT\@.
+This figure-of-merit is actually used for the optimization, since it the closest approximation of the real fit.
 This method is actually used for the optimization.
 However, not the full fit model is applied.
 Including all systematic variations (\cref{cha:systematics}) would need too much computing power to run the optimization in a reasonable timescale.
 Therefore, the fit is done without the systematic variations, which is also denoted as \emph{stat.\ only fit} (``statistics only'').
-The fit is performed with Asimov data (discussed in \cref{cha:fit}) to avoid biasing the optimization due to the observed data.
+The fit is performed with Asimov data, i.e.\ the simulated events are used instead of the measured data, to avoid biasing the optimization due to the observed data.
 
 \subsection{Hyperparameters}\label{sub:mva:hyperparameters}
 
-As mentioned before, in the first optimization step different hyperparameters for the BDTs
+In the first optimization step different hyperparameters for the BDTs
 are optimized.
 The boosting algorithm, number of trees in the boosting, maximum depth of the tree, minimum number of events in the final nodes,
 and the learning rate are varied in a grid scan.
-The values which were for those parameters can be found in \cref{tab:mva:hpyerparameterscan}.
+The values which were considered for those parameters can be found in \cref{tab:mva:hpyerparameterscan}.
 This leads to a total of 630 BDTs which need to be trained for each region.
 
 \begin{table}[htpb]
@@ -331,14 +336,14 @@ This leads to a total of 630 BDTs which need to be trained for each region.
 \subsubsection{General observations}
 
 Before the best BDT hyperparameters are chosen first a few general trends are discussed.
-The significance depending on the boosting algorithm is shown in \cref{fig:mva:scan:boosttype}.
+The significance of the stat.\ only Asimov fit depending on the boosting algorithm is shown in \cref{fig:mva:scan:boosttype}.
 In all four regions the gradient-boosting algorithm yields on average a better significance than the AdaBoost algorithm.
 For the VBF categories between 250 and 750 boosting iterations are preferred, in the boosted categories also BDTs with
 1000 boosting iterations yield a comparable significance, as can be seen in \cref{fig:mva:scan:ntrees}.
 In the VBF SF and boosted DF category a maximum depth of at least 4 yields the best significance, as shown
 in \cref{fig:mva:scan:maxdepth}.
 In the boosted DF category also BDTs with a maximum depth of 3 return a good significance.
-A general dependence on the separation power of the BDTs and the minimum number of events in the final
+A general dependence of the separation power of the BDTs on the minimum number of events in the final
 nodes could not be observed (\cref{fig:mva:scan:minnodesize}).
 A lower training rate results most of the time in a higher significance, as can be seen in \cref{fig:mva:scan:shrinkage,fig:mva:scan:adaboostbeta}.
 
@@ -475,17 +480,40 @@ A lower training rate results most of the time in a higher significance, as can 
 The overtraining of a BDT can be estimated by using the \emph{Kolmogorov--Smirnov test}~\cite{KSk, KSs} (KS-test).
 Here the BDT output of training and validation set is compared for both the signal and background distribution.
 The KS-test yields a probability between zero and one, where one indicates perfect agreement and zero no agreement at all.
-Only BDTs which yield a KS-test probability for both signal and background distribution above $0.4$ are considered. %TODO motivate with ks sig vs bkg, plots in backup
+Only BDTs which yield a KS-test probability for both signal and background distribution above $0.4$ are considered.
 The exact choice of this threshold plays only a very minor role, since most BDTs have a KS-test probability of either one or zero,
 as can be seen in \cref{fig:mva:scan:kstest}.
+
+\begin{figure}[htb]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/scan/VBF_SF_ks_test_sig_vs_bkg.pdf}
+        \caption{VBF SF}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/scan/VBF_DF_ks_test_sig_vs_bkg.pdf}
+        \caption{VBF DF}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/scan/BOOST_SF_ks_test_sig_vs_bkg.pdf}
+        \caption{Boosted SF}
+    \end{subfigure}
+    \begin{subfigure}[t]{0.45\textwidth}
+        \includegraphics[width=\textwidth]{./plots/mva/scan/BOOST_DF_ks_test_sig_vs_bkg.pdf}
+        \caption{Boosted DF}
+    \end{subfigure}
+    \caption{Correlation plots of the KS-test propability between the BDT output on the training and validaiton set for the signal and background distribution.}~\label{fig:mva:scan:kstest}
+\end{figure}
+
 
 The BDT with the best significance is selected for each region, the hyperparameters of the best performing BDTs are
 listed in \cref{tab:mva:bestparams}.
 In all regions the gradient boost algorithm is used.
 The number of trees in the boosting is very similar for all regions.
 Furthermore, a low maximum depth and learning rate are chosen.
+There is quite some spread on the minimum number of events in the final nodes, no specific value is preferred.
 
-The distributions of the BDTs are shown in \cref{fig:mva:scan:bdts}.
+The distributions of the BDT response for the four select BDTs are shown in \cref{fig:mva:scan:bdts}.
 There is a very good agreement between the BDT shapes of the training and validation set.
 
 \begin{table}[htpb]
@@ -506,21 +534,20 @@ There is a very good agreement between the BDT shapes of the training and valida
     \centering
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/scan/VBF_SF_bdt_output.pdf}
-        \caption{VBF SF}
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/scan/VBF_DF_bdt_output.pdf}
-        \caption{VBF DF}
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/scan/BOOST_SF_bdt_output.pdf}
-        \caption{Boosted SF}
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/scan/BOOST_DF_bdt_output.pdf}
-        \caption{Boosted DF}
     \end{subfigure}
     \caption{Distributions of the best performing BDTs in the hyperparameter optimization for signal and background and the training and validation set.
+             The top row shows the BDTs for the VBF regions and the bottom row for the boosted regions.
+             The same flavour regions are on the left and the different flavour regions on the right.
+             At the top of each figure the KS-test probabilities and significances can be found.
              The areas of all distributions are normalized to one.}~\label{fig:mva:scan:bdts}
 \end{figure}
 
@@ -528,22 +555,22 @@ There is a very good agreement between the BDT shapes of the training and valida
 
 \subsection{Input variables}\label{sub:mva:input_variables}
 
-Up until now the BDTs use all $58$ observables as input variables.
+Up to now the BDTs use $58$ observables as input variables.
 However, a low count of input variable is desired, because the modelling of every input variable has to be reviewed.
-Therefore, variables which hav only a low impact on the separation power of the BDTs are discarded.
+Therefore, variables which have only a low impact on the separation power of the BDTs are discarded.
 This is done individually for each region.
 
 The impact of an input variable on the separation power of a BDT can be estimated with the so-called \emph{variable separation}.
-It is calculated by counting of often a given variable is used to split a node in the decision tree while
+It is calculated by counting how often a given variable is used to split a node in the decision tree while
 weighting each split occurrence by the square of the gained separation $\Delta Q$ (c.f. \cref{eq:bdt:deltaQ})
 and the number of events in the node~\cite{Breiman1984}.
 This concept can also be used for the collection of decision trees in a boosted decision tree~\cite{TMVA}.
-Variables which are not used once have a value of zero.
+Variables which are not used at all have a value of zero.
 A higher value indicates that the variable is more important for the performance of the BDT\@.
 All variables used in a BDT are ranked by this number in a \emph{variable ranking}.
 The variable ranking is averaged over all $10$ BDTs in the $k$-fold cross-evaluation.
 
-The reduction of number of variables is based in this variable ranking.
+The reduction of the number of variables is based on this variable ranking.
 First, all variables which have a variable separation of zero are removed.
 Then, one by one, the least performing variable is dropped from the list of input variables.
 After each removal the BDT is trained again and a new variable ranking is calculated.
@@ -552,10 +579,10 @@ This iterative approach is chosen, because the variable ranking can change if on
 
 The dependence of the significance on the number of variables is shown in \cref{fig:mva:varopt:sig_vs_nvars} for each of the four regions.
 As expected, the significance does not change much at first, but after removing more and more variables it decreases.
-However, the curve is not always decreasing monotonically, there is some amount of fluctuation.
+However, the curve is not always decreasing monotonically, there is some amount of statistical fluctuations caused by large event weights.
 This is caused by events which were generated by the Sherpa generator~\cite{Sherpa,Gleisberg:2008fv,Cascioli:2011va,Schumann:2007mg,Hoeche:2012yf},
 as described in \cref{sec:processes:mc}.
-Much more simulated events are created than expected in nature to decrease the statistical errors.
+Much more simulated events are produced than expected in collisions.
 To match the count of simulated and observed events, each simulated event is assigned a weight, which depends on the cross-section of the process.
 Due to higher order corrections it can happen that also negative events are assigned, in the case that the cross-section of the higher order
 correction is smaller than the leading order cross section. Single events which negative weights are unphysical, but combined
@@ -564,8 +591,7 @@ There are also weights from other sources, for example from the \emph{pile-up re
 Therefore, it can happen that an event has a high negative weight.
 These events cause the fluctuations in \cref{fig:mva:varopt:sig_vs_nvars}.
 To reduce the amount of fluctuations the event weight is restricted to $-3 < \text{weight} < 1$ in the training and validation set.
-The upper value was also included, because as it turned out also large positive event weights caused problems.
-The aforementioned range was chosen in a way that most fluctuations were gone but still a not so many events were removed.
+The upper value was also included, because it turned out that also large positive event weights cause problems.
 
 \begin{figure}[htb]
     \centering
@@ -585,69 +611,100 @@ The aforementioned range was chosen in a way that most fluctuations were gone bu
         \includegraphics[width=\textwidth]{./plots/mva/variable_reduction/BOOST_DF_sig_vs_nvars_all.pdf}
         \caption{Boosted DF}
     \end{subfigure}
-    \caption{Dependence of the significance on the number of input variables used in the BDT of each of the four regions.}~\label{fig:mva:varopt:sig_vs_nvars}
+    \caption{Dependence of the significance on the number of input variables used in the BDT in each of the four regions.}~\label{fig:mva:varopt:sig_vs_nvars}
 \end{figure}
 
 For the BDTs in the boosted region a sharp drop-off threshold can be seen, which is used to determine the number
 of input variables.
-In the boosted SF and DF region a count of $4$ and $9$ input variables is used, respectively.
-The decision how much variables in the VBF regions should be used was more difficult, because there is not such a clear drop-off.
+In the boosted SF and DF region $4$ and $9$ input variables is used, respectively.
+The decision how much variables in the VBF regions should be used was more difficult, because there is not such a clear drop-off in the expected significance.
 A trade-off between the decrease of significance and remaining count of variables has to be made.
 In the end, $9$ variables were chosen for the VBF SF region and $8$ for the VBF DF region.
 The chosen observables are discussed below.
 Not all observable are used in every region.
-A list of observables used for each region can be found in \cref{tab:mva:variables:vbf,tab:mva:variables:boost}.
 The variable rankings can be found in \cref{tab:mva:variables:ranking:VBFSF,tab:mva:variables:ranking:VBFDF,tab:mva:variables:ranking:BOOSTSF,tab:mva:variables:ranking:BOOSTDF}
 Distributions of all variables are shown in the next section.
 
 \begin{table}[htpb]
     \centering
-    \caption{List of observables which are used as input variables for the BDTs in the VBF category.
-             The observables are ordered in no specific way.}\label{tab:mva:variables:vbf}
-    \begin{tabular}{lcc}
+    \caption{Variable ranking for the final BDT in the VBF SF region calculated by averaging over the individual
+             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:VBFSF}
+    \begin{tabular}{rlcc}
         \toprule
-        Observable                                  & SF        & DF        \\ \midrule
-        $m_\text{MMC}$                              & $\bullet$ & $\bullet$ \\
-        $\min \Delta \eta (\ell\ell, \text{jets})$  & $\bullet$ & $\bullet$ \\
-        $m_\text{jj}$                               & $\bullet$ & $\bullet$ \\
-        $\Delta R(\ell,\ell)$                       & $\bullet$ & $\bullet$ \\
-        $n_\text{jets}$                             & $\bullet$ & $\bullet$ \\
-        $\etmiss$ $\phi$ centrality                 & $\bullet$ & $\bullet$ \\
-        $\pt^\text{total}$                          & $\bullet$ & $\bullet$ \\
-        $\etmiss$                                   & $\bullet$ &           \\
-        $\min \Delta R (\ell_2, \text{jets})$       & $\bullet$ &           \\
-        $\min \Delta R (\ell_1, \text{jets})$       &           &           \\
+        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
+        1 & $\drll$ & 0.212 & 0.016 \\
+        2 & $\mmc$ & 0.178 & 0.015 \\
+        3 & $\min \Delta R (\ell\ell, \text{jets})$ & 0.154 & 0.014 \\
+        4 & $\mjj$ & 0.130 & 0.014 \\
+        5 & $\min \Delta R (\ell_2, \text{jets})$ & 0.098 & 0.018 \\
+        6 & $n_\text{jets}$ & 0.089 & 0.007 \\
+        7 & $\etmiss \phi$ centrality & 0.080 & 0.011 \\
+        8 & $\pt^\text{total}$ & 0.053 & 0.025 \\
+        9 & $\etmiss$ & 0.005 & 0.007 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 \begin{table}[htpb]
     \centering
-    \caption{List of observables which are used as input variables for the BDTs in the boosted category.
-             The observables are ordered in no specific way.}\label{tab:mva:variables:boost}
-    \begin{tabular}{lcc}
+    \caption{Variable ranking for the final BDT in the VBF DF region calculated by averaging over the individual
+             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:VBFDF}
+    \begin{tabular}{rlcc}
         \toprule
-        Observable                                  & SF        & DF        \\ \midrule
-        $m_\text{MMC}$                              & $\bullet$ & $\bullet$ \\
-        $m_{\ell\ell}$                              & $\bullet$ & $\bullet$ \\
-        $\etmiss$                                   & $\bullet$ &           \\
-        $\drll$                                     & $\bullet$ & $\bullet$ \\
-        $m_{\tau\tau,\text{j}_1}$                   &           & $\bullet$ \\
-        $\etmiss / \pt^{\ell_2}$                    &           & $\bullet$ \\
-        Sphericity                                  &           & $\bullet$ \\
-        $m_\text{T}^{\ell_1}$                       &           & $\bullet$ \\
-        $\eta_{\ell_1}$                             &           & $\bullet$ \\
-        $\min \Delta \eta (\ell\ell, \text{jets})$  &           & $\bullet$ \\
+        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
+        1 & $\drll$ & 0.180 & 0.009 \\
+        2 & $\min \Delta R (\ell\ell, \text{jets})$ & 0.165 & 0.009 \\
+        3 & $\etmiss \phi$ centrality & 0.144 & 0.009 \\
+        4 & $\mmc$ & 0.132 & 0.014 \\
+        5 & $\min \Delta R (\ell_2, \text{jets})$ & 0.129 & 0.010 \\
+        6 & $\mjj$ & 0.112 & 0.011 \\
+        7 & $\pt^\text{total}$ & 0.090 & 0.017 \\
+        8 & $n_\text{jets}$ & 0.048 & 0.009 \\
         \bottomrule
     \end{tabular}
 \end{table}
+\begin{table}[htpb]
+    \centering
+    \caption{Variable ranking for the final BDT in the boosted SF region calculated by averaging over the individual
+             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:BOOSTSF}
+    \begin{tabular}{rlcc}
+        \toprule
+        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
+        1 & $\mmc$ & 0.446 & 0.038 \\
+        2 & $\drll$ & 0.238 & 0.031 \\
+        3 & $\mll$ & 0.227 & 0.019 \\
+        4 & $\etmiss$ & 0.089 & 0.017 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+\begin{table}[htpb]
+    \centering
+    \caption{Variable ranking for the final BDT in the boosted DF region calculated by averaging over the individual
+             variable rankings of the $10$ BDTs from the $k$-fold cross-validation.}\label{tab:mva:variables:ranking:BOOSTDF}
+    \begin{tabular}{rlcc}
+        \toprule
+        Rank & Observable & Mean Variable Separation & Standard Deviation \\ \midrule
+        1 & $\mmc$ & 0.263 & 0.007 \\
+        2 & $m_\text{T}^{\ell_0}$ & 0.115 & 0.009 \\
+        3 & $\min \Delta R (\ell\ell, \text{jets})$ & 0.107 & 0.007 \\
+        4 & $\mll$ & 0.107 & 0.010 \\
+        5 & $m_{\tau\tau,\text{j}_1}$ & 0.097 & 0.006 \\
+        6 & $\drll$ & 0.085 & 0.009 \\
+        7 & $\etmiss / \pt^{\ell_2}$ & 0.078 & 0.015 \\
+        8 & Sphericity & 0.075 & 0.004 \\
+        9 & $\eta_{\ell_1}$ & 0.074 & 0.009 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 
 \subsubsection{Common observables}
 The following variables are used in both the VBF and boosted category.
 \begin{itemize}
     \item The mass of the missing mass calculator, $\mmc$, as discussed in \cref{sub:event_selection:mmc}.
     \item The missing transverse energy, $\etmiss$, as defined in \cref{sec:object_selection:missing_transverse_energy}.
-    \item The minimum $\Delta \eta$ distance between the dilepton system and one of the jets, $\min \Delta \eta (\ell\ell, \text{jets})$.
+    \item The minimum $\Delta \eta$ distance between the dilepton system and all jets, $\min \Delta \eta (\ell\ell, \text{jets})$.
+        This observable is not used in BDTs of the boosted SF region.
     \item The $\Delta R$ as defined in \cref{eq:deltar} between the two leptons, $\drll$.
 \end{itemize}
 
@@ -655,12 +712,12 @@ The following variables are used in both the VBF and boosted category.
 \subsubsection{VBF category specific observables}
 The following variables are only used in the VBF category.
 \begin{itemize}
-    \item The mass of the dijet system, $\mjj$.
+    \item The mass of the dijet system of the two leading jets, $\mjj$.
     \item The number of jets. For the counting only jets with $\pt > \SI{30}{\GeV}$ are used.
           Only a distinction between events with two jets and more than two jets is made, since high jet-multiplicity bins
-          are only generated at leading order, which often leads to a bad modeling.
+          have only leading order precision.
     \item The $\etmiss \phi$ centrality, which quantifies the centrality of the $\etmissvec$ vector with respect to the final
-          state leptons in the transverse plain.
+          state leptons in the transverse plane.
           The transverse plane is orthogonal to the direction of both final state leptons. The smaller $\phi$ angle between
           the two leptons defines the positive quadrant.
           The $\phi$ centrality, $C_\phi(\ell\ell,k)$, is calculated for an object $k$ by~\cite{SchilloPhd}
@@ -670,8 +727,10 @@ The following variables are only used in the VBF category.
               C_\phi(\ell\ell,k) &=  \frac{C_\phi^A(\ell\ell,k) + C_\phi^B(\ell\ell,k)}{\sqrt{C_\phi^A{(\ell\ell,k)}^2 + C_\phi^B{(\ell\ell,k)}^2}}
           \end{align}
     \item The norm of the vectorial sum of the transverse momentum of the two final state leptons, the two leading jets, and the missing transverse energy, $\pt^\text{total}$.
-    \item The minimum distance in $\Delta R$ between the leading lepton and a jet, $\min \Delta \eta (\ell_1, \text{jets})$.
-    \item The minimum distance in $\Delta R$ between the subleading lepton and a jet, $\min \Delta \eta (\ell_1, \text{jets})$.
+    \item The minimum distance in $\Delta R$ between the leading lepton and all jets, $\min \Delta \eta (\ell_1, \text{jets})$.
+            This observable is only used in the BDTs of the VBF DF region.
+    \item The minimum distance in $\Delta R$ between the subleading lepton and all jets, $\min \Delta \eta (\ell_2, \text{jets})$.
+            This observable is only used in the BDTs of the VBF SF region.
 \end{itemize}
 
 \subsubsection{Boosted category specific observables}
@@ -680,17 +739,20 @@ The following variables are only used in the boosted category.
     \item The mass of the dilepton system, $\mll$.
     \item The sum of the mass of the visible decay products of the $\tau$-lepton decay and the mass of the leading jet, $m_{\tau\tau,\text{j}_1} $.
     \item The fraction of the missing transverse energy and the transverse momentum of the second jet, $\etmiss / \pt^{\ell_2}$.
+        This observable is only used in the BDTs of the boosted DF region.
     \item The sphericity, a measure for the isotropy of the energy flow in the event~\cite{Sphericity}.
           First, the momentum tensor of all selected leptons and jets in the event is calculated,
           \begin{equation}
-              S^{\alpha\beta} = \frac{\sum_i p_i^\alpha p_i^\beta}{\sum_i \abs{\vec{p}_i^2}} \,.
+              S^{\alpha\beta} = \frac{\sum_i p_i^\alpha p_i^\beta}{\sum_i \abs{\vec{p}_i^2}} \qquad \alpha, \beta = 1,2, 3 \,.
           \end{equation}
           The sphericity $S$ is then built from the two smallest eigenvalues $\lambda_2$ and $\lambda_3$ of this vector,
           \begin{equation}
               S = \frac{3}{2} \left( \lambda_2 + \lambda_3 \right) \,.
           \end{equation}
-    \item The transverse mass of the leading lepton, $m_\text{T}^{\ell_1}$.
+    \item The transverse mass of the leading lepton with the missing transverse energy, $m_\text{T}^{\ell_1}$.
+        This observable is only used in the BDTs of the boosted DF region.
     \item The pseudorapidity of the leading lepton, $\eta_{\ell_1}$.
+        This observable is only used in the BDTs of the boosted DF region.
 \end{itemize}
 
 
@@ -704,21 +766,19 @@ The correlation plots of the input variables can be found in \cref{app:mva:corre
     \centering
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/variable_reduction/VBF_SF_bdt_output_clean.pdf}
-        \caption{VBF SF}
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/variable_reduction/VBF_DF_bdt_output_clean.pdf}
-        \caption{VBF DF}
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/variable_reduction/BOOST_SF_bdt_output_clean.pdf}
-        \caption{Boosted SF}
     \end{subfigure}
     \begin{subfigure}[t]{0.49\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/variable_reduction/BOOST_DF_bdt_output_clean.pdf}
-        \caption{Boosted DF}
     \end{subfigure}
     \caption{Distributions of the final BDTs in the optimization of the number of input variables for signal and background and the training and validation set.
+             The top row shows the BDTs for the VBF regions and the bottom row for the boosted regions.
+             The same flavour regions are on the left and the different flavour regions on the right.
              The areas of all distributions are normalized to one.}~\label{fig:mva:varopt:bdts}
 \end{figure}
 

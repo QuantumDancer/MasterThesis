@@ -88,10 +88,26 @@ inverting each of the matrices.
 These normalization factors are also called pre-fit normalization factors, since they are used to compare distributions
 before the statistical analysis is carried out, in which the normalizations are incorporated as a part of the full fit model.
 
-
 The normalization factors can be in principle calculated after each requirement listed in \cref{sec:event_selection:preselection,sec:event_selection:categorization}.
 For the analysis presented in \cref{cha:event_selection} the normalization factors are calculated after the preselection.
+The event yields used to calculate the normalization factors are shown in \cref{tab:nfs:yields}.
 The results are shown in \cref{tab:background_estimation:nfs}.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Event yields for the different background processes in the control regions after the preselection witha combined 2015 and 2016 dataset of $\SI{36.1}{\invfb}$.}\label{tab:nfs:yields}
+    \begin{tabular}{lccc}
+        \toprule
+        Process     & Top-quark CR      & $\Zll$ CR & $\Ztautau$ CR \\ \midrule
+        Signal      & $ 337.92  \pm 2.49    $  &$  1.46 \pm 0.09    $ & $113.85 \pm 0.65 $ \\
+        Top-quark   & $ 55582 \pm 104 $  &$  48.70 \pm 2.90   $ & $645 \pm 11$ \\
+        $\Zll$      & $ 799 \pm 87  $  &$  2413 \pm 79$ & $576 \pm 72$  \\
+        $\Ztautau$  & $ 3599 \pm 57  $  &$  9.67 \pm 1.44   $ & $7469 \pm 59$ \\
+        Other       & $ 5633 \pm 64  $  &$  118.77 \pm 2.32  $ & $1326 \pm 32$ \\
+        Data        & $ 69863            $  &$  3037           $ & $10630         $  \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \begin{table}[htpb]
     \centering

@@ -148,13 +148,12 @@ An overview of the different regions and binnings used in the multivariate analy
 The likelihood fit is carried out for both the cut-based and multivariate analysis.
 Because this analysis is still under development and not yet approved by the ATLAS collaboration, the fit cannot be done
 with the observed data.
-Instead, the so-called \emph{Asimov data}~\cite{FitATLAS} is used, where the simulated events act as an replacement for the observed data.
-However, the uncertainties are for the Asimov data are assumed to follow the Poisson distribution.
-Therefore, the signal strength will be always one.
-But the fit can still be used to obtain an expected sensitvity and to validate the fitting procedure.
+Instead, the so-called \emph{Asimov data}~\cite{FitATLAS} are used, where the simulated events act as an replacement for the observed data.
+Therefore, the extracted signal strength will always be one.
+But the fit can still be used to obtain an expected sensitivity and to validate the fitting procedure.
 The distributions of $\mmc$ which are used in the fit of the CBA are shown in \cref{fig:fit:input:cba:SR,fig:fit:input:cba:CR}, whereas the
 corresponding distributions of the BDT output for the MVA are shown in \cref{fig:fit:input:mva:SR,fig:fit:input:mva:CR}.
-As can be seen the control regions are relatively pure in their respectively processes.
+As can be seen the control regions are relatively pure in their respectively processes, see also \cref{sec:background_estimation:normalization}.
 The contributions of the ``fake'' background in the $\Zll$ control regions are minimal and therefore neglected.
 
 \begin{figure}[htb]
@@ -176,7 +175,7 @@ The contributions of the ``fake'' background in the $\Zll$ control regions are m
         \caption{high VBF}
     \end{subfigure}
     \caption{Distributions of $\mmc$ in the different signal regions with the binning used in the fit of the cut-based analysis.
-             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ is used.}\label{fig:fit:input:cba:SR}
+             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ are used.}\label{fig:fit:input:cba:SR}
 \end{figure}
 
 \begin{figure}[htb]
@@ -199,7 +198,7 @@ The contributions of the ``fake'' background in the $\Zll$ control regions are m
     \end{subfigure}
 
     \caption{Distributions of $\mmc$ in the different control regions with the binning used in the fit of the cut-based analysis.
-             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ is used.}\label{fig:fit:input:cba:CR}
+             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ are used.}\label{fig:fit:input:cba:CR}
 \end{figure}
 
 
@@ -218,7 +217,7 @@ The contributions of the ``fake'' background in the $\Zll$ control regions are m
         \caption{VBF}
     \end{subfigure}
     \caption{Distributions of the BDT output in the different signal regions with the binning used in the fit of the multivariate analysis.
-             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ is used.}\label{fig:fit:input:mva:SR}
+             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ are used.}\label{fig:fit:input:mva:SR}
 \end{figure}
 
 \begin{figure}[htb]
@@ -240,17 +239,17 @@ The contributions of the ``fake'' background in the $\Zll$ control regions are m
         \caption{Top VBF}
     \end{subfigure}
     \caption{Distributions of the BDT output in the different control regions with the binning used in the fit of the multivariate analysis.
-             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ is used.}\label{fig:fit:input:mva:CR}
+             For the data shown in the plot Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$ are used.}\label{fig:fit:input:mva:CR}
 \end{figure}
 
-The expected sensitivities for the cut-based and multivariate analysis are shown for fits done in the individual signal regions
+The expected significances for the cut-based and multivariate analysis are shown for fits in the individual signal regions
 and for the combination of all signal regions in \cref{tab:fit:result:sigma}.
 The multivariate analysis manages to increase the sensitivity by approximately \SI{33}{\percent} and \SI{72}{\percent} in the boosted and VBF category, respectively.
 For the combined fit of the boosted and VBF category the increase is about \SI{63}{\percent}.
 
 \begin{table}[htpb]
     \centering
-    \caption{Expected sensitivity for the cut-based (CBA) and multivariate (MVA) analysis of $\Httll$ for the combined and individual categories in units of $\sigma$.}\label{tab:fit:result:sigma}
+    \caption{Expected significances for the cut-based (CBA) and multivariate (MVA) analysis of $\Httll$ for the combined and individual categories in units of $\sigma$.}\label{tab:fit:result:sigma}
     \begin{tabular}{lccccc}
         \toprule
         Analysis & Combined & Boosted & Boosted SF & Boosted DF & {VBF} \\ \midrule
@@ -266,11 +265,11 @@ The results of the signal strength measurement in the cut-base and multivariate 
     \mu_\text{MVA} &= 1.0\, \errud{0.32}{0.31} \text{ (stat.) } \errud{0.55}{0.66} \text{ (sys.) }  \,,
 \end{align}
 respectively.
-Additionally, the results are visualized in \cref{fig:fit:result:mu}, where also the individual results for the VBF and boosted category are shown.
-Since Asimov data is used in the fit, the expected values are 1.
+Additionally, the results are visualized in \cref{fig:fit:result:mu}, where also the individual results for the VBF and boosted categories are shown.
+Since Asimov data are used in the fit, the expected values are always 1.
 However, it can be seen, that both the statistic and systematic uncertainties on the signal strengths are lower in the MVA than in the CBA\@.
-In the VBF category the uncertainties are reduced by a factor between 1.5 and 3, which is the largest reduction for all signal strengths.
-But signal strength of the combined fit and measurement in the boosted category the uncertainties are reduced by a factor of up to two.
+The largest reduction of the uncertainties on the signal strength is in the VBF category, where the uncertainties decrease by a factor between 1.5 and 3.
+The signal strength of the combined fit and measurement in the boosted category the uncertainties are reduced by a factor of up to two.
 
 
 \begin{figure}[htb]
@@ -283,21 +282,22 @@ But signal strength of the combined fit and measurement in the boosted category 
         \includegraphics[width=\textwidth]{./plots/fit/mva/POI.pdf}
         \caption{MVA}
     \end{subfigure}
-    \caption{Uncertainties on the signal strength measured in the of the cut-based analysis (a) and multivariate analysis (b)
+    \caption{Uncertainties on the signal strength measured in the cut-based analysis (a) and multivariate analysis (b)
              with Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$.}\label{fig:fit:result:mu}
 \end{figure}
 
 A breakdown of the individual contributions to the uncertainties are given in \cref{tab:fit:result:uncert}.
-The most dominat sources of uncertainty are related to measurements of jets and the missing transverse energy.
-Furthermore, uncertainties due to simulation statistics and normalization are also major sources of uncertainty.
+The most dominate sources of uncertainty are related to measurements of jets and the missing transverse energy.
+Furthermore, uncertainties due to count statistics in simulation and normalization of the $\Zll$, $\Ztautau$, and top-quark background
+are also major sources of uncertainty.
 
-\begin{table}[htpb]
+\begin{table}[pb]
     \centering
     \caption{Uncertainty on the signal strength measurement in the cut-based (CBA) and multivariate (MVA) analysis
              with Asimov data corresponding to the 2015 and 2016 dataset with $\SI{36.1}{\invfb}$.}\label{tab:fit:result:uncert}
     \begin{tabular}{lcc}
         \toprule
-         \multirow{2}{*}{Set of nuisance parameters} & \multicolumn{2}{c}{Impact on error}  \\
+         \multirow{2}{*}{Source of uncertainty} & \multicolumn{2}{c}{Impact on $\Delta \mu$ error}  \\
                                         & CBA        & MVA        \\ \midrule
          Total                          & $\pm 1.27$ & $\pm 0.68$ \\
          Data statistics                & $\pm 0.46$ & $\pm 0.32$ \\

@@ -10,7 +10,7 @@ is developed.
 First, the event selection of the cut-based analysis is modified to allow for more inclusive signal regions.
 The idea is, that the separation between signal and background events is not achieved by applying requirements on the
 events but to use a multivariate approach in the form of BDTs.
-The categorization into the VBF and boosted category, which are used to select the VBF and ggF production mode
+The categorization into the VBF and boosted category, which are used to select the VBF and ggF production modes
 of the Higgs boson, is preserved.
 However, the categories are further split into a same flavour (SF, $ee$ and $\mu\mu$) and different flavour (DF, $e\mu$ and $\mu e$)
 region based on the flavour of the leptons in the final state,
@@ -21,9 +21,9 @@ This information is only provided by simulated events.
 But the simulated events are also required in the statistical analysis, where a prediction of expected signal and background
 yields is needed.
 The same set of events cannot be used for the training and the fit, because the BDTs could have used statistical fluctuations
-to increase the separation between signal and background.
+to increase the separation power between signal and background.
 Therefore, two statistically independent sets need too be used for training and fitting, which are called \emph{training} and \emph{test} set, respectively.
-The performance of BDTs depends to some extend on the \emph{hyperparameters}, which control the behavior of the training.
+The performance of BDTs depends on the \emph{hyperparameters}, which control the behavior of the training.
 To estimate the performance of BDTs with different hyperparameters a third statistically independent set is needed, which is called the \emph{validation}
 set.
 If the simulated events are just split into these three sets, both the BDT training and statistical analysis suffer from
@@ -39,12 +39,12 @@ The following hyperparameters are optimized: boosting algorithm, number of trees
 minimum number of events in the final nodes of the decision tree, and learning rate of the boosting algorithm.
 The best performing BDT is selected based on the sensitivity which is calculated using the statistical analysis without consideration of systematic uncertainties.
 Additionally, a threshold on the KS-test probability is set to discard BDTs with too much overtraining.
-In all regions the best performing BDTs use the gradient boost algorithm with $250 - 500$ boosting steps, a low depth, and a slow learning rate.
+In all regions the best performing BDTs use the gradient boost algorithm with $250 - 500$ boosting steps, a small depth, and a slow learning rate.
 
 In a second optimization step, the number of observables which are used as input variables for the BDTs is optimized in
 an iterative way.
 In every step the influence of each used observable on the splitting power of the BDT is calculated and the least performing observable is discarded.
-Based on the drop in significance the final observable count is determined.
+Based on the drop in expected significance the final observable count is determined.
 In the end 9 and 8 variables are used for the BDTs in the VBF SF and VBF DF region, whereas the BDTs in the boosted SF
 and boosted DF region use 4 and 9 variables, respectively.
 
@@ -52,12 +52,13 @@ The expected sensitivity of the multivariate analysis is calculated in a likelih
 the cut-based analysis.
 To improve the sensitivity the binning of the BDT distributions is optimized.
 An expected sensitivity of $0.83\sigma$ is reached in the cut-based analysis, whereas the multivariate analysis resulted in
-an expected sensitivity of $1.35\sigma$.
+an expected sensitivity incerease by \SI{63}{\percent} to $1.35\sigma$.
 The attempt to increase the sensitivity with multivariate techniques was therefore successful.
-Additionally, the expected uncertainty on the measured signal strength is also reduced by a factor of two.
+Additionally, the expected uncertainty on the measured signal strength is also reduced by a factor of two
+from $1 \pm 1.27$ in the cut-based analysis to $1 \pm 0.68$ in the multivariate analysis.
 
 Of course, there is still room for further studies and improvements.
-The categorization of the ggF and VBF production modes is achieved by requirements of different observables.
+The categorization of the ggF and VBF production modes is achieved by requirements on different observables.
 Here also multivariate techniques in form of BDTs could be applied.
 A first BDT can be used to separate signal and background events and the splitting between ggF and VBF production
 mode is accomplished by a second BDT\@.
@@ -67,5 +68,5 @@ the sensitivity even more.
 Also, the $k$-fold cross-validation approach could be improved.
 Currently data events have also to be split into $k$ sets.
 This can be avoided when using only half the simulated events for the $k$-fold cross validation.
-After fixing the parameters and input variables a $2$-fold cross-evaluation scheme can be applied on the two outer sets of simulated events.
-This way, data events only need to be split in two sets.
+After fixing the parameters and input variables a $2$-fold cross-evaluation scheme can be applied on the two sets of simulated events.
+In this way, data events only need to be split in two sets.

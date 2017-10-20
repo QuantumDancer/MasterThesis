@@ -250,7 +250,7 @@ Since the goal of this thesis is to measure the signal strength of $\Htt$ in the
 it makes sense to optimize the analysis for the measurement of the individual production modes.
 
 The optimization procedure is divided into two steps.
-First, the BDT hyperparameters are optimized. Here $58$ input variables are used. A full list of the considered observables can be found in \cref{app:mva:fulllistvars}.
+First, the BDT hyperparameters are optimized. Here $52$ input variables are used. A full list of the considered observables can be found in \cref{app:mva:fulllistvars}.
 However, such a high number of observables is not preferred, since the modelling of every observable needs to be tested.
 Some observables are also highly correlated and provide only a tiny amount of new information.
 Thus, the number of input variables for the BDTs is reduced in a second step, keeping only the variables which provide
@@ -555,7 +555,7 @@ There is a very good agreement between the BDT shapes of the training and valida
 
 \subsection{Input variables}\label{sub:mva:input_variables}
 
-Up to now the BDTs use $58$ observables as input variables.
+Up to now the BDTs use $52$ observables as input variables.
 However, a low count of input variable is desired, because the modelling of every input variable has to be reviewed.
 Therefore, variables which have only a low impact on the separation power of the BDTs are discarded.
 This is done individually for each region.
@@ -722,6 +722,7 @@ The following variables are only used in the VBF category.
           the two leptons defines the positive quadrant.
           The $\phi$ centrality, $C_\phi(\ell\ell,k)$, is calculated for an object $k$ by~\cite{SchilloPhd}
           \begin{align}
+              \label{eq:mva:metphicentrality}
               C_\phi^A(\ell\ell,k) &= \sin(\phi_k - \phi_{\ell_1}) / \sin(\phi_{\ell_2} - \phi_{\ell_1}) \\
               C_\phi^B(\ell\ell,k) &= \sin(\phi_{\ell_2} - \phi_k) / \sin(\phi_{\ell_2} - \phi_{\ell_1}) \\
               C_\phi(\ell\ell,k) &=  \frac{C_\phi^A(\ell\ell,k) + C_\phi^B(\ell\ell,k)}{\sqrt{C_\phi^A{(\ell\ell,k)}^2 + C_\phi^B{(\ell\ell,k)}^2}}
@@ -747,6 +748,7 @@ The following variables are only used in the boosted category.
           \end{equation}
           The sphericity $S$ is then built from the two smallest eigenvalues $\lambda_2$ and $\lambda_3$ of this vector,
           \begin{equation}
+              \label{eq:mva:sphericity}
               S = \frac{3}{2} \left( \lambda_2 + \lambda_3 \right) \,.
           \end{equation}
     \item The transverse mass of the leading lepton with the missing transverse energy, $m_\text{T}^{\ell_1}$.
@@ -783,29 +785,30 @@ The correlation plots of the input variables can be found in \cref{app:mva:corre
 \end{figure}
 
 
-\section{Modeling checks}\label{sec:mva:modeling}
+\section{Modeling of input observables}\label{sec:mva:modeling}
 
 It is important that there is no mismodelling of the simulated backgrounds if compared to data events.
-Therefore, the modelling needs to be checked for all distributions of observables which are used as an input variable for the BDTs.
+Therefore, the modelling needs to be checked for all distributions of observables, which are used as input variables for the BDTs.
 Additionally the BDT output distributions themselves need also to be checked for mismodelling.
 Because the analysis is performed blinded, the full distributions of the BDT output and $\mmc$ can only be compared to data in the control regions, which
 are defined in \cref{sec:background_estimation:normalization}.
-In the signal regions the $\mmc$ distributions are blinded for $\SI{100}{\GeV} \leq \mmc \leq \SI{150}{\GeV}$
+In the signal regions the $\mmc$ distributions are blinded for $\SI{100}{\GeV} \leq \mmc \leq \SI{150}{\GeV}$,
 and the BDT distributions are blinded for an BDT output value greater than zero.
 
-To quantify the agreement between background model and observed data a $\chi^2$-test is performed for all observables.
+To quantify the agreement between the background model and observed data a $\chi^2$-test is performed for all observables.
 Due to the blinding this cannot be done for the $\mmc$ distribution in the signal regions.
-Unless the $\chi^2$-test probability is zero, the mismodelling can be accepted, since only statistical fluctuations but
+The $\chi^2$-test probabilities are expected to follow the normal distribution, if the predictions of the SM are correct.
+Unless the $\chi^2$-test probability is tiny, i.e.\ $< 10^{-3}$, the mismodelling can be accepted, since only statistical fluctuations but
 not systematic variations are considered.
 
 \subsection{Signal region}
 
 The distributions of the observables used in the BDT of the VBF SF region are shown in \cref{fig:mva:modeling:sr:vbfsf}.
-Due to the events with large negative weights there is a lot of fluctuation in the $\Zll$ background which sometimes leads
+Due to the events with large negative weights there is a large statistical fluctuation in the $\Zll$ background, which sometimes leads
 to bins with an expected negative event yield and large statistical errors.
 Some minor disagreement between expected background distributions and distributions of observed data can be seen for
 all observables.
-However, the $\chi^2$-test probabilities, which are listed in \cref{tab:mva:modeling:sr:vbf}, are in an acceptable range.
+However, the $\chi^2$-test probabilities, which are listed in \cref{tab:mva:modeling:sr:vbf}, are still consistend with the exptectation of a flat distribution.
 For the VBF DF region, the modeling is better, since there is only a very minor contribution of the $\Zll$ background.
 This results in higher $\chi^2$-test probabilities.
 Only the $m_\text{jj}$ distribution shows some larger mismodelling.
@@ -827,13 +830,14 @@ one bin in the BDT of the boosted DF region.
 \subsection{Control regions}
 
 As a further validation, the distributions of observables and BDT outputs can also be checked in the control regions.
-The modeling in the top control regions (\cref{fig:mva:modeling:cr:vbftop,fig:mva:modeling:cr:boosttop})
+The modeling in the top-quark control regions (\cref{fig:mva:modeling:cr:vbftop,fig:mva:modeling:cr:boosttop})
 is much better than in the $\Zll$ control regions (\cref{fig:mva:modeling:cr:vbfzll,fig:mva:modeling:cr:boostzll}).
 This can also be seen in the $\chi^2$-test probabilities (\cref{tab:mva:modeling:cr:vbf,tab:mva:modeling:cr:boost}), 
 where the probabilities for multiple observables are zero in the $\Zll$ control region.
 The cause are again events with high negative weights in the $\Zll$ background.
-However, in the statistical analysis only only the yield in the control regions is used and not the shape, so
+However, in the statistical analysis only the yield in the control regions is used and not the shape, so
 if the overall yields are modeled well this should be no major issue.
+Additionally, only statistical uncertainties are considered for the $\chi^2$-test.
 
 The distributions of the BDT output in the different control regions are shown in \cref{fig:mva:modeling:cr:bdts}.
 The same trend in modeling as for the input variables can be seen.
@@ -913,7 +917,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_SF/ll-CutMVAVBFCatSF-PtTotal-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the BDTs in the VBF SF category.
+    \caption{Distributions of the observables which are used as input variables for the BDTs in the VBF SF category.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_2, \text{jets})$,
              $\etmiss$, $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -949,7 +953,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_DF/ll-CutMVAVBFCatDF-PtTotal-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the BDTs in the VBF DF category.
+    \caption{Distributions of the observables which are used as input variables for the BDTs in the VBF DF category.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_1, \text{jets})$,
              $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -973,7 +977,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_SF/ll-CutMVABoostedCatSF-mvis-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the BDTs in the boosted SF category.
+    \caption{Distributions of the observables which are used as input variables for the BDTs in the boosted SF category.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\etmiss$, and $\mll$.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
              Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.
@@ -1011,7 +1015,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_DF/ll-CutMVABoostedCatDF-Sphericity-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the BDTs in the boosted DF category.
+    \caption{Distributions of the observables which are used as input variables for the BDTs in the boosted DF category.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\eta_{\ell_1}$, $m_{\tau\tau,j_{1}}$,
              $\min \Delta \eta (\ell, \text{jets})$, $m_\text{T}^{\ell_1}$, $\mll$, $\etmiss / \pt^{\ell_2}$, and Sphericity.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -1120,7 +1124,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatTopCR-PtTotal-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the VBF SF and VBF DF BDTs in the top control region.
+    \caption{Distributions of the observables which are used as input variables for the VBF SF and VBF DF BDTs in the top-quark control region.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_1, \text{jets})$, $\min \Delta R (\ell_2, \text{jets})$,
              $\etmiss$, $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -1162,7 +1166,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/VBF_CR/ll-CutMVAVBFCatZllCR-PtTotal-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the VBF SF and VBF DF BDTs in the $\Zll$ control region.
+    \caption{Distributions of the observables which are used as input variables for the VBF SF and VBF DF BDTs in the $\Zll$ control region.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\min \Delta R (\ell_1, \text{jets})$, $\min \Delta R (\ell_2, \text{jets})$,
              $\etmiss$, $\etmiss \Phi$ centrality, $\min \Delta \eta (\ell\ell, \text{jets})$, $m_{jj}$, $n_\text{jets}$, and $\pt^\text{total}$.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -1204,7 +1208,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatTopCR-Sphericity-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the boosted SF and boosted DF BDTs in the top control region.
+    \caption{Distributions of the observables which are used as input variables for the boosted SF and boosted DF BDTs in the top-quark control region.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\eta_{\ell_1}$, $\etmiss$, $m_{\tau\tau,j_{1}}$,
              $\min \Delta \eta (\ell, \text{jets})$, $m_\text{T}^{\ell_1}$, $\mll$, $\etmiss / \pt^{\ell_2}$, and Sphericity.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -1246,7 +1250,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.3\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/input_vars/BOOST_CR/ll-CutMVABoostedCatZllCR-Sphericity-lin.eps}
     \end{subfigure}
-    \caption{Distributions of the observables which are used as an input variable for the boosted SF and boosted DF BDTs in the $\Zll$ control region.
+    \caption{Distributions of the observables which are used as input variables for the boosted SF and boosted DF BDTs in the $\Zll$ control region.
              The observables are from top to bottom and from left to right: $\drll$, $\mmc$, $\eta_{\ell_1}$, $\etmiss$, $m_{\tau\tau,j_{1}}$,
              $\min \Delta \eta (\ell, \text{jets})$, $m_\text{T}^{\ell_1}$, $\mll$, $\etmiss / \pt^{\ell_2}$, and Sphericity.
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
@@ -1276,7 +1280,7 @@ most background events correctly.
     \begin{subfigure}[t]{0.45\textwidth}
         \includegraphics[width=\textwidth]{./plots/mva/modeling/BDT/CRs/eemm-CutMVABoostedCatZllCR-BDT_BOOST_CR-lin.eps}
     \end{subfigure}
-    \caption{Distributions of BDT outputs in the top control region (VBF SF:\ top left, VBF DF:\ top right, boosted SF:\ center left, boosted DF:\ center right)
+    \caption{Distributions of BDT outputs in the top-quark control region (VBF SF:\ top left, VBF DF:\ top right, boosted SF:\ center left, boosted DF:\ center right)
              and $\Zll$ control region (VBF SF:\ bottom left, boosted SF\: bottom right).
              The signal and background distributions are normalized to their theory cross-sections and luminosity.
              Additional normalization factors are applied on the top-quark, $\Zll$, and $\Ztautau$ background.

@@ -250,7 +250,7 @@ Since the goal of this thesis is to measure the signal strength of $\Htt$ in the
 it makes sense to optimize the analysis for the measurement of the individual production modes.
 
 The optimization procedure is divided into two steps.
-First, the BDT hyperparameters are optimized. Here $52$ input variables are used. A full list of the considered observables can be found in \cref{app:mva:fulllistvars}.
+First, the BDT hyperparameters are optimized. Here $54$ input variables are used. A full list of the considered observables can be found in \cref{app:mva:fulllistvars}.
 However, such a high number of observables is not preferred, since the modelling of every observable needs to be tested.
 Some observables are also highly correlated and provide only a tiny amount of new information.
 Thus, the number of input variables for the BDTs is reduced in a second step, keeping only the variables which provide
@@ -555,7 +555,7 @@ There is a very good agreement between the BDT shapes of the training and valida
 
 \subsection{Input variables}\label{sub:mva:input_variables}
 
-Up to now the BDTs use $52$ observables as input variables.
+Up to now the BDTs use $54$ observables as input variables.
 However, a low count of input variable is desired, because the modelling of every input variable has to be reviewed.
 Therefore, variables which have only a low impact on the separation power of the BDTs are discarded.
 This is done individually for each region.
@@ -797,7 +797,7 @@ and the BDT distributions are blinded for an BDT output value greater than zero.
 
 To quantify the agreement between the background model and observed data a $\chi^2$-test is performed for all observables.
 Due to the blinding this cannot be done for the $\mmc$ distribution in the signal regions.
-The $\chi^2$-test probabilities are expected to follow the normal distribution, if the predictions of the SM are correct.
+The $\chi^2$-test probabilities are expected to follow the uniform distribution, if the predictions of the SM are correct.
 Unless the $\chi^2$-test probability is tiny, i.e.\ $< 10^{-3}$, the mismodelling can be accepted, since only statistical fluctuations but
 not systematic variations are considered.
 

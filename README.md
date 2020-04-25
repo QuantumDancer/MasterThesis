@@ -1,6 +1,3 @@
-[![build status](https://gitlab.cern.ch/brottler/MasterThesis/badges/master/build.svg)](https://gitlab.cern.ch/brottler/MasterThesis/commits/master)
-
 # Master Thesis
 
-Click  [here](https://gitlab.cern.ch/brottler/MasterThesis/builds/artifacts/master/raw/main.pdf?job=compile_pdf)
-to get the pdf from the latest build.
+Click  [here](https://cds.cern.ch/record/2294892/files/CERN-THESIS-2017-250.pdf) to get the PDF version.
